@@ -1,0 +1,16 @@
+.closeSidebar {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 24px;
+  height: 24px;
+
+  border-radius: 3px;
+
+  &:hover {
+    background: rgba(9, 30, 66, 0.04);
+  }
+  i::before {
+    font-weight: 600;
+  }
+}

@@ -1,0 +1,13 @@
+.wrap-sidebar {
+  position: fixed;
+  width: 380px;
+  height: 100%;
+  background: #fafbfc;
+  transform: translateX(0);
+
+  .close {
+    position: absolute;
+    right: 0;
+    margin: 28px 24px;
+  }
+}

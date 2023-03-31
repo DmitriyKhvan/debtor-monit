@@ -1,0 +1,12 @@
+.primaryBtn {
+  background: var(--blue-color);
+  color: var(--white-color);
+  font-size: 14px;
+  font-weight: 600;
+  padding: 6px 12px;
+  border-radius: 3px;
+
+  &:hover {
+    background: #0065ff;
+  }
+}

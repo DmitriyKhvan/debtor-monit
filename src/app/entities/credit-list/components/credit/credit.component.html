@@ -1,0 +1,22 @@
+<div
+  (click)="getUserInfo(credit.id, true)"
+  class="tr"
+  [class.active]="credit.id === currentId"
+>
+  <div class="td order">{{ idx }}</div>
+  <div class="td contractId">{{ credit.contractId }}</div>
+  <div class="td fullname">{{ credit.fullname }}</div>
+  <div class="td phone">{{ credit.phone }}</div>
+  <div class="td createdAt">{{ credit.createdAt | dateTimeFormat : true }}</div>
+  <div class="td creditSum">{{ credit.creditSum }}</div>
+  <div class="td creditEnd">{{ credit.creditEnd }}</div>
+  <div class="td totalDebt">
+    {{ credit.totalDebt | numberTransform : false }}
+  </div>
+  <div class="td lastPay">{{ credit.lastPay }}</div>
+  <div class="td notified">
+    <app-lozenge className="{{ credit.notified ? 'success' : 'warning' }}">{{
+      credit.notified ? "Уведомл." : "Не уведомл."
+    }}</app-lozenge>
+  </div>
+</div>

@@ -1,0 +1,21 @@
+.wrapper {
+  width: 100vw;
+  height: 100vh;
+  overflow: hidden;
+  .main {
+    display: flex;
+    width: 100%;
+    height: calc(100vh - 56px);
+    overflow: hidden;
+    transition: width 0.3s ease;
+
+    &.sidebar {
+      width: calc(100% - 380px);
+    }
+
+    .wrap-content {
+      flex-grow: 1;
+      padding: 25px 65px;
+    }
+  }
+}

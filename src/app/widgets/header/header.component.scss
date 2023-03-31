@@ -1,0 +1,24 @@
+#header {
+  position: relative;
+  display: flex;
+  align-items: center;
+  height: 56px;
+  padding: 0 12px;
+
+  &::after {
+    position: absolute;
+    left: 0;
+    right: 0;
+    top: 100%;
+    margin-top: -2px;
+    content: "";
+    height: 4px;
+    background: linear-gradient(
+      180deg,
+      rgba(9, 30, 66, 0.13) 0%,
+      rgba(9, 30, 66, 0.13) 25%,
+      rgba(9, 30, 66, 0.08) 25.01%,
+      rgba(9, 30, 66, 0) 100%
+    );
+  }
+}

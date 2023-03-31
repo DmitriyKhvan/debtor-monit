@@ -1,0 +1,54 @@
+<div class="credits">
+  <div class="table">
+    <div class="thead">
+      <div class="tr">
+        <div class="td order">#</div>
+        <div class="td contractId">
+          <span class="sort" (click)="sort($event, 'contractId')">
+            ID#
+            <i #sorting class=""></i>
+          </span>
+        </div>
+        <div class="td fullname">
+          <span class="sort" (click)="sort($event, 'fullname')"
+            >Имя <i #sorting class=""></i
+          ></span>
+        </div>
+        <div class="td phone">Номер телефона</div>
+        <div class="td createdAt">Дата оформления и время</div>
+        <div class="td creditSum">Сумма кредита</div>
+        <div class="td creditEnd">Завершение</div>
+        <div class="td totalDebt">Итоговый долг</div>
+        <div class="td lastPay">Последняя оплата</div>
+        <div class="td notified">Статус</div>
+      </div>
+    </div>
+    <div *ngIf="!loading; else loadingBlock" class="tbody">
+      <ng-container
+        *ngFor="
+          let credit of credits
+            | paginate
+              : {
+                  itemsPerPage: count,
+                  currentPage: currentPage,
+                  totalItems: totalItems
+                };
+          let idx = index
+        "
+      >
+        <app-credit [idx]="idx + 1" [credit]="credit"></app-credit>
+      </ng-container>
+    </div>
+    <ng-template #loadingBlock>
+      <app-loader></app-loader>
+    </ng-template>
+  </div>
+
+  <pagination-controls
+    class="my-pagination"
+    previousLabel=""
+    nextLabel=""
+    [autoHide]="true"
+    (pageChange)="pageChanged($event)"
+  ></pagination-controls>
+</div>

@@ -1,0 +1,146 @@
+.credits {
+  display: grid;
+  align-content: space-between;
+  height: calc(100% - 66px);
+  margin-top: 22px;
+}
+
+.table {
+  overflow-x: auto;
+  .thead {
+    .tr {
+      color: var(--grey-color);
+      font-size: 12px;
+    }
+  }
+}
+
+.sort {
+  cursor: pointer;
+  &::before {
+    // font-size: 20px;
+  }
+}
+
+.tr {
+  display: grid;
+  grid-template-rows: 40px;
+  align-items: center;
+
+  grid-template-areas: "order contractId fullname phone createdAt creditSum creditEnd totalDebt lastPay notified";
+
+  .td:not(.order) {
+    display: flex;
+    align-items: center;
+  }
+}
+
+.order {
+  text-align: center;
+  grid-area: order;
+  width: 30px;
+}
+
+.contractId {
+  grid-area: contractId;
+  width: 70px;
+}
+
+.fullname {
+  grid-area: fullname;
+  width: 290px;
+}
+
+.phone {
+  grid-area: phone;
+  width: 136px;
+}
+
+.createdAt {
+  grid-area: createdAt;
+  width: 180px;
+}
+
+.creditSum {
+  grid-area: creditSum;
+  width: 106px;
+}
+
+.creditEnd {
+  grid-area: creditEnd;
+  width: 90px;
+}
+
+.totalDebt {
+  grid-area: totalDebt;
+  width: 106px;
+}
+
+.lastPay {
+  grid-area: lastPay;
+  width: 78px;
+}
+
+.notified {
+  grid-area: notified;
+  width: 80px;
+}
+
+.my-pagination ::ng-deep {
+  display: grid;
+  justify-content: center;
+
+  .ngx-pagination .current {
+    background: #253858;
+    width: auto;
+    height: 32px;
+    border-radius: 3px;
+    padding: 6px 12px;
+  }
+
+  .ngx-pagination a {
+    width: auto;
+    height: 32px;
+    border-radius: 3px;
+    padding: 6px 12px;
+  }
+
+  .ngx-pagination a:hover,
+  .ngx-pagination button:hover {
+    background: #e6e6e6;
+  }
+
+  .pagination-next a::after,
+  .pagination-next.disabled::after {
+    content: "";
+    width: 8px;
+    height: 8px;
+    border-bottom: 0;
+    border-top: 2px;
+    border-left: 0;
+    border-right: 2px;
+    transform: rotate(45deg);
+    border-style: solid;
+    // border-color: #253858;
+    margin-left: -1px;
+  }
+
+  .pagination-previous a::before,
+  .pagination-previous.disabled::before {
+    content: "";
+    width: 8px;
+    height: 8px;
+    border-bottom: 0;
+    border-top: 2px;
+    border-left: 0;
+    border-right: 2px;
+    transform: rotate(-135deg);
+    border-style: solid;
+    // border-color: #253858;
+  }
+
+  .pagination-previous,
+  .pagination-next {
+    width: 32px;
+  }
+}
