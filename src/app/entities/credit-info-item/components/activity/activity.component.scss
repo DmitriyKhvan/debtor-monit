@@ -1,0 +1,21 @@
+.activity {
+  &-wrap {
+    margin-top: 28px;
+    .title {
+      font-size: 20px;
+      font-weight: 600;
+      padding-left: 20px;
+    }
+
+    .content {
+      border-left: 2px solid #ebecf0;
+      padding: 0 0 10px 20px;
+      .filter {
+        margin-top: 14px;
+        .add {
+          margin-left: 8px;
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,36 @@
+<div class="payment-schedule">
+  <div class="payment-schedule__wrap">
+    <div class="header">
+      <h2 class="title">График платежей</h2>
+      <app-button className="btn primaryBtn medium"
+        >Распечатать график</app-button
+      >
+    </div>
+
+    <div class="schedule-list">
+      <div class="table">
+        <div class="thead">
+          <div class="tr">
+            <div class="td month">Месяц</div>
+            <div class="td date">Дата</div>
+            <div class="td debt">Должен оплатить</div>
+            <div class="td paid">Оплачено</div>
+            <div class="td remainder">Остаток</div>
+            <div class="td status">Статус</div>
+          </div>
+        </div>
+
+        <div class="tbody">
+          <ng-container *ngFor="let payment of payments; let idx = index">
+            <app-payment-item [payment]="payment"></app-payment-item>
+          </ng-container>
+        </div>
+      </div>
+
+      <div class="total">
+        <span class="text">Остаток задолженности: </span
+        ><span class="price">7 198 799,00 сум</span>
+      </div>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,33 @@
+<div class="activity-form">
+  <div class="activity-form__wrap">
+    <span class="icon-cl0ose"
+      ><span class="path1"></span><span class="path2"></span
+    ></span>
+    <h2 class="title">Взаимодействие</h2>
+    <form [formGroup]="form" (ngSubmit)="submitHandler()">
+      <label>
+        <div class="field">Новая активность</div>
+        <div class="value">
+          <ng-select
+            appearance="outline"
+            [items]="activities"
+            placeholder=""
+            formControlName="activity"
+          ></ng-select>
+        </div>
+      </label>
+
+      <label>
+        <div class="field">Напоминание</div>
+        <div class="value"></div>
+      </label>
+
+      <label>
+        <div class="field">Комментарий</div>
+        <div class="value">
+          <textarea formControlName="comment"></textarea>
+        </div>
+      </label>
+    </form>
+  </div>
+</div>

@@ -1,0 +1,25 @@
+<div class="tr">
+  <div class="td month">{{ payment.month }}</div>
+  <div class="td date">{{ payment.date }}</div>
+  <div class="td debt">
+    <span class="price-blue">{{ payment.debt }}</span>
+  </div>
+  <div class="td paid">
+    <span class="price-grey">{{ payment.paid }}</span>
+  </div>
+  <div class="td remainder">{{ payment.remainder }}</div>
+  <div class="td status">
+    <app-lozenge
+      [className]="
+        payment.status === 'Погашено'
+          ? 'success'
+          : payment.status === 'Частично погашен'
+          ? 'warning'
+          : payment.status === 'Не погашен'
+          ? 'danger'
+          : 'default'
+      "
+      >{{ payment.status }}</app-lozenge
+    >
+  </div>
+</div>

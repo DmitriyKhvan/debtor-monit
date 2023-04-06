@@ -1,0 +1,58 @@
+.general-info {
+  display: grid;
+  margin-top: 32px;
+  grid-template-columns: repeat(3, 1fr);
+
+  .info {
+    grid-column: 1/3;
+    &-wrap {
+      display: grid;
+      gap: 40px;
+      grid-template-areas:
+        "seller buyer"
+        "contract installments";
+    }
+
+    &-seller {
+      grid-area: seller;
+    }
+
+    &-buyer {
+      grid-area: buyer;
+    }
+
+    &-contract {
+      grid-area: contract;
+    }
+
+    &-installments {
+      grid-area: installments;
+    }
+  }
+
+  [class^="info-"] {
+    .title {
+      font-size: 20px;
+      font-weight: 600;
+      color: #172b4d;
+      margin-bottom: 12px;
+    }
+
+    .field {
+      margin-bottom: 5px;
+      font-size: 14px;
+
+      .value {
+        font-weight: 700;
+        color: #172b4d;
+
+        &.green {
+          font-size: 11px;
+          background: #e3fcef;
+          color: #006644;
+          padding: 0 4px;
+        }
+      }
+    }
+  }
+}

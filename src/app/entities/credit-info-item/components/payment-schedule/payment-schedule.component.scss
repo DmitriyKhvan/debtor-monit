@@ -1,0 +1,80 @@
+.payment-schedule {
+  // display: grid;
+  // grid-template-columns: repeat(24, 1fr);
+  width: 60%;
+  margin-top: 32px;
+
+  &__wrap {
+    // grid-column: span 20;
+    .header {
+      display: flex;
+      align-items: start;
+      justify-content: space-between;
+
+      .title {
+        font-size: 20px;
+        font-weight: 600;
+      }
+    }
+  }
+}
+
+.schedule-list {
+  margin-top: 47px;
+}
+
+.thead {
+  .td {
+    font-size: 12px;
+    color: #6b778c;
+    font-weight: 600;
+  }
+  border-bottom: 2px solid rgba(9, 30, 66, 0.08);
+}
+
+.tr {
+  display: grid;
+  grid-template-areas: "month date debt paid remainder status";
+  grid-template-rows: 40px;
+  column-gap: 10px;
+  align-items: center;
+}
+
+.month {
+  grid-area: month;
+  width: 40px;
+}
+
+.date {
+  grid-area: date;
+  width: 70px;
+}
+
+.debt {
+  grid-area: debt;
+  width: 100px;
+}
+
+.paid {
+  grid-area: paid;
+  width: 100px;
+}
+
+.remainder {
+  grid-area: remainder;
+  width: 40px;
+}
+
+.status {
+  grid-area: status;
+  width: 150px;
+}
+
+.total {
+  margin-top: 16px;
+
+  .price {
+    color: #172b4d;
+    font-weight: 700;
+  }
+}

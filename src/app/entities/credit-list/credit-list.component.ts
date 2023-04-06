@@ -18,11 +18,23 @@ export class CreditListComponent implements OnInit, OnDestroy {
   @ViewChildren('sorting') sortingRef!: QueryList<ElementRef>;
 
   creditSub!: Subscription;
-  credits = [];
+  credits = [
+    {
+      id: 1,
+      contractId: '180115',
+      vendor: 'MEDIAPARK',
+      fullname: 'AYTKULOV SHOXZOD TO‘LQIN O‘G‘LI',
+      phone: '+998 71 200 50 70',
+      phone2: '+998 71 200 50 70',
+      createdAt: '05.12.2024',
+      creditEnd: '01.03.2020',
+      notified: true,
+    },
+  ];
   totalItems: number = 0;
   currentPage: number = 1;
   count: number = 10;
-  loading = true;
+  loading = false;
   sortClass = 'down';
 
   sortType: string = '';
@@ -31,7 +43,7 @@ export class CreditListComponent implements OnInit, OnDestroy {
   constructor(private apiService: ApiService) {}
 
   ngOnInit(): void {
-    this.getCredits();
+    // this.getCredits();
   }
 
   getCredits() {
@@ -57,20 +69,17 @@ export class CreditListComponent implements OnInit, OnDestroy {
   }
 
   sort(event: any, sortValue: string) {
-    debugger;
     const el = event.target.children[0];
     this.sortValue = sortValue;
 
     console.log('el.className', el);
 
     if (!el.className) {
-      debugger;
       this.resetSortClass();
       el.className = 'uil-sort';
 
       this.sortType = 'ASC';
     } else {
-      debugger;
       this.resetSortClass();
       el.classList.add('uil-sort');
 
@@ -84,7 +93,6 @@ export class CreditListComponent implements OnInit, OnDestroy {
   }
 
   resetSortClass() {
-    debugger;
     this.sortingRef.forEach((el) => {
       el.nativeElement.className = '';
     });

@@ -1,0 +1,27 @@
+<div class="activity">
+  <app-button className="btn primaryBtn medium"
+    >Создать вазимодействие</app-button
+  >
+
+  <div class="activity-wrap">
+    <h2 class="title">Активность</h2>
+    <div class="content">
+      <div class="filter">
+        <span>Показать: </span>
+        <app-button class="add" className="btn defaultBtn small"
+          >Все</app-button
+        >
+        <app-button class="add" className="btn defaultBtn small"
+          >Новые</app-button
+        >
+        <app-button class="add" className="btn defaultBtn small"
+          >Старые</app-button
+        >
+      </div>
+
+      <ng-container *ngFor="let comment of comments; let idx = index">
+        <app-activity-item [comment]="comment"></app-activity-item>
+      </ng-container>
+    </div>
+  </div>
+</div>

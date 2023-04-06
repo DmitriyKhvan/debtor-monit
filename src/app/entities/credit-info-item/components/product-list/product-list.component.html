@@ -1,0 +1,20 @@
+<div class="product-list">
+  <div class="table">
+    <div class="thead">
+      <div class="tr">
+        <div class="td order">#</div>
+        <div class="td id">ID тов.</div>
+        <div class="td name">Название</div>
+        <div class="td price">Цена</div>
+      </div>
+    </div>
+    <div class="tbody">
+      <ng-container *ngFor="let product of products; let idx = index">
+        <app-product-item
+          [idx]="idx + 1"
+          [product]="product"
+        ></app-product-item>
+      </ng-container>
+    </div>
+  </div>
+</div>

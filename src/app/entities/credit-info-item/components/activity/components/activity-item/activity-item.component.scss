@@ -1,0 +1,38 @@
+.comment {
+  margin-top: 26px;
+
+  &-value {
+    color: #253858;
+    margin-top: 4px;
+  }
+
+  .status {
+    &-value {
+      font-weight: 600;
+      color: #172b4d;
+    }
+
+    &-date {
+      color: #6b778c;
+    }
+  }
+
+  .edit {
+    display: flex;
+    align-items: center;
+    margin-left: 12px;
+    margin-top: 6px;
+  }
+
+  .separate-point {
+    &::after {
+      display: block;
+      content: "";
+      width: 3px;
+      height: 3px;
+      background: #8993a4;
+      margin: 0 5px;
+      border-radius: 50%;
+    }
+  }
+}

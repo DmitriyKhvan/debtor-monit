@@ -1,13 +1,84 @@
 .wrap-sidebar {
-  position: fixed;
-  width: 380px;
-  height: 100%;
+  width: 240px;
+  height: 100vh;
   background: #fafbfc;
-  transform: translateX(0);
+  padding: 24px 15px;
 
-  .close {
-    position: absolute;
-    right: 0;
-    margin: 28px 24px;
+  .header {
+    border-bottom: 2px solid rgba(9, 30, 66, 0.08);
+    padding-bottom: 28px;
+    .avatar {
+      display: flex;
+      align-items: center;
+
+      img {
+        width: 40px;
+        height: 40px;
+        margin-right: 8px;
+        border-radius: 3px;
+      }
+
+      .user {
+        text-transform: uppercase;
+        font-weight: 700;
+        .fio {
+          color: #42526e;
+        }
+        .store {
+          font-size: 12px;
+          color: #6b778c;
+        }
+      }
+    }
+
+    .navigation {
+      a {
+        display: flex;
+        align-items: center;
+        margin-top: 24px;
+
+        [class^="icon-"] {
+          font-size: 24px;
+          margin: 0 16px 0 8px;
+        }
+
+        .text {
+          font-weight: 600;
+          color: #42526e;
+        }
+      }
+    }
+  }
+
+  .menu {
+    margin-top: 20px;
+    ul {
+      li {
+        padding: 11px 7px;
+
+        [class^="icon-"] {
+          font-size: 24px;
+          margin-right: 18px;
+        }
+
+        &.active {
+          background: rgba(9, 30, 66, 0.04);
+          border-radius: 3px;
+
+          .text {
+            color: #0052cc;
+          }
+        }
+
+        a {
+          display: flex;
+          align-items: center;
+        }
+
+        .text {
+          font-weight: 600;
+        }
+      }
+    }
   }
 }

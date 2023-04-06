@@ -1,6 +1,32 @@
 <div class="wrap-sidebar">
-  <div class="close">
-    <app-close-sidebar></app-close-sidebar>
+  <div class="header">
+    <div class="avatar">
+      <img src="../../../assets/img/avatars.svg" alt="" />
+      <div class="user">
+        <div class="fio">KAMALOV NODIR</div>
+        <div class="store">MEDIAPARK</div>
+      </div>
+    </div>
+    <div class="navigation">
+      <a routerLink="/"
+        ><span class="icon-arrow-left-circle"
+          ><span class="path1"></span><span class="path2"></span></span
+        ><span class="text">Назад к списку</span></a
+      >
+    </div>
   </div>
-  <app-client-info></app-client-info>
+
+  <div class="menu">
+    <ul>
+      <li routerLinkActive="active">
+        <a routerLink="/credit">
+          <span class="icon-person"
+            ><span class="path1"></span><span class="path2"></span
+            ><span class="path3"></span
+          ></span>
+          <span class="text">Клиент</span>
+        </a>
+      </li>
+    </ul>
+  </div>
 </div>

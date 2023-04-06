@@ -1,0 +1,27 @@
+<div class="credit-info-item">
+  <h2 class="title">Договор № 180115</h2>
+  <p class="text">
+    Тут показано все собранные товары клиента на текучую время. Нужно учитывать,
+    что общая сумма товара не должно превышать максимальную сумму рассрочки.
+    <a href="#">Подробнее</a>
+  </p>
+
+  <div class="tabs">
+    <button
+      (click)="toggleTab('info')"
+      [class]="tab === 'info' ? 'active' : ''"
+    >
+      Общая информация
+    </button>
+    <button
+      (click)="toggleTab('schedule')"
+      [class]="tab === 'schedule' ? 'active' : ''"
+    >
+      График платежей
+    </button>
+  </div>
+  <div class="content">
+    <app-general-info *ngIf="tab === 'info'"></app-general-info>
+    <app-payment-schedule *ngIf="tab === 'schedule'"></app-payment-schedule>
+  </div>
+</div>

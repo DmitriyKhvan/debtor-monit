@@ -1,7 +1,9 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
+import { CreditInfoComponent } from './pages/credit/credit-info.component';
 import { CreditsComponent } from './pages/credits/credits.component';
 import { HomeComponent } from './pages/home/home.component';
+import { CreditLayoutComponent } from './widgets/credit-layout/credit-layout.component';
 import { MainLayoutComponent } from './widgets/main-layout/main-layout.component';
 
 const routes: Routes = [
@@ -13,10 +15,16 @@ const routes: Routes = [
         path: '',
         component: CreditsComponent,
       },
-      // {
-      //   path: 'home',
-      //   component: HomeComponent,
-      // },
+    ],
+  },
+  {
+    path: 'credit',
+    component: CreditLayoutComponent,
+    children: [
+      {
+        path: ':id',
+        component: CreditInfoComponent,
+      },
     ],
   },
 ];

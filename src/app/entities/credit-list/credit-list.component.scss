@@ -27,7 +27,7 @@
   grid-template-rows: 40px;
   align-items: center;
 
-  grid-template-areas: "order contractId fullname phone createdAt creditSum creditEnd totalDebt lastPay notified";
+  grid-template-areas: "order contractId vendor fullname phone phone2 createdAt creditEnd notified";
 
   .td:not(.order) {
     display: flex;
@@ -46,6 +46,11 @@
   width: 70px;
 }
 
+.vendor {
+  grid-area: vendor;
+  width: 136px;
+}
+
 .fullname {
   grid-area: fullname;
   width: 290px;
@@ -56,29 +61,19 @@
   width: 136px;
 }
 
-.createdAt {
-  grid-area: createdAt;
-  width: 180px;
+.phone2 {
+  grid-area: phone2;
+  width: 136px;
 }
 
-.creditSum {
-  grid-area: creditSum;
-  width: 106px;
+.createdAt {
+  grid-area: createdAt;
+  width: 90px;
 }
 
 .creditEnd {
   grid-area: creditEnd;
   width: 90px;
-}
-
-.totalDebt {
-  grid-area: totalDebt;
-  width: 106px;
-}
-
-.lastPay {
-  grid-area: lastPay;
-  width: 78px;
 }
 
 .notified {
