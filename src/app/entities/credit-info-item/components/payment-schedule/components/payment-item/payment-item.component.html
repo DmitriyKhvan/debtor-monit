@@ -1,25 +1,34 @@
 <div class="tr">
-  <div class="td month">{{ payment.month }}</div>
-  <div class="td date">{{ payment.date }}</div>
+  <div class="td month">{{ schedule.idx }}</div>
+  <div class="td date">{{ schedule.schedule.date }}</div>
   <div class="td debt">
-    <span class="price-blue">{{ payment.debt }}</span>
+    <span class="price-blue">{{
+      schedule.schedule.needPaid | numberTransform : false
+    }}</span>
   </div>
   <div class="td paid">
-    <span class="price-grey">{{ payment.paid }}</span>
+    <span class="price-grey">{{
+      +schedule.schedule.factPaid + +schedule.schedule.reCount
+        | numberTransform : false
+    }}</span>
   </div>
-  <div class="td remainder">{{ payment.remainder }}</div>
+  <div class="td remainder">
+    <span class="price-grey">{{
+      schedule.schedule.currentDebt | numberTransform : false
+    }}</span>
+  </div>
   <div class="td status">
     <app-lozenge
       [className]="
-        payment.status === 'Погашено'
+        status?.code === 1
           ? 'success'
-          : payment.status === 'Частично погашен'
+          : status?.code === 2
           ? 'warning'
-          : payment.status === 'Не погашен'
+          : status?.code === 0
           ? 'danger'
           : 'default'
       "
-      >{{ payment.status }}</app-lozenge
+      >{{ status?.name }}</app-lozenge
     >
   </div>
 </div>

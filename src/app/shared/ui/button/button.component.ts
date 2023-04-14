@@ -7,4 +7,5 @@ import { Component, Input } from '@angular/core';
 })
 export class ButtonComponent {
   @Input() className: string | undefined;
+  @Input() type: string | undefined;
 }

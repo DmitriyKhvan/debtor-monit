@@ -22,7 +22,7 @@ const routes: Routes = [
     component: CreditLayoutComponent,
     children: [
       {
-        path: ':id',
+        path: ':claimsId',
         component: CreditInfoComponent,
       },
     ],

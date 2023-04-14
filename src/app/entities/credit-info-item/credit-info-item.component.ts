@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, Input } from '@angular/core';
 
 @Component({
   selector: 'app-credit-info-item',
@@ -6,6 +6,8 @@ import { Component } from '@angular/core';
   styleUrls: ['./credit-info-item.component.scss'],
 })
 export class CreditInfoItemComponent {
+  @Input() userInfo: any;
+
   tab = 'info';
 
   toggleTab(tabName: string) {

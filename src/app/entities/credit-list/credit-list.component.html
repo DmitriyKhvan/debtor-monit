@@ -6,20 +6,51 @@
         <div class="td contractId">
           <span class="sort" (click)="sort($event, 'contractId')">
             ID#
-            <i #sorting class=""></i>
+            <span #sorting class=""></span>
           </span>
         </div>
         <div class="td vendor">
           <span class="sort" (click)="sort($event, 'vendor')"
-            >ВЕНДОР <i #sorting class=""></i
-          ></span>
+            >ВЕНДОР
+            <span #sorting class=""></span>
+          </span>
         </div>
-        <div class="td fullname">ФИО КЛИЕНТА</div>
-        <div class="td phone">ТЕЛЕФОН 1</div>
-        <div class="td phone2">ТЕЛЕФОН 2</div>
-        <div class="td createdAt">НАЧАЛО КРЕДИТА</div>
-        <div class="td creditEnd">ПОСЛЕДНЯЯ ОПЛАТА</div>
-        <div class="td notified">Статус</div>
+        <div class="td fullname">
+          <span class="sort" (click)="sort($event, 'fio')"
+            >ФИО КЛИЕНТА
+            <span #sorting class=""></span>
+          </span>
+        </div>
+        <div class="td phoneFirst">
+          <span class="sort" (click)="sort($event, 'phoneFirst')"
+            >ТЕЛЕФОН 1
+            <span #sorting class=""></span>
+          </span>
+        </div>
+        <div class="td phoneSecond">
+          <span class="sort" (click)="sort($event, 'phoneSecond')"
+            >ТЕЛЕФОН 2
+            <span #sorting class=""></span>
+          </span>
+        </div>
+        <div class="td contractDate">
+          <span class="sort" (click)="sort($event, 'contractDate')"
+            >НАЧАЛО КРЕДИТА
+            <span #sorting class=""></span>
+          </span>
+        </div>
+        <div class="td lastPayDate">
+          <span class="sort" (click)="sort($event, 'lastPayDate')"
+            >ПОСЛЕДНЯЯ ОПЛАТА
+            <span #sorting class=""></span>
+          </span>
+        </div>
+        <div class="td status">
+          <span class="sort" (click)="sort($event, 'status')">
+            Статус
+            <span #sorting class=""></span>
+          </span>
+        </div>
       </div>
     </div>
     <div *ngIf="!loading; else loadingBlock" class="tbody">
@@ -35,7 +66,10 @@
           let idx = index
         "
       >
-        <app-credit [idx]="idx + 1" [credit]="credit"></app-credit>
+        <app-credit
+          [status]="dicService.getStatus(dic, credit.status)"
+          [credit]="{ idx: idx + 1, credit }"
+        ></app-credit>
       </ng-container>
     </div>
     <ng-template #loadingBlock>

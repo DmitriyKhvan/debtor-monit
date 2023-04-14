@@ -11,4 +11,12 @@
   &:not(.active):hover {
     background: #efefef;
   }
+
+  .fullname {
+    span {
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+    }
+  }
 }

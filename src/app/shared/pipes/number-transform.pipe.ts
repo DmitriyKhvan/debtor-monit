@@ -11,7 +11,9 @@ export class NumberTransformPipe implements PipeTransform {
           minimumFractionDigits: 2,
         }).format(value / 100);
       } else {
-        return new Intl.NumberFormat('ru-RU').format(value);
+        return new Intl.NumberFormat('ru-RU', {
+          minimumFractionDigits: 2,
+        }).format(value);
       }
     } else {
       return '';

@@ -37,8 +37,8 @@
         align-items: center;
         margin-top: 24px;
 
-        [class^="icon-"] {
-          font-size: 24px;
+        .aui-icon-small {
+          --aui-icon-size: 24px;
           margin: 0 16px 0 8px;
         }
 

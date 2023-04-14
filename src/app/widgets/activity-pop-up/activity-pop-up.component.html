@@ -1,33 +1,91 @@
 <div class="activity-form">
   <div class="activity-form__wrap">
-    <span class="icon-cl0ose"
+    <span (click)="closeForm()" class="close icon-cl0ose"
       ><span class="path1"></span><span class="path2"></span
     ></span>
     <h2 class="title">Взаимодействие</h2>
     <form [formGroup]="form" (ngSubmit)="submitHandler()">
-      <label>
-        <div class="field">Новая активность</div>
+      <label class="field">
+        <div class="key">Новая активность</div>
         <div class="value">
           <ng-select
-            appearance="outline"
             [items]="activities"
-            placeholder=""
+            bindValue="code"
+            bindLabel="name"
+            placeholder="Выберите данные"
             formControlName="activity"
           ></ng-select>
         </div>
-      </label>
 
-      <label>
-        <div class="field">Напоминание</div>
-        <div class="value"></div>
-      </label>
-
-      <label>
-        <div class="field">Комментарий</div>
-        <div class="value">
-          <textarea formControlName="comment"></textarea>
+        <div
+          *ngIf="form.get('activity')?.touched && form.get('activity')?.invalid"
+          class="validation"
+        >
+          <small *ngIf="form.get('activity')?.errors?.required">
+            Введите данные
+          </small>
         </div>
       </label>
+
+      <label class="field">
+        <div class="key">Напоминание</div>
+        <div class="value">
+          <div>
+            <mat-form-field>
+              <input
+                matInput
+                [ngxMatDatetimePicker]="picker1"
+                placeholder="Выберите дату"
+                readonly=""
+                formControlName="date"
+              />
+              <mat-datepicker-toggle
+                matSuffix
+                [for]="$any(picker1)"
+              ></mat-datepicker-toggle>
+              <ngx-mat-datetime-picker #picker1></ngx-mat-datetime-picker>
+            </mat-form-field>
+          </div>
+        </div>
+        <div
+          *ngIf="form.get('date')?.touched && form.get('date')?.invalid"
+          class="validation"
+        >
+          <small *ngIf="form.get('date')?.errors?.required">
+            Введите данные
+          </small>
+        </div>
+      </label>
+
+      <label class="field">
+        <div class="key">Комментарий</div>
+        <div class="value">
+          <textarea
+            placeholder="Введите данные"
+            formControlName="comment"
+          ></textarea>
+        </div>
+        <div
+          *ngIf="form.get('comment')?.touched && form.get('comment')?.invalid"
+          class="validation"
+        >
+          <small *ngIf="form.get('comment')?.errors?.required">
+            Введите данные
+          </small>
+        </div>
+      </label>
+
+      <div class="btns">
+        <app-button type="submit" className="btn primaryBtn medium"
+          >Создать</app-button
+        >
+        <app-button
+          type="button"
+          (click)="closeForm()"
+          className="btn defaultBtn medium"
+          >Отмена</app-button
+        >
+      </div>
     </form>
   </div>
 </div>

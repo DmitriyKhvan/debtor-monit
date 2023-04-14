@@ -8,6 +8,8 @@ import {
 } from '@angular/core';
 import { Subscription } from 'rxjs';
 import { ApiService } from 'src/app/shared/api/credit.service';
+import { DicService } from 'src/app/shared/api/dic.service';
+import { Status } from 'src/app/shared/interfaces';
 
 @Component({
   selector: 'app-credit-list',
@@ -18,32 +20,44 @@ export class CreditListComponent implements OnInit, OnDestroy {
   @ViewChildren('sorting') sortingRef!: QueryList<ElementRef>;
 
   creditSub!: Subscription;
-  credits = [
-    {
-      id: 1,
-      contractId: '180115',
-      vendor: 'MEDIAPARK',
-      fullname: 'AYTKULOV SHOXZOD TO‘LQIN O‘G‘LI',
-      phone: '+998 71 200 50 70',
-      phone2: '+998 71 200 50 70',
-      createdAt: '05.12.2024',
-      creditEnd: '01.03.2020',
-      notified: true,
-    },
+  dicSub!: Subscription;
+
+  credits: any = [
+    // {
+    //   claimsDate: '2023-03-28T14:11:54.530Z',
+    //   claimsId: 43045,
+    //   loanId: '669657',
+    //   contractId: '12978844',
+    //   vendor: 'ARTEL',
+    //   lastname: 'SOBIRJONOV',
+    //   firstname: 'RUSTAMJON',
+    //   middlename: 'SODIQJON O?G?LI',
+    //   phoneFirst: '+998993999847',
+    //   phoneSecond: '+998916484848',
+    //   contractDate: '28.03.2023',
+    //   lastPayDate: null,
+    //   status: '',
+    // },
   ];
   totalItems: number = 0;
   currentPage: number = 1;
-  count: number = 10;
+  count: number = 15;
   loading = false;
   sortClass = 'down';
 
   sortType: string = '';
   sortValue: string = '';
+  dic: Status[] = [];
 
-  constructor(private apiService: ApiService) {}
+  constructor(private apiService: ApiService, public dicService: DicService) {}
 
   ngOnInit(): void {
-    // this.getCredits();
+    this.getCredits();
+    this.dicSub = this.dicService
+      .getDebtorStatus()
+      .subscribe((dic: Status[]) => {
+        this.dic = dic;
+      });
   }
 
   getCredits() {
@@ -53,6 +67,7 @@ export class CreditListComponent implements OnInit, OnDestroy {
       count: this.count,
       sortValue: this.sortValue,
       sortType: this.sortType,
+      search: this.apiService.search,
     };
 
     this.creditSub = this.apiService.getCredits(data).subscribe(
@@ -74,22 +89,28 @@ export class CreditListComponent implements OnInit, OnDestroy {
 
     console.log('el.className', el);
 
-    if (!el.className) {
-      this.resetSortClass();
-      el.className = 'uil-sort';
+    const isSortASC = el.classList.contains('aui-iconfont-arrow-down-small');
 
+    if (!isSortASC) {
+      this.resetSortClass();
+      el.classList.add(
+        'aui-icon',
+        'aui-icon-small',
+        'aui-iconfont-arrow-down-small'
+      );
       this.sortType = 'ASC';
     } else {
       this.resetSortClass();
-      el.classList.add('uil-sort');
+      el.classList.add(
+        'aui-icon',
+        'aui-icon-small',
+        'aui-iconfont-arrow-up-small'
+      );
 
       this.sortType = 'DESC';
     }
 
     this.getCredits();
-
-    console.log('event', el.className);
-    console.log('sortValue', sortValue);
   }
 
   resetSortClass() {
@@ -106,5 +127,6 @@ export class CreditListComponent implements OnInit, OnDestroy {
 
   ngOnDestroy(): void {
     this.creditSub?.unsubscribe();
+    this.dicSub?.unsubscribe();
   }
 }

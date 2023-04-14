@@ -21,15 +21,22 @@
         </div>
 
         <div class="tbody">
-          <ng-container *ngFor="let payment of payments; let idx = index">
-            <app-payment-item [payment]="payment"></app-payment-item>
+          <ng-container
+            *ngFor="let schedule of schedules.payschedule; let idx = index"
+          >
+            <app-payment-item
+              [status]="dicService.getStatus(dic, schedule.status)"
+              [schedule]="{ idx: idx + 1, schedule }"
+            ></app-payment-item>
           </ng-container>
         </div>
       </div>
 
       <div class="total">
         <span class="text">Остаток задолженности: </span
-        ><span class="price">7 198 799,00 сум</span>
+        ><span class="price"
+          >{{ schedules.totaldebt | numberTransform : false }} сум</span
+        >
       </div>
     </div>
   </div>

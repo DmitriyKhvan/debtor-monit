@@ -37,6 +37,32 @@ import { PaymentItemComponent } from './entities/credit-info-item/components/pay
 import { ActivityPopUpComponent } from './widgets/activity-pop-up/activity-pop-up.component';
 import { NgSelectModule } from '@ng-select/ng-select';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import {
+  NgxMatDateFormats,
+  NgxMatDatetimePickerModule,
+  NgxMatNativeDateModule,
+  NgxMatTimepickerModule,
+  NGX_MAT_DATE_FORMATS,
+} from '@angular-material-components/datetime-picker';
+import { MatDatepickerModule } from '@angular/material/datepicker';
+import { MatInputModule } from '@angular/material/input';
+import { MatButtonModule } from '@angular/material/button';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { NgxMatMomentModule } from '@angular-material-components/moment-adapter';
+import { MAT_DATE_LOCALE } from '@angular/material/core';
+import { PhoneFormatPipe } from './shared/pipes/phone-format.pipe';
+
+const CUSTOM_DATE_FORMATS: NgxMatDateFormats = {
+  parse: {
+    dateInput: 'DD.MM.YYYY HH:mm',
+  },
+  display: {
+    dateInput: 'DD.MM.YYYY HH:mm',
+    monthYearLabel: 'MMM YYYY',
+    dateA11yLabel: 'LL',
+    monthYearA11yLabel: 'MMMM YYYY',
+  },
+};
 
 @NgModule({
   declarations: [
@@ -71,6 +97,7 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
     CreditLayoutComponent,
     PaymentItemComponent,
     ActivityPopUpComponent,
+    PhoneFormatPipe,
   ],
   imports: [
     BrowserModule,
@@ -80,8 +107,20 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
     NgSelectModule,
     FormsModule,
     ReactiveFormsModule,
+
+    BrowserAnimationsModule,
+    MatDatepickerModule,
+    MatInputModule,
+    NgxMatTimepickerModule,
+    MatButtonModule,
+    NgxMatDatetimePickerModule,
+    NgxMatNativeDateModule,
+    NgxMatMomentModule,
   ],
-  providers: [],
+  providers: [
+    { provide: NGX_MAT_DATE_FORMATS, useValue: CUSTOM_DATE_FORMATS },
+    { provide: MAT_DATE_LOCALE, useValue: 'ru-RU' },
+  ],
   bootstrap: [AppComponent],
 })
 export class AppModule {}

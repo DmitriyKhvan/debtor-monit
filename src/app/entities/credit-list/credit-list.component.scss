@@ -7,16 +7,32 @@
 
 .table {
   overflow-x: auto;
+  height: calc(100vh - 250px);
+
   .thead {
+    position: sticky;
+    top: 0;
+    background: #fff;
+    border-bottom: 2px solid rgba(9, 30, 66, 0.08);
     .tr {
       color: var(--grey-color);
       font-size: 12px;
     }
   }
+
+  .tbody {
+    border-bottom: 2px solid rgba(9, 30, 66, 0.08);
+  }
 }
 
 .sort {
+  display: flex;
+  align-items: center;
   cursor: pointer;
+
+  span {
+    z-index: -1;
+  }
   &::before {
     // font-size: 20px;
   }
@@ -26,8 +42,11 @@
   display: grid;
   grid-template-rows: 40px;
   align-items: center;
+  column-gap: 10px;
 
-  grid-template-areas: "order contractId vendor fullname phone phone2 createdAt creditEnd notified";
+  // grid-template-columns: 30px 70px 136px 30% 136px 136px 90px 90px 100px;
+
+  grid-template-areas: "order contractId vendor fullname phoneFirst phoneSecond contractDate lastPayDate status";
 
   .td:not(.order) {
     display: flex;
@@ -56,29 +75,29 @@
   width: 290px;
 }
 
-.phone {
-  grid-area: phone;
+.phoneFirst {
+  grid-area: phoneFirst;
   width: 136px;
 }
 
-.phone2 {
-  grid-area: phone2;
+.phoneSecond {
+  grid-area: phoneSecond;
   width: 136px;
 }
 
-.createdAt {
-  grid-area: createdAt;
+.contractDate {
+  grid-area: contractDate;
   width: 90px;
 }
 
-.creditEnd {
-  grid-area: creditEnd;
+.lastPayDate {
+  grid-area: lastPayDate;
   width: 90px;
 }
 
-.notified {
-  grid-area: notified;
-  width: 80px;
+.status {
+  grid-area: status;
+  width: 120px;
 }
 
 .my-pagination ::ng-deep {

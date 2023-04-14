@@ -1,25 +1,34 @@
 <div
-  [routerLink]="['/credit', credit.id]"
+  [routerLink]="['/credit', credit.credit.claimsId]"
   class="tr"
-  [class.active]="credit.id === currentId"
+  [class.active]="credit.credit.id === currentId"
 >
-  <div class="td order">{{ idx }}</div>
-  <div class="td contractId">{{ credit.contractId }}</div>
-  <div class="td vendor">{{ credit.vendor }}</div>
-  <div class="td fullname">{{ credit.fullname }}</div>
+  <div class="td order">{{ credit.idx }}</div>
+  <div class="td contractId">{{ credit.credit.contractId }}</div>
+  <div class="td vendor">{{ credit.credit.vendor }}</div>
+  <div class="td fullname">
+    <span
+      >{{ credit.credit.lastname }} {{ credit.credit.firstname }}
+      {{ credit.credit.middlename }}</span
+    >
+  </div>
   <!-- <div class="td phone">{{ credit.phone | dateTimeFormat : true }}</div> -->
-  <div class="td phone">{{ credit.phone }}</div>
-  <div class="td phone2">{{ credit.phone2 }}</div>
-  <div class="td createdAt">{{ credit.createdAt }}</div>
+  <div class="td phoneFirst">{{ credit.credit.phoneFirst | phoneFormat }}</div>
+  <div class="td phoneSecond">
+    {{ credit.credit.phoneSecond | phoneFormat }}
+  </div>
+  <div class="td contractDate">
+    {{ credit.credit.contractDate | dateTimeFormat }}
+  </div>
   <!-- <div class="td creditEnd">
     {{ credit.creditEnd | numberTransform : false }}
   </div> -->
-  <div class="td creditEnd">
-    {{ credit.creditEnd }}
+  <div class="td lastPayDate">
+    {{ credit.credit.lastPayDate | dateTimeFormat }}
   </div>
-  <div class="td notified">
-    <app-lozenge className="{{ credit.notified ? 'success' : 'warning' }}">{{
-      credit.notified ? "Уведомл." : "Не уведомл."
+  <div class="td status">
+    <app-lozenge className="{{ status?.code === 1 ? 'success' : 'warning' }}">{{
+      status?.name
     }}</app-lozenge>
   </div>
 </div>

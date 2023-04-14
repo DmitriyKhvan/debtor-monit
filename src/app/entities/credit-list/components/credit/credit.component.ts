@@ -1,32 +1,15 @@
-import { Component, Input, OnDestroy, OnInit } from '@angular/core';
-import { Subscription } from 'rxjs';
-import { FlagService } from 'src/app/shared/api/flag.sevice';
+import { Component, Input } from '@angular/core';
+import { Status } from 'src/app/shared/interfaces';
 
 @Component({
   selector: 'app-credit',
   templateUrl: './credit.component.html',
   styleUrls: ['./credit.component.scss', '../../credit-list.component.scss'],
 })
-export class CreditComponent implements OnInit, OnDestroy {
+export class CreditComponent {
   @Input() credit: any;
-  @Input() idx: number | undefined;
-  flagSub!: Subscription;
+  @Input() status: Status | undefined;
   currentId: number | null = null;
 
-  constructor(public flagService: FlagService) {}
-
-  ngOnInit(): void {
-    this.flagSub = this.flagService.userInfo$.subscribe(
-      (id) => (this.currentId = id)
-    );
-  }
-
-  getUserInfo(id: number, isOpen: boolean) {
-    this.flagService.tooggleSidebar(isOpen);
-    this.flagService.getUserInfo(id);
-  }
-
-  ngOnDestroy(): void {
-    this.flagSub?.unsubscribe();
-  }
+  constructor() {}
 }

@@ -1,7 +1,7 @@
 <div class="credit-info-item">
-  <h2 class="title">Договор № 180115</h2>
+  <h2 class="title">Договор № {{ userInfo?.contractId }}</h2>
   <p class="text">
-    Тут показано все собранные товары клиента на текучую время. Нужно учитывать,
+    Тут показано все собранные товары клиента за текущее время. Нужно учитывать,
     что общая сумма товара не должно превышать максимальную сумму рассрочки.
     <a href="#">Подробнее</a>
   </p>
@@ -21,7 +21,13 @@
     </button>
   </div>
   <div class="content">
-    <app-general-info *ngIf="tab === 'info'"></app-general-info>
-    <app-payment-schedule *ngIf="tab === 'schedule'"></app-payment-schedule>
+    <app-general-info
+      [userInfo]="userInfo"
+      *ngIf="tab === 'info'"
+    ></app-general-info>
+    <app-payment-schedule
+      [schedules]="userInfo.schedule"
+      *ngIf="tab === 'schedule'"
+    ></app-payment-schedule>
   </div>
 </div>

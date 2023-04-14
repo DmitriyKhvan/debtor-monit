@@ -1,4 +1,5 @@
 import { Component, Input } from '@angular/core';
+import { Status } from 'src/app/shared/interfaces';
 
 @Component({
   selector: 'app-payment-item',
@@ -9,5 +10,6 @@ import { Component, Input } from '@angular/core';
   ],
 })
 export class PaymentItemComponent {
-  @Input() payment: any;
+  @Input() schedule: any;
+  @Input() status: Status | undefined;
 }

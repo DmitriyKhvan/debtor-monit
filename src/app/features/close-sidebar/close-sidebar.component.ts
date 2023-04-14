@@ -10,6 +10,6 @@ export class CloseSidebarComponent {
   constructor(public flagService: FlagService) {}
 
   toggleSidebar() {
-    this.flagService.tooggleSidebar(false);
+    // this.flagService.tooggleSidebar(false);
   }
 }
