@@ -9,7 +9,7 @@
         <div class="key">Новая активность</div>
         <div class="value">
           <ng-select
-            [items]="activities"
+            [items]="dicService.actionTypeDic"
             bindValue="code"
             bindLabel="name"
             placeholder="Выберите данные"
@@ -76,7 +76,10 @@
       </label>
 
       <div class="btns">
-        <app-button type="submit" className="btn primaryBtn medium"
+        <app-button
+          type="submit"
+          [disabled]="form.invalid || submitted"
+          className="btn primaryBtn medium"
           >Создать</app-button
         >
         <app-button

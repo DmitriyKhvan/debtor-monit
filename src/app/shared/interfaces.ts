@@ -3,10 +3,28 @@ export interface Status {
   name: string;
 }
 
-export interface Activity {
+export interface ActionCreate {
   claimsId: number | null;
   loanId: string;
   type: number;
   reminder: string;
   text: string;
+}
+
+export interface ActionsCredit {
+  claimsId: number | null;
+  loanId: string | undefined;
+  keyword: string;
+}
+
+export interface Action {
+  id: number;
+  debtorId: number;
+  type: number;
+  reminder: string;
+  text: string;
+  createdBy: null;
+  createdAt: string;
+  updatedBy: null;
+  updatedAt: string;
 }

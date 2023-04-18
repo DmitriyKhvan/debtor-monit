@@ -1,12 +1,14 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { catchError, Observable, throwError } from 'rxjs';
+import { catchError, Observable, Subject, throwError } from 'rxjs';
 import { environment } from 'src/environments/environment';
-import { Activity } from '../interfaces';
+import { ActionCreate, ActionsCredit } from '../interfaces';
 
 @Injectable({ providedIn: 'root' })
 export class ApiService {
-  search: string = '';
+  search$ = new Subject<string>();
+  updateList$ = new Subject<boolean>();
+  claimsId: number | null = null;
 
   constructor(private http: HttpClient) {}
 
@@ -38,9 +40,21 @@ export class ApiService {
       );
   }
 
-  clientAction(data: Activity) {
+  clientAction(data: ActionCreate) {
     return this.http
       .post(`${environment.dbUrl}/client-action/create`, data)
+      .pipe(
+        catchError((error) => {
+          return throwError(() => error);
+        })
+      );
+  }
+
+  getActions({ claimsId, loanId, keyword }: ActionsCredit) {
+    return this.http
+      .get(
+        `${environment.dbUrl}/client-action/getActions?claimsId=${claimsId}&loanId=${loanId}&keyword=${keyword}`
+      )
       .pipe(
         catchError((error) => {
           return throwError(() => error);

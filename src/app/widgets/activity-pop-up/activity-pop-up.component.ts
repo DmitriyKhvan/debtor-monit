@@ -1,6 +1,5 @@
 import { Component, Input, OnDestroy, OnInit, ViewChild } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
-import { ActivatedRoute, Params } from '@angular/router';
 import { Subscription } from 'rxjs';
 import { ApiService } from 'src/app/shared/api/credit.service';
 import { DicService } from 'src/app/shared/api/dic.service';
@@ -31,7 +30,6 @@ export class ActivityPopUpComponent implements OnInit, OnDestroy {
   claimsId: number | null = null;
 
   constructor(
-    private route: ActivatedRoute,
     public flagService: FlagService,
     public dicService: DicService,
     private apiService: ApiService
@@ -44,14 +42,11 @@ export class ActivityPopUpComponent implements OnInit, OnDestroy {
       comment: new FormControl(null, Validators.required),
     });
 
-    this.dSub = this.dicService.getActionType().subscribe((dic: Status[]) => {
-      this.activities = dic;
-    });
+    // this.dSub = this.dicService.getActionType().subscribe((dic: Status[]) => {
+    //   this.activities = dic;
+    // });
 
-    this.route.params.subscribe((params: Params) => {
-      this.claimsId = params['claimsId'];
-      console.log("param['claimsId']", params);
-    });
+    console.log('this.claimsId', this.apiService.claimsId);
   }
 
   closeForm() {
@@ -66,22 +61,27 @@ export class ActivityPopUpComponent implements OnInit, OnDestroy {
     this.submitted = true;
 
     const data = {
-      claimsId: this.claimsId,
+      claimsId: this.apiService.claimsId,
       loanId: this.loanId,
       type: this.form.value.activity,
-      reminder: this.form.value.date,
+      // reminder: this.form.value.date._d.toLocaleString('ru-RU', {
+      //   timeZone: 'UTC',
+      // }),
+      reminder: this.form.value.date?.toLocaleString('ru-RU'),
       text: this.form.value.comment,
     };
 
     console.log(data);
 
-    // this.aSub = this.apiService.clientAction(data).subscribe((res) => {
-    //   this.submitted = false;
-    // });
+    this.aSub = this.apiService.clientAction(data).subscribe((res) => {
+      this.flagService.updateActions$.next(true);
+      this.submitted = false;
+      this.closeForm();
+    });
   }
 
   ngOnDestroy(): void {
-    this.dSub?.unsubscribe();
+    // this.dSub?.unsubscribe();
     this.aSub?.unsubscribe();
   }
 }

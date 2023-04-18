@@ -1,9 +1,15 @@
 <div class="comment">
   <div class="status">
-    <span class="status-value">{{ comment.status }}</span>
-    <span class="status-date">{{ comment.date }}</span>
+    <span class="status-value">{{ type?.name }}</span>
+    <span class="status-date">{{
+      action.createdAt | dateTimeFormat : "short" : true
+    }}</span>
   </div>
-  <div class="comment-value">{{ comment.comment }}</div>
+  <div *ngIf="action.reminder" class="comment-value">
+    Напомнинаие настроено на
+    {{ action.reminder | dateTimeFormat : "numeric" : true }}
+  </div>
+  <div class="comment-value">{{ action.text }}</div>
 
   <div class="edit">
     <app-button className="btn subtleBtn small">Изм.</app-button>

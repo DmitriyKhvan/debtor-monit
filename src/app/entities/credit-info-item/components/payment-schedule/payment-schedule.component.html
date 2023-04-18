@@ -2,9 +2,7 @@
   <div class="payment-schedule__wrap">
     <div class="header">
       <h2 class="title">График платежей</h2>
-      <app-button className="btn primaryBtn medium"
-        >Распечатать график</app-button
-      >
+      <app-print-schedule [token]="schedules.token"></app-print-schedule>
     </div>
 
     <div class="schedule-list">

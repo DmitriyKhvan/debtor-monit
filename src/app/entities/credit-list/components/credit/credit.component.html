@@ -15,7 +15,11 @@
   <!-- <div class="td phone">{{ credit.phone | dateTimeFormat : true }}</div> -->
   <div class="td phoneFirst">{{ credit.credit.phoneFirst | phoneFormat }}</div>
   <div class="td phoneSecond">
-    {{ credit.credit.phoneSecond | phoneFormat }}
+    {{
+      credit.credit.phoneSecond
+        ? (credit.credit.phoneSecond | phoneFormat)
+        : "-"
+    }}
   </div>
   <div class="td contractDate">
     {{ credit.credit.contractDate | dateTimeFormat }}
@@ -24,7 +28,11 @@
     {{ credit.creditEnd | numberTransform : false }}
   </div> -->
   <div class="td lastPayDate">
-    {{ credit.credit.lastPayDate | dateTimeFormat }}
+    {{
+      credit.credit.lastPayDate
+        ? (credit.credit.lastPayDate | dateTimeFormat)
+        : "-"
+    }}
   </div>
   <div class="td status">
     <app-lozenge className="{{ status?.code === 1 ? 'success' : 'warning' }}">{{

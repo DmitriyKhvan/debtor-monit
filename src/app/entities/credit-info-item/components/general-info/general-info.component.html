@@ -74,8 +74,8 @@
         <div class="field">
           <span class="label">Последний платёж: </span>
           <span class="value green"
-            >{{ userInfo?.lastPayDate | numberTransform }} сум</span
-          >
+            >{{ userInfo?.lastPayDate ? userInfo?.lastPayDate : "не имеется" }}
+          </span>
         </div>
       </div>
     </div>

@@ -37,8 +37,7 @@ export class SearchCreditsComponent implements OnInit, OnDestroy {
         distinctUntilChanged()
       )
       .subscribe((value: any) => {
-        // this.apiServer.search = value;
-        console.log(value);
+        this.apiServer.search$?.next(value);
       });
   }
 

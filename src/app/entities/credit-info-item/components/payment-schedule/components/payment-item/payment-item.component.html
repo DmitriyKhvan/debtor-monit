@@ -9,7 +9,9 @@
   <div class="td paid">
     <span class="price-grey">{{
       +schedule.schedule.factPaid + +schedule.schedule.reCount
-        | numberTransform : false
+        ? (+schedule.schedule.factPaid + +schedule.schedule.reCount
+          | numberTransform : false)
+        : 0
     }}</span>
   </div>
   <div class="td remainder">

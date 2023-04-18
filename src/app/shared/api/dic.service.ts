@@ -6,6 +6,8 @@ import { Status } from '../interfaces';
 
 @Injectable({ providedIn: 'root' })
 export class DicService {
+  actionTypeDic: Status[] = [];
+
   constructor(private http: HttpClient) {}
 
   getPayStatus(): Observable<any> {

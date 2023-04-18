@@ -5,6 +5,7 @@ import { Subject } from 'rxjs';
 export class FlagService {
   userInfo$ = new Subject<number | null>();
   isActivityForm$ = new Subject<any>();
+  updateActions$ = new Subject<boolean>();
 
   getUserInfo(id: number | null) {
     this.userInfo$.next(id);

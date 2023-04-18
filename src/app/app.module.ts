@@ -51,6 +51,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { NgxMatMomentModule } from '@angular-material-components/moment-adapter';
 import { MAT_DATE_LOCALE } from '@angular/material/core';
 import { PhoneFormatPipe } from './shared/pipes/phone-format.pipe';
+import { PrintScheduleComponent } from './features/print-schedule/print-schedule.component';
 
 const CUSTOM_DATE_FORMATS: NgxMatDateFormats = {
   parse: {
@@ -98,6 +99,7 @@ const CUSTOM_DATE_FORMATS: NgxMatDateFormats = {
     PaymentItemComponent,
     ActivityPopUpComponent,
     PhoneFormatPipe,
+    PrintScheduleComponent,
   ],
   imports: [
     BrowserModule,

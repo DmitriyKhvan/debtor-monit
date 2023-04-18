@@ -8,19 +8,36 @@
     <div class="content">
       <div class="filter">
         <span>Показать: </span>
-        <app-button class="add" className="btn defaultBtn small"
+        <app-button
+          #action
+          (click)="toogleActive($event, 'all')"
+          class="add"
+          className="btn defaultBtn small active"
           >Все</app-button
         >
-        <app-button class="add" className="btn defaultBtn small"
+        <app-button
+          #action
+          (click)="toogleActive($event, 'new')"
+          class="add"
+          className="btn defaultBtn small"
           >Новые</app-button
         >
-        <app-button class="add" className="btn defaultBtn small"
+        <app-button
+          #action
+          (click)="toogleActive($event, 'old')"
+          class="add"
+          className="btn defaultBtn small"
           >Старые</app-button
         >
       </div>
 
-      <ng-container *ngFor="let comment of comments; let idx = index">
-        <app-activity-item [comment]="comment"></app-activity-item>
+      <ng-container *ngFor="let action of actions; let idx = index">
+        <app-activity-item
+          [type]="
+            dicService.getStatus(this.dicService.actionTypeDic, action.type)
+          "
+          [action]="action"
+        ></app-activity-item>
       </ng-container>
     </div>
   </div>

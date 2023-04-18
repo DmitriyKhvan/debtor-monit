@@ -19,7 +19,9 @@ export class CreditInfoComponent {
       .pipe(
         switchMap((params: Params) => {
           this.loading = true;
-          return this.apiService.getUserInfo(params['claimsId']);
+          const claimsId = Number(params['claimsId']);
+          this.apiService.claimsId = claimsId;
+          return this.apiService.getUserInfo(claimsId);
         })
       )
       .subscribe(
