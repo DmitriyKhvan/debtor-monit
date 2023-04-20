@@ -27,12 +27,12 @@ build_app:
     - pwd
     #- npm config set legacy-peer-deps true
     - npm install
-    - npm install typescript --save
-    - npm install ts-node --save-dev
+    # - npm install typescript --save
+    # - npm install ts-node --save-dev
     #- npm i --save @angular/material @angular/cdk
-    - rm -rf $CI_PROJECT_DIR/node_modules
+    # - rm -rf $CI_PROJECT_DIR/node_modules
     #- npm i
-    - npm run build
+    - npm run ng build
    # - rm -rf $CI_PROJECT_DIR/node_modules
   artifacts:
       when: always
