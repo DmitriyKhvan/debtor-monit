@@ -55,6 +55,7 @@ import { PrintScheduleComponent } from './features/print-schedule/print-schedule
 import { initializeKeycloak } from './shared/init/keycloak-init.factory';
 import { KeycloakAngularModule, KeycloakService } from 'keycloak-angular';
 import { Lozenge2Component } from './shared/ui/lozenge2/lozenge2.component';
+import { CalculationSumGoodsComponent } from './pages/calculation-sum-goods/calculation-sum-goods.component';
 
 const CUSTOM_DATE_FORMATS: NgxMatDateFormats = {
   parse: {
@@ -104,6 +105,7 @@ const CUSTOM_DATE_FORMATS: NgxMatDateFormats = {
     PhoneFormatPipe,
     PrintScheduleComponent,
     Lozenge2Component,
+    CalculationSumGoodsComponent,
   ],
   imports: [
     BrowserModule,

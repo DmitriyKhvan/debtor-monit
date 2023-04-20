@@ -56,6 +56,16 @@
         <div class="field">
           <span class="label">Телефон 2: </span>
           <span class="value">{{ userInfo?.phoneSecond | phoneFormat }}</span>
+          <a
+            *ngIf="
+              userInfo?.phoneSecond && userInfo?.phoneSecond != '+000000000000'
+            "
+            [href]="'https://t.me//' + userInfo?.phoneSecond"
+            class="telegram"
+            target="_blank"
+            ><span class="icon-telegram"></span
+            ><span class="text">Написать</span></a
+          >
         </div>
       </div>
 

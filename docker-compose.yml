@@ -1,0 +1,16 @@
+version: "3.8"
+
+services:
+  debtor-monit-front:
+    restart: always
+    container_name: debtor-monit-front
+    image: registry.flexit.uz/flexit/lendo/client/debtor-monit-front:latest
+    build:
+      context: .
+      dockerfile: Dockerfile
+    environment:
+      - DBURL=http://10.1.1.177:1680
+      - AUTHURL=https://auth.flexit.uz/auth
+      - FILEURL=http://dev.lendo.uz/files
+    ports:
+      - "1223:1222"
