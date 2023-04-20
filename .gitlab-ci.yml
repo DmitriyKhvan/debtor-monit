@@ -34,7 +34,7 @@ build_app:
       when: always
       name: "Docker executor artifact"
       paths: 
-        - /builds/flexit/lendo/client/debtor-monit-front
+        - $CI_PROJECT_DIR
         
 build_image:
   stage: build_image
