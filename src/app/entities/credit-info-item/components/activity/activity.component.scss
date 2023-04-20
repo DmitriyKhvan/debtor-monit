@@ -13,13 +13,24 @@
       height: calc(100vh - 397px);
       overflow: auto;
 
-      .filter {
-        position: sticky;
-        top: 0;
-        background: #fff;
-        padding-top: 14px;
-        .add {
-          margin-left: 8px;
+      .filter-wrap {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        margin-top: 14px;
+
+        .filter {
+          position: sticky;
+          top: 0;
+          background: #fff;
+
+          .add {
+            margin-left: 8px;
+          }
+        }
+
+        .icon-filter {
+          font-size: 20px;
         }
       }
     }

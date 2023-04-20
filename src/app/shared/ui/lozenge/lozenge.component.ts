@@ -6,5 +6,5 @@ import { Component, Input } from '@angular/core';
   styleUrls: ['./lozenge.component.scss'],
 })
 export class LozengeComponent {
-  @Input() className: string | undefined;
+  @Input() className: string = '';
 }

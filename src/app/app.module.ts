@@ -1,4 +1,4 @@
-import { NgModule } from '@angular/core';
+import { APP_INITIALIZER, NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 
 import { AppRoutingModule } from './app-routing.module';
@@ -52,6 +52,9 @@ import { NgxMatMomentModule } from '@angular-material-components/moment-adapter'
 import { MAT_DATE_LOCALE } from '@angular/material/core';
 import { PhoneFormatPipe } from './shared/pipes/phone-format.pipe';
 import { PrintScheduleComponent } from './features/print-schedule/print-schedule.component';
+import { initializeKeycloak } from './shared/init/keycloak-init.factory';
+import { KeycloakAngularModule, KeycloakService } from 'keycloak-angular';
+import { Lozenge2Component } from './shared/ui/lozenge2/lozenge2.component';
 
 const CUSTOM_DATE_FORMATS: NgxMatDateFormats = {
   parse: {
@@ -100,6 +103,7 @@ const CUSTOM_DATE_FORMATS: NgxMatDateFormats = {
     ActivityPopUpComponent,
     PhoneFormatPipe,
     PrintScheduleComponent,
+    Lozenge2Component,
   ],
   imports: [
     BrowserModule,
@@ -118,10 +122,17 @@ const CUSTOM_DATE_FORMATS: NgxMatDateFormats = {
     NgxMatDatetimePickerModule,
     NgxMatNativeDateModule,
     NgxMatMomentModule,
+    KeycloakAngularModule,
   ],
   providers: [
     { provide: NGX_MAT_DATE_FORMATS, useValue: CUSTOM_DATE_FORMATS },
     { provide: MAT_DATE_LOCALE, useValue: 'ru-RU' },
+    {
+      provide: APP_INITIALIZER,
+      useFactory: initializeKeycloak,
+      multi: true,
+      deps: [KeycloakService],
+    },
   ],
   bootstrap: [AppComponent],
 })

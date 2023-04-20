@@ -22,7 +22,9 @@
   display: grid;
   // grid-template-columns: repeat(12, 1fr);
   grid-template-areas: "order id name price";
-  grid-template-rows: 40px;
+  // grid-template-rows: 40px;
+  min-height: 40px;
+
   column-gap: 10px;
   align-items: center;
 }

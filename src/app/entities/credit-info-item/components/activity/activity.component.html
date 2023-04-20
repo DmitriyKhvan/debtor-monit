@@ -6,29 +6,35 @@
   <div class="activity-wrap">
     <h2 class="title">Активность</h2>
     <div class="content">
-      <div class="filter">
-        <span>Показать: </span>
-        <app-button
-          #action
-          (click)="toogleActive($event, 'all')"
-          class="add"
-          className="btn defaultBtn small active"
-          >Все</app-button
-        >
-        <app-button
-          #action
-          (click)="toogleActive($event, 'new')"
-          class="add"
-          className="btn defaultBtn small"
-          >Новые</app-button
-        >
-        <app-button
-          #action
-          (click)="toogleActive($event, 'old')"
-          class="add"
-          className="btn defaultBtn small"
-          >Старые</app-button
-        >
+      <div class="filter-wrap">
+        <div class="filter">
+          <span>Показать: </span>
+          <app-button
+            #action
+            (click)="toogleActive($event, 'all')"
+            class="add"
+            className="btn defaultBtn small active"
+            >Все</app-button
+          >
+          <app-button
+            #action
+            (click)="toogleActive($event, 'new')"
+            class="add"
+            className="btn defaultBtn small"
+            >Новые</app-button
+          >
+          <app-button
+            #action
+            (click)="toogleActive($event, 'old')"
+            class="add"
+            className="btn defaultBtn small"
+            >Старые</app-button
+          >
+        </div>
+
+        <span class="icon-filter"
+          ><span class="path1"></span><span class="path2"></span
+        ></span>
       </div>
 
       <ng-container *ngFor="let action of actions; let idx = index">

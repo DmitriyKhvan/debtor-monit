@@ -8,8 +8,15 @@ import { Status } from 'src/app/shared/interfaces';
 })
 export class CreditComponent {
   @Input() credit: any;
+  // @Input() status: Status = { code: 0, name: '' };
   @Input() status: Status | undefined;
   currentId: number | null = null;
+
+  statusDic = {
+    0: 'warning',
+    1: 'success',
+    2: 'default',
+  };
 
   constructor() {}
 }

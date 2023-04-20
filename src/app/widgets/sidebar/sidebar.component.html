@@ -1,10 +1,16 @@
 <div class="wrap-sidebar">
   <div class="header">
     <div class="avatar">
-      <img src="../../../assets/img/avatars.svg" alt="" />
+      <!-- <img src="../../../assets/img/avatars.svg" alt="" /> -->
+      <span class="icon-user-avatar-circle"
+        ><span class="path1"></span><span class="path2"></span
+      ></span>
       <div class="user">
-        <div class="fio">KAMALOV NODIR</div>
-        <div class="store">MEDIAPARK</div>
+        <div class="fio">
+          {{ apiService.profile.lastName }} {{ apiService.profile.firstName }}
+        </div>
+
+        <!-- <div class="store">MEDIAPARK</div> -->
       </div>
     </div>
     <div class="navigation">
@@ -23,7 +29,7 @@
   <div class="menu">
     <ul>
       <li routerLinkActive="active">
-        <a routerLink="/credit">
+        <a [routerLink]="['/credit', apiService.claimsId]">
           <span class="icon-person"
             ><span class="path1"></span><span class="path2"></span
             ><span class="path3"></span

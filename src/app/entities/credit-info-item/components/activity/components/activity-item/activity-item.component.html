@@ -1,19 +1,41 @@
-<div class="comment">
-  <div class="status">
-    <span class="status-value">{{ type?.name }}</span>
-    <span class="status-date">{{
-      action.createdAt | dateTimeFormat : "short" : true
-    }}</span>
-  </div>
-  <div *ngIf="action.reminder" class="comment-value">
-    Напомнинаие настроено на
-    {{ action.reminder | dateTimeFormat : "numeric" : true }}
-  </div>
-  <div class="comment-value">{{ action.text }}</div>
+<div class="action">
+  <div class="action-wrap">
+    <div class="avatar">
+      <span class="icon-user-avatar-circle"
+        ><span class="path1"></span><span class="path2"></span
+      ></span>
+    </div>
+    <div class="action_content">
+      <div class="action_autor-wrap">
+        <span class="action_autor">
+          {{ action.user.lastName }} {{ action.user.firstName }}
+          {{ action.user.middleName }}
+        </span>
+        <span class="date">{{
+          action.createdAt | dateTimeFormat : "short" : true
+        }}</span>
+      </div>
 
-  <div class="edit">
-    <app-button className="btn subtleBtn small">Изм.</app-button>
-    <span class="separate-point"></span>
-    <app-button className="btn subtleBtn small">Удалить</app-button>
+      <!-- <span class="price-blue">{{ type?.name }}</span> -->
+      <app-lozenge2 className="blue" [fontSize]="13">{{
+        type?.name
+      }}</app-lozenge2>
+
+      <div *ngIf="action.reminder" class="comment">
+        Напоминание настроено на
+        {{ action.reminder | dateTimeFormat : "numeric" : true }}
+      </div>
+      <div class="comment">{{ action.text }}</div>
+
+      <div class="edit">
+        <!-- <app-button className="btn subtleBtn small">Изм.</app-button>
+        <span class="separate-point"></span> -->
+        <app-button
+          (click)="removeAction(action.id)"
+          className="btn subtleBtn small"
+          >Удалить</app-button
+        >
+      </div>
+    </div>
   </div>
 </div>

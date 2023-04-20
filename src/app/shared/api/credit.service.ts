@@ -9,6 +9,7 @@ export class ApiService {
   search$ = new Subject<string>();
   updateList$ = new Subject<boolean>();
   claimsId: number | null = null;
+  profile: any;
 
   constructor(private http: HttpClient) {}
 
@@ -55,6 +56,16 @@ export class ApiService {
       .get(
         `${environment.dbUrl}/client-action/getActions?claimsId=${claimsId}&loanId=${loanId}&keyword=${keyword}`
       )
+      .pipe(
+        catchError((error) => {
+          return throwError(() => error);
+        })
+      );
+  }
+
+  removeAction(id: number) {
+    return this.http
+      .delete(`${environment.dbUrl}/client-action/remove?id=${id}`)
       .pipe(
         catchError((error) => {
           return throwError(() => error);

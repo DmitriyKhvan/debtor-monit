@@ -12,7 +12,7 @@ export class DateTimeFormatPipe implements PipeTransform {
           day: 'numeric',
           month: month,
           year: 'numeric',
-        })} ${date.toLocaleTimeString('ru-RU', { timeZone: 'UTC' })}`;
+        })} ${date.toLocaleTimeString('ru-RU')}`;
       } else {
         return date.toLocaleDateString('ru-RU', {
           day: 'numeric',

@@ -3,8 +3,8 @@
   <div class="td id">{{ product.id }}</div>
   <div class="td name">{{ product.name }}</div>
   <div class="td price">
-    <span class="price-blue">{{
+    <app-lozenge2 className="blue">{{
       product.price | numberTransform : false
-    }}</span>
+    }}</app-lozenge2>
   </div>
 </div>

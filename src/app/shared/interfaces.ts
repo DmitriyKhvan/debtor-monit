@@ -27,4 +27,11 @@ export interface Action {
   createdAt: string;
   updatedBy: null;
   updatedAt: string;
+  user: {
+    firstName: string;
+    lastName: string;
+    middleName: string;
+    username: string;
+    uuid: string;
+  };
 }

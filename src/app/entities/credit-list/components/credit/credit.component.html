@@ -4,7 +4,7 @@
   [class.active]="credit.credit.id === currentId"
 >
   <div class="td order">{{ credit.idx }}</div>
-  <div class="td contractId">{{ credit.credit.contractId }}</div>
+  <div class="td claimsId">{{ credit.credit.claimsId }}</div>
   <div class="td vendor">{{ credit.credit.vendor }}</div>
   <div class="td fullname">
     <span
@@ -35,8 +35,15 @@
     }}
   </div>
   <div class="td status">
-    <app-lozenge className="{{ status?.code === 1 ? 'success' : 'warning' }}">{{
-      status?.name
-    }}</app-lozenge>
+    <app-lozenge
+      className="{{
+        status?.code === 1
+          ? 'success'
+          : status?.code === 0
+          ? 'warning'
+          : 'default'
+      }}"
+      >{{ status?.name }}</app-lozenge
+    >
   </div>
 </div>

@@ -1,10 +1,10 @@
 @font-face {
   font-family: "icomoon";
-  src: url("../fonts/icomoon.eot?ngptsp");
-  src: url("../fonts/icomoon.eot?ngptsp#iefix") format("embedded-opentype"),
-    url("../fonts/icomoon.ttf?ngptsp") format("truetype"),
-    url("../fonts/icomoon.woff?ngptsp") format("woff"),
-    url("../fonts/icomoon.svg?ngptsp#icomoon") format("svg");
+  src: url("../fonts/icomoon.eot?cztynr");
+  src: url("../fonts/icomoon.eot?cztynr#iefix") format("embedded-opentype"),
+    url("../fonts/icomoon.ttf?cztynr") format("truetype"),
+    url("../fonts/icomoon.woff?cztynr") format("woff"),
+    url("../fonts/icomoon.svg?cztynr#icomoon") format("svg");
   font-weight: normal;
   font-style: normal;
   font-display: block;
@@ -4904,686 +4904,690 @@
   margin-left: -1em;
   color: rgb(38, 132, 255);
 }
-.icon-test-session .path1:before {
+.icon-telegram:before {
   content: "\eccf";
+  color: #2ea5dd;
+}
+.icon-test-session .path1:before {
+  content: "\ecd0";
   color: rgb(255, 255, 255);
   opacity: 0.01;
 }
 .icon-test-session .path2:before {
-  content: "\ecd0";
-  margin-left: -1em;
-  color: rgb(66, 82, 110);
-}
-.icon-test-session .path3:before {
   content: "\ecd1";
   margin-left: -1em;
   color: rgb(66, 82, 110);
 }
-.icon-test-session .path4:before {
+.icon-test-session .path3:before {
   content: "\ecd2";
   margin-left: -1em;
   color: rgb(66, 82, 110);
 }
-.icon-text .path1:before {
+.icon-test-session .path4:before {
   content: "\ecd3";
+  margin-left: -1em;
+  color: rgb(66, 82, 110);
+}
+.icon-text .path1:before {
+  content: "\ecd4";
   color: rgb(255, 255, 255);
   opacity: 0.01;
 }
 .icon-text .path2:before {
-  content: "\ecd4";
-  margin-left: -1em;
-  color: rgb(66, 82, 110);
-}
-.icon-text .path3:before {
   content: "\ecd5";
   margin-left: -1em;
   color: rgb(66, 82, 110);
 }
-.icon-text-style .path1:before {
+.icon-text .path3:before {
   content: "\ecd6";
+  margin-left: -1em;
+  color: rgb(66, 82, 110);
+}
+.icon-text-style .path1:before {
+  content: "\ecd7";
   color: rgb(255, 255, 255);
   opacity: 0.01;
 }
 .icon-text-style .path2:before {
-  content: "\ecd7";
+  content: "\ecd8";
   margin-left: -1em;
   color: rgb(66, 82, 110);
 }
 .icon-trash .path1:before {
-  content: "\ecd8";
+  content: "\ecd9";
   color: rgb(255, 255, 255);
   opacity: 0.01;
 }
 .icon-trash .path2:before {
-  content: "\ecd9";
+  content: "\ecda";
   margin-left: -1em;
   color: rgb(66, 82, 110);
 }
 .icon-travel .path1:before {
-  content: "\ecda";
+  content: "\ecdb";
   color: rgb(255, 255, 255);
   opacity: 0.01;
 }
 .icon-travel .path2:before {
-  content: "\ecdb";
+  content: "\ecdc";
   margin-left: -1em;
   color: rgb(66, 82, 110);
 }
 .icon-tray .path1:before {
-  content: "\ecdc";
+  content: "\ecdd";
   color: rgb(255, 255, 255);
   opacity: 0.01;
 }
 .icon-tray .path2:before {
-  content: "\ecdd";
-  margin-left: -1em;
-  color: rgb(66, 82, 110);
-}
-.icon-tray .path3:before {
   content: "\ecde";
   margin-left: -1em;
   color: rgb(66, 82, 110);
 }
-.icon-trivial .path1:before {
+.icon-tray .path3:before {
   content: "\ecdf";
+  margin-left: -1em;
+  color: rgb(66, 82, 110);
+}
+.icon-trivial .path1:before {
+  content: "\ece0";
   color: rgb(255, 255, 255);
   opacity: 0.01;
 }
 .icon-trivial .path2:before {
-  content: "\ece0";
+  content: "\ece1";
   margin-left: -1em;
   color: rgb(122, 134, 154);
 }
 .icon-ulnlink .path1:before {
-  content: "\ece1";
+  content: "\ece2";
   color: rgb(255, 255, 255);
   opacity: 0.01;
 }
 .icon-ulnlink .path2:before {
-  content: "\ece2";
+  content: "\ece3";
   margin-left: -1em;
   color: rgb(66, 82, 110);
 }
 .icon-underline .path1:before {
-  content: "\ece3";
+  content: "\ece4";
   color: rgb(255, 255, 255);
   opacity: 0.01;
 }
 .icon-underline .path2:before {
-  content: "\ece4";
+  content: "\ece5";
   margin-left: -1em;
   color: rgb(66, 82, 110);
 }
 .icon-undo .path1:before {
-  content: "\ece5";
+  content: "\ece6";
   color: rgb(255, 255, 255);
   opacity: 0.01;
 }
 .icon-undo .path2:before {
-  content: "\ece6";
-  margin-left: -1em;
-  color: rgb(66, 82, 110);
-}
-.icon-undo .path3:before {
   content: "\ece7";
   margin-left: -1em;
   color: rgb(66, 82, 110);
 }
-.icon-undol .path1:before {
+.icon-undo .path3:before {
   content: "\ece8";
+  margin-left: -1em;
+  color: rgb(66, 82, 110);
+}
+.icon-undol .path1:before {
+  content: "\ece9";
   color: rgb(255, 255, 255);
   opacity: 0.01;
 }
 .icon-undol .path2:before {
-  content: "\ece9";
+  content: "\ecea";
   margin-left: -1em;
   color: rgb(66, 82, 110);
 }
 .icon-unknown .path1:before {
-  content: "\ecea";
+  content: "\eceb";
   color: rgb(255, 255, 255);
   opacity: 0.01;
 }
 .icon-unknown .path2:before {
-  content: "\eceb";
+  content: "\ecec";
   margin-left: -1em;
   color: rgb(66, 82, 110);
 }
 .icon-unlink .path1:before {
-  content: "\ecec";
+  content: "\eced";
   color: rgb(255, 255, 255);
   opacity: 0.01;
 }
 .icon-unlink .path2:before {
-  content: "\eced";
+  content: "\ecee";
   margin-left: -1em;
   color: rgb(66, 82, 110);
 }
 .icon-unlock .path1:before {
-  content: "\ecee";
+  content: "\ecef";
   color: rgb(255, 255, 255);
   opacity: 0.01;
 }
 .icon-unlock .path2:before {
-  content: "\ecef";
-  margin-left: -1em;
-  color: rgb(66, 82, 110);
-}
-.icon-unlock .path3:before {
   content: "\ecf0";
   margin-left: -1em;
   color: rgb(66, 82, 110);
 }
-.icon-unlock .path4:before {
+.icon-unlock .path3:before {
   content: "\ecf1";
   margin-left: -1em;
   color: rgb(66, 82, 110);
 }
-.icon-unlock-circle .path1:before {
+.icon-unlock .path4:before {
   content: "\ecf2";
+  margin-left: -1em;
+  color: rgb(66, 82, 110);
+}
+.icon-unlock-circle .path1:before {
+  content: "\ecf3";
   color: rgb(255, 255, 255);
   opacity: 0.01;
 }
 .icon-unlock-circle .path2:before {
-  content: "\ecf3";
+  content: "\ecf4";
   margin-left: -1em;
   color: rgb(66, 82, 110);
 }
 .icon-unlock-filled .path1:before {
-  content: "\ecf4";
+  content: "\ecf5";
   color: rgb(255, 255, 255);
   opacity: 0.01;
 }
 .icon-unlock-filled .path2:before {
-  content: "\ecf5";
-  margin-left: -1em;
-  color: rgb(66, 82, 110);
-}
-.icon-unlock-filled .path3:before {
   content: "\ecf6";
   margin-left: -1em;
   color: rgb(66, 82, 110);
 }
-.icon-upload .path1:before {
+.icon-unlock-filled .path3:before {
   content: "\ecf7";
+  margin-left: -1em;
+  color: rgb(66, 82, 110);
+}
+.icon-upload .path1:before {
+  content: "\ecf8";
   color: rgb(255, 255, 255);
   opacity: 0.01;
 }
 .icon-upload .path2:before {
-  content: "\ecf8";
-  margin-left: -1em;
-  color: rgb(66, 82, 110);
-}
-.icon-upload .path3:before {
   content: "\ecf9";
   margin-left: -1em;
   color: rgb(66, 82, 110);
 }
-.icon-upload .path4:before {
+.icon-upload .path3:before {
   content: "\ecfa";
   margin-left: -1em;
   color: rgb(66, 82, 110);
 }
-.icon-user-avatar-circle .path1:before {
+.icon-upload .path4:before {
   content: "\ecfb";
+  margin-left: -1em;
+  color: rgb(66, 82, 110);
+}
+.icon-user-avatar-circle .path1:before {
+  content: "\ecfc";
   color: rgb(255, 255, 255);
   opacity: 0.01;
 }
 .icon-user-avatar-circle .path2:before {
-  content: "\ecfc";
+  content: "\ecfd";
   margin-left: -1em;
   color: rgb(66, 82, 110);
 }
 .icon-Vector:before {
-  content: "\ecfd";
-  color: #42526e;
-}
-.icon-Vectork:before {
   content: "\ecfe";
   color: #42526e;
 }
-.icon-vid-audio-muted .path1:before {
+.icon-Vectork:before {
   content: "\ecff";
+  color: #42526e;
+}
+.icon-vid-audio-muted .path1:before {
+  content: "\ed00";
   color: rgb(255, 255, 255);
   opacity: 0.01;
 }
 .icon-vid-audio-muted .path2:before {
-  content: "\ed00";
+  content: "\ed01";
   margin-left: -1em;
   color: rgb(66, 82, 110);
 }
 .icon-vid-audio-on .path1:before {
-  content: "\ed01";
+  content: "\ed02";
   color: rgb(255, 255, 255);
   opacity: 0.01;
 }
 .icon-vid-audio-on .path2:before {
-  content: "\ed02";
-  margin-left: -1em;
-  color: rgb(66, 82, 110);
-}
-.icon-vid-audio-on .path3:before {
   content: "\ed03";
   margin-left: -1em;
   color: rgb(66, 82, 110);
 }
-.icon-vid-backward .path1:before {
+.icon-vid-audio-on .path3:before {
   content: "\ed04";
+  margin-left: -1em;
+  color: rgb(66, 82, 110);
+}
+.icon-vid-backward .path1:before {
+  content: "\ed05";
   color: rgb(255, 255, 255);
   opacity: 0.01;
 }
 .icon-vid-backward .path2:before {
-  content: "\ed05";
+  content: "\ed06";
   margin-left: -1em;
   color: rgb(66, 82, 110);
 }
 .icon-vid-camera-off .path1:before {
-  content: "\ed06";
+  content: "\ed07";
   color: rgb(255, 255, 255);
   opacity: 0.01;
 }
 .icon-vid-camera-off .path2:before {
-  content: "\ed07";
+  content: "\ed08";
   margin-left: -1em;
   color: rgb(66, 82, 110);
 }
 .icon-vid-camera-on .path1:before {
-  content: "\ed08";
+  content: "\ed09";
   color: rgb(255, 255, 255);
   opacity: 0.01;
 }
 .icon-vid-camera-on .path2:before {
-  content: "\ed09";
+  content: "\ed0a";
   margin-left: -1em;
   color: rgb(66, 82, 110);
 }
 .icon-vid-connection-circle .path1:before {
-  content: "\ed0a";
+  content: "\ed0b";
   color: rgb(255, 255, 255);
   opacity: 0.01;
 }
 .icon-vid-connection-circle .path2:before {
-  content: "\ed0b";
+  content: "\ed0c";
   margin-left: -1em;
   color: rgb(66, 82, 110);
 }
 .icon-video .path1:before {
-  content: "\ed0c";
+  content: "\ed0d";
   color: rgb(255, 255, 255);
   opacity: 0.01;
 }
 .icon-video .path2:before {
-  content: "\ed0d";
+  content: "\ed0e";
   margin-left: -1em;
   color: rgb(66, 82, 110);
 }
 .icon-video1 .path1:before {
-  content: "\ed0e";
+  content: "\ed0f";
   color: rgb(255, 255, 255);
   opacity: 0.01;
 }
 .icon-video1 .path2:before {
-  content: "\ed0f";
+  content: "\ed10";
   margin-left: -0.75em;
   color: rgb(255, 255, 255);
 }
 .icon-video1 .path3:before {
-  content: "\ed10";
+  content: "\ed11";
   margin-left: -0.75em;
   color: rgb(255, 86, 48);
 }
 .icon-video2 .path1:before {
-  content: "\ed11";
+  content: "\ed12";
   color: rgb(255, 255, 255);
   opacity: 0.01;
 }
 .icon-video2 .path2:before {
-  content: "\ed12";
+  content: "\ed13";
   margin-left: -1em;
   color: rgb(255, 86, 48);
 }
 .icon-video3 .path1:before {
-  content: "\ed13";
+  content: "\ed14";
   color: rgb(255, 255, 255);
   opacity: 0.01;
 }
 .icon-video3 .path2:before {
-  content: "\ed14";
+  content: "\ed15";
   margin-left: -1em;
   color: rgb(255, 86, 48);
 }
 .icon-video-circle .path1:before {
-  content: "\ed15";
+  content: "\ed16";
   color: rgb(255, 255, 255);
   opacity: 0.01;
 }
 .icon-video-circle .path2:before {
-  content: "\ed16";
+  content: "\ed17";
   margin-left: -1em;
   color: rgb(66, 82, 110);
 }
 .icon-video-filled .path1:before {
-  content: "\ed17";
+  content: "\ed18";
   color: rgb(255, 255, 255);
   opacity: 0.01;
 }
 .icon-video-filled .path2:before {
-  content: "\ed18";
-  margin-left: -1em;
-  color: rgb(66, 82, 110);
-}
-.icon-video-filled .path3:before {
   content: "\ed19";
   margin-left: -1em;
   color: rgb(66, 82, 110);
 }
-.icon-vid-forward .path1:before {
+.icon-video-filled .path3:before {
   content: "\ed1a";
+  margin-left: -1em;
+  color: rgb(66, 82, 110);
+}
+.icon-vid-forward .path1:before {
+  content: "\ed1b";
   color: rgb(255, 255, 255);
   opacity: 0.01;
 }
 .icon-vid-forward .path2:before {
-  content: "\ed1b";
+  content: "\ed1c";
   margin-left: -1em;
   color: rgb(66, 82, 110);
 }
 .icon-vid-full-screen-off .path1:before {
-  content: "\ed1c";
+  content: "\ed1d";
   color: rgb(255, 255, 255);
   opacity: 0.01;
 }
 .icon-vid-full-screen-off .path2:before {
-  content: "\ed1d";
-  margin-left: -1em;
-  color: rgb(66, 82, 110);
-}
-.icon-vid-full-screen-off .path3:before {
   content: "\ed1e";
   margin-left: -1em;
   color: rgb(66, 82, 110);
 }
-.icon-vid-full-screen-off .path4:before {
+.icon-vid-full-screen-off .path3:before {
   content: "\ed1f";
   margin-left: -1em;
   color: rgb(66, 82, 110);
 }
-.icon-vid-full-screen-off .path5:before {
+.icon-vid-full-screen-off .path4:before {
   content: "\ed20";
   margin-left: -1em;
   color: rgb(66, 82, 110);
 }
-.icon-vid-full-screen-on .path1:before {
+.icon-vid-full-screen-off .path5:before {
   content: "\ed21";
+  margin-left: -1em;
+  color: rgb(66, 82, 110);
+}
+.icon-vid-full-screen-on .path1:before {
+  content: "\ed22";
   color: rgb(255, 255, 255);
   opacity: 0.01;
 }
 .icon-vid-full-screen-on .path2:before {
-  content: "\ed22";
+  content: "\ed23";
   margin-left: -1em;
   color: rgb(66, 82, 110);
 }
 .icon-vid-hang-up .path1:before {
-  content: "\ed23";
+  content: "\ed24";
   color: rgb(255, 255, 255);
   opacity: 0.01;
 }
 .icon-vid-hang-up .path2:before {
-  content: "\ed24";
+  content: "\ed25";
   margin-left: -1em;
   color: rgb(66, 82, 110);
 }
 .icon-vid-hd-circle .path1:before {
-  content: "\ed25";
+  content: "\ed26";
   color: rgb(255, 255, 255);
   opacity: 0.01;
 }
 .icon-vid-hd-circle .path2:before {
-  content: "\ed26";
-  margin-left: -1em;
-  color: rgb(66, 82, 110);
-}
-.icon-vid-hd-circle .path3:before {
   content: "\ed27";
   margin-left: -1em;
   color: rgb(66, 82, 110);
 }
-.icon-vid-pause .path1:before {
+.icon-vid-hd-circle .path3:before {
   content: "\ed28";
+  margin-left: -1em;
+  color: rgb(66, 82, 110);
+}
+.icon-vid-pause .path1:before {
+  content: "\ed29";
   color: rgb(255, 255, 255);
   opacity: 0.01;
 }
 .icon-vid-pause .path2:before {
-  content: "\ed29";
+  content: "\ed2a";
   margin-left: -1em;
   color: rgb(66, 82, 110);
 }
 .icon-vid-play .path1:before {
-  content: "\ed2a";
+  content: "\ed2b";
   color: rgb(255, 255, 255);
   opacity: 0.01;
 }
 .icon-vid-play .path2:before {
-  content: "\ed2b";
+  content: "\ed2c";
   margin-left: -1em;
   color: rgb(66, 82, 110);
 }
 .icon-vid-raised-hand .path1:before {
-  content: "\ed2c";
+  content: "\ed2d";
   color: rgb(255, 255, 255);
   opacity: 0.01;
 }
 .icon-vid-raised-hand .path2:before {
-  content: "\ed2d";
-  margin-left: -1em;
-  color: rgb(66, 82, 110);
-}
-.icon-vid-raised-hand .path3:before {
   content: "\ed2e";
   margin-left: -1em;
   color: rgb(66, 82, 110);
 }
-.icon-vid-share-screen .path1:before {
+.icon-vid-raised-hand .path3:before {
   content: "\ed2f";
+  margin-left: -1em;
+  color: rgb(66, 82, 110);
+}
+.icon-vid-share-screen .path1:before {
+  content: "\ed30";
   color: rgb(255, 255, 255);
   opacity: 0.01;
 }
 .icon-vid-share-screen .path2:before {
-  content: "\ed30";
-  margin-left: -1em;
-  color: rgb(66, 82, 110);
-}
-.icon-vid-share-screen .path3:before {
   content: "\ed31";
   margin-left: -1em;
   color: rgb(66, 82, 110);
 }
-.icon-vid-share-screen .path4:before {
+.icon-vid-share-screen .path3:before {
   content: "\ed32";
   margin-left: -1em;
   color: rgb(66, 82, 110);
 }
-.icon-vid-share-screen .path5:before {
+.icon-vid-share-screen .path4:before {
   content: "\ed33";
   margin-left: -1em;
   color: rgb(66, 82, 110);
 }
-.icon-vid-share-screen .path6:before {
+.icon-vid-share-screen .path5:before {
   content: "\ed34";
   margin-left: -1em;
   color: rgb(66, 82, 110);
 }
-.icon-vid-speaking-circle .path1:before {
+.icon-vid-share-screen .path6:before {
   content: "\ed35";
+  margin-left: -1em;
+  color: rgb(66, 82, 110);
+}
+.icon-vid-speaking-circle .path1:before {
+  content: "\ed36";
   color: rgb(255, 255, 255);
   opacity: 0.01;
 }
 .icon-vid-speaking-circle .path2:before {
-  content: "\ed36";
+  content: "\ed37";
   margin-left: -1em;
   color: rgb(66, 82, 110);
 }
 .icon-vid-volume-full .path1:before {
-  content: "\ed37";
+  content: "\ed38";
   color: rgb(255, 255, 255);
   opacity: 0.01;
 }
 .icon-vid-volume-full .path2:before {
-  content: "\ed38";
+  content: "\ed39";
   margin-left: -1em;
   color: rgb(66, 82, 110);
 }
 .icon-vid-volume-half .path1:before {
-  content: "\ed39";
+  content: "\ed3a";
   color: rgb(255, 255, 255);
   opacity: 0.01;
 }
 .icon-vid-volume-half .path2:before {
-  content: "\ed3a";
+  content: "\ed3b";
   margin-left: -1em;
   color: rgb(66, 82, 110);
 }
 .icon-vid-volume-muted .path1:before {
-  content: "\ed3b";
+  content: "\ed3c";
   color: rgb(255, 255, 255);
   opacity: 0.01;
 }
 .icon-vid-volume-muted .path2:before {
-  content: "\ed3c";
+  content: "\ed3d";
   margin-left: -1em;
   color: rgb(66, 82, 110);
 }
 .icon-warning .path1:before {
-  content: "\ed3d";
+  content: "\ed3e";
   color: rgb(255, 255, 255);
   opacity: 0.01;
 }
 .icon-warning .path2:before {
-  content: "\ed3e";
+  content: "\ed3f";
   margin-left: -1em;
   color: rgb(66, 82, 110);
 }
 .icon-warnling .path1:before {
-  content: "\ed3f";
+  content: "\ed40";
   color: rgb(255, 255, 255);
   opacity: 0.01;
 }
 .icon-warnling .path2:before {
-  content: "\ed40";
+  content: "\ed41";
   margin-left: -1em;
   color: rgb(66, 82, 110);
 }
 .icon-watch .path1:before {
-  content: "\ed41";
+  content: "\ed42";
   color: rgb(255, 255, 255);
   opacity: 0.01;
 }
 .icon-watch .path2:before {
-  content: "\ed42";
-  margin-left: -1em;
-  color: rgb(66, 82, 110);
-}
-.icon-watch .path3:before {
   content: "\ed43";
   margin-left: -1em;
   color: rgb(66, 82, 110);
 }
-.icon-watch-filled .path1:before {
+.icon-watch .path3:before {
   content: "\ed44";
+  margin-left: -1em;
+  color: rgb(66, 82, 110);
+}
+.icon-watch-filled .path1:before {
+  content: "\ed45";
   color: rgb(255, 255, 255);
   opacity: 0.01;
 }
 .icon-watch-filled .path2:before {
-  content: "\ed45";
-  margin-left: -1em;
-  color: rgb(66, 82, 110);
-}
-.icon-watch-filled .path3:before {
   content: "\ed46";
   margin-left: -1em;
   color: rgb(66, 82, 110);
 }
-.icon-word-document .path1:before {
+.icon-watch-filled .path3:before {
   content: "\ed47";
+  margin-left: -1em;
+  color: rgb(66, 82, 110);
+}
+.icon-word-document .path1:before {
+  content: "\ed48";
   color: rgb(255, 255, 255);
   opacity: 0.01;
 }
 .icon-word-document .path2:before {
-  content: "\ed48";
+  content: "\ed49";
   margin-left: -0.75em;
   color: rgb(255, 255, 255);
 }
 .icon-word-document .path3:before {
-  content: "\ed49";
+  content: "\ed4a";
   margin-left: -0.75em;
   color: rgb(0, 78, 140);
 }
 .icon-word-document2 .path1:before {
-  content: "\ed4a";
+  content: "\ed4b";
   color: rgb(255, 255, 255);
   opacity: 0.01;
 }
 .icon-word-document2 .path2:before {
-  content: "\ed4b";
+  content: "\ed4c";
   margin-left: -1em;
   color: rgb(0, 78, 140);
 }
 .icon-word-document3 .path1:before {
-  content: "\ed4c";
+  content: "\ed4d";
   color: rgb(255, 255, 255);
   opacity: 0.01;
 }
 .icon-word-document3 .path2:before {
-  content: "\ed4d";
+  content: "\ed4e";
   margin-left: -1em;
   color: rgb(0, 78, 140);
 }
 .icon-world .path1:before {
-  content: "\ed4e";
+  content: "\ed4f";
   color: rgb(255, 255, 255);
   opacity: 0.01;
 }
 .icon-world .path2:before {
-  content: "\ed4f";
+  content: "\ed50";
   margin-left: -1em;
   color: rgb(66, 82, 110);
 }
 .icon-world-small .path1:before {
-  content: "\ed50";
+  content: "\ed51";
   color: rgb(255, 255, 255);
   opacity: 0.01;
 }
 .icon-world-small .path2:before {
-  content: "\ed51";
+  content: "\ed52";
   margin-left: -1em;
   color: rgb(66, 82, 110);
 }
 .icon-zip .path1:before {
-  content: "\ed52";
+  content: "\ed53";
   color: rgb(255, 255, 255);
   opacity: 0.01;
 }
 .icon-zip .path2:before {
-  content: "\ed53";
+  content: "\ed54";
   margin-left: -1em;
   color: rgb(66, 82, 110);
 }
 .icon-zoom-in .path1:before {
-  content: "\ed54";
+  content: "\ed55";
   color: rgb(255, 255, 255);
   opacity: 0.01;
 }
 .icon-zoom-in .path2:before {
-  content: "\ed55";
+  content: "\ed56";
   margin-left: -1em;
   color: rgb(66, 82, 110);
 }
 .icon-zoom-out .path1:before {
-  content: "\ed56";
+  content: "\ed57";
   color: rgb(255, 255, 255);
   opacity: 0.01;
 }
 .icon-zoom-out .path2:before {
-  content: "\ed57";
+  content: "\ed58";
   margin-left: -1em;
   color: rgb(66, 82, 110);
 }

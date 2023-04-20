@@ -34,7 +34,7 @@
 
 .tr {
   display: grid;
-  grid-template-areas: "month date debt paid remainder status";
+  grid-template-areas: "month date debt paid remainder status insurance";
   grid-template-rows: 40px;
   column-gap: 10px;
   align-items: center;
@@ -68,6 +68,11 @@
 .status {
   grid-area: status;
   width: 150px;
+}
+
+.insurance {
+  grid-area: insurance;
+  width: 80px;
 }
 
 .total {
