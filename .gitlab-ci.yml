@@ -27,10 +27,9 @@ build_app:
     - pwd
     - npm config set legacy-peer-deps true
     - npm i
+    - npm audit fix --force
     - npm run build
-   # - rm -rf $CI_PROJECT_DIR/node_modules
-    - pwd
-    - ls -la
+    - rm -rf $CI_PROJECT_DIR/node_modules
   artifacts:
       when: always
       name: "Docker executor artifact"
