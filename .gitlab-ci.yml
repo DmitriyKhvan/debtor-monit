@@ -23,6 +23,7 @@ build_app:
     paths:
       - ./node_modules  
   script:
+    - echo $CI_PROJECT_DIR
     - pwd
     - npm config set legacy-peer-deps true
     - npm i
