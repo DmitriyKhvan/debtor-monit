@@ -15,7 +15,7 @@ stages:
 
 build_app:
   stage: build_app
-  image: node:10.13.0
+  image: node:16.18.1
   tags: 
     - debtor_monit_front_docker
   cache:
