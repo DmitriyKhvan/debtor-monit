@@ -23,6 +23,7 @@ build_app:
     paths:
       - ./node_modules  
   script:
+    - pwd
     - npm config set legacy-peer-deps true
     - npm i
     - npm run build
