@@ -26,6 +26,7 @@ build_app:
     - echo $CI_PROJECT_DIR
     - pwd
     #- npm config set legacy-peer-deps true
+    - npm install typescript --save
     - npm install ts-node --save-dev
     #- npm i --save @angular/material @angular/cdk
     - rm -rf $CI_PROJECT_DIR/node_modules
