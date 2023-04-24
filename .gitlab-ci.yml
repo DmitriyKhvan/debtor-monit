@@ -25,6 +25,7 @@ build_app:
   script:
     - npm install -g npm@9.6.5
     - npm install -g @angular/cli
+    - npm list -g @angular/cli
     - echo $CI_PROJECT_DIR
     - npm i
     - npm run build
