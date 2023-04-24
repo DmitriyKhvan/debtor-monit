@@ -9,32 +9,55 @@ variables:
   GIT_SSL_NO_VERIFY: 'true'
 
 stages:
-  - build
+  - build_app
+  - build_image
   - deploy
 
-build_image:
-  stage: build
+build_app:
+  stage: build_app
+  image: node:16.18.1
+  tags: 
+    - debtor_monit_front_docker
   cache:
     key: '$CI_COMMIT_REF_NAME'
     paths:
       - ./node_modules  
-  tags: 
-    - debtor_monit_front_shell  
   script:
+    - npm install -g npm@9.6.5
     - echo $CI_PROJECT_DIR
-    - npm config set legacy-peer-deps true
     - npm i
     - npm run build
+    - rm -rf $CI_PROJECT_DIR/node_modules
+  artifacts:
+      when: always
+      name: "Docker executor artifact"
+      paths: 
+        - $CI_PROJECT_DIR
+        
+build_image:
+  stage: build_image
+  image: docker
+  services:
+    - docker:dind
+  tags:
+    - debtor_monit_front_docker
+  before_script:
+    - apk add --no-cache py-pip
+    - pip install docker-compose  
+  script:
     - echo $CI_REGISTRY_PASSWORD | docker login -u $CI_REGISTRY_USER $CI_REGISTRY --password-stdin
     - docker-compose -f docker-compose.yml build
     #- docker build -t registry.flexit.uz/flexit/veolia_customer:latest .
 
 push_image:
-  stage: build
+  stage: build_image
   needs:
     - build_image
+  image: docker
+  services:
+    - docker:dind  
   tags:
-    - debtor_monit_front_shell
+    - debtor_monit_front_docker
   script:
     - docker login -u "$CI_REGISTRY_USER" -p "$CI_REGISTRY_PASSWORD" $CI_REGISTRY
     - docker push registry.flexit.uz/flexit/lendo/client/debtor-monit-front:latest
@@ -47,5 +70,3 @@ deploy_to_dev:
     - docker login -u "$CI_REGISTRY_USER" -p "$CI_REGISTRY_PASSWORD" $CI_REGISTRY
     - docker pull registry.flexit.uz/flexit/lendo/client/debtor-monit-front:latest
     - docker-compose up -d
-
-
