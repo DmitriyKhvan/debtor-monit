@@ -28,11 +28,7 @@
     {{ credit.creditEnd | numberTransform : false }}
   </div> -->
   <div class="td lastPayDate">
-    {{
-      credit.credit.lastPayDate
-        ? (credit.credit.lastPayDate | dateTimeFormat)
-        : "-"
-    }}
+    {{ credit.credit.lastPayDate ? credit.credit.lastPayDate : "-" }}
   </div>
   <div class="td status">
     <app-lozenge
