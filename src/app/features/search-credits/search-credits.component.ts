@@ -17,13 +17,17 @@ import { ApiService } from 'src/app/shared/api/credit.service';
 export class SearchCreditsComponent implements OnInit, OnDestroy {
   @ViewChild('search', { static: true, read: ElementRef })
   inputRef!: ElementRef;
-  // value: string = JSON.parse(localStorage.getItem('filterData') || '');
+  value: string = '';
 
   sSub!: Subscription;
 
   constructor(private apiServer: ApiService) {}
 
   ngOnInit(): void {
+    if (localStorage.getItem('filterData')) {
+      this.value = JSON.parse(localStorage.getItem('filterData') || '')?.search;
+    }
+
     // console.log(this.inputRef.nativeElement.children[0].children[0]);
 
     this.sSub = fromEvent(
