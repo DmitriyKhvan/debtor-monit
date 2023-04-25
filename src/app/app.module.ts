@@ -1,4 +1,4 @@
-import { APP_INITIALIZER, NgModule } from '@angular/core';
+import { APP_INITIALIZER, NgModule, Provider } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 
 import { AppRoutingModule } from './app-routing.module';
@@ -16,7 +16,7 @@ import { HomeComponent } from './pages/home/home.component';
 import { ButtonComponent } from './shared/ui/button/button.component';
 import { CreditListComponent } from './entities/credit-list/credit-list.component';
 import { CreditComponent } from './entities/credit-list/components/credit/credit.component';
-import { HttpClientModule } from '@angular/common/http';
+import { HTTP_INTERCEPTORS, HttpClientModule } from '@angular/common/http';
 import { NgxPaginationModule } from 'ngx-pagination';
 import { LoaderComponent } from './shared/ui/loader/loader.component';
 import { LozengeComponent } from './shared/ui/lozenge/lozenge.component';
@@ -55,7 +55,18 @@ import { PrintScheduleComponent } from './features/print-schedule/print-schedule
 import { initializeKeycloak } from './shared/init/keycloak-init.factory';
 import { KeycloakAngularModule, KeycloakService } from 'keycloak-angular';
 import { Lozenge2Component } from './shared/ui/lozenge2/lozenge2.component';
-import { CalculationSumGoodsComponent } from './pages/calculation-sum-goods/calculation-sum-goods.component';
+import { CalculationSumProductsComponent } from './pages/calculation-sum-products/calculation-sum-products.component';
+import { CalculationProductsComponent } from './features/calculation-products/calculation-products.component';
+import { CalculationProductListComponent } from './entities/calculation-product-list/calculation-product-list.component';
+import { CalculationProductItemComponent } from './entities/calculation-product-list/calculation-product-item/calculation-product-item.component';
+import { InputFormComponent } from './shared/ui/input-form/input-form.component';
+import { AuthIntercepter } from './shared/auth.intercepter';
+
+const INTERCEPTOR_PROVIDER: Provider = {
+  provide: HTTP_INTERCEPTORS,
+  multi: true,
+  useClass: AuthIntercepter,
+};
 
 const CUSTOM_DATE_FORMATS: NgxMatDateFormats = {
   parse: {
@@ -105,7 +116,11 @@ const CUSTOM_DATE_FORMATS: NgxMatDateFormats = {
     PhoneFormatPipe,
     PrintScheduleComponent,
     Lozenge2Component,
-    CalculationSumGoodsComponent,
+    CalculationSumProductsComponent,
+    CalculationProductsComponent,
+    CalculationProductListComponent,
+    CalculationProductItemComponent,
+    InputFormComponent,
   ],
   imports: [
     BrowserModule,
@@ -127,6 +142,7 @@ const CUSTOM_DATE_FORMATS: NgxMatDateFormats = {
     KeycloakAngularModule,
   ],
   providers: [
+    INTERCEPTOR_PROVIDER,
     { provide: NGX_MAT_DATE_FORMATS, useValue: CUSTOM_DATE_FORMATS },
     { provide: MAT_DATE_LOCALE, useValue: 'ru-RU' },
     {

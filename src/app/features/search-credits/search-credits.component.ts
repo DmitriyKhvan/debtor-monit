@@ -17,6 +17,7 @@ import { ApiService } from 'src/app/shared/api/credit.service';
 export class SearchCreditsComponent implements OnInit, OnDestroy {
   @ViewChild('search', { static: true, read: ElementRef })
   inputRef!: ElementRef;
+  // value: string = JSON.parse(localStorage.getItem('filterData') || '');
 
   sSub!: Subscription;
 

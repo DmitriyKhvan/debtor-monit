@@ -1,10 +1,10 @@
-<label class="input-wrap">
+<label [formGroup]="form" class="input-wrap">
   <input
     #input
     class="input"
-    [value]="value"
     [type]="type"
     [placeholder]="placeholder"
+    [formControlName]="controlName"
   />
   <i *ngIf="className" class="icon" [class]="className"></i>
 </label>

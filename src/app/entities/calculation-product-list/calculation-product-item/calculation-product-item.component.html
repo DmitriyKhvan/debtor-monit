@@ -1,0 +1,13 @@
+<div class="tr">
+  <div class="td period">{{ product.period }}</div>
+  <div class="td productSum">
+    <app-lozenge2 className="grey">{{
+      product.productSum | numberTransform : false
+    }}</app-lozenge2>
+  </div>
+  <div class="td loanSum">
+    <app-lozenge2 className="blue">{{
+      product.loanSum | numberTransform : false
+    }}</app-lozenge2>
+  </div>
+</div>

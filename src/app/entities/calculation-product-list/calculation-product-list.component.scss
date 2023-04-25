@@ -1,0 +1,66 @@
+.calculationProducts {
+  width: 60%;
+  margin-top: 32px;
+
+  &__wrap {
+    // grid-column: span 20;
+    .header {
+      display: flex;
+      align-items: start;
+      justify-content: space-between;
+    }
+  }
+}
+
+.calculationProducts-list {
+  margin-top: 47px;
+}
+
+.thead {
+  .td {
+    font-size: 12px;
+    color: #6b778c;
+    font-weight: 600;
+  }
+  border-bottom: 2px solid rgba(9, 30, 66, 0.08);
+}
+
+.tr {
+  display: grid;
+  grid-template-columns: 50px repeat(2, auto);
+  grid-template-areas: "period productSum loanSum";
+  grid-template-rows: 40px;
+  column-gap: 10px;
+  align-items: center;
+}
+
+.period {
+  grid-area: period;
+  width: 50px;
+}
+
+.productSum {
+  grid-area: productSum;
+  min-width: 80px;
+}
+
+.loanSum {
+  grid-area: loanSum;
+  min-width: 80px;
+}
+
+.total {
+  margin-top: 16px;
+
+  .price {
+    color: #172b4d;
+    font-weight: 700;
+  }
+}
+
+.empty {
+  margin-top: 30px;
+  width: 100%;
+  font-size: 30px;
+  text-align: center;
+}

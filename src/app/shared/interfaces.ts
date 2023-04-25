@@ -35,3 +35,15 @@ export interface Action {
     uuid: string;
   };
 }
+
+export interface ICalculationProducts {
+  code: number | null;
+  limit: number;
+  table: ICalculationProduct[];
+}
+
+export interface ICalculationProduct {
+  loanSum: number;
+  period: number;
+  productSum: string;
+}

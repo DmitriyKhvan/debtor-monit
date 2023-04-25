@@ -1,0 +1,49 @@
+<div
+  *ngIf="apiService.calculationProducts.code === 0"
+  class="calculationProducts"
+>
+  <div class="calculationProducts__wrap">
+    <div class="calculationProducts-list">
+      <div class="table">
+        <div class="thead">
+          <div class="tr">
+            <div class="td period">Период</div>
+            <div class="td productSum">Товар сумма</div>
+            <div class="td loanSum">Рассрочка сумма</div>
+          </div>
+        </div>
+
+        <div class="tbody">
+          <ng-container
+            *ngFor="
+              let product of apiService.calculationProducts.table;
+              let idx = index
+            "
+          >
+            <app-calculation-product-item
+              [product]="product"
+            ></app-calculation-product-item>
+          </ng-container>
+        </div>
+      </div>
+
+      <div class="total">
+        <span class="text">Лимит: </span
+        ><span class="price"
+          >{{
+            apiService.calculationProducts.limit | numberTransform : false
+          }}
+          сум</span
+        >
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="empty" *ngIf="apiService.calculationProducts.code === 1">
+  Ничего не найдено!
+</div>
+
+<ng-container *ngIf="apiService.loader">
+  <app-loader></app-loader>
+</ng-container>

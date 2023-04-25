@@ -1,8 +1,19 @@
 import { HttpClient } from '@angular/common/http';
-import { Injectable } from '@angular/core';
-import { catchError, Observable, Subject, throwError } from 'rxjs';
+import {
+  catchError,
+  Observable,
+  OperatorFunction,
+  Subject,
+  throwError,
+} from 'rxjs';
 import { environment } from 'src/environments/environment';
-import { ActionCreate, ActionsCredit } from '../interfaces';
+import {
+  ActionCreate,
+  ActionsCredit,
+  ICalculationProducts,
+} from '../interfaces';
+import { tap } from 'rxjs/operators';
+import { Injectable } from '@angular/core';
 
 @Injectable({ providedIn: 'root' })
 export class ApiService {
@@ -10,6 +21,20 @@ export class ApiService {
   updateList$ = new Subject<boolean>();
   claimsId: number | null = null;
   profile: any;
+
+  calculationProducts: ICalculationProducts = {
+    code: null,
+    limit: 0,
+    table: [
+      // {
+      //   loanSum: 0,
+      //   period: 0,
+      //   productSum: 0,
+      // },
+    ],
+  };
+
+  loader: boolean = false;
 
   constructor(private http: HttpClient) {}
 
@@ -41,7 +66,7 @@ export class ApiService {
       );
   }
 
-  clientAction(data: ActionCreate) {
+  clientAction(data: ActionCreate): Observable<any> {
     return this.http
       .post(`${environment.dbUrl}/client-action/create`, data)
       .pipe(
@@ -51,7 +76,7 @@ export class ApiService {
       );
   }
 
-  getActions({ claimsId, loanId, keyword }: ActionsCredit) {
+  getActions({ claimsId, loanId, keyword }: ActionsCredit): Observable<any> {
     return this.http
       .get(
         `${environment.dbUrl}/client-action/getActions?claimsId=${claimsId}&loanId=${loanId}&keyword=${keyword}`
@@ -63,10 +88,26 @@ export class ApiService {
       );
   }
 
-  removeAction(id: number) {
+  removeAction(id: number): Observable<any> {
     return this.http
       .delete(`${environment.dbUrl}/client-action/remove?id=${id}`)
       .pipe(
+        catchError((error) => {
+          return throwError(() => error);
+        })
+      );
+  }
+
+  getLoanSums(claimsId: number): Observable<any> {
+    this.loader = true;
+    this.calculationProducts.code = null;
+    return this.http
+      .get(`${environment.dbUrl}/tools/getLoanSums?claimsId=${claimsId}`)
+      .pipe(
+        tap((calculationProducts: ICalculationProducts | any) => {
+          this.calculationProducts = calculationProducts;
+          this.loader = false;
+        }),
         catchError((error) => {
           return throwError(() => error);
         })
