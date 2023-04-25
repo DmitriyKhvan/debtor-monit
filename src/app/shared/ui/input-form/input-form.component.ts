@@ -6,9 +6,9 @@ import { Component, Input } from '@angular/core';
   styleUrls: ['../input/input.component.scss', './input-form.component.scss'],
 })
 export class InputFormComponent {
-  @Input() type: string | undefined;
-  @Input() placeholder: string | undefined;
-  @Input() className: string | undefined;
+  @Input() type: string = '';
+  @Input() placeholder: string = '';
+  @Input() className: string = '';
   @Input() controlName: any;
   @Input() form: any;
 }
