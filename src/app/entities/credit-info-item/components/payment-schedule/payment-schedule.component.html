@@ -2,7 +2,38 @@
   <div class="payment-schedule__wrap">
     <div class="header">
       <h2 class="title">График платежей</h2>
-      <app-print-schedule [token]="schedules.token"></app-print-schedule>
+      <app-print-schedule
+        [token]="userInfo.schedule.token"
+      ></app-print-schedule>
+    </div>
+
+    <div class="max-amount">
+      <div class="item">
+        <span>Остаток на {{ maxAmountData.date }}: </span>
+        <app-lozenge2 className="blue">{{
+          maxAmountData.lastMaxAmount | numberTransform : false
+        }}</app-lozenge2>
+      </div>
+
+      <div class="item">
+        <span>Текущий остаток: </span>
+        <app-lozenge2 className="green">{{
+          maxAmountData.currentMaxAmount | numberTransform : false
+        }}</app-lozenge2>
+      </div>
+
+      <div class="item">
+        <span>Оплаченно за сегодня: </span>
+        <app-lozenge2 className="grey">{{
+          maxAmountData.diff | numberTransform : false
+        }}</app-lozenge2>
+      </div>
+
+      <app-button (click)="getMaxAmount()" className="btn medium subtleBtn"
+        ><span #pipelines class="icon-pipelines"
+          ><span class="path1"></span><span class="path2"></span></span
+        >Обновить</app-button
+      >
     </div>
 
     <div class="schedule-list">
@@ -22,7 +53,10 @@
 
         <div class="tbody">
           <ng-container
-            *ngFor="let schedule of schedules.payschedule; let idx = index"
+            *ngFor="
+              let schedule of userInfo.schedule.payschedule;
+              let idx = index
+            "
           >
             <app-payment-item
               [status]="dicService.getStatus(dic, schedule.status)"
@@ -35,7 +69,7 @@
       <div class="total">
         <span class="text">Остаток задолженности: </span
         ><span class="price"
-          >{{ schedules.totaldebt | numberTransform : false }} сум</span
+          >{{ userInfo.schedule.totaldebt | numberTransform : false }} сум</span
         >
       </div>
     </div>
