@@ -47,3 +47,10 @@ export interface ICalculationProduct {
   period: number;
   productSum: string;
 }
+
+export interface maxAmountData {
+  currentMaxAmount: string;
+  date: string;
+  diff: string;
+  lastMaxAmount: string;
+}

@@ -113,4 +113,22 @@ export class ApiService {
         })
       );
   }
+
+  getMaxAmount({
+    claimsId,
+    contractId,
+  }: {
+    claimsId: number;
+    contractId: string;
+  }): Observable<any> {
+    return this.http
+      .get(
+        `${environment.dbUrl}/updater/updateMaxAmount?claimsId=${claimsId}&contractId=${contractId}`
+      )
+      .pipe(
+        catchError((error) => {
+          return throwError(() => error);
+        })
+      );
+  }
 }

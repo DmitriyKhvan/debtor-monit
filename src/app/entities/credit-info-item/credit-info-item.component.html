@@ -26,7 +26,7 @@
       *ngIf="tab === 'info'"
     ></app-general-info>
     <app-payment-schedule
-      [schedules]="userInfo.schedule"
+      [userInfo]="userInfo"
       *ngIf="tab === 'schedule'"
     ></app-payment-schedule>
   </div>
