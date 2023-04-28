@@ -9,7 +9,7 @@ services:
       context: .
       dockerfile: Dockerfile
     environment:
-      - DBURL=http://cc.lendo.uz/api
+      - DBURL=https://cc.lendo.uz/api
       - AUTHURL=https://auth.flexit.uz/auth
       - FILEURL=http://dev.lendo.uz/files
     ports:
