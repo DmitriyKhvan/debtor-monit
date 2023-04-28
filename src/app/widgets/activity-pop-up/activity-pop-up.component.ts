@@ -45,8 +45,6 @@ export class ActivityPopUpComponent implements OnInit, OnDestroy {
     // this.dSub = this.dicService.getActionType().subscribe((dic: Status[]) => {
     //   this.activities = dic;
     // });
-
-    console.log('this.claimsId', this.apiService.claimsId);
   }
 
   closeForm() {
@@ -70,8 +68,6 @@ export class ActivityPopUpComponent implements OnInit, OnDestroy {
       reminder: this.form.value.date?.toLocaleString('ru-RU'),
       text: this.form.value.comment,
     };
-
-    console.log(data);
 
     this.aSub = this.apiService.clientAction(data).subscribe((res) => {
       this.flagService.updateActions$.next(true);
