@@ -17,6 +17,7 @@ export class PrintScheduleComponent {
     const downloadLink = document.createElement('a');
 
     downloadLink.href = url;
+    downloadLink.target = '_blank';
 
     if (filename) downloadLink.setAttribute('download', filename);
 

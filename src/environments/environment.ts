@@ -3,4 +3,5 @@ export const environment = {
   authUrl: `https://auth.flexit.uz/auth`,
   dbUrl: 'https://cc.lendo.uz/api',
   fileUrl: 'http://dev.lendo.uz/files',
+  // fileUrl: 'http://api.lendo.uz/files',
 };
