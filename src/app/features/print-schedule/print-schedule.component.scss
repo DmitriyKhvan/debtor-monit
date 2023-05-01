@@ -1,0 +1,32 @@
+.btn {
+  display: flex;
+  align-items: center;
+  border-radius: 3px;
+  font-size: 14px;
+  transition: all 0.3s ease;
+
+  &:disabled {
+    background: #f4f5f7;
+    color: #253858;
+    cursor: no-drop;
+
+    &:hover {
+      background: #f4f5f7;
+      color: inherit;
+    }
+  }
+}
+
+.primaryBtn {
+  background: var(--blue-color);
+  color: var(--white-color);
+
+  &:hover {
+    background: #0065ff;
+  }
+}
+
+.medium {
+  padding: 6px 12px;
+  font-weight: 600;
+}
