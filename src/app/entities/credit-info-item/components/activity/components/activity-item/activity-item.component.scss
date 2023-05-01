@@ -36,6 +36,40 @@
     display: flex;
     align-items: center;
     margin-left: -2px;
+
+    &-wrap {
+      position: relative;
+      .tooltip {
+        position: absolute;
+        left: 0;
+        top: 30px;
+        background: #fff;
+        border: 1px solid #ccc;
+        border-radius: 5px;
+        padding: 10px;
+        width: 245px;
+        &::before {
+          position: absolute;
+          margin-top: -19px;
+          content: "";
+          display: block;
+          width: 20px;
+          height: 20px;
+          border: 1px solid #ccc;
+          border-radius: 3px;
+          transform: rotate(45deg);
+          z-index: -1;
+        }
+
+        .confirm {
+          display: flex;
+          align-items: center;
+          justify-content: end;
+          gap: 10px;
+          margin-top: 10px;
+        }
+      }
+    }
   }
 
   .separate-point {

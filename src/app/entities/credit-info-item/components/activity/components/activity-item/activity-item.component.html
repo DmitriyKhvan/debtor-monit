@@ -30,11 +30,20 @@
       <div class="edit">
         <!-- <app-button className="btn subtleBtn small">Изм.</app-button>
         <span class="separate-point"></span> -->
-        <app-button
-          (click)="removeAction(action.id)"
-          className="btn subtleBtn small"
-          >Удалить</app-button
-        >
+        <div class="edit-wrap">
+          <app-button className="btn subtleBtn small">Удалить </app-button>
+          <span class="tooltip">
+            <p class="text">Вы действительно хотите удалить?</p>
+            <div class="confirm">
+              <app-button className="btn primaryBtn small">Да</app-button>
+              <app-button
+                className="btn subtleBtn small"
+                (click)="removeAction(action.id)"
+                >Нет</app-button
+              >
+            </div>
+          </span>
+        </div>
       </div>
     </div>
   </div>
