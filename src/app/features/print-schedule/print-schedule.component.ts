@@ -1,4 +1,4 @@
-import { Component, Input } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 import { environment } from 'src/environments/environment';
 
 @Component({
@@ -6,8 +6,13 @@ import { environment } from 'src/environments/environment';
   templateUrl: './print-schedule.component.html',
   styleUrls: ['./print-schedule.component.scss'],
 })
-export class PrintScheduleComponent {
+export class PrintScheduleComponent implements OnInit {
   @Input() token: string = '';
+  url: string = '';
+
+  ngOnInit(): void {
+    this.url = `${environment.fileUrl}/${this.token}`;
+  }
 
   downloadFile(filename: string = '') {
     const url = `${environment.fileUrl}/${this.token}`;
@@ -17,7 +22,7 @@ export class PrintScheduleComponent {
     const downloadLink = document.createElement('a');
 
     downloadLink.href = url;
-    downloadLink.target = '_blank';
+    // downloadLink.target = '_blank';
 
     if (filename) downloadLink.setAttribute('download', filename);
 

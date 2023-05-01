@@ -65,8 +65,6 @@ export class ActivityComponent implements OnInit, OnDestroy {
       keyword,
     };
     this.cSub = this.apiServer.getActions(data).subscribe((actions: any) => {
-      console.log('actions', actions);
-
       this.actions = actions;
     });
   }
