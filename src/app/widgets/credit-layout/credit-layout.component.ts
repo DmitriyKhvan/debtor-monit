@@ -22,6 +22,17 @@ export class CreditLayoutComponent {
     });
   }
 
+  closeTooltip(event: any) {
+    if (!event.target.classList.contains('remove')) {
+      console.log(event.target.classList.contains('remove'));
+      console.log(document.querySelector('.tooltip'));
+
+      document.querySelectorAll('.tooltip').forEach((el) => {
+        el.classList.remove('open');
+      });
+    }
+  }
+
   ngOnDestroy(): void {
     this.flagSub?.unsubscribe();
   }

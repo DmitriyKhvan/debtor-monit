@@ -4,5 +4,4 @@ export const environment = {
   dbUrl: 'https://cc.lendo.uz/api',
   // dbUrl: 'http://10.1.1.177:1680',
   // fileUrl: 'http://dev.lendo.uz/files',
-  // fileUrl: 'http://api.lendo.uz/files',
 };
