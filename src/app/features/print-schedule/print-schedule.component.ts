@@ -41,20 +41,15 @@ export class PrintScheduleComponent implements OnInit, OnDestroy {
   // }
 
   downloadFile() {
-    console.log(this.claimsId);
-
     this.dSub = this.apiService.getBlob(this.token).subscribe((blob: Blob) => {
-      console.log(blob);
-
       // let url = URL.createObjectURL(new Blob([blob]));
       let url = URL.createObjectURL(blob);
-      // console.log(url);
       let link = document.createElement('a');
       link.href = url;
       link.setAttribute('download', `${this.claimsId}.pdf`);
       document.body.appendChild(link);
       link.click();
-      // document.body.removeChild(link);
+      document.body.removeChild(link);
 
       URL.revokeObjectURL(url);
     });

@@ -134,8 +134,6 @@ export class CreditListComponent implements OnInit, OnDestroy {
     const el = event.target.children[0];
     this.sortValue = sortValue;
 
-    console.log('el.className', el);
-
     const isSortASC = el.classList.contains('aui-iconfont-arrow-down-small');
 
     if (!isSortASC) {
@@ -169,7 +167,6 @@ export class CreditListComponent implements OnInit, OnDestroy {
   pageChanged(currentPage: number) {
     localStorage.clear();
 
-    console.log(currentPage);
     this.currentPage = currentPage;
     this.getCredits();
   }
