@@ -22,7 +22,10 @@
   display: grid;
   // grid-template-columns: repeat(12, 1fr);
   grid-template-areas: "order id name price";
-  // grid-template-rows: 40px;
+  grid-template-columns: 50px minmax(50px, 0.5fr) minmax(370px, 2fr) minmax(
+      100px,
+      1fr
+    );
   min-height: 40px;
 
   column-gap: 10px;
@@ -31,21 +34,24 @@
 
 .order {
   grid-area: order;
-  width: 50px;
+  // width: 50px;
   // text-align: center;
 }
 
 .id {
   grid-area: id;
-  width: 50px;
+  // width: 50px;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
 }
 
 .name {
   grid-area: name;
-  width: 370px;
+  // width: 370px;
 }
 
 .price {
   grid-area: price;
-  width: 100px;
+  // width: 100px;
 }

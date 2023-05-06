@@ -17,18 +17,14 @@
       (click)="toggleTab('schedule')"
       [class]="tab === 'schedule' ? 'active' : ''"
     >
-      График платежей
+      New tab template
     </button>
   </div>
   <div class="content">
-    <app-general-info
+    <app-general-user-info-confirmation-credit
       [userInfo]="userInfo"
       *ngIf="tab === 'info'"
-    ></app-general-info>
-
-    <app-payment-schedule
-      [userInfo]="userInfo"
-      *ngIf="tab === 'schedule'"
-    ></app-payment-schedule>
+    ></app-general-user-info-confirmation-credit>
+    <div *ngIf="tab === 'schedule'"></div>
   </div>
 </div>

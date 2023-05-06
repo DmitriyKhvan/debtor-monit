@@ -1,0 +1,132 @@
+<div class="info-wrap">
+  <div class="info-seller">
+    <h2 class="title">Информация о продавце</h2>
+    <div class="field">
+      <span class="label">Название компании: </span>
+      <span class="value">{{ userInfo?.merchantGroup }}</span>
+    </div>
+
+    <div *ngIf="userInfo?.merchantName" class="field">
+      <span class="label">Название магазина: </span>
+      <span class="value">{{ userInfo?.merchantName }}</span>
+    </div>
+
+    <div class="field">
+      <span class="label">Адрес: </span>
+      <span class="value">{{ userInfo?.merchantAddress }}</span>
+    </div>
+  </div>
+
+  <div class="info-buyer">
+    <h2 class="title">Информация о покупателе</h2>
+    <div class="field">
+      <span class="label">ФИО: </span>
+      <span class="value">{{ userInfo?.fio }}</span>
+    </div>
+
+    <div *ngIf="userInfo?.docSerial" class="field">
+      <span class="label">Паспортные данные: </span>
+      <span class="value"
+        >{{ userInfo?.docSerial }} {{ userInfo?.docNumber }}</span
+      >
+    </div>
+
+    <div *ngIf="userInfo?.clientAcc" class="field">
+      <span class="label">Номер счёта: </span>
+      <span class="value">{{ userInfo?.clientAcc }}</span>
+    </div>
+
+    <div class="field">
+      <span class="label">Телефон 1: </span>
+      <span class="value">{{ userInfo?.phoneFirst | phoneFormat }}</span>
+      <a
+        *ngIf="userInfo?.phoneFirst && userInfo?.phoneFirst != '+000000000000'"
+        [href]="'https://t.me//' + userInfo?.phoneFirst"
+        class="telegram"
+        target="_blank"
+        ><span class="icon-telegram"></span
+        ><span class="text">Написать</span></a
+      >
+    </div>
+
+    <div class="field">
+      <span class="label">Телефон 2: </span>
+      <span class="value">{{ userInfo?.phoneSecond | phoneFormat }}</span>
+      <a
+        *ngIf="
+          userInfo?.phoneSecond && userInfo?.phoneSecond != '+000000000000'
+        "
+        [href]="'https://t.me//' + userInfo?.phoneSecond"
+        class="telegram"
+        target="_blank"
+        ><span class="icon-telegram"></span
+        ><span class="text">Написать</span></a
+      >
+    </div>
+  </div>
+
+  <div class="info-contract">
+    <h2 class="title">Информация о договоре</h2>
+    <div class="field">
+      <span class="label">Количество товаров: </span>
+      <span class="value">{{ userInfo?.products.length }}</span>
+    </div>
+
+    <div class="field">
+      <span class="label">Общая сумма товаров: </span>
+      <span class="value"
+        >{{ userInfo?.productsSum | numberTransform : false }} сум</span
+      >
+    </div>
+
+    <div class="field">
+      <span class="label">ID кредита для оплаты: </span>
+      <span class="value">{{ userInfo?.contractId }}</span>
+    </div>
+
+    <div *ngIf="userInfo?.loanId" class="field">
+      <span class="label">Номер договора: </span>
+      <span class="value">{{ userInfo?.loanId }}</span>
+    </div>
+
+    <div class="field">
+      <span class="label">Дата договора: </span>
+
+      <app-lozenge2 className="green">{{
+        userInfo?.contractDate
+      }}</app-lozenge2>
+    </div>
+  </div>
+
+  <div class="info-installments">
+    <h2 class="title">Условия договора рассрочки</h2>
+    <div class="field">
+      <span class="label">Срок погашения: </span>
+      <span class="value">{{ userInfo?.periodUse }} мес.</span>
+    </div>
+
+    <div class="field">
+      <span class="label">Общая сумма погашения: </span>
+      <span class="value"
+        >{{ userInfo?.totalSumForPay | numberTransform : false }} сум</span
+      >
+    </div>
+
+    <div *ngIf="userInfo?.monthly" class="field">
+      <span class="label">Ежемесячный платёж: : </span>
+      <span class="value"
+        >{{ userInfo?.monthly | numberTransform : false }} сум</span
+      >
+    </div>
+
+    <div *ngIf="userInfo?.lastPayDate" class="field">
+      <span class="label">Последний платёж: </span>
+      <!-- <span class="value green"
+        >{{ userInfo?.lastPayDate ? userInfo?.lastPayDate : "не имеется" }}
+      </span> -->
+      <app-lozenge2 className="green">{{
+        userInfo?.lastPayDate ? userInfo?.lastPayDate : "не имеется"
+      }}</app-lozenge2>
+    </div>
+  </div>
+</div>

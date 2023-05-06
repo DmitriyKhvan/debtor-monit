@@ -8,6 +8,7 @@ import { MainLayoutComponent } from './widgets/main-layout/main-layout.component
 import { AuthGuard } from './shared/guard/auth.guard';
 import { CalculationSumProductsComponent } from './pages/calculation-sum-products/calculation-sum-products.component';
 import { ConfirmationCreditsComponent } from './pages/confirmation-credits/confirmation-credits.component';
+import { ConfirmationCreditComponent } from './pages/confirmation-credit/confirmation-credit.component';
 
 const routes: Routes = [
   {
@@ -38,7 +39,11 @@ const routes: Routes = [
     canActivate: [AuthGuard],
     children: [
       {
-        path: ':claimsId',
+        path: 'confirmation/:claimsId',
+        component: ConfirmationCreditComponent,
+      },
+      {
+        path: 'foreclosure/:claimsId',
         component: CreditInfoComponent,
       },
     ],

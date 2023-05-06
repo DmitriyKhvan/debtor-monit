@@ -1,8 +1,4 @@
-<div
-  [routerLink]="['/credit', credit.credit.id]"
-  [queryParams]="{ type: 'confirmation' }"
-  class="tr"
->
+<div [routerLink]="['/credit', 'confirmation', credit.credit.id]" class="tr">
   <div class="td order">{{ credit.idx }}</div>
   <div class="td claimsId">{{ credit.credit.id }}</div>
   <div class="td vendor">{{ credit.credit.vendor }}</div>
