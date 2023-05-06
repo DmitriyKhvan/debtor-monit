@@ -61,6 +61,9 @@ import { CalculationProductListComponent } from './entities/calculation-product-
 import { CalculationProductItemComponent } from './entities/calculation-product-list/calculation-product-item/calculation-product-item.component';
 import { InputFormComponent } from './shared/ui/input-form/input-form.component';
 import { AuthIntercepter } from './shared/auth.intercepter';
+import { ConfirmationCreditsComponent } from './pages/confirmation-credits/confirmation-credits.component';
+import { ConfirmationCreditListComponent } from './entities/confirmation-credit-list/confirmation-credit-list.component';
+import { ConfirmationCreditItemComponent } from './entities/confirmation-credit-list/components/confirmation-credit-item/confirmation-credit-item.component';
 
 const INTERCEPTOR_PROVIDER: Provider = {
   provide: HTTP_INTERCEPTORS,
@@ -121,6 +124,9 @@ const CUSTOM_DATE_FORMATS: NgxMatDateFormats = {
     CalculationProductListComponent,
     CalculationProductItemComponent,
     InputFormComponent,
+    ConfirmationCreditsComponent,
+    ConfirmationCreditListComponent,
+    ConfirmationCreditItemComponent,
   ],
   imports: [
     BrowserModule,

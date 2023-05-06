@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import { ActivatedRoute, Params } from '@angular/router';
-import { Observable, switchMap } from 'rxjs';
+import { Observable, combineLatest, switchMap } from 'rxjs';
 import { ApiService } from 'src/app/shared/api/credit.service';
 
 @Component({
@@ -15,13 +15,43 @@ export class CreditInfoComponent {
   constructor(private route: ActivatedRoute, private apiService: ApiService) {}
 
   ngOnInit(): void {
-    this.route.params
+    // this.route.params
+    //   .pipe(
+    //     switchMap((params: Params) => {
+    //       this.loading = true;
+    //       const claimsId = Number(params['claimsId']);
+    //       this.apiService.claimsId = claimsId;
+    //       return this.apiService.getUserInfo(claimsId);
+    //     })
+    //   )
+    //   .subscribe(
+    //     (userInfo) => {
+    //       this.userInfo = userInfo;
+    //       this.loading = false;
+    //     },
+    //     (error) => {
+    //       this.loading = false;
+    //     }
+    //   );
+
+    const urlParametrs = combineLatest(
+      this.route.params,
+      this.route.queryParams,
+      (params, queryParams) => ({ ...params, ...queryParams })
+    );
+
+    urlParametrs
       .pipe(
-        switchMap((params: Params) => {
+        switchMap((routeParams: Params) => {
           this.loading = true;
-          const claimsId = Number(params['claimsId']);
-          this.apiService.claimsId = claimsId;
-          return this.apiService.getUserInfo(claimsId);
+          console.log('routeParams', routeParams);
+          if (routeParams.type === 'confirmation') {
+            return this.apiService.getUserInfoConfirmCredit(
+              routeParams.claimsId
+            );
+          }
+
+          return this.apiService.getUserInfo(routeParams.claimsId);
         })
       )
       .subscribe(

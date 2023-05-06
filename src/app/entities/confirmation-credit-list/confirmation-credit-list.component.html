@@ -1,0 +1,82 @@
+<div class="credits">
+  <div class="table">
+    <div class="thead">
+      <div class="tr">
+        <div class="td order">#</div>
+        <div class="td claimsId">
+          <span class="sort" (click)="sort($event, 'ID')">
+            ID#
+            <span #sorting class=""></span>
+          </span>
+        </div>
+        <div class="td vendor">
+          <span class="sort" (click)="sort($event, 'vendor')"
+            >ВЕНДОР
+            <span #sorting class=""></span>
+          </span>
+        </div>
+        <div class="td fullname">
+          <span class="sort" (click)="sort($event, 'fio')"
+            >ФИО КЛИЕНТА
+            <span #sorting class=""></span>
+          </span>
+        </div>
+        <div class="td phoneFirst">
+          <span class="sort" (click)="sort($event, 'phoneFirst')"
+            >ТЕЛЕФОН 1
+            <span #sorting class=""></span>
+          </span>
+        </div>
+        <div class="td phoneSecond">
+          <span class="sort" (click)="sort($event, 'phoneSecond')"
+            >ТЕЛЕФОН 2
+            <span #sorting class=""></span>
+          </span>
+        </div>
+        <div class="td contractDate">
+          <span class="sort" (click)="sort($event, 'contractDate')"
+            >ДАТА И ВРЕМЯ ЗАЯВКИ
+            <span #sorting class=""></span>
+          </span>
+        </div>
+
+        <div class="td status">
+          <span class="sort" (click)="sort($event, 'STATUS')">
+            Статус
+            <span #sorting class=""></span>
+          </span>
+        </div>
+      </div>
+    </div>
+    <div *ngIf="!loading; else loadingBlock" class="tbody">
+      <ng-container
+        *ngFor="
+          let credit of credits
+            | paginate
+              : {
+                  itemsPerPage: count,
+                  currentPage: currentPage,
+                  totalItems: totalItems
+                };
+          let idx = index
+        "
+      >
+        <app-confirmation-credit-item
+          [status]="dicService.getStatus(dic, credit.status)"
+          [credit]="{ idx: idx + 1, credit }"
+        ></app-confirmation-credit-item>
+      </ng-container>
+    </div>
+    <ng-template #loadingBlock>
+      <app-loader></app-loader>
+    </ng-template>
+  </div>
+
+  <pagination-controls
+    class="my-pagination"
+    previousLabel=""
+    nextLabel=""
+    [autoHide]="true"
+    (pageChange)="pageChanged($event)"
+  ></pagination-controls>
+</div>

@@ -1,0 +1,40 @@
+<div
+  [routerLink]="['/credit', credit.credit.id]"
+  [queryParams]="{ type: 'confirmation' }"
+  class="tr"
+>
+  <div class="td order">{{ credit.idx }}</div>
+  <div class="td claimsId">{{ credit.credit.id }}</div>
+  <div class="td vendor">{{ credit.credit.vendor }}</div>
+  <div class="td fullname">
+    <span>{{ credit.credit.clientFIO }}</span>
+  </div>
+  <!-- <div class="td phone">{{ credit.phone | dateTimeFormat : true }}</div> -->
+  <div class="td phoneFirst">{{ credit.credit.phone_1 | phoneFormat }}</div>
+  <div class="td phoneSecond">
+    {{ credit.credit.phone_2 ? (credit.credit.phone_2 | phoneFormat) : "-" }}
+  </div>
+  <div class="td contractDate">
+    <!-- {{ credit.credit.date | dateTimeFormat : "long" : "long" : true }} -->
+    {{ credit.credit.date }}
+  </div>
+  <!-- <div class="td creditEnd">
+    {{ credit.creditEnd | numberTransform : false }}
+  </div> -->
+  <div class="td status">
+    <!-- <app-lozenge
+      className="{{
+        status?.code === 1
+          ? 'success'
+          : status?.code === 0
+          ? 'warning'
+          : 'default'
+      }}"
+      >{{ status?.name }}</app-lozenge
+    > -->
+
+    <app-lozenge className="{{ statusStyleDic[credit.credit.status] }}">{{
+      statusNameDic[credit.credit.status]
+    }}</app-lozenge>
+  </div>
+</div>

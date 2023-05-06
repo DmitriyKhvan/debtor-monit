@@ -146,4 +146,31 @@ export class ApiService {
         })
       );
   }
+
+  getConfirmationCredits({
+    currentPage,
+    count,
+    sortValue = '',
+    sortType = '',
+    search = '',
+    state = null,
+  }: any): Observable<any> {
+    return this.http
+      .get(
+        `${environment.dbUrl2}/list/${currentPage}/${count}/filtered?search=${search}&state=${state}&${sortType}=${sortValue}`
+      )
+      .pipe(
+        catchError((error) => {
+          return throwError(() => error);
+        })
+      );
+  }
+
+  getUserInfoConfirmCredit(id: number | null): Observable<any> {
+    return this.http.get(`${environment.dbUrl2}/case/${id}`).pipe(
+      catchError((error) => {
+        return throwError(() => error);
+      })
+    );
+  }
 }

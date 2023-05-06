@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { ActivatedRoute, Params } from '@angular/router';
 import { Subscription } from 'rxjs';
 import { FlagService } from 'src/app/shared/api/flag.sevice';
 
@@ -12,7 +13,7 @@ export class CreditLayoutComponent {
   loanId = '';
   flag = false;
 
-  constructor(public flagService: FlagService) {}
+  constructor(private route: ActivatedRoute, public flagService: FlagService) {}
 
   ngOnInit(): void {
     this.flagSub = this.flagService.isActivityForm$.subscribe((data) => {

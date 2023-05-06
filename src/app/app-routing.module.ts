@@ -7,6 +7,7 @@ import { CreditLayoutComponent } from './widgets/credit-layout/credit-layout.com
 import { MainLayoutComponent } from './widgets/main-layout/main-layout.component';
 import { AuthGuard } from './shared/guard/auth.guard';
 import { CalculationSumProductsComponent } from './pages/calculation-sum-products/calculation-sum-products.component';
+import { ConfirmationCreditsComponent } from './pages/confirmation-credits/confirmation-credits.component';
 
 const routes: Routes = [
   {
@@ -19,6 +20,12 @@ const routes: Routes = [
         path: 'credits',
         component: CreditsComponent,
       },
+
+      {
+        path: 'confirmation-credits',
+        component: ConfirmationCreditsComponent,
+      },
+
       {
         path: 'calculation',
         component: CalculationSumProductsComponent,
@@ -36,6 +43,7 @@ const routes: Routes = [
       },
     ],
   },
+
   // { path: 'error', component: ErrorComponent },
   // { path: '**', redirectTo: '/error' },
 ];
