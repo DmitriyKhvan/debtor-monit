@@ -173,4 +173,14 @@ export class ApiService {
       })
     );
   }
+
+  confirmCredit(option: string): Observable<any> {
+    return this.http
+      .patch(`${environment.dbUrl2}/case/${this.claimsId}/${option}`, {})
+      .pipe(
+        catchError((error) => {
+          return throwError(() => error);
+        })
+      );
+  }
 }

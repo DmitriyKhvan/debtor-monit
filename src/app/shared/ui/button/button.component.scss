@@ -27,6 +27,24 @@
   }
 }
 
+.successBtn {
+  background: var(--green-color);
+  color: var(--white-color);
+
+  &:hover {
+    background: #0dcea1;
+  }
+}
+
+.failurBtn {
+  background: var(--red-color);
+  color: var(--white-color);
+
+  &:hover {
+    background: #cf0c0c;
+  }
+}
+
 .defaultBtn {
   background: #f4f5f7;
   color: #253858;
