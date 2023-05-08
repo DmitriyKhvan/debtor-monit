@@ -9,6 +9,8 @@ import { AuthGuard } from './shared/guard/auth.guard';
 import { CalculationSumProductsComponent } from './pages/calculation-sum-products/calculation-sum-products.component';
 import { ConfirmationCreditsComponent } from './pages/confirmation-credits/confirmation-credits.component';
 import { ConfirmationCreditComponent } from './pages/confirmation-credit/confirmation-credit.component';
+import { CreditInfoLayoutComponent } from './widgets/credit-info-layout/credit-info-layout.component';
+import { TestComponent } from './pages/test/test.component';
 
 const routes: Routes = [
   {
@@ -40,11 +42,28 @@ const routes: Routes = [
     children: [
       {
         path: 'confirmation/:claimsId',
-        component: ConfirmationCreditComponent,
+        component: CreditInfoLayoutComponent,
+        children: [
+          { path: '', redirectTo: 'user', pathMatch: 'full' },
+          {
+            path: '',
+            component: ConfirmationCreditComponent,
+          },
+          // {
+          //   path: 'test',
+          //   component: TestComponent,
+          // },
+        ],
       },
       {
         path: 'foreclosure/:claimsId',
-        component: CreditInfoComponent,
+        component: CreditInfoLayoutComponent,
+        children: [
+          {
+            path: '',
+            component: CreditInfoComponent,
+          },
+        ],
       },
     ],
   },

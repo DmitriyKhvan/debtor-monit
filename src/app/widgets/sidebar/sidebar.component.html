@@ -14,7 +14,7 @@
       </div>
     </div>
     <div class="navigation">
-      <a routerLink="/">
+      <a (click)="goBack()">
         <!-- <span class="icon-arrow-left-circle"
           ><span class="path1"></span><span class="path2"></span
         ></span> -->
@@ -29,7 +29,8 @@
   <div class="menu">
     <ul>
       <li routerLinkActive="active">
-        <a [routerLink]="['/credit', apiService.claimsId]">
+        <!-- <a [routerLink]="['foreclosure', apiService.claimsId]"> -->
+        <a>
           <span class="icon-person"
             ><span class="path1"></span><span class="path2"></span
             ><span class="path3"></span

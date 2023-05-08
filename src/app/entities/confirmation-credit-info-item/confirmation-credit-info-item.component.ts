@@ -11,8 +11,23 @@ import { ApiService } from 'src/app/shared/api/credit.service';
 export class ConfirmationCreditInfoItemComponent implements OnInit, OnDestroy {
   @Input() userInfo: any;
   cSub!: Subscription;
+  loader: boolean = false;
+
+  confirmInfo: any = null;
 
   tab = 'info';
+
+  statusStyleDic: any = {
+    1: 'default',
+    2: 'success',
+    3: 'danger',
+  };
+
+  statusNameDic: any = {
+    1: 'НОВАЯ ЗАЯВКА',
+    2: 'ЗАЯВКА ОДОБРЕНА',
+    3: 'ЗАЯВКА ОТКЛОНЕНА ',
+  };
 
   constructor(public apiService: ApiService, private route: ActivatedRoute) {}
 
@@ -23,8 +38,12 @@ export class ConfirmationCreditInfoItemComponent implements OnInit, OnDestroy {
   }
 
   confirmCredit(option: string) {
-    this.cSub = this.apiService.confirmCredit(option).subscribe((res) => {
-      console.log(res);
+    this.loader = true;
+    this.cSub = this.apiService.confirmCredit(option).subscribe((userInfo) => {
+      // this.confirmInfo = res.data;
+      this.userInfo = userInfo;
+
+      this.loader = false;
     });
   }
 

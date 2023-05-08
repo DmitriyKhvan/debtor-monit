@@ -1,4 +1,5 @@
 import { Component, Input } from '@angular/core';
+import { ApiService } from 'src/app/shared/api/credit.service';
 import { Status } from 'src/app/shared/interfaces';
 
 @Component({
@@ -27,5 +28,5 @@ export class ConfirmationCreditItemComponent {
     3: 'Отказано',
   };
 
-  constructor() {}
+  constructor(public apiService: ApiService) {}
 }

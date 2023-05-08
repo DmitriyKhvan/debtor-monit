@@ -20,7 +20,7 @@ import { Status } from 'src/app/shared/interfaces';
 export class ConfirmationCreditListComponent implements OnInit, OnDestroy {
   @HostListener('window:beforeunload', ['$event'])
   onBeforUnload() {
-    // localStorage.clear();
+    localStorage.clear();
   }
 
   @ViewChildren('sorting') sortingRef!: QueryList<ElementRef>;
@@ -64,7 +64,7 @@ export class ConfirmationCreditListComponent implements OnInit, OnDestroy {
 
   ngOnInit(): void {
     this.sSub = this.apiService.search$?.subscribe((search: string) => {
-      // localStorage.clear();
+      localStorage.clear();
 
       this.currentPage = 1;
       this.search = search;
@@ -72,7 +72,7 @@ export class ConfirmationCreditListComponent implements OnInit, OnDestroy {
     });
 
     this.uSub = this.apiService.updateList$?.subscribe(() => {
-      // localStorage.clear();
+      localStorage.clear();
       this.getCredits();
     });
 
@@ -83,22 +83,59 @@ export class ConfirmationCreditListComponent implements OnInit, OnDestroy {
       .subscribe((dic: Status[]) => {
         this.dic = dic;
       });
+
+    if (localStorage.getItem('filterDataConfirm')) {
+      const filterDataConfirm = JSON.parse(
+        localStorage.getItem('filterDataConfirm') || '{}'
+      );
+
+      let el = null;
+
+      if (filterDataConfirm.sortValue) {
+        el = document
+          .querySelector(`.${filterDataConfirm.sortValue}`)
+          ?.querySelector('span');
+
+        // console.log(document.querySelector(`.${filterDataConfirm.sortValue}`));
+      }
+
+      if (filterDataConfirm.sortType === 'desc') {
+        el?.children[0]?.classList.add(
+          'aui-icon',
+          'aui-icon-small',
+          'aui-iconfont-arrow-up-small'
+        );
+      }
+
+      el?.children[0]?.classList.add(
+        'aui-icon',
+        'aui-icon-small',
+        'aui-iconfont-arrow-down-small'
+      );
+    }
   }
 
   getCredits() {
-    // if (localStorage.getItem('credits') && localStorage.getItem('filterData')) {
-    //   const creditsData = JSON.parse(localStorage.getItem('credits') || '{}');
-    //   const filterData = JSON.parse(localStorage.getItem('filterData') || '{}');
+    if (
+      localStorage.getItem('creditsConfirm') &&
+      localStorage.getItem('filterDataConfirm')
+    ) {
+      const creditsData = JSON.parse(
+        localStorage.getItem('creditsConfirm') || '{}'
+      );
+      const filterData = JSON.parse(
+        localStorage.getItem('filterDataConfirm') || '{}'
+      );
 
-    //   this.credits = creditsData.credits;
-    //   this.currentPage = filterData.currentPage;
-    //   this.count = filterData.count;
-    //   this.sortValue = filterData.sortValue;
-    //   this.sortType = filterData.sortType;
-    //   this.search = filterData.search;
-    //   this.totalItems = creditsData.totalItems;
-    //   return;
-    // }
+      this.credits = creditsData.credits;
+      this.currentPage = filterData.currentPage;
+      this.count = filterData.count;
+      this.sortValue = filterData.sortValue;
+      this.sortType = filterData.sortType;
+      this.search = filterData.search;
+      this.totalItems = creditsData.totalItems;
+      return;
+    }
 
     this.loading = true;
     const data = {
@@ -110,7 +147,7 @@ export class ConfirmationCreditListComponent implements OnInit, OnDestroy {
       state: this.state,
     };
 
-    // localStorage.setItem('filterData', JSON.stringify(data));
+    localStorage.setItem('filterDataConfirm', JSON.stringify(data));
 
     this.creditSub = this.apiService.getConfirmationCredits(data).subscribe(
       (credits) => {
@@ -119,10 +156,13 @@ export class ConfirmationCreditListComponent implements OnInit, OnDestroy {
 
         this.loading = false;
 
-        // localStorage.setItem(
-        //   'credits',
-        //   JSON.stringify({ credits: credits.data, totalItems: credits.count })
-        // );
+        localStorage.setItem(
+          'creditsConfirm',
+          JSON.stringify({
+            credits: credits.data.list,
+            totalItems: credits.data.total,
+          })
+        );
       },
       (error) => {
         this.loading = false;
@@ -131,7 +171,7 @@ export class ConfirmationCreditListComponent implements OnInit, OnDestroy {
   }
 
   sort(event: any, sortValue: string) {
-    // localStorage.clear();
+    localStorage.clear();
 
     const el = event.target.children[0];
     this.sortValue = sortValue;
@@ -167,7 +207,7 @@ export class ConfirmationCreditListComponent implements OnInit, OnDestroy {
   }
 
   pageChanged(currentPage: number) {
-    // localStorage.clear();
+    localStorage.clear();
 
     this.currentPage = currentPage;
     this.getCredits();

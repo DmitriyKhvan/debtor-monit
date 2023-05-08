@@ -4,15 +4,12 @@
   font-weight: 600;
   cursor: pointer;
 
+  &:hover,
   &.active {
-    background: #deebff;
-  }
-
-  &:not(.active):hover {
     background: #efefef;
   }
 
-  .fullname {
+  .fio {
     span {
       white-space: nowrap;
       overflow: hidden;

@@ -1,5 +1,8 @@
 <div class="credit-info-item">
-  <h2 class="title">Заявка № {{ apiService.claimsId }}</h2>
+  <!-- <pre>
+    {{ userInfo | json }}
+  </pre> -->
+  <h2 class="title">Заявка № {{ userInfo.data.claimsInfo.id }}</h2>
   <p class="text">
     Тут показано все собранные товары клиента за текущее время. Нужно учитывать,
     что общая сумма товара не должно превышать максимальную сумму рассрочки.
@@ -7,12 +10,24 @@
   </p>
 
   <div class="funcBtns">
-    <app-button (click)="confirmCredit('1')" className="btn medium successBtn"
-      >Одобрить</app-button
+    <ng-container *ngIf="!loader && userInfo.data.state == '1'">
+      <app-button (click)="confirmCredit('1')" className="btn big successBtn"
+        >Одобрить</app-button
+      >
+      <app-button (click)="confirmCredit('0')" className="btn big failurBtn"
+        >Отказать</app-button
+      >
+    </ng-container>
+
+    <app-lozenge
+      className="{{ statusStyleDic[userInfo.data.state] }} large"
+      *ngIf="userInfo.data.state != '1'"
+      >{{ statusNameDic[userInfo.data.state] }}</app-lozenge
     >
-    <app-button (click)="confirmCredit('0')" className="btn medium failurBtn"
-      >Отказать</app-button
-    >
+
+    <ng-container *ngIf="loader">
+      <app-loader></app-loader>
+    </ng-container>
   </div>
 
   <div class="tabs">
@@ -22,12 +37,12 @@
     >
       Общая информация
     </button>
-    <button
+    <!-- <button
       (click)="toggleTab('schedule')"
       [class]="tab === 'schedule' ? 'active' : ''"
     >
       New tab template
-    </button>
+    </button> -->
   </div>
   <div class="content">
     <app-general-user-info-confirmation-credit

@@ -22,42 +22,42 @@ export class ConfirmationCreditComponent implements OnInit {
           const claimsId = Number(params['claimsId']);
           this.apiService.claimsId = claimsId;
           return this.apiService.getUserInfoConfirmCredit(claimsId);
-        }),
-        map((userInfo) => {
-          return {
-            //merchant------------------
-            merchantGroup: userInfo.data.merchant.vendor,
-            // merchantName: userInfo.data.merchant.vendor,
-            merchantAddress: userInfo.data.merchant.address,
-
-            //client-------------------
-            fio: userInfo.data.client.fullName,
-            phoneFirst: userInfo.data.client.phone_1,
-            phoneSecond: userInfo.data.client.phone_2,
-            // docSerial: userInfo.data.client.docSerial,
-            // docNumber: userInfo.data.client.docNumber,
-            // clientAcc: userInfo.data.,
-
-            products: userInfo.data.products.map((product: any) => {
-              return {
-                id: Date.now(),
-                name: product.name,
-                price: product.amount,
-              };
-            }),
-
-            //contract----------------
-            productsSum: userInfo.data.contract.productsAmount,
-            contractId: userInfo.data.contract.contractId,
-            contractDate: userInfo.data.contract.contractDate,
-
-            //loanInfo----------------
-            periodUse: userInfo.data.loanInfo.period,
-            totalSumForPay: userInfo.data.loanInfo.loanAmount,
-            monthly: userInfo.data.loanInfo.monthly,
-            // lastPayDate: userInfo.data.,
-          };
         })
+        // map((userInfo) => {
+        //   return {
+        //     //merchant------------------
+        //     // merchantGroup: userInfo.data.merchant.vendor,
+        //     merchantName: userInfo.data.merchant.vendor,
+        //     merchantAddress: userInfo.data.merchant.address,
+
+        //     //client-------------------
+        //     fio: userInfo.data.client.fullName,
+        //     phoneFirst: userInfo.data.client.phone_1,
+        //     phoneSecond: userInfo.data.client.phone_2,
+        //     // docSerial: userInfo.data.client.docSerial,
+        //     // docNumber: userInfo.data.client.docNumber,
+        //     // clientAcc: userInfo.data.,
+
+        //     products: userInfo.data.products.map((product: any) => {
+        //       return {
+        //         name: product.name,
+        //         price: product.amount,
+        //       };
+        //     }),
+
+        //     //contract----------------
+        //     productsSum: userInfo.data.contract.productsAmount,
+        //     loanId: userInfo.data.contract.loanId,
+        //     contractDate: userInfo.data.contract.contractDate,
+
+        //     //loanInfo----------------
+        //     periodUse: userInfo.data.loanInfo.period,
+        //     totalSumForPay: userInfo.data.loanInfo.loanAmount,
+        //     monthly: userInfo.data.loanInfo.monthly,
+        //     // lastPayDate: userInfo.data.,
+        //     state: userInfo.data.state,
+        //   };
+        // })
       )
       .subscribe(
         (userInfo) => {

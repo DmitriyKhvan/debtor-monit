@@ -1,8 +1,12 @@
-<div [routerLink]="['/credit', 'confirmation', credit.credit.id]" class="tr">
+<div
+  [routerLink]="['/credit', 'confirmation', credit.credit.id]"
+  class="tr"
+  [class]="credit.credit.id === apiService.claimsId ? 'active' : ''"
+>
   <div class="td order">{{ credit.idx }}</div>
   <div class="td claimsId">{{ credit.credit.id }}</div>
   <div class="td vendor">{{ credit.credit.vendor }}</div>
-  <div class="td fullname">
+  <div class="td fio">
     <span>{{ credit.credit.clientFIO }}</span>
   </div>
   <!-- <div class="td phone">{{ credit.phone | dateTimeFormat : true }}</div> -->

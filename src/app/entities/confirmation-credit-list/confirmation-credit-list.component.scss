@@ -46,7 +46,7 @@
 
   // grid-template-columns: 30px 70px 136px 30% 136px 136px 90px 90px 100px;
 
-  grid-template-areas: "order claimsId vendor fullname phoneFirst phoneSecond contractDate status";
+  grid-template-areas: "order claimsId vendor fio phoneFirst phoneSecond contractDate status";
   grid-template-columns:
     30px minmax(70px, 0.5fr) minmax(300px, 2fr)
     minmax(290px, 1fr) minmax(136px, 1fr) minmax(136px, 1fr) minmax(280px, 1fr) minmax(120px, 1fr);
@@ -73,8 +73,8 @@
   // width: 300px;
 }
 
-.fullname {
-  grid-area: fullname;
+.fio {
+  grid-area: fio;
   // width: 290px;
 }
 

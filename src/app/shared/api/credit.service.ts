@@ -36,6 +36,19 @@ export class ApiService {
 
   loader: boolean = false;
 
+  // objUser = {
+  //   CREDIT: arrayObj[0],
+  //   TEST: 'test',
+  // } as const;
+
+  // arrayObj = [
+  //   'foreclosure': [
+  //     {'path': '/'},
+  //     ...props
+
+  //   ]
+  // ]
+
   constructor(private http: HttpClient) {}
 
   getCredits({

@@ -1,8 +1,13 @@
 <div class="general-info">
   <div class="info">
-    <app-user-info [userInfo]="userInfo"></app-user-info>
+    <app-user-info-confirm [userInfo]="userInfo"></app-user-info-confirm>
 
-    <app-product-list [products]="userInfo?.products"></app-product-list>
+    <app-product-list-confirm
+      [products]="userInfo?.data.products"
+    ></app-product-list-confirm>
   </div>
   <!-- <app-activity [loanId]="userInfo?.loanId"></app-activity> -->
+  <div class="avatar">
+    <img [src]="'data:image/png;base64,' + userInfo?.data.image" alt="" />
+  </div>
 </div>

@@ -68,6 +68,11 @@ import { ConfirmationCreditComponent } from './pages/confirmation-credit/confirm
 import { ConfirmationCreditInfoItemComponent } from './entities/confirmation-credit-info-item/confirmation-credit-info-item.component';
 import { UserInfoComponent } from './entities/user-info/user-info.component';
 import { GeneralUserInfoConfirmationCreditComponent } from './entities/confirmation-credit-info-item/components/general-user-info-confirmation-credit/general-user-info-confirmation-credit.component';
+import { CreditInfoLayoutComponent } from './widgets/credit-info-layout/credit-info-layout.component';
+import { TestComponent } from './pages/test/test.component';
+import { UserInfoConfirmComponent } from './entities/confirmation-credit-info-item/components/user-info-confirm/user-info-confirm.component';
+import { ProductListConfirmComponent } from './entities/confirmation-credit-info-item/components/product-list-confirm/product-list-confirm.component';
+import { ProductListConfirmItemComponent } from './entities/confirmation-credit-info-item/components/product-list-confirm/components/product-list-confirm-item/product-list-confirm-item.component';
 
 const INTERCEPTOR_PROVIDER: Provider = {
   provide: HTTP_INTERCEPTORS,
@@ -135,6 +140,11 @@ const CUSTOM_DATE_FORMATS: NgxMatDateFormats = {
     ConfirmationCreditInfoItemComponent,
     UserInfoComponent,
     GeneralUserInfoConfirmationCreditComponent,
+    CreditInfoLayoutComponent,
+    TestComponent,
+    UserInfoConfirmComponent,
+    ProductListConfirmComponent,
+    ProductListConfirmItemComponent,
   ],
   imports: [
     BrowserModule,

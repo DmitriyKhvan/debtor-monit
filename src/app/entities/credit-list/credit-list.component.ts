@@ -82,6 +82,32 @@ export class CreditListComponent implements OnInit, OnDestroy {
       .subscribe((dic: Status[]) => {
         this.dic = dic;
       });
+
+    if (localStorage.getItem('filterData')) {
+      const filterData = JSON.parse(localStorage.getItem('filterData') || '{}');
+
+      let el = null;
+
+      if (filterData.sortValue) {
+        el = document
+          .querySelector(`.${filterData.sortValue}`)
+          ?.querySelector('span');
+      }
+
+      if (filterData.sortType === 'DESC') {
+        el?.children[0]?.classList.add(
+          'aui-icon',
+          'aui-icon-small',
+          'aui-iconfont-arrow-up-small'
+        );
+      }
+
+      el?.children[0]?.classList.add(
+        'aui-icon',
+        'aui-icon-small',
+        'aui-iconfont-arrow-down-small'
+      );
+    }
   }
 
   getCredits() {
