@@ -28,6 +28,12 @@ export class SearchCreditsComponent implements OnInit, OnDestroy {
       this.value = JSON.parse(localStorage.getItem('filterData') || '')?.search;
     }
 
+    if (localStorage.getItem('filterDataConfirm')) {
+      this.value = JSON.parse(
+        localStorage.getItem('filterDataConfirm') || ''
+      )?.search;
+    }
+
     // console.log(this.inputRef.nativeElement.children[0].children[0]);
 
     this.sSub = fromEvent(

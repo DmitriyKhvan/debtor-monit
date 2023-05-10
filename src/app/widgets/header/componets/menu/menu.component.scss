@@ -8,33 +8,49 @@
         display: inline-flex;
         align-items: center;
         position: relative;
-        height: 52px;
+        // min-width: 208px;
+        height: 40px;
         margin: 0 5px;
+        border-radius: 3px;
+        padding: 0 13px;
 
-        &.active::after {
-          position: absolute;
-          bottom: 0;
-          left: 50%;
-          margin-left: -45%;
-          content: "";
-          width: 90%;
-          height: 3px;
-          border-radius: 2px 2px 0 0;
-          background: var(--blue-color);
+        &:hover {
+          background: rgba(9, 30, 66, 0.04);
         }
 
-        span {
+        &:hover .text {
+          color: var(--blue-color);
+        }
+
+        &:hover [class^="icon"] .path2:before,
+        &:hover [class^="icon"] .path1:before {
+          color: var(--blue-color);
+        }
+
+        [class^="icon"] {
+          font-size: 24px;
+        }
+
+        &.active {
+          background: rgba(9, 30, 66, 0.04);
+
+          .text {
+            color: var(--blue-color);
+          }
+
+          [class^="icon"] .path2:before,
+          [class^="icon"] .path1:before {
+            color: var(--blue-color);
+          }
+        }
+
+        .text {
           text-transform: uppercase;
           font-size: 14px;
           font-weight: 600;
           color: var(--blue-darck-color);
           padding: 6px 12px;
           border-radius: 5px;
-
-          &:hover {
-            background: var(--blue-light-color);
-            color: var(--blue-color);
-          }
         }
       }
     }

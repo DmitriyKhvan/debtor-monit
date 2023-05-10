@@ -36,6 +36,19 @@ export class ApiService {
 
   loader: boolean = false;
 
+  // objUser = {
+  //   CREDIT: arrayObj[0],
+  //   TEST: 'test',
+  // } as const;
+
+  // arrayObj = [
+  //   'foreclosure': [
+  //     {'path': '/'},
+  //     ...props
+
+  //   ]
+  // ]
+
   constructor(private http: HttpClient) {}
 
   getCredits({
@@ -140,6 +153,43 @@ export class ApiService {
         },
         responseType: 'blob',
       })
+      .pipe(
+        catchError((error) => {
+          return throwError(() => error);
+        })
+      );
+  }
+
+  getConfirmationCredits({
+    currentPage,
+    count,
+    sortValue = '',
+    sortType = '',
+    search = '',
+    state = null,
+  }: any): Observable<any> {
+    return this.http
+      .get(
+        `${environment.dbUrl2}/list/${currentPage}/${count}/filtered?search=${search}&state=${state}&${sortType}=${sortValue}`
+      )
+      .pipe(
+        catchError((error) => {
+          return throwError(() => error);
+        })
+      );
+  }
+
+  getUserInfoConfirmCredit(id: number | null): Observable<any> {
+    return this.http.get(`${environment.dbUrl2}/case/${id}`).pipe(
+      catchError((error) => {
+        return throwError(() => error);
+      })
+    );
+  }
+
+  confirmCredit(option: string): Observable<any> {
+    return this.http
+      .patch(`${environment.dbUrl2}/case/${this.claimsId}/${option}`, {})
       .pipe(
         catchError((error) => {
           return throwError(() => error);

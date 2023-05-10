@@ -7,6 +7,10 @@ import { CreditLayoutComponent } from './widgets/credit-layout/credit-layout.com
 import { MainLayoutComponent } from './widgets/main-layout/main-layout.component';
 import { AuthGuard } from './shared/guard/auth.guard';
 import { CalculationSumProductsComponent } from './pages/calculation-sum-products/calculation-sum-products.component';
+import { ConfirmationCreditsComponent } from './pages/confirmation-credits/confirmation-credits.component';
+import { ConfirmationCreditComponent } from './pages/confirmation-credit/confirmation-credit.component';
+import { CreditInfoLayoutComponent } from './widgets/credit-info-layout/credit-info-layout.component';
+import { TestComponent } from './pages/test/test.component';
 
 const routes: Routes = [
   {
@@ -19,6 +23,12 @@ const routes: Routes = [
         path: 'credits',
         component: CreditsComponent,
       },
+
+      {
+        path: 'confirmation-credits',
+        component: ConfirmationCreditsComponent,
+      },
+
       {
         path: 'calculation',
         component: CalculationSumProductsComponent,
@@ -31,11 +41,33 @@ const routes: Routes = [
     canActivate: [AuthGuard],
     children: [
       {
-        path: ':claimsId',
-        component: CreditInfoComponent,
+        path: 'confirmation/:claimsId',
+        component: CreditInfoLayoutComponent,
+        children: [
+          { path: '', redirectTo: 'user', pathMatch: 'full' },
+          {
+            path: '',
+            component: ConfirmationCreditComponent,
+          },
+          // {
+          //   path: 'test',
+          //   component: TestComponent,
+          // },
+        ],
+      },
+      {
+        path: 'foreclosure/:claimsId',
+        component: CreditInfoLayoutComponent,
+        children: [
+          {
+            path: '',
+            component: CreditInfoComponent,
+          },
+        ],
       },
     ],
   },
+
   // { path: 'error', component: ErrorComponent },
   // { path: '**', redirectTo: '/error' },
 ];

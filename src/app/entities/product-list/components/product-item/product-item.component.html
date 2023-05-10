@@ -1,10 +1,11 @@
 <div class="tr">
   <div class="td order">{{ idx }}</div>
-  <div class="td id">{{ product.id }}</div>
+  <div class="td id">{{ product.id || "-" }}</div>
   <div class="td name">{{ product.name }}</div>
   <div class="td price">
-    <app-lozenge2 className="blue">{{
+    <app-lozenge2 *ngIf="product.price; else empty" className="blue">{{
       product.price | numberTransform : false
     }}</app-lozenge2>
+    <ng-template #empty>-</ng-template>
   </div>
 </div>

@@ -1,0 +1,19 @@
+.tr {
+  color: var(--black-color);
+  font-size: 14px;
+  font-weight: 600;
+  cursor: pointer;
+
+  &:hover,
+  &.active {
+    background: #efefef;
+  }
+
+  .fio {
+    span {
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+    }
+  }
+}

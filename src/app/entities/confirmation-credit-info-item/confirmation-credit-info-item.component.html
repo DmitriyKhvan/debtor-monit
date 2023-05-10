@@ -1,0 +1,54 @@
+<div class="credit-info-item">
+  <!-- <pre>
+    {{ userInfo | json }}
+  </pre> -->
+  <h2 class="title">Заявка № {{ userInfo.data.claimsInfo.id }}</h2>
+  <p class="text">
+    Тут показано все собранные товары клиента за текущее время. Нужно учитывать,
+    что общая сумма товара не должно превышать максимальную сумму рассрочки.
+    <a href="#">Подробнее</a>
+  </p>
+
+  <div class="funcBtns">
+    <ng-container *ngIf="!loader && userInfo.data.state == '1'">
+      <app-button (click)="confirmCredit('1')" className="btn big successBtn"
+        >Одобрить</app-button
+      >
+      <app-button (click)="confirmCredit('0')" className="btn big failurBtn"
+        >Отказать</app-button
+      >
+    </ng-container>
+
+    <app-lozenge
+      className="{{ statusStyleDic[userInfo.data.state] }} large"
+      *ngIf="userInfo.data.state != '1'"
+      >{{ statusNameDic[userInfo.data.state] }}</app-lozenge
+    >
+
+    <ng-container *ngIf="loader">
+      <app-loader></app-loader>
+    </ng-container>
+  </div>
+
+  <div class="tabs">
+    <button
+      (click)="toggleTab('info')"
+      [class]="tab === 'info' ? 'active' : ''"
+    >
+      Общая информация
+    </button>
+    <!-- <button
+      (click)="toggleTab('schedule')"
+      [class]="tab === 'schedule' ? 'active' : ''"
+    >
+      New tab template
+    </button> -->
+  </div>
+  <div class="content">
+    <app-general-user-info-confirmation-credit
+      [userInfo]="userInfo"
+      *ngIf="tab === 'info'"
+    ></app-general-user-info-confirmation-credit>
+    <div *ngIf="tab === 'schedule'"></div>
+  </div>
+</div>

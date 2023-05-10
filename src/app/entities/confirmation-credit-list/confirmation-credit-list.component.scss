@@ -1,0 +1,158 @@
+.credits {
+  display: grid;
+  align-content: space-between;
+  height: calc(100% - 106px);
+  margin-top: 22px;
+}
+
+.table {
+  overflow-x: auto;
+  height: calc(100vh - 250px);
+
+  .thead {
+    position: sticky;
+    top: 0;
+    background: #fff;
+    border-bottom: 2px solid rgba(9, 30, 66, 0.08);
+    .tr {
+      color: var(--grey-color);
+      font-size: 12px;
+    }
+  }
+
+  .tbody {
+    border-bottom: 2px solid rgba(9, 30, 66, 0.08);
+  }
+}
+
+.sort {
+  display: flex;
+  align-items: center;
+  cursor: pointer;
+
+  span {
+    z-index: -1;
+  }
+  &::before {
+    // font-size: 20px;
+  }
+}
+
+.tr {
+  display: grid;
+  grid-template-rows: 40px;
+  align-items: center;
+  column-gap: 10px;
+
+  // grid-template-columns: 30px 70px 136px 30% 136px 136px 90px 90px 100px;
+
+  grid-template-areas: "order claimsId vendor fio phoneFirst phoneSecond contractDate status";
+  grid-template-columns:
+    30px minmax(70px, 0.5fr) minmax(300px, 2fr)
+    minmax(290px, 1fr) minmax(136px, 1fr) minmax(136px, 1fr) minmax(280px, 1fr) minmax(120px, 1fr);
+
+  .td:not(.order) {
+    display: flex;
+    align-items: center;
+  }
+}
+
+.order {
+  text-align: center;
+  grid-area: order;
+  // width: 30px;
+}
+
+.claimsId {
+  grid-area: claimsId;
+  // width: 70px;
+}
+
+.vendor {
+  grid-area: vendor;
+  // width: 300px;
+}
+
+.fio {
+  grid-area: fio;
+  // width: 290px;
+}
+
+.phoneFirst {
+  grid-area: phoneFirst;
+  // width: 136px;
+}
+
+.phoneSecond {
+  grid-area: phoneSecond;
+  // width: 136px;
+}
+
+.contractDate {
+  grid-area: contractDate;
+  // width: 280px;
+}
+
+.status {
+  grid-area: status;
+  // width: 120px;
+}
+
+.my-pagination ::ng-deep {
+  display: grid;
+  justify-content: center;
+
+  .ngx-pagination .current {
+    background: #253858;
+    width: auto;
+    height: 32px;
+    border-radius: 3px;
+    padding: 6px 12px;
+  }
+
+  .ngx-pagination a {
+    width: auto;
+    height: 32px;
+    border-radius: 3px;
+    padding: 6px 12px;
+  }
+
+  .ngx-pagination a:hover,
+  .ngx-pagination button:hover {
+    background: #e6e6e6;
+  }
+
+  .pagination-next a::after,
+  .pagination-next.disabled::after {
+    content: "";
+    width: 8px;
+    height: 8px;
+    border-bottom: 0;
+    border-top: 2px;
+    border-left: 0;
+    border-right: 2px;
+    transform: rotate(45deg);
+    border-style: solid;
+    // border-color: #253858;
+    margin-left: -1px;
+  }
+
+  .pagination-previous a::before,
+  .pagination-previous.disabled::before {
+    content: "";
+    width: 8px;
+    height: 8px;
+    border-bottom: 0;
+    border-top: 2px;
+    border-left: 0;
+    border-right: 2px;
+    transform: rotate(-135deg);
+    border-style: solid;
+    // border-color: #253858;
+  }
+
+  .pagination-previous,
+  .pagination-next {
+    width: 32px;
+  }
+}

@@ -1,6 +1,6 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Params } from '@angular/router';
-import { Observable, switchMap } from 'rxjs';
+import { Observable, combineLatest, switchMap } from 'rxjs';
 import { ApiService } from 'src/app/shared/api/credit.service';
 
 @Component({
@@ -8,7 +8,7 @@ import { ApiService } from 'src/app/shared/api/credit.service';
   templateUrl: './credit-info.component.html',
   styleUrls: ['./credit-info.component.scss'],
 })
-export class CreditInfoComponent {
+export class CreditInfoComponent implements OnInit {
   userInfo: null | undefined;
   loading: boolean = true;
 
@@ -33,5 +33,35 @@ export class CreditInfoComponent {
           this.loading = false;
         }
       );
+
+    // const urlParametrs = combineLatest(
+    //   this.route.params,
+    //   this.route.queryParams,
+    //   (params, queryParams) => ({ ...params, ...queryParams })
+    // );
+
+    // urlParametrs
+    //   .pipe(
+    //     switchMap((routeParams: Params) => {
+    //       this.loading = true;
+    //       console.log('routeParams', routeParams);
+    //       if (routeParams.type === 'confirmation') {
+    //         return this.apiService.getUserInfoConfirmCredit(
+    //           routeParams.claimsId
+    //         );
+    //       }
+
+    //       return this.apiService.getUserInfo(routeParams.claimsId);
+    //     })
+    //   )
+    //   .subscribe(
+    //     (userInfo) => {
+    //       this.userInfo = userInfo;
+    //       this.loading = false;
+    //     },
+    //     (error) => {
+    //       this.loading = false;
+    //     }
+    //   );
   }
 }

@@ -1,6 +1,9 @@
 import { Component } from '@angular/core';
+import { ActivatedRoute, Params } from '@angular/router';
 import { Subscription } from 'rxjs';
 import { FlagService } from 'src/app/shared/api/flag.sevice';
+import { Location } from '@angular/common';
+import { ApiService } from 'src/app/shared/api/credit.service';
 
 @Component({
   selector: 'app-credit-layout',
@@ -12,7 +15,12 @@ export class CreditLayoutComponent {
   loanId = '';
   flag = false;
 
-  constructor(public flagService: FlagService) {}
+  constructor(
+    private apiService: ApiService,
+    private route: ActivatedRoute,
+    public flagService: FlagService,
+    private location: Location
+  ) {}
 
   ngOnInit(): void {
     this.flagSub = this.flagService.isActivityForm$.subscribe((data) => {
@@ -20,7 +28,19 @@ export class CreditLayoutComponent {
       this.loanId = data.loanId;
       // debugger;
     });
+
+    // this.apiService.arrayObj
+
+    // console.log(this.location.path());
   }
+
+  // addPath(){
+  //   for(let [key,value] of this.apiService.objUser){
+  //     if(this.location.path().includes(key.toLowerCase())){
+
+  //     }
+  //   }
+  // }
 
   closeTooltip(event: any) {
     if (!event.target.classList.contains('remove')) {

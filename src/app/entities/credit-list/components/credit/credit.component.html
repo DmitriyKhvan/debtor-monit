@@ -1,7 +1,7 @@
 <div
-  [routerLink]="['/credit', credit.credit.claimsId]"
+  [routerLink]="['/credit', 'foreclosure', credit.credit.claimsId]"
   class="tr"
-  [class.active]="credit.credit.id === currentId"
+  [class]="credit.credit.claimsId === apiService.claimsId ? 'active' : ''"
 >
   <div class="td order">{{ credit.idx }}</div>
   <div class="td claimsId">{{ credit.credit.claimsId }}</div>

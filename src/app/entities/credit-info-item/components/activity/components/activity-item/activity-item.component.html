@@ -12,7 +12,7 @@
           {{ action.user.middleName }}
         </span>
         <span class="date">{{
-          action.createdAt | dateTimeFormat : "short" : true
+          action.createdAt | dateTimeFormat : "short" : undefined : true
         }}</span>
       </div>
 
@@ -23,7 +23,7 @@
 
       <div *ngIf="action.reminder" class="comment">
         Напоминание настроено на
-        {{ action.reminder | dateTimeFormat : "numeric" : true }}
+        {{ action.reminder | dateTimeFormat : "numeric" : undefined : true }}
       </div>
       <div class="comment">{{ action.text }}</div>
 

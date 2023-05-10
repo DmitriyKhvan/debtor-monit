@@ -28,10 +28,10 @@ import { CreditInfoComponent } from './pages/credit/credit-info.component';
 import { CreditInfoItemComponent } from './entities/credit-info-item/credit-info-item.component';
 import { PaymentScheduleComponent } from './entities/credit-info-item/components/payment-schedule/payment-schedule.component';
 import { GeneralInfoComponent } from './entities/credit-info-item/components/general-info/general-info.component';
-import { ProductListComponent } from './entities/credit-info-item/components/product-list/product-list.component';
+import { ProductListComponent } from './entities/product-list/product-list.component';
 import { ActivityComponent } from './entities/credit-info-item/components/activity/activity.component';
 import { ActivityItemComponent } from './entities/credit-info-item/components/activity/components/activity-item/activity-item.component';
-import { ProductItemComponent } from './entities/credit-info-item/components/product-list/components/product-item/product-item.component';
+import { ProductItemComponent } from './entities/product-list/components/product-item/product-item.component';
 import { CreditLayoutComponent } from './widgets/credit-layout/credit-layout.component';
 import { PaymentItemComponent } from './entities/credit-info-item/components/payment-schedule/components/payment-item/payment-item.component';
 import { ActivityPopUpComponent } from './widgets/activity-pop-up/activity-pop-up.component';
@@ -61,6 +61,18 @@ import { CalculationProductListComponent } from './entities/calculation-product-
 import { CalculationProductItemComponent } from './entities/calculation-product-list/calculation-product-item/calculation-product-item.component';
 import { InputFormComponent } from './shared/ui/input-form/input-form.component';
 import { AuthIntercepter } from './shared/auth.intercepter';
+import { ConfirmationCreditsComponent } from './pages/confirmation-credits/confirmation-credits.component';
+import { ConfirmationCreditListComponent } from './entities/confirmation-credit-list/confirmation-credit-list.component';
+import { ConfirmationCreditItemComponent } from './entities/confirmation-credit-list/components/confirmation-credit-item/confirmation-credit-item.component';
+import { ConfirmationCreditComponent } from './pages/confirmation-credit/confirmation-credit.component';
+import { ConfirmationCreditInfoItemComponent } from './entities/confirmation-credit-info-item/confirmation-credit-info-item.component';
+import { UserInfoComponent } from './entities/user-info/user-info.component';
+import { GeneralUserInfoConfirmationCreditComponent } from './entities/confirmation-credit-info-item/components/general-user-info-confirmation-credit/general-user-info-confirmation-credit.component';
+import { CreditInfoLayoutComponent } from './widgets/credit-info-layout/credit-info-layout.component';
+import { TestComponent } from './pages/test/test.component';
+import { UserInfoConfirmComponent } from './entities/confirmation-credit-info-item/components/user-info-confirm/user-info-confirm.component';
+import { ProductListConfirmComponent } from './entities/confirmation-credit-info-item/components/product-list-confirm/product-list-confirm.component';
+import { ProductListConfirmItemComponent } from './entities/confirmation-credit-info-item/components/product-list-confirm/components/product-list-confirm-item/product-list-confirm-item.component';
 
 const INTERCEPTOR_PROVIDER: Provider = {
   provide: HTTP_INTERCEPTORS,
@@ -121,6 +133,18 @@ const CUSTOM_DATE_FORMATS: NgxMatDateFormats = {
     CalculationProductListComponent,
     CalculationProductItemComponent,
     InputFormComponent,
+    ConfirmationCreditsComponent,
+    ConfirmationCreditListComponent,
+    ConfirmationCreditItemComponent,
+    ConfirmationCreditComponent,
+    ConfirmationCreditInfoItemComponent,
+    UserInfoComponent,
+    GeneralUserInfoConfirmationCreditComponent,
+    CreditInfoLayoutComponent,
+    TestComponent,
+    UserInfoConfirmComponent,
+    ProductListConfirmComponent,
+    ProductListConfirmItemComponent,
   ],
   imports: [
     BrowserModule,
