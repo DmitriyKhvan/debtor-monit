@@ -10,7 +10,7 @@ services:
       dockerfile: Dockerfile
     environment:
       - DBURL=https://cc.lendo.uz/api
-      - DBURL2=http://10.1.1.14:5415/support/confirm
+      - DBURL2=https://cc.lendo.uz/api2/support/confirm
       - AUTHURL=https://auth.flexit.uz/auth
       - FILEURL=http://dev.lendo.uz/files
     ports:
