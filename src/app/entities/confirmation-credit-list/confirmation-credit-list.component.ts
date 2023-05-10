@@ -96,7 +96,7 @@ export class ConfirmationCreditListComponent implements OnInit, OnDestroy {
           .querySelector(`.${filterDataConfirm.sortValue}`)
           ?.querySelector('span');
 
-        // console.log(document.querySelector(`.${filterDataConfirm.sortValue}`));
+        console.log(document.querySelector(`.${filterDataConfirm.sortValue}`));
       }
 
       if (filterDataConfirm.sortType === 'desc') {

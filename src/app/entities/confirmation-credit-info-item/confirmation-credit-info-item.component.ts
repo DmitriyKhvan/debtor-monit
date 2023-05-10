@@ -44,6 +44,14 @@ export class ConfirmationCreditInfoItemComponent implements OnInit, OnDestroy {
       this.userInfo = userInfo;
 
       this.loader = false;
+
+      let data = JSON.parse(localStorage.getItem('creditsConfirm') || '{}');
+      const idx = data.credits.findIndex(
+        (credit: any) => credit.id === userInfo.data.claimsInfo.id
+      );
+      data.credits[idx].status = userInfo.data.state;
+
+      localStorage.setItem('creditsConfirm', JSON.stringify(data));
     });
   }
 
