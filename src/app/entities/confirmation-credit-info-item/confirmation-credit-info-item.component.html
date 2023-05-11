@@ -11,19 +11,28 @@
 
   <div class="funcBtns">
     <ng-container *ngIf="!loader && userInfo.data.state == '1'">
-      <app-button (click)="confirmCredit('1')" className="btn big successBtn"
+      <app-button
+        (click)="confirmCredit('1', 'Одобрить рассрочку')"
+        className="btn big successBtn"
         >Одобрить</app-button
       >
-      <app-button (click)="confirmCredit('0')" className="btn big failurBtn"
+      <app-button
+        (click)="confirmCredit('0', 'Отказать рассрочку')"
+        className="btn big failurBtn"
         >Отказать</app-button
       >
     </ng-container>
 
-    <app-lozenge
-      className="{{ statusStyleDic[userInfo.data.state] }} large"
-      *ngIf="userInfo.data.state != '1'"
-      >{{ statusNameDic[userInfo.data.state] }}</app-lozenge
-    >
+    <ng-container *ngIf="userInfo.data.state != '1'">
+      <app-lozenge
+        className="{{ statusStyleDic[userInfo.data.state] }} large"
+        >{{ statusNameDic[userInfo.data.state] }}</app-lozenge
+      >
+
+      <div class="commentConfrim">
+        Комментарий: <strong class="comment">{{ comment }}</strong>
+      </div>
+    </ng-container>
 
     <ng-container *ngIf="loader">
       <app-loader></app-loader>
