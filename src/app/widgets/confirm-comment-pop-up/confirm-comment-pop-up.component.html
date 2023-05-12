@@ -1,0 +1,42 @@
+<div class="activity-form">
+  <div class="activity-form__wrap">
+    <span (click)="closeForm()" class="close icon-cl0ose"
+      ><span class="path1"></span><span class="path2"></span
+    ></span>
+    <h2 class="title">{{ title }}</h2>
+    <form [formGroup]="form" (ngSubmit)="submitHandler()">
+      <label class="field">
+        <div class="key">Комментарий</div>
+        <div class="value">
+          <textarea
+            placeholder="Введите данные"
+            formControlName="comment"
+          ></textarea>
+        </div>
+        <div
+          *ngIf="form.get('comment')?.touched && form.get('comment')?.invalid"
+          class="validation"
+        >
+          <small *ngIf="form.get('comment')?.errors?.required">
+            Введите данные
+          </small>
+        </div>
+      </label>
+
+      <div class="btns">
+        <app-button
+          type="submit"
+          [disabled]="form.invalid || submitted"
+          className="btn primaryBtn medium"
+          >Потвердить</app-button
+        >
+        <app-button
+          type="button"
+          (click)="closeForm()"
+          className="btn defaultBtn medium"
+          >Отмена</app-button
+        >
+      </div>
+    </form>
+  </div>
+</div>

@@ -196,4 +196,22 @@ export class ApiService {
         })
       );
   }
+
+  confirmComment(data: any): Observable<any> {
+    return this.http
+      .post(`${environment.dbUrl2}/comment/${this.claimsId}`, data)
+      .pipe(
+        catchError((error) => {
+          return throwError(() => error);
+        })
+      );
+  }
+
+  getConfirmComment(): Observable<any> {
+    return this.http.get(`${environment.dbUrl2}/comment/${this.claimsId}`).pipe(
+      catchError((error) => {
+        return throwError(() => error);
+      })
+    );
+  }
 }

@@ -9,16 +9,22 @@ import { ActivatedRoute } from '@angular/router';
   styleUrls: ['./sidebar.component.scss'],
 })
 export class SidebarComponent {
-  url: any;
+  listUrl: string = '';
 
   constructor(
     public apiService: ApiService,
     private location: Location,
     private route: ActivatedRoute
   ) {
-    this.url = window.location.href;
+    const url = location.path();
 
-    console.log(this.url);
+    console.log('this.url', url.includes('confirmation'));
+
+    if (url.includes('confirmation')) {
+      this.listUrl = '/confirmation-credits';
+    } else if (url.includes('foreclosure')) {
+      this.listUrl = '/credits';
+    }
   }
 
   goBack() {

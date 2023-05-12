@@ -12,8 +12,12 @@ import { ApiService } from 'src/app/shared/api/credit.service';
 })
 export class CreditLayoutComponent {
   flagSub!: Subscription;
+  flagConfirmSub!: Subscription;
   loanId = '';
+  title = '';
+  option = '';
   flag = false;
+  flagConfirm = false;
 
   constructor(
     private apiService: ApiService,
@@ -28,6 +32,15 @@ export class CreditLayoutComponent {
       this.loanId = data.loanId;
       // debugger;
     });
+
+    this.flagConfirmSub = this.flagService.isConfimrCommentForm$.subscribe(
+      (data) => {
+        this.flagConfirm = data.isOpen;
+        this.title = data.title;
+        this.option = data.option;
+        // debugger;
+      }
+    );
 
     // this.apiService.arrayObj
 
@@ -55,5 +68,6 @@ export class CreditLayoutComponent {
 
   ngOnDestroy(): void {
     this.flagSub?.unsubscribe();
+    this.flagConfirmSub?.unsubscribe();
   }
 }

@@ -6,3 +6,9 @@
 </div>
 
 <app-activity-pop-up *ngIf="flag" [loanId]="loanId"></app-activity-pop-up>
+
+<app-confirm-comment-pop-up
+  *ngIf="flagConfirm"
+  [title]="title"
+  [option]="option"
+></app-confirm-comment-pop-up>
