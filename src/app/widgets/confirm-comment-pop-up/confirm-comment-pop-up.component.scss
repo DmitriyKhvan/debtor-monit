@@ -40,6 +40,15 @@
       margin: 20px;
       font-size: 26px;
       cursor: pointer;
+      border-radius: 3px;
+
+      &:hover {
+        background: #5e6c84;
+      }
+
+      &:hover .path2::before {
+        color: #fff;
+      }
     }
   }
 }
