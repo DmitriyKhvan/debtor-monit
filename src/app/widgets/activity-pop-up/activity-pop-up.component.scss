@@ -33,22 +33,22 @@
       margin-top: 24px;
     }
 
-    .close {
-      position: absolute;
-      top: 0;
-      right: 0;
-      margin: 20px;
-      font-size: 26px;
-      cursor: pointer;
-      border-radius: 3px;
+    // .close {
+    //   position: absolute;
+    //   top: 0;
+    //   right: 0;
+    //   margin: 20px;
+    //   font-size: 26px;
+    //   cursor: pointer;
+    //   border-radius: 3px;
 
-      &:hover {
-        background: #5e6c84;
-      }
+    //   &:hover {
+    //     background: #5e6c84;
+    //   }
 
-      &:hover .path2::before {
-        color: #fff;
-      }
-    }
+    //   &:hover .path2::before {
+    //     color: #fff;
+    //   }
+    // }
   }
 }

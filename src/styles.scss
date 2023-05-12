@@ -53,8 +53,27 @@
       resize: none;
       overflow: auto;
       width: 320px;
-      height: 70px;
+      height: 230px;
     }
+  }
+}
+
+.close {
+  position: absolute;
+  top: 0;
+  right: 0;
+  margin: 20px;
+  font-size: 26px;
+  cursor: pointer;
+  border-radius: 3px;
+  transition: all 0.3s ease;
+
+  &:hover {
+    background: #5e6c84;
+  }
+
+  &:hover .path2::before {
+    color: #fff;
   }
 }
 
