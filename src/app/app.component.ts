@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ApiService } from './shared/api/credit.service';
 import { KeycloakService } from 'keycloak-angular';
+import { WebsocketService } from './shared/api/websocket.service';
 
 @Component({
   selector: 'app-root',
@@ -12,7 +13,8 @@ export class AppComponent implements OnInit {
 
   constructor(
     private apiService: ApiService,
-    private keycloak: KeycloakService
+    private keycloak: KeycloakService,
+    private webSocketService: WebsocketService
   ) {}
 
   ngOnInit(): void {
@@ -29,5 +31,13 @@ export class AppComponent implements OnInit {
         // );
         console.log(error);
       });
+
+    this.webSocketService.listen('hello').subscribe((data) => {
+      console.log(data);
+    });
+
+    setTimeout(() => {
+      this.webSocketService.emit('list', 'test message');
+    }, 5000);
   }
 }
