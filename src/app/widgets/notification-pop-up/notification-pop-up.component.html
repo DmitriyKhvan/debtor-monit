@@ -1,0 +1,30 @@
+<div class="notification-wrap">
+  <div class="notification">
+    <span (click)="close()" class="close icon-cl0ose"
+      ><span class="path1"></span><span class="path2"></span
+    ></span>
+    <h2 class="title">Уведомления</h2>
+
+    <div class="tabs">
+      <button
+        (click)="toggleTab('new')"
+        [class]="tab === 'new' ? 'active' : ''"
+      >
+        Уведомления
+      </button>
+      <button
+        (click)="toggleTab('viewed')"
+        [class]="tab === 'viewed' ? 'active' : ''"
+      >
+        Просмотренные
+      </button>
+    </div>
+    <div class="new">
+      <app-new-notification *ngIf="tab === 'new'"></app-new-notification>
+
+      <app-viewed-notification
+        *ngIf="tab === 'viewed'"
+      ></app-viewed-notification>
+    </div>
+  </div>
+</div>

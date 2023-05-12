@@ -74,6 +74,11 @@ import { UserInfoConfirmComponent } from './entities/confirmation-credit-info-it
 import { ProductListConfirmComponent } from './entities/confirmation-credit-info-item/components/product-list-confirm/product-list-confirm.component';
 import { ProductListConfirmItemComponent } from './entities/confirmation-credit-info-item/components/product-list-confirm/components/product-list-confirm-item/product-list-confirm-item.component';
 import { ConfirmCommentPopUpComponent } from './widgets/confirm-comment-pop-up/confirm-comment-pop-up.component';
+import { InsuranceDebtComponent } from './entities/credit-info-item/components/insurance-debt/insurance-debt.component';
+import { InsuranceDebtItemComponent } from './entities/credit-info-item/components/insurance-debt/components/insurance-debt-item/insurance-debt-item.component';
+import { NotificationPopUpComponent } from './widgets/notification-pop-up/notification-pop-up.component';
+import { NewNotificationComponent } from './widgets/notification-pop-up/components/new-notification/new-notification.component';
+import { ViewedNotificationComponent } from './widgets/notification-pop-up/components/viewed-notification/viewed-notification.component';
 
 const INTERCEPTOR_PROVIDER: Provider = {
   provide: HTTP_INTERCEPTORS,
@@ -147,6 +152,11 @@ const CUSTOM_DATE_FORMATS: NgxMatDateFormats = {
     ProductListConfirmComponent,
     ProductListConfirmItemComponent,
     ConfirmCommentPopUpComponent,
+    InsuranceDebtComponent,
+    InsuranceDebtItemComponent,
+    NotificationPopUpComponent,
+    NewNotificationComponent,
+    ViewedNotificationComponent,
   ],
   imports: [
     BrowserModule,

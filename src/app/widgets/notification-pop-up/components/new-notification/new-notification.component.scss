@@ -1,0 +1,42 @@
+.notification {
+  height: calc(100vh - 280px);
+  // background: green;
+  overflow: auto;
+
+  &-item {
+    display: flex;
+    gap: 19px;
+    margin-bottom: 18px;
+  }
+
+  &-content {
+    .header {
+      display: flex;
+      justify-content: space-between;
+
+      .title {
+        font-weight: 700;
+        color: #091e42;
+      }
+
+      .send-date {
+        font-weight: 600;
+        color: #b3bac5;
+      }
+    }
+
+    .comment {
+      margin-top: 4px;
+      color: #091e42;
+    }
+  }
+
+  &-date {
+    margin-top: 8px;
+    padding: 0px 4px;
+    background: #f4f4f4;
+    border-radius: 3px;
+    color: #2e3a59;
+    text-transform: uppercase;
+  }
+}

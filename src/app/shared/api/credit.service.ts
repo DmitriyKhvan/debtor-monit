@@ -57,10 +57,11 @@ export class ApiService {
     sortValue = '',
     sortType = '',
     search = '',
+    currentMonth = false,
   }: any): Observable<any> {
     return this.http
       .get(
-        `${environment.dbUrl}/debtor-monit?page=${currentPage}&count=${count}&keyword=${sortValue}&order=${sortType}&search=${search}`
+        `${environment.dbUrl}/debtor-monit?page=${currentPage}&count=${count}&keyword=${sortValue}&order=${sortType}&search=${search}&currentMonth=${currentMonth}`
       )
       .pipe(
         catchError((error) => {
