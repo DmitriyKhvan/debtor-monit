@@ -19,6 +19,20 @@
     >
       График платежей
     </button>
+
+    <button
+      (click)="toggleTab('insurance')"
+      [class]="tab === 'insurance' ? 'active' : ''"
+    >
+      Выплачено страховой компании
+    </button>
+
+    <button
+      (click)="toggleTab('history_call')"
+      [class]="tab === 'history_call' ? 'active' : ''"
+    >
+      История вызовов
+    </button>
   </div>
   <div class="content">
     <app-general-info
@@ -30,5 +44,12 @@
       [userInfo]="userInfo"
       *ngIf="tab === 'schedule'"
     ></app-payment-schedule>
+
+    <app-insurance-debt
+      [userInfo]="userInfo"
+      *ngIf="tab === 'insurance'"
+    ></app-insurance-debt>
+
+    <app-history-call *ngIf="tab === 'history_call'"></app-history-call>
   </div>
 </div>

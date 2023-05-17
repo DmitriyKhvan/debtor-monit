@@ -1,0 +1,72 @@
+.insurance-debt {
+  // display: grid;
+  // grid-template-columns: repeat(24, 1fr);
+  // width: 80%;
+  margin-top: 32px;
+
+  &__wrap {
+    // grid-column: span 20;
+    .header {
+      display: flex;
+      align-items: start;
+      justify-content: space-between;
+      margin-bottom: 22px;
+
+      .title {
+        font-size: 20px;
+        font-weight: 600;
+      }
+    }
+  }
+}
+
+.insurance-list {
+  width: 525px;
+  // margin-top: 47px;
+}
+
+.thead {
+  .td {
+    font-size: 12px;
+    color: #6b778c;
+    font-weight: 600;
+  }
+  border-bottom: 2px solid rgba(9, 30, 66, 0.08);
+}
+
+.tr {
+  display: grid;
+  grid-template-areas: "idx date card sum status";
+  grid-template-rows: 40px;
+  // grid-template-columns:
+  //   40px minmax(70px, 1fr) minmax(140px, 1fr) minmax(80px, 1fr)
+  //   minmax(80px, 1fr);
+  grid-template-columns: 40px 140px 140px 80px 80px;
+  column-gap: 10px;
+  align-items: center;
+}
+
+.idx {
+  grid-area: idx;
+  // width: 40px;
+}
+
+.date {
+  grid-area: date;
+  // width: 70px;
+}
+
+.card {
+  grid-area: card;
+  // width: 140px;
+}
+
+.sum {
+  grid-area: sum;
+  // width: 80px;
+}
+
+.status {
+  grid-area: status;
+  // width: 80px;
+}

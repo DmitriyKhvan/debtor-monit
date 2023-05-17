@@ -34,6 +34,14 @@ export class DicService {
     );
   }
 
+  getKerioOperatorStatus(): Observable<any> {
+    return this.http.get(`${environment.dbUrl}/spr/kerioOperatorStatus`).pipe(
+      catchError((error) => {
+        return throwError(() => error);
+      })
+    );
+  }
+
   getStatus(dic: Status[], code: number) {
     return dic.find((el) => el.code === code);
   }

@@ -7,8 +7,13 @@
     <app-menu></app-menu>
   </div>
 
-  <div (click)="keycloak.logout()" class="logout">
-    <span class="icon-sign-out"
+  <div class="funcIcons">
+    <!-- <span (click)="openNotification()" class="icon-notification"
+      ><span class="path1"></span><span class="path2"></span>
+      <span class="isNotification"></span>
+    </span> -->
+
+    <span (click)="keycloak.logout()" class="icon-sign-out"
       ><span class="path1"></span><span class="path2"></span
       ><span class="path3"></span
     ></span>

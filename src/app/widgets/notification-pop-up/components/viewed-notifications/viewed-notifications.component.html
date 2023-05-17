@@ -1,0 +1,9 @@
+<div class="notification">
+  <ng-container
+    *ngFor="let notification of webSocketService.viewed_notifications?.data"
+  >
+    <app-viewed-notification
+      [notification]="notification"
+    ></app-viewed-notification>
+  </ng-container>
+</div>

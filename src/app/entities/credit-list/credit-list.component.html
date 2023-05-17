@@ -71,6 +71,8 @@
           [credit]="{ idx: idx + 1, credit }"
         ></app-credit>
       </ng-container>
+
+      <h2 *ngIf="!credits.length" class="empty">Данные не найдены</h2>
     </div>
     <ng-template #loadingBlock>
       <app-loader></app-loader>

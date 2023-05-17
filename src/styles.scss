@@ -33,7 +33,7 @@
 .field {
   position: relative;
   display: block;
-  margin-top: 16px;
+  // margin-top: 16px;
 
   .key {
     color: #6b778c;
@@ -59,9 +59,6 @@
 }
 
 .close {
-  position: absolute;
-  top: 0;
-  right: 0;
   margin: 20px;
   font-size: 26px;
   cursor: pointer;
@@ -90,6 +87,35 @@
     margin-top: -2px;
     margin-left: 5px;
   }
+}
+
+.tabs {
+  margin-top: 34px;
+  column-gap: 16px;
+  border-bottom: 2px solid #ebecf0;
+
+  button {
+    font-size: 14px;
+    font-weight: 600;
+    color: #42526e;
+    padding: 8px 0;
+    margin-right: 16px;
+    margin-bottom: -2px;
+    // transition: all 0.3s ease;
+
+    &.active,
+    &:hover {
+      color: #0052cc;
+      border-bottom: 2px solid #0052cc;
+    }
+  }
+}
+
+.empty {
+  font-size: 40px;
+  font-weight: 600;
+  text-align: center;
+  margin: 20px 0 30px 0 !important;
 }
 
 .mat-mdc-form-field {

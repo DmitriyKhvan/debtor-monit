@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ApiService } from './shared/api/credit.service';
 import { KeycloakService } from 'keycloak-angular';
+import { WebsocketService } from './shared/api/websocket.service';
 
 @Component({
   selector: 'app-root',
@@ -12,7 +13,8 @@ export class AppComponent implements OnInit {
 
   constructor(
     private apiService: ApiService,
-    private keycloak: KeycloakService
+    private keycloak: KeycloakService,
+    private webSocketService: WebsocketService
   ) {}
 
   ngOnInit(): void {
@@ -29,5 +31,23 @@ export class AppComponent implements OnInit {
         // );
         console.log(error);
       });
+
+    this.webSocketService.listen('new_notification').subscribe((data) => {
+      this.webSocketService.new_notifications = data;
+    });
+
+    this.webSocketService.emit('new_notification', '1');
+
+    this.webSocketService.listen('viewed_notification').subscribe((data) => {
+      this.webSocketService.viewed_notifications = data;
+    });
+
+    this.webSocketService.emit('viewed_notification', '1');
+
+    this.webSocketService.listen('send_note').subscribe((data) => {
+      if (data) {
+        this.webSocketService.emit('new_notification', '1');
+      }
+    });
   }
 }

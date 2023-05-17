@@ -14,23 +14,23 @@
     color: #172b4d;
   }
 
-  .tabs {
-    margin-top: 34px;
-    column-gap: 16px;
-    border-bottom: 2px solid #ebecf0;
+  // .tabs {
+  //   margin-top: 34px;
+  //   column-gap: 16px;
+  //   border-bottom: 2px solid #ebecf0;
 
-    button {
-      font-size: 14px;
-      font-weight: 600;
-      color: #42526e;
-      padding: 8px 0;
-      margin-right: 16px;
-      margin-bottom: -2px;
+  //   button {
+  //     font-size: 14px;
+  //     font-weight: 600;
+  //     color: #42526e;
+  //     padding: 8px 0;
+  //     margin-right: 16px;
+  //     margin-bottom: -2px;
 
-      &.active {
-        color: #0052cc;
-        border-bottom: 2px solid #0052cc;
-      }
-    }
-  }
+  //     &.active {
+  //       color: #0052cc;
+  //       border-bottom: 2px solid #0052cc;
+  //     }
+  //   }
+  // }
 }

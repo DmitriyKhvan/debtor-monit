@@ -37,7 +37,6 @@ export class CreditLayoutComponent {
       (data) => {
         this.flagConfirm = data.isOpen;
         this.title = data.title;
-        this.option = data.option;
         // debugger;
       }
     );
@@ -57,8 +56,8 @@ export class CreditLayoutComponent {
 
   closeTooltip(event: any) {
     if (!event.target.classList.contains('remove')) {
-      console.log(event.target.classList.contains('remove'));
-      console.log(document.querySelector('.tooltip'));
+      // console.log(event.target.classList.contains('remove'));
+      // console.log(document.querySelector('.tooltip'));
 
       document.querySelectorAll('.tooltip').forEach((el) => {
         el.classList.remove('open');

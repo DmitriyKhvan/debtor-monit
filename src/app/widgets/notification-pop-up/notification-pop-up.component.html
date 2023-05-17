@@ -1,0 +1,40 @@
+<div class="notification-wrap">
+  <div class="notification">
+    <span (click)="close()" class="close icon-cl0ose"
+      ><span class="path1"></span><span class="path2"></span
+    ></span>
+    <h2 class="title">Уведомления</h2>
+
+    <div class="tabs">
+      <button
+        (click)="toggleTab('new')"
+        [class]="tab === 'new' ? 'active' : ''"
+      >
+        Уведомления
+        <span
+          *ngIf="webSocketService.new_notifications?.count"
+          class="count red"
+          >{{ webSocketService.new_notifications?.count }}</span
+        >
+      </button>
+      <button
+        (click)="toggleTab('viewed')"
+        [class]="tab === 'viewed' ? 'active' : ''"
+      >
+        Просмотренные
+        <span
+          *ngIf="webSocketService.viewed_notifications?.count"
+          class="count grey"
+          >{{ webSocketService.viewed_notifications?.count }}</span
+        >
+      </button>
+    </div>
+    <div class="new">
+      <app-new-notifications *ngIf="tab === 'new'"></app-new-notifications>
+
+      <app-viewed-notifications
+        *ngIf="tab === 'viewed'"
+      ></app-viewed-notifications>
+    </div>
+  </div>
+</div>

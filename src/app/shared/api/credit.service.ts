@@ -57,10 +57,11 @@ export class ApiService {
     sortValue = '',
     sortType = '',
     search = '',
+    currentMonth = false,
   }: any): Observable<any> {
     return this.http
       .get(
-        `${environment.dbUrl}/debtor-monit?page=${currentPage}&count=${count}&keyword=${sortValue}&order=${sortType}&search=${search}`
+        `${environment.dbUrl}/debtor-monit?page=${currentPage}&count=${count}&keyword=${sortValue}&order=${sortType}&search=${search}&currentMonth=${currentMonth}`
       )
       .pipe(
         catchError((error) => {
@@ -152,6 +153,33 @@ export class ApiService {
           'Content-Type': 'application/pdf',
         },
         responseType: 'blob',
+      })
+      .pipe(
+        catchError((error) => {
+          return throwError(() => error);
+        })
+      );
+  }
+
+  getHistoryCall(): Observable<any> {
+    return this.http
+      .get(
+        `${environment.dbUrl}/kerioOperator/callHistory?claimsId=${this.claimsId}`
+      )
+      .pipe(
+        catchError((error) => {
+          return throwError(() => error);
+        })
+      );
+  }
+
+  addPhone({ type, value, description }: any): Observable<any> {
+    return this.http
+      .post(`${environment.dbUrl}/client-info/addClientInfo/set`, {
+        type,
+        value,
+        description,
+        claimsId: this.claimsId,
       })
       .pipe(
         catchError((error) => {

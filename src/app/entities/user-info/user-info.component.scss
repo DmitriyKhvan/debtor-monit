@@ -3,8 +3,8 @@
     display: grid;
     gap: 40px;
     grid-template-areas:
-      "seller buyer"
-      "contract installments";
+      "seller installments"
+      "contract buyer";
   }
 
   &-seller {
@@ -21,6 +21,14 @@
 
   &-installments {
     grid-area: installments;
+  }
+}
+
+.addPhone {
+  color: #6b778c;
+
+  &:hover {
+    color: #172b4d;
   }
 }
 
