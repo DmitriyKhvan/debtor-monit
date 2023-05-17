@@ -29,12 +29,11 @@
         >
       </button>
     </div>
-    <div class="new">
-      <app-new-notifications *ngIf="tab === 'new'"></app-new-notifications>
 
-      <app-viewed-notifications
-        *ngIf="tab === 'viewed'"
-      ></app-viewed-notifications>
-    </div>
+    <app-new-notifications *ngIf="tab === 'new'"></app-new-notifications>
+
+    <app-viewed-notifications
+      *ngIf="tab === 'viewed'"
+    ></app-viewed-notifications>
   </div>
 </div>

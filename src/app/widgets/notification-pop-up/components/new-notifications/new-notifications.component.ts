@@ -3,11 +3,17 @@ import {
   Component,
   ElementRef,
   OnDestroy,
-  OnInit,
-  Renderer2,
   ViewChild,
 } from '@angular/core';
-import { Subscription } from 'rxjs';
+import {
+  Subscription,
+  debounceTime,
+  distinctUntilChanged,
+  filter,
+  fromEvent,
+  map,
+  tap,
+} from 'rxjs';
 import { WebsocketService } from 'src/app/shared/api/websocket.service';
 
 @Component({
@@ -15,42 +21,52 @@ import { WebsocketService } from 'src/app/shared/api/websocket.service';
   templateUrl: './new-notifications.component.html',
   styleUrls: ['./new-notifications.component.scss'],
 })
-export class NewNotificationComponents
-  implements OnInit, OnDestroy, AfterViewInit
-{
-  @ViewChild('notification') notificationRef!: ElementRef;
+export class NewNotificationComponents implements OnDestroy, AfterViewInit {
+  @ViewChild('notification_item') notificationItemRef!: ElementRef;
 
-  listener: any;
+  scrollSub!: Subscription;
+  page: number = 1;
 
-  constructor(
-    public webSocketService: WebsocketService,
-    private renderer2: Renderer2
-  ) {
-    // this.listener = this.renderer2.listen('window', 'scroll', (e) => {
-    //   console.log(e);
-    // });
-  }
-
-  ngOnInit(): void {}
+  constructor(public webSocketService: WebsocketService) {}
 
   ngAfterViewInit(): void {
-    // this.notificationRef.nativeElement.addEventListener('scroll', (e: any) => {
-    //   console.log(e);
-    // });
+    this.scrollSub = fromEvent(this.notificationItemRef.nativeElement, 'scroll')
+      .pipe(
+        // debounceTime(700),
 
-    this.renderer2.listen(this.notificationRef.nativeElement, 'scroll', (e) => {
-      setInterval(() => {
-        console.log(e);
-      }, 1000);
-    });
+        filter((event: any) => this.getYPosition(event))
+        // map((event: any) => event.target.value.toLowerCase()),
+        // distinctUntilChanged()
+      )
+      .subscribe((value: any) => {
+        this.page++;
+        this.webSocketService.emit('new_notification', this.page);
+      });
   }
 
-  getYPosition(e: Event): number {
-    return (e.target as Element).scrollTop;
+  getYPosition(e: Event): boolean {
+    const el = e.target as Element;
+    const scrollTop = el.scrollTop; // длина прокрутки
+    const scrollHeight = el.scrollHeight; // длина всего скрола
+    const clientHeight = el.clientHeight; // видимая длина элемента
+
+    // console.log('scrollTop', scrollTop);
+    // console.log('scrollHeight', scrollHeight);
+    // console.log('clientHeight', clientHeight);
+
+    if (
+      scrollTop === scrollHeight - clientHeight &&
+      this.webSocketService.new_notifications.count >
+        this.webSocketService.new_notifications.data.length
+    ) {
+      return true;
+    }
+
+    return false;
   }
 
   ngOnDestroy(): void {
-    // this.listener?.unsubscribe();
-    this.renderer2.destroy();
+    this.scrollSub?.unsubscribe();
+    this.webSocketService.emit('new_notification', '1');
   }
 }

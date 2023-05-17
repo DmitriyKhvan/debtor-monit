@@ -1,8 +1,16 @@
-<div class="notification">
+<div
+  *ngIf="webSocketService.viewed_notifications.count"
+  class="hide"
+  (click)="hideAll()"
+>
+  Скрыть все
+</div>
+<div #notification_item class="notification_item">
   <ng-container
     *ngFor="let notification of webSocketService.viewed_notifications?.data"
   >
     <app-viewed-notification
+      [page]="page"
       [notification]="notification"
     ></app-viewed-notification>
   </ng-container>

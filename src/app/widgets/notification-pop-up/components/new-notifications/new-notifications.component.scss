@@ -1,5 +1,21 @@
-.notification {
+.notification_item {
   height: calc(100vh - 340px);
   // background: green;
   overflow: auto;
+  padding-right: 10px;
+  margin-top: 20px;
+
+  &::-webkit-scrollbar {
+    width: 7px;
+    height: 100%;
+    background: transparent;
+  }
+  &::-webkit-scrollbar-track {
+    background-color: rgba(184, 184, 185, 0.5);
+    border-radius: 5px;
+  }
+  &::-webkit-scrollbar-thumb {
+    background-color: rgb(184, 184, 185);
+    border-radius: 5px;
+  }
 }

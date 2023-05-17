@@ -1,0 +1,12 @@
+.hide {
+  position: absolute;
+  right: 0;
+  margin-top: -31px;
+  margin-right: 26px;
+  color: #6b778c;
+  cursor: pointer;
+
+  &:hover {
+    color: #172b4d;
+  }
+}
