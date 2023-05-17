@@ -31,12 +31,16 @@
     display: flex;
     align-items: center;
 
-    [class^="icon"] {
-      font-size: 20px;
-      cursor: pointer;
-      margin-right: 15px;
-
+    .wrapper-bell {
       position: relative;
+
+      [class^="icon"] {
+        font-size: 20px;
+        cursor: pointer;
+        margin-right: 15px;
+
+        position: relative;
+      }
 
       .isNotification {
         position: absolute;
@@ -46,8 +50,44 @@
         // bottom: 100%;
         // left: 100%;
         border-radius: 2px;
-        margin: -4px 0 0 -4px;
+        margin: -4px 0 0 16px;
       }
     }
+  }
+}
+
+.new_notification {
+  -webkit-animation-name: animate;
+  -webkit-animation-duration: 0.7s;
+  -webkit-animation-iteration-count: infinite;
+  -webkit-transform-origin: 50% 0;
+  -webkit-animation-timing-function: ease-in-out;
+}
+
+@keyframes animate {
+  // 0%,
+  // 100% {
+  //   transform: rotate(0deg);
+  // }
+  // 10%,
+  // 90% {
+  //   transform: rotate(-85deg);
+  // }
+  // 40%,
+  // 90% {
+  //   transform: rotate(0deg);
+  // }
+  // 50% {
+  //   transform: rotate(-85deg);
+  // }
+
+  0% {
+    transform: rotate(0deg);
+  }
+  50% {
+    transform: rotate(-85deg);
+  }
+  100% {
+    transform: rotate(0deg);
   }
 }

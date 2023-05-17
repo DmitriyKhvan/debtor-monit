@@ -44,9 +44,17 @@ export class AppComponent implements OnInit {
 
     this.webSocketService.emit('viewed_notification', '1');
 
+    // Пришло новое уведомление!!!
     this.webSocketService.listen('send_note').subscribe((data) => {
       if (data) {
         this.webSocketService.emit('new_notification', '1');
+
+        this.webSocketService.new_notification = 'new_notification';
+
+        const timer = setTimeout(() => {
+          this.webSocketService.new_notification = '';
+          clearTimeout(timer);
+        }, 5000);
       }
     });
   }

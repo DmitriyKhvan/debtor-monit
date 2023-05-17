@@ -23,7 +23,6 @@ export class HistoryCallComponent implements OnInit, OnDestroy {
       .getKerioOperatorStatus()
       .subscribe((dic: Status[]) => {
         this.dic = dic;
-        console.log(dic);
       });
 
     this.hSub = this.apiService.getHistoryCall().subscribe((calls) => {

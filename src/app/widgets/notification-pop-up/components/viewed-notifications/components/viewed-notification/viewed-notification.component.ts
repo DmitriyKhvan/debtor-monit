@@ -12,6 +12,7 @@ import { WebsocketService } from 'src/app/shared/api/websocket.service';
 })
 export class ViewedNotificationComponent {
   @Input() notification: any;
+  @Input() page: number = 1;
 
   constructor(
     private webSocketService: WebsocketService,
@@ -25,7 +26,7 @@ export class ViewedNotificationComponent {
 
     const data = JSON.stringify({
       id,
-      viewedPage: 1,
+      viewedPage: this.page,
     });
 
     this.webSocketService.emit('archive_note', data);

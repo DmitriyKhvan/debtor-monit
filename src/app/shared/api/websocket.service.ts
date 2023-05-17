@@ -1,4 +1,5 @@
 import { Injectable } from '@angular/core';
+import { KeycloakService } from 'keycloak-angular';
 import { Observable } from 'rxjs';
 import { io } from 'socket.io-client';
 
@@ -8,12 +9,13 @@ import { io } from 'socket.io-client';
 export class WebsocketService {
   new_notifications: any;
   viewed_notifications: any;
+  new_notification: string = '';
 
   socket: any;
-  readonly uri: string = 'ws://10.1.1.177:1680?username=support_admin';
+  readonly uri: string = `ws://10.1.1.177:1680?username=${this.keycloak.getUsername()}`;
   // readonly uri: string = 'http://localhost:3000';
 
-  constructor() {
+  constructor(private keycloak: KeycloakService) {
     this.socket = io(this.uri);
   }
 
@@ -27,8 +29,6 @@ export class WebsocketService {
   }
 
   emit(eventName: string, data: any) {
-    console.log(eventName);
-
     this.socket.emit(eventName, data);
   }
 }
