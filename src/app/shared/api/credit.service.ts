@@ -161,6 +161,33 @@ export class ApiService {
       );
   }
 
+  getHistoryCall(): Observable<any> {
+    return this.http
+      .get(
+        `${environment.dbUrl}/kerioOperator/callHistory?claimsId=${this.claimsId}`
+      )
+      .pipe(
+        catchError((error) => {
+          return throwError(() => error);
+        })
+      );
+  }
+
+  addPhone({ type, value, description }: any): Observable<any> {
+    return this.http
+      .post(`${environment.dbUrl}/client-info/addClientInfo/set`, {
+        type,
+        value,
+        description,
+        claimsId: this.claimsId,
+      })
+      .pipe(
+        catchError((error) => {
+          return throwError(() => error);
+        })
+      );
+  }
+
   getConfirmationCredits({
     currentPage,
     count,

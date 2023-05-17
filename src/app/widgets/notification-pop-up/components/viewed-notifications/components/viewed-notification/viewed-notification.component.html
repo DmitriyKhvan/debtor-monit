@@ -1,0 +1,30 @@
+<div
+  [routerLink]="['/credit', 'foreclosure', notification.claimsId]"
+  class="notification-item"
+>
+  <div class="notification-icon">
+    <img src="../../../../../../../assets/img/notification.svg" alt="" />
+  </div>
+
+  <div class="notification-content">
+    <div class="header">
+      <h4 class="title">Заявка № {{ notification.claimsId }}</h4>
+      <div class="send-date">
+        {{
+          notification.createdAt | dateTimeFormat : "short" : undefined : true
+        }}
+
+        <span (click)="remove(notification.id, $event)" class="icon-cl0ose"
+          ><span class="path1"></span><span class="path2"></span
+        ></span>
+      </div>
+    </div>
+
+    <div class="notification-date">
+      Напоминание настроено на
+      {{ notification.reminder | dateTimeFormat : "short" : undefined : true }}
+    </div>
+
+    <div class="comment">{{ notification.text }}</div>
+  </div>
+</div>

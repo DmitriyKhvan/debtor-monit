@@ -1,12 +1,13 @@
 .notification {
-  height: calc(100vh - 280px);
-  // background: green;
-  overflow: auto;
-
   &-item {
     display: flex;
     gap: 19px;
     margin-bottom: 18px;
+    cursor: pointer;
+  }
+
+  &-icon {
+    width: 36px;
   }
 
   &-content {

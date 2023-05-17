@@ -32,12 +32,22 @@ export class AppComponent implements OnInit {
         console.log(error);
       });
 
-    this.webSocketService.listen('hello').subscribe((data) => {
-      console.log(data);
+    this.webSocketService.listen('new_notification').subscribe((data) => {
+      this.webSocketService.new_notifications = data;
     });
 
-    setTimeout(() => {
-      this.webSocketService.emit('list', 'test message');
-    }, 5000);
+    this.webSocketService.emit('new_notification', '1');
+
+    this.webSocketService.listen('viewed_notification').subscribe((data) => {
+      this.webSocketService.viewed_notifications = data;
+    });
+
+    this.webSocketService.emit('viewed_notification', '1');
+
+    this.webSocketService.listen('send_note').subscribe((data) => {
+      if (data) {
+        this.webSocketService.emit('new_notification', '1');
+      }
+    });
   }
 }

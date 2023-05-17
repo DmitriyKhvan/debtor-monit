@@ -36,3 +36,20 @@
     }
   }
 }
+
+.count {
+  color: #fff;
+
+  font-size: 12px;
+  font-weight: 700;
+  border-radius: 5px;
+  padding: 3px 8px;
+
+  &.red {
+    background: #de350b;
+  }
+
+  &.grey {
+    background: #8993a4;
+  }
+}

@@ -6,8 +6,10 @@ export class FlagService {
   userInfo$ = new Subject<any>();
   isActivityForm$ = new Subject<any>();
   isConfimrCommentForm$ = new Subject<any>();
+  isAddPhoneForm$ = new Subject<any>();
   updateActions$ = new Subject<boolean>();
   cofirmComment$ = new Subject<boolean>();
+  isNotifications$ = new Subject<boolean>();
 
   setUserInfo({ userInfo, isLoader }: any) {
     this.userInfo$.next({ userInfo, isLoader });

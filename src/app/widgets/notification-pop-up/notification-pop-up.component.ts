@@ -1,4 +1,6 @@
 import { Component } from '@angular/core';
+import { FlagService } from 'src/app/shared/api/flag.sevice';
+import { WebsocketService } from 'src/app/shared/api/websocket.service';
 
 @Component({
   selector: 'app-notification-pop-up',
@@ -6,9 +8,16 @@ import { Component } from '@angular/core';
   styleUrls: ['./notification-pop-up.component.scss'],
 })
 export class NotificationPopUpComponent {
+  constructor(
+    public webSocketService: WebsocketService,
+    public flagService: FlagService
+  ) {}
+
   tab = 'new';
 
-  close() {}
+  close() {
+    this.flagService.isNotifications$.next(false);
+  }
 
   toggleTab(tabName: string) {
     this.tab = tabName;

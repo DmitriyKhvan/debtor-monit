@@ -23,6 +23,8 @@ export class PaymentScheduleComponent implements OnInit, OnDestroy {
   dSub!: Subscription;
   mSub!: Subscription;
 
+  totaldebt: number = 0;
+
   maxAmountData: maxAmountData = {
     currentMaxAmount: '',
     date: '',
@@ -53,6 +55,12 @@ export class PaymentScheduleComponent implements OnInit, OnDestroy {
       .subscribe((res: maxAmountData) => {
         this.maxAmountData = res;
         this.pipelinesRef.nativeElement.classList.remove('loader');
+
+        this.totaldebt =
+          Number(this.userInfo.schedule.totaldebt) +
+          Number(this.maxAmountData.diff);
+
+        this.totaldebt = this.totaldebt < 0 ? this.totaldebt : 0;
       });
   }
 

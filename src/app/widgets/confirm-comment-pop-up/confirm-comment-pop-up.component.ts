@@ -10,9 +10,8 @@ import { Status } from 'src/app/shared/interfaces';
   templateUrl: './confirm-comment-pop-up.component.html',
   styleUrls: ['./confirm-comment-pop-up.component.scss'],
 })
-export class ConfirmCommentPopUpComponent {
+export class ConfirmCommentPopUpComponent implements OnInit, OnDestroy {
   @Input() title: string = '';
-  @Input() option: string = '';
 
   form!: FormGroup;
   submitted = false;

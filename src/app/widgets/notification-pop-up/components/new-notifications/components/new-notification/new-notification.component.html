@@ -1,0 +1,23 @@
+<div (click)="openNotification(notification.id)" class="notification-item">
+  <div class="notification-icon">
+    <img src="../../../../../../../assets/img/notification.svg" alt="" />
+  </div>
+
+  <div class="notification-content">
+    <div class="header">
+      <h4 class="title">Заявка № {{ notification.claimsId }}</h4>
+      <div class="send-date">
+        {{
+          notification.createdAt | dateTimeFormat : "short" : undefined : true
+        }}
+      </div>
+    </div>
+
+    <div class="notification-date">
+      Напоминание настроено на
+      {{ notification.reminder | dateTimeFormat : "short" : undefined : true }}
+    </div>
+
+    <div class="comment">{{ notification.text }}</div>
+  </div>
+</div>

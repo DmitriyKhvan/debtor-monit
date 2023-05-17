@@ -77,8 +77,15 @@ import { ConfirmCommentPopUpComponent } from './widgets/confirm-comment-pop-up/c
 import { InsuranceDebtComponent } from './entities/credit-info-item/components/insurance-debt/insurance-debt.component';
 import { InsuranceDebtItemComponent } from './entities/credit-info-item/components/insurance-debt/components/insurance-debt-item/insurance-debt-item.component';
 import { NotificationPopUpComponent } from './widgets/notification-pop-up/notification-pop-up.component';
-import { NewNotificationComponent } from './widgets/notification-pop-up/components/new-notification/new-notification.component';
-import { ViewedNotificationComponent } from './widgets/notification-pop-up/components/viewed-notification/viewed-notification.component';
+import { NewNotificationComponents } from './widgets/notification-pop-up/components/new-notifications/new-notifications.component';
+import { ViewedNotificationComponents } from './widgets/notification-pop-up/components/viewed-notifications/viewed-notifications.component';
+import { HistoryCallComponent } from './entities/credit-info-item/components/history-call/history-call.component';
+import { HistoryCallItemComponent } from './entities/credit-info-item/components/history-call/components/history-call-item/history-call-item.component';
+import { TimeFormatPipe } from './shared/pipes/time-format.pipe';
+import { AddPhonePopUpComponent } from './widgets/add-phone-pop-up/add-phone-pop-up.component';
+import { NewNotificationComponent } from './widgets/notification-pop-up/components/new-notifications/components/new-notification/new-notification.component';
+import { ViewedNotificationComponent } from './widgets/notification-pop-up/components/viewed-notifications/components/viewed-notification/viewed-notification.component';
+import { AddClientInfoFilterPipe } from './shared/pipes/add-client-info-filter.pipe';
 
 const INTERCEPTOR_PROVIDER: Provider = {
   provide: HTTP_INTERCEPTORS,
@@ -155,8 +162,15 @@ const CUSTOM_DATE_FORMATS: NgxMatDateFormats = {
     InsuranceDebtComponent,
     InsuranceDebtItemComponent,
     NotificationPopUpComponent,
+    NewNotificationComponents,
+    ViewedNotificationComponents,
+    HistoryCallComponent,
+    HistoryCallItemComponent,
+    TimeFormatPipe,
+    AddPhonePopUpComponent,
     NewNotificationComponent,
     ViewedNotificationComponent,
+    AddClientInfoFilterPipe,
   ],
   imports: [
     BrowserModule,

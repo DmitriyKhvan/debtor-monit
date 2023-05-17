@@ -68,6 +68,27 @@
         ><span class="text">Написать</span></a
       >
     </div>
+
+    <div
+      *ngFor="
+        let phone of userInfo.addClientInfo | addClientInfoFilter : 'ADD_PHONE'
+      "
+      class="field"
+    >
+      <span class="label">{{ phone.description }}: </span>
+      <span class="value">{{ phone.value | phoneFormat }}</span>
+      <a
+        [href]="'https://t.me//' + phone.value"
+        class="telegram"
+        target="_blank"
+        ><span class="icon-telegram"></span
+        ><span class="text">Написать</span></a
+      >
+    </div>
+
+    <button (click)="addPhone()" class="addPhone">
+      Добавить новый телефон
+    </button>
   </div>
 
   <div class="info-contract">
@@ -135,3 +156,5 @@
     </div>
   </div>
 </div>
+
+<app-add-phone-pop-up *ngIf="flag"></app-add-phone-pop-up>

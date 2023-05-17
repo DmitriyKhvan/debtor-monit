@@ -18,7 +18,7 @@ export class SidebarComponent {
   ) {
     const url = location.path();
 
-    console.log('this.url', url.includes('confirmation'));
+    // console.log('this.url', url.includes('confirmation'));
 
     if (url.includes('confirmation')) {
       this.listUrl = '/confirmation-credits';

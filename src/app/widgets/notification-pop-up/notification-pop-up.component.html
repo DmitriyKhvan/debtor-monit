@@ -11,20 +11,30 @@
         [class]="tab === 'new' ? 'active' : ''"
       >
         Уведомления
+        <span
+          *ngIf="webSocketService.new_notifications?.count"
+          class="count red"
+          >{{ webSocketService.new_notifications?.count }}</span
+        >
       </button>
       <button
         (click)="toggleTab('viewed')"
         [class]="tab === 'viewed' ? 'active' : ''"
       >
         Просмотренные
+        <span
+          *ngIf="webSocketService.viewed_notifications?.count"
+          class="count grey"
+          >{{ webSocketService.viewed_notifications?.count }}</span
+        >
       </button>
     </div>
     <div class="new">
-      <app-new-notification *ngIf="tab === 'new'"></app-new-notification>
+      <app-new-notifications *ngIf="tab === 'new'"></app-new-notifications>
 
-      <app-viewed-notification
+      <app-viewed-notifications
         *ngIf="tab === 'viewed'"
-      ></app-viewed-notification>
+      ></app-viewed-notifications>
     </div>
   </div>
 </div>

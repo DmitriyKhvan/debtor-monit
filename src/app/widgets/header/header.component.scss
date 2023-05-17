@@ -25,14 +25,29 @@
 
   .logoAndMenu {
     display: flex;
-    align-items: center;
   }
 
   .funcIcons {
+    display: flex;
+    align-items: center;
+
     [class^="icon"] {
       font-size: 20px;
       cursor: pointer;
       margin-right: 15px;
+
+      position: relative;
+
+      .isNotification {
+        position: absolute;
+        width: 8px;
+        height: 8px;
+        background: #de350b;
+        // bottom: 100%;
+        // left: 100%;
+        border-radius: 2px;
+        margin: -4px 0 0 -4px;
+      }
     }
   }
 }

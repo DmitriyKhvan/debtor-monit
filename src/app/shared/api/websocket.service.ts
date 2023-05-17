@@ -6,8 +6,12 @@ import { io } from 'socket.io-client';
   providedIn: 'root',
 })
 export class WebsocketService {
+  new_notifications: any;
+  viewed_notifications: any;
+
   socket: any;
-  readonly uri: string = 'ws://10.1.1.177:8082';
+  readonly uri: string = 'ws://10.1.1.177:1680?username=support_admin';
+  // readonly uri: string = 'http://localhost:3000';
 
   constructor() {
     this.socket = io(this.uri);
@@ -19,9 +23,12 @@ export class WebsocketService {
         subscribe.next(data);
       });
     });
+    // return this.socket.on(eventName);
   }
 
   emit(eventName: string, data: any) {
+    console.log(eventName);
+
     this.socket.emit(eventName, data);
   }
 }
