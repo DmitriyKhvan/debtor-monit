@@ -12,7 +12,7 @@ export class WebsocketService {
   new_notification: string = '';
 
   socket: any;
-  readonly uri: string = `ws://10.1.1.177:1680?username=${this.keycloak.getUsername()}`;
+  readonly uri: string = `ws://10.1.1.177:1680?username=support_admin`;
   // readonly uri: string = 'http://localhost:3000';
 
   constructor(private keycloak: KeycloakService) {
