@@ -13,6 +13,8 @@ export class WebsocketService {
 
   socket: any;
   readonly uri: string = `ws://10.1.1.177:1680?username=${this.keycloak.getUsername()}`;
+  // readonly uri: string = `ws://10.1.1.177:1680?username=support_admin`;
+  // readonly uri: string = `wss://cc.lendo.uz?username=support_admin`;
   // readonly uri: string = 'http://localhost:3000';
 
   constructor(private keycloak: KeycloakService) {
