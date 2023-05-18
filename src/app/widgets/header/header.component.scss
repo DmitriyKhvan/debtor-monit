@@ -31,15 +31,17 @@
     display: flex;
     align-items: center;
 
+    [class^="icon"] {
+      font-size: 20px;
+      cursor: pointer;
+      margin-right: 15px;
+    }
+
     .wrapper-bell {
       position: relative;
 
-      [class^="icon"] {
-        font-size: 20px;
-        cursor: pointer;
-        margin-right: 15px;
-
-        position: relative;
+      .bell {
+        margin-top: 3px;
       }
 
       .isNotification {
@@ -81,13 +83,23 @@
   //   transform: rotate(-85deg);
   // }
 
+  // 0% {
+  //   transform: rotate(0deg);
+  // }
+  // 50% {
+  //   transform: rotate(-85deg);
+  // }
+  // 100% {
+  //   transform: rotate(0deg);
+  // }
+
   0% {
-    transform: rotate(0deg);
+    transform: rotate(45deg);
   }
   50% {
-    transform: rotate(-85deg);
+    transform: rotate(-45deg);
   }
   100% {
-    transform: rotate(0deg);
+    transform: rotate(45deg);
   }
 }
