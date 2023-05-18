@@ -12,6 +12,7 @@ services:
       - DBURL=https://cc.lendo.uz/api
       - DBURL2=https://cc.lendo.uz/api2/support/confirm
       - AUTHURL=https://auth.flexit.uz/auth
+      - WSURL=wss://cc.lendo.uz
       - FILEURL=http://dev.lendo.uz/files
     ports:
       - "1223:1222"
