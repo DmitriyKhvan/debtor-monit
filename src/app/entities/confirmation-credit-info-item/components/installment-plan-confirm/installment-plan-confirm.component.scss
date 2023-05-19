@@ -1,56 +1,67 @@
-.info {
-  &-wrap {
+.wrapper {
+  display: grid;
+  gap: 20px;
+  grid-template-columns: repeat(2, 600px);
+
+  .col-1 {
     display: grid;
-    gap: 40px;
+    gap: 20px;
+    // grid-template-columns: repeat(2, 1fr);
     grid-template-areas:
-      "seller buyer"
-      "contract installments";
-  }
-
-  &-seller {
-    grid-area: seller;
-  }
-
-  &-buyer {
-    grid-area: buyer;
-  }
-
-  &-contract {
-    grid-area: contract;
-  }
-
-  &-installments {
-    grid-area: installments;
+      "info-installment-plan"
+      "info-contract"
+      "product-list";
   }
 }
 
+.info {
+  &-installment-plan {
+    grid-area: info-installment-plan;
+  }
+
+  &-contract {
+    grid-area: info-contract;
+  }
+  &-seller {
+    grid-area: info-seller;
+  }
+}
+
+.product-list {
+  grid-area: product-list;
+}
+
 [class^="info-"] {
+  border-radius: 15px;
+  border: 1px solid #f0f0f2;
+
   .title {
     font-size: 20px;
     font-weight: 600;
     color: #172b4d;
-    margin-bottom: 12px;
+    background: #fbfbfb;
+    padding: 5px 20px;
+    text-transform: uppercase;
   }
 
   .field {
     display: flex;
     margin-bottom: 5px;
     font-size: 14px;
+    padding: 5px 20px;
+
+    &:nth-child(odd) {
+      background: #fbfbfb;
+    }
 
     .label {
-      margin-right: 3px;
+      width: 50%;
     }
 
     .value {
       font-weight: 700;
       color: #172b4d;
-
-      // &.green {
-      //   font-size: 11px;
-      //   background: #e3fcef;
-      //   color: #006644;
-      //   padding: 0 4px;
-      // }
+      width: 50%;
     }
 
     .telegram {

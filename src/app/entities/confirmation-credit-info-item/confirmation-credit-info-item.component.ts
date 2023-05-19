@@ -19,7 +19,7 @@ export class ConfirmationCreditInfoItemComponent implements OnInit, OnDestroy {
 
   confirmInfo: any = null;
 
-  tab = 'info';
+  tab = 'info-installment-plan';
 
   statusStyleDic: any = {
     1: 'default',

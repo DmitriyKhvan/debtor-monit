@@ -1,0 +1,149 @@
+<div class="wrapper">
+  <div class="col-1">
+    <div class="info-installment-plan">
+      <h2 class="title">Условие договора рассрочки</h2>
+
+      <div class="field">
+        <span class="label">Срок погашения: </span>
+        <span class="value">{{ userInfo?.data.claimsInfo.claims_period }}</span>
+      </div>
+
+      <div class="field">
+        <span class="label">Общая сумма погашения: </span>
+        <span class="value">
+          <app-lozenge2 className="default">
+            {{
+              userInfo?.data.claimsInfo.claims_amount | numberTransform : false
+            }}
+            СУМ</app-lozenge2
+          >
+        </span>
+      </div>
+
+      <div class="field">
+        <span class="label">Ежемесячный платёж: </span>
+        <span class="value">
+          <app-lozenge2 className="blue"
+            >{{
+              userInfo?.data.claimsInfo.claims_monthly | numberTransform
+            }}
+            CУМ</app-lozenge2
+          >
+        </span>
+      </div>
+    </div>
+
+    <div class="info-contract">
+      <h2 class="title">Информация о договоре</h2>
+
+      <div class="field">
+        <span class="label">Общая сумма товаров: </span>
+        <span class="value">
+          <app-lozenge2 className="default">
+            {{
+              userInfo?.data.claimsInfo.claims_amount | numberTransform : false
+            }}
+            СУМ</app-lozenge2
+          >
+        </span>
+      </div>
+
+      <div class="field">
+        <span class="label">Номер договора: </span>
+        <span class="value">
+          <app-lozenge2 className="default">
+            {{ userInfo?.data.claimsInfo.claims_contract_id }}</app-lozenge2
+          >
+        </span>
+      </div>
+
+      <div class="field">
+        <span class="label">Дата договора: </span>
+        <span class="value">
+          <app-lozenge2 className="green"
+            >{{
+              userInfo?.data.claimsInfo.claims_contract_date
+            }}
+            CУМ</app-lozenge2
+          >
+        </span>
+      </div>
+    </div>
+
+    <app-product-list-confirm
+      [products]="userInfo?.data.products"
+    ></app-product-list-confirm>
+  </div>
+
+  <div class="col-2">
+    <div class="info-seller">
+      <h2 class="title">Информация о продавце</h2>
+
+      <div class="field">
+        <span class="label">Наименование магазина: </span>
+        <span class="value">
+          {{ userInfo?.data.merchant.vendor_name }}
+        </span>
+      </div>
+
+      <div class="field">
+        <span class="label">Владелец магазина: </span>
+        <span class="value">
+          {{ userInfo?.data.merchant.vendor_owner }}
+        </span>
+      </div>
+
+      <div class="field">
+        <span class="label">Адрес: </span>
+        <span class="value">{{ userInfo?.data.merchant.vendor_address }} </span>
+      </div>
+
+      <div class="field">
+        <span class="label">Номер телефона: </span>
+        <span class="value">
+          {{ userInfo?.data.merchant.vendor_cio_phone | phoneFormat }}
+        </span>
+      </div>
+
+      <div class="field">
+        <span class="label">Категория товаров: </span>
+        <span class="value">{{ userInfo?.data.merchant.vendor_type }} </span>
+      </div>
+
+      <div class="field">
+        <span class="label">ИНН: </span>
+        <span class="value">
+          {{ userInfo?.data.merchant.vendor_stir }}
+        </span>
+      </div>
+
+      <div class="field">
+        <span class="label">GROUP: </span>
+        <span class="value">
+          <!-- {{ userInfo?.data.merchant.claims_contract_date }} -->
+        </span>
+      </div>
+
+      <div class="field">
+        <span class="label">ФИО пользователя: </span>
+        <span class="value">
+          {{ userInfo?.data.merchant.vendor_cio }}
+        </span>
+      </div>
+
+      <div class="field">
+        <span class="label">Логин пользователя: </span>
+        <span class="value">
+          {{ userInfo?.data.merchant.vendor_cio_username }}
+        </span>
+      </div>
+
+      <div class="field">
+        <span class="label">Номер телефона пользователя: </span>
+        <span class="value">
+          {{ userInfo?.data.merchant.vendor_cio_phone }}
+        </span>
+      </div>
+    </div>
+  </div>
+</div>

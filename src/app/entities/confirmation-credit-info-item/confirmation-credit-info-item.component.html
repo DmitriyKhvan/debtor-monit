@@ -1,63 +1,142 @@
 <div class="credit-info-item">
-  <!-- <pre>
-    {{ userInfo | json }}
-  </pre> -->
-  <h2 class="title">Заявка № {{ userInfo.data.claimsInfo.id }}</h2>
-  <p class="text">
-    Тут показано все собранные товары клиента за текущее время. Нужно учитывать,
-    что общая сумма товара не должно превышать максимальную сумму рассрочки.
-    <a href="#">Подробнее</a>
-  </p>
+  <h2 class="title">
+    Заявка на подтверждение рассрочки № {{ userInfo.data.claimsInfo.claims_id }}
+  </h2>
 
-  <div class="funcBtns">
-    <ng-container *ngIf="!loader && userInfo.data.state == '1'">
-      <app-button
-        (click)="confirmCredit('1', 'Одобрить рассрочку')"
-        className="btn big successBtn"
-        >Одобрить</app-button
-      >
-      <app-button
-        (click)="confirmCredit('0', 'Отказать рассрочку')"
-        className="btn big failurBtn"
-        >Отказать</app-button
-      >
-    </ng-container>
-
-    <ng-container *ngIf="userInfo.data.state != '1'">
-      <app-lozenge
-        className="{{ statusStyleDic[userInfo.data.state] }} large"
-        >{{ statusNameDic[userInfo.data.state] }}</app-lozenge
-      >
-
-      <div class="commentConfrim">
-        Комментарий: <strong class="comment">{{ comment }}</strong>
+  <div class="info-wrap">
+    <div class="info-genaral1">
+      <div class="field">
+        <span class="label">ФИО: </span>
+        <span class="value">{{ userInfo?.data.client.client_fio }}</span>
       </div>
-    </ng-container>
 
-    <ng-container *ngIf="loader">
-      <app-loader></app-loader>
-    </ng-container>
+      <div class="field">
+        <span class="label">Номер телефона 1: </span>
+        <span class="value">{{
+          userInfo?.data.client.client_phone_1 | phoneFormat
+        }}</span>
+      </div>
+
+      <div class="field">
+        <span class="label">Номер телефона 2: </span>
+        <span class="value">{{
+          userInfo?.data.client.client_phone_2 | phoneFormat
+        }}</span>
+      </div>
+
+      <div class="field">
+        <span class="label">Почта: </span>
+        <span class="value"></span>
+      </div>
+
+      <div class="field">
+        <span class="label">Номер и срок карты: </span>
+        <span class="value">
+          {{ userInfo?.data.client.client_card_number }}
+          {{ userInfo?.data.client.client_card_date }}
+        </span>
+      </div>
+    </div>
+
+    <div class="info-genaral2">
+      <div class="field">
+        <span class="label">Номер заявки: </span>
+        <span class="value">{{ userInfo?.data.claims_contract_id }}</span>
+      </div>
+
+      <div class="field">
+        <span class="label">Дата заявки:: </span>
+        <span class="value">{{
+          userInfo?.data.claimsInfo.claims_contract_date
+        }}</span>
+      </div>
+
+      <div class="field">
+        <span class="label">Текущая дата: </span>
+        <span class="value">
+          {{ userInfo?.data.claimsInfo.claims_date | dateTimeFormat }}</span
+        >
+      </div>
+
+      <div class="field">
+        <span class="label">Лимит: </span>
+        <span class="value">
+          {{
+            userInfo?.data.claimsInfo.claims_scoring_amount
+              | numberTransform : false
+          }}</span
+        >
+      </div>
+
+      <div class="field">
+        <span class="label">Комментарий: </span>
+        <span class="value"> {{ comment }}</span>
+      </div>
+    </div>
+
+    <div class="info-avatar">
+      <img
+        [src]="
+          'data:image/png;base64,' + userInfo?.data.client.client_image_string
+        "
+        alt=""
+      />
+    </div>
+
+    <div class="funcBtns">
+      <ng-container *ngIf="!loader && userInfo.data.state == '1'">
+        <app-button
+          (click)="confirmCredit('1', 'Одобрить рассрочку')"
+          className="btn full successBtn"
+          >Одобрить</app-button
+        >
+        <app-button
+          (click)="confirmCredit('0', 'Отказать рассрочку')"
+          className="btn full failurBtn"
+          >Отказать</app-button
+        >
+      </ng-container>
+
+      <ng-container *ngIf="userInfo.data.state != '1'">
+        <app-lozenge
+          className="{{ statusStyleDic[userInfo.data.state] }} middle"
+          >{{ statusNameDic[userInfo.data.state] }}</app-lozenge
+        >
+
+        <!-- <div class="commentConfrim">
+          Комментарий: <strong class="comment">{{ comment }}</strong>
+        </div> -->
+      </ng-container>
+
+      <ng-container *ngIf="loader">
+        <app-loader></app-loader>
+      </ng-container>
+    </div>
   </div>
 
-  <div class="tabs">
+  <!-- <div class="tabs">
     <button
-      (click)="toggleTab('info')"
-      [class]="tab === 'info' ? 'active' : ''"
+      (click)="toggleTab('info-installment-plan')"
+      [class]="tab === 'info-installment-plan' ? 'active' : ''"
     >
-      Общая информация
+      Информация о рассрочки
     </button>
-    <!-- <button
-      (click)="toggleTab('schedule')"
-      [class]="tab === 'schedule' ? 'active' : ''"
+    <button
+      (click)="toggleTab('info-client')"
+      [class]="tab === 'info-client' ? 'active' : ''"
     >
-      New tab template
-    </button> -->
-  </div>
+      Информация о клиенте
+    </button>
+  </div> -->
   <div class="content">
     <app-general-user-info-confirmation-credit
       [userInfo]="userInfo"
-      *ngIf="tab === 'info'"
+      *ngIf="tab === 'info-installment-plan'"
     ></app-general-user-info-confirmation-credit>
-    <div *ngIf="tab === 'schedule'"></div>
+
+    <!-- <app-client-info-confirm
+      [userInfo]="userInfo"
+      *ngIf="tab === 'info-client'"
+    ></app-client-info-confirm> -->
   </div>
 </div>

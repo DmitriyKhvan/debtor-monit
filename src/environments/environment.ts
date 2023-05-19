@@ -1,11 +1,11 @@
 export const environment = {
   production: false,
   authUrl: `https://auth.flexit.uz/auth`,
-  // dbUrl: 'https://cc.lendo.uz/api',
+  dbUrl: 'https://cc.lendo.uz/api',
   dbUrl2: 'http://10.1.1.14:5415/support/confirm',
-  wsUrl: 'ws://10.1.1.177:1680',
-  // wsUrl: 'wss://cc.lendo.uz',
+  // wsUrl: 'ws://10.1.1.177:1680',
+  wsUrl: 'wss://cc.lendo.uz',
   // dbUrl2: 'http://10.1.1.200:5415/support/confirm',
-  dbUrl: 'http://10.1.1.177:1680',
+  // dbUrl: 'http://10.1.1.177:1680',
   // fileUrl: 'http://dev.lendo.uz/files',
 };

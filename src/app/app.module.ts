@@ -70,7 +70,7 @@ import { UserInfoComponent } from './entities/user-info/user-info.component';
 import { GeneralUserInfoConfirmationCreditComponent } from './entities/confirmation-credit-info-item/components/general-user-info-confirmation-credit/general-user-info-confirmation-credit.component';
 import { CreditInfoLayoutComponent } from './widgets/credit-info-layout/credit-info-layout.component';
 import { TestComponent } from './pages/test/test.component';
-import { UserInfoConfirmComponent } from './entities/confirmation-credit-info-item/components/user-info-confirm/user-info-confirm.component';
+import { InstallmentPlanConfirmComponent } from './entities/confirmation-credit-info-item/components/installment-plan-confirm/installment-plan-confirm.component';
 import { ProductListConfirmComponent } from './entities/confirmation-credit-info-item/components/product-list-confirm/product-list-confirm.component';
 import { ProductListConfirmItemComponent } from './entities/confirmation-credit-info-item/components/product-list-confirm/components/product-list-confirm-item/product-list-confirm-item.component';
 import { ConfirmCommentPopUpComponent } from './widgets/confirm-comment-pop-up/confirm-comment-pop-up.component';
@@ -86,6 +86,7 @@ import { AddPhonePopUpComponent } from './widgets/add-phone-pop-up/add-phone-pop
 import { NewNotificationComponent } from './widgets/notification-pop-up/components/new-notifications/components/new-notification/new-notification.component';
 import { ViewedNotificationComponent } from './widgets/notification-pop-up/components/viewed-notifications/components/viewed-notification/viewed-notification.component';
 import { AddClientInfoFilterPipe } from './shared/pipes/add-client-info-filter.pipe';
+import { ClientInfoConfirmComponent } from './entities/confirmation-credit-info-item/components/client-info-confirm/client-info-confirm.component';
 
 const INTERCEPTOR_PROVIDER: Provider = {
   provide: HTTP_INTERCEPTORS,
@@ -155,7 +156,7 @@ const CUSTOM_DATE_FORMATS: NgxMatDateFormats = {
     GeneralUserInfoConfirmationCreditComponent,
     CreditInfoLayoutComponent,
     TestComponent,
-    UserInfoConfirmComponent,
+    InstallmentPlanConfirmComponent,
     ProductListConfirmComponent,
     ProductListConfirmItemComponent,
     ConfirmCommentPopUpComponent,
@@ -171,6 +172,7 @@ const CUSTOM_DATE_FORMATS: NgxMatDateFormats = {
     NewNotificationComponent,
     ViewedNotificationComponent,
     AddClientInfoFilterPipe,
+    ClientInfoConfirmComponent,
   ],
   imports: [
     BrowserModule,
