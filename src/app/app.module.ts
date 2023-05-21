@@ -82,11 +82,12 @@ import { ViewedNotificationComponents } from './widgets/notification-pop-up/comp
 import { HistoryCallComponent } from './entities/credit-info-item/components/history-call/history-call.component';
 import { HistoryCallItemComponent } from './entities/credit-info-item/components/history-call/components/history-call-item/history-call-item.component';
 import { TimeFormatPipe } from './shared/pipes/time-format.pipe';
-import { AddPhonePopUpComponent } from './widgets/add-phone-pop-up/add-phone-pop-up.component';
+import { AddClientInfoPopUpComponent } from './widgets/add-client-info-pop-up/add-client-info-pop-up.component';
 import { NewNotificationComponent } from './widgets/notification-pop-up/components/new-notifications/components/new-notification/new-notification.component';
 import { ViewedNotificationComponent } from './widgets/notification-pop-up/components/viewed-notifications/components/viewed-notification/viewed-notification.component';
 import { AddClientInfoFilterPipe } from './shared/pipes/add-client-info-filter.pipe';
 import { ClientInfoConfirmComponent } from './entities/confirmation-credit-info-item/components/client-info-confirm/client-info-confirm.component';
+import { RemoveAddClientInfoPopUpComponent } from './widgets/remove-add-client-info-pop-up/remove-add-client-info-pop-up.component';
 
 const INTERCEPTOR_PROVIDER: Provider = {
   provide: HTTP_INTERCEPTORS,
@@ -168,11 +169,12 @@ const CUSTOM_DATE_FORMATS: NgxMatDateFormats = {
     HistoryCallComponent,
     HistoryCallItemComponent,
     TimeFormatPipe,
-    AddPhonePopUpComponent,
+    AddClientInfoPopUpComponent,
     NewNotificationComponent,
     ViewedNotificationComponent,
     AddClientInfoFilterPipe,
     ClientInfoConfirmComponent,
+    RemoveAddClientInfoPopUpComponent,
   ],
   imports: [
     BrowserModule,

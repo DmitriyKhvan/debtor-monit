@@ -85,7 +85,7 @@ export class ConfirmationCreditInfoItemComponent implements OnInit, OnDestroy {
     this.cSub = this.apiService
       .getConfirmComment()
       .subscribe((comment: any) => {
-        this.comment = comment.data[0].comment;
+        this.comment = comment.data[0]?.comment;
       });
   }
 

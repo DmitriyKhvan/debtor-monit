@@ -1,71 +1,93 @@
 <div class="wrapper">
   <div class="col-1">
     <div class="info-installment-plan">
-      <h2 class="title">Условие договора рассрочки</h2>
+      <h2 class="title">Информация о продавце</h2>
 
       <div class="field">
-        <span class="label">Срок погашения: </span>
-        <span class="value">{{ userInfo?.data.claimsInfo.claims_period }}</span>
+        <span class="label">Магазин:</span>
+        <span class="value">{{ userInfo?.data.merchant.vendor_name }}</span>
       </div>
 
       <div class="field">
-        <span class="label">Общая сумма погашения: </span>
-        <span class="value">
-          <app-lozenge2 className="default">
-            {{
-              userInfo?.data.claimsInfo.claims_amount | numberTransform : false
-            }}
-            СУМ</app-lozenge2
-          >
-        </span>
+        <span class="label">Адрес:</span>
+        <span class="value">{{ userInfo?.data.merchant.vendor_address }}</span>
       </div>
 
       <div class="field">
-        <span class="label">Ежемесячный платёж: </span>
-        <span class="value">
-          <app-lozenge2 className="blue"
-            >{{
-              userInfo?.data.claimsInfo.claims_monthly | numberTransform
-            }}
-            CУМ</app-lozenge2
-          >
-        </span>
+        <span class="label">Владелец магазина ФИО:</span>
+        <span class="value">{{ userInfo?.data.merchant.vendor_owner }}</span>
+      </div>
+
+      <div class="field">
+        <span class="label">Владелец номер телефона:</span>
+        <span class="value">{{ userInfo?.data.merchant.vendor_phone }}</span>
+      </div>
+
+      <div class="field">
+        <span class="label">Оператор ФИО:</span>
+        <span class="value">{{ userInfo?.data.merchant.vendor_cio }}</span>
+      </div>
+
+      <div class="field">
+        <span class="label">Оператор Телефон:</span>
+        <span class="value">{{
+          userInfo?.data.merchant.vendor_cio_phone
+        }}</span>
       </div>
     </div>
 
     <div class="info-contract">
-      <h2 class="title">Информация о договоре</h2>
+      <h2 class="title">Информация о рассрочки</h2>
 
       <div class="field">
-        <span class="label">Общая сумма товаров: </span>
-        <span class="value">
-          <app-lozenge2 className="default">
-            {{
-              userInfo?.data.claimsInfo.claims_amount | numberTransform : false
-            }}
-            СУМ</app-lozenge2
-          >
+        <span class="label">Номер договора:</span>
+        <span class="value"
+          >{{ userInfo?.data.claimsInfo.claims_contract_id }}
         </span>
       </div>
 
       <div class="field">
-        <span class="label">Номер договора: </span>
-        <span class="value">
-          <app-lozenge2 className="default">
-            {{ userInfo?.data.claimsInfo.claims_contract_id }}</app-lozenge2
-          >
+        <span class="label">Срок погашения:</span>
+        <span class="value"
+          >{{ userInfo?.data.claimsInfo.claims_period }} мес.
         </span>
       </div>
 
       <div class="field">
-        <span class="label">Дата договора: </span>
+        <span class="label">Общая сумма товаров:</span>
+        <span class="value">{{
+          userInfo?.data.claimsInfo.claims_amount | numberTransform : false
+        }}</span>
+      </div>
+
+      <div class="field">
+        <span class="label">Сумма рассрочки:</span>
+        <span class="value"
+          >{{
+            userInfo?.data.claimsInfo.claims_amount | numberTransform : false
+          }}
+        </span>
+      </div>
+
+      <div class="field">
+        <span class="label">Ежемесячный платёж:</span>
         <span class="value">
-          <app-lozenge2 className="green"
-            >{{
-              userInfo?.data.claimsInfo.claims_contract_date
-            }}
-            CУМ</app-lozenge2
-          >
+          <app-lozenge2 className="blue" [fontSize]="14">{{
+            userInfo?.data.claimsInfo.claims_monthly | numberTransform : false
+          }}</app-lozenge2>
+        </span>
+      </div>
+
+      <div class="field">
+        <span class="label">Код погашения:</span>
+        <span class="value copy"
+          ><span #copyText class="copyText">{{
+            userInfo?.data.claimsInfo.claims_loan_id
+          }}</span>
+          <span (click)="copy($event)" class="icon-copy"
+            ><span class="path1"></span><span class="path2"></span
+            ><span class="path3"></span
+          ></span>
         </span>
       </div>
     </div>
@@ -77,73 +99,146 @@
 
   <div class="col-2">
     <div class="info-seller">
-      <h2 class="title">Информация о продавце</h2>
+      <h2 class="title">Информация о клиенте</h2>
 
       <div class="field">
-        <span class="label">Наименование магазина: </span>
+        <span class="label">Возраст:</span>
         <span class="value">
-          {{ userInfo?.data.merchant.vendor_name }}
+          {{ userInfo?.data.client.client_age }}
         </span>
       </div>
 
       <div class="field">
-        <span class="label">Владелец магазина: </span>
+        <span class="label">Дата рождения:</span>
         <span class="value">
-          {{ userInfo?.data.merchant.vendor_owner }}
+          {{ userInfo?.data.client.client_bday }}
         </span>
       </div>
 
       <div class="field">
-        <span class="label">Адрес: </span>
-        <span class="value">{{ userInfo?.data.merchant.vendor_address }} </span>
+        <span class="label">Паспорт:</span>
+        <span class="value">{{ userInfo?.data.client.client_doc_data }} </span>
       </div>
 
       <div class="field">
-        <span class="label">Номер телефона: </span>
+        <span class="label">Дата выдачи:</span>
         <span class="value">
-          {{ userInfo?.data.merchant.vendor_cio_phone | phoneFormat }}
+          {{ userInfo?.data.client.client_doc_issue }}
         </span>
       </div>
 
       <div class="field">
-        <span class="label">Категория товаров: </span>
-        <span class="value">{{ userInfo?.data.merchant.vendor_type }} </span>
-      </div>
-
-      <div class="field">
-        <span class="label">ИНН: </span>
-        <span class="value">
-          {{ userInfo?.data.merchant.vendor_stir }}
+        <span class="label">Дата окончания:</span>
+        <span class="value"
+          >{{ userInfo?.data.client.client_doc_expire }}
         </span>
       </div>
 
       <div class="field">
-        <span class="label">GROUP: </span>
+        <span class="label">Место выдачи документа:</span>
         <span class="value">
-          <!-- {{ userInfo?.data.merchant.claims_contract_date }} -->
+          {{ userInfo?.data.client.client_doc_issued_by }}
         </span>
       </div>
 
       <div class="field">
-        <span class="label">ФИО пользователя: </span>
+        <span class="label">Постоянный регион MYID:</span>
         <span class="value">
-          {{ userInfo?.data.merchant.vendor_cio }}
+          {{ userInfo?.data.client.client_address_dist_perm }}
         </span>
       </div>
 
       <div class="field">
-        <span class="label">Логин пользователя: </span>
+        <span class="label">Постоянный район MYID: </span>
         <span class="value">
-          {{ userInfo?.data.merchant.vendor_cio_username }}
+          {{ userInfo?.data.client.client_address_reg_perm }}
         </span>
       </div>
 
       <div class="field">
-        <span class="label">Номер телефона пользователя: </span>
+        <span class="label">Постоянный адрес MYID:</span>
         <span class="value">
-          {{ userInfo?.data.merchant.vendor_cio_phone }}
+          {{ userInfo?.data.client.client_address_perm }}
         </span>
+      </div>
+
+      <div class="field">
+        <span class="label">Временный регион MYID:</span>
+        <span class="value">
+          {{ userInfo?.data.client.client_addreess_reg_temp || "-" }}
+        </span>
+      </div>
+
+      <div class="field">
+        <span class="label">Временный район MYID:</span>
+        <span class="value">
+          {{ userInfo?.data.client.client_addreess_dist_temp || "-" }}
+        </span>
+      </div>
+
+      <div class="field">
+        <span class="label">Временный адрес MYID:</span>
+        <span class="value">
+          {{ userInfo?.data.client.client_addreess_temp || "-" }}
+        </span>
+      </div>
+
+      <div class="field">
+        <span class="label">Клиент указал регион:</span>
+        <span class="value">
+          {{ userInfo?.data.client.client_district_given }}
+        </span>
+      </div>
+
+      <div class="field">
+        <span class="label">Клиент указал район:</span>
+        <span class="value">
+          {{ userInfo?.data.client.client_region_given }}
+        </span>
+      </div>
+
+      <div class="field">
+        <span class="label">Клиент указал адрес:</span>
+        <span class="value">
+          {{ userInfo?.data.client.client_address_given }}
+        </span>
+      </div>
+    </div>
+
+    <div class="info-add">
+      <div class="title addInfo">
+        <h2>Дополнительная информация</h2>
+        <button (click)="addInfo()">Добавить инфо</button>
+      </div>
+
+      <div *ngFor="let info of addClientInfo" class="field">
+        <span class="label">{{ info.description }}</span>
+
+        <div class="value">
+          <span>{{ info.value }}</span>
+
+          <div class="funcBtns">
+            <span
+              (click)="editAddClientInfo(info.id, info.description, info.value)"
+              class="icon-edit-filled"
+              ><span class="path1"></span><span class="path2"></span
+            ></span>
+            <span (click)="removeAddClientInfo(info.id)" class="icon-cross"
+              ><span class="path1"></span><span class="path2"></span
+            ></span>
+          </div>
+        </div>
       </div>
     </div>
   </div>
 </div>
+
+<app-add-client-info-pop-up
+  *ngIf="flag"
+  [formData]="formData"
+></app-add-client-info-pop-up>
+
+<app-remove-add-client-info-pop-up
+  *ngIf="isRemoveClientInfo"
+  [id]="addClientInfoId"
+></app-remove-add-client-info-pop-up>

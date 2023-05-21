@@ -1,58 +1,65 @@
 <div class="credit-info-item">
   <h2 class="title">
-    Заявка на подтверждение рассрочки № {{ userInfo.data.claimsInfo.claims_id }}
+    Заявка на подтверждение рассрочки №
+    {{ userInfo.data.claimsInfo.claims_id }}
   </h2>
 
   <div class="info-wrap">
     <div class="info-genaral1">
       <div class="field">
-        <span class="label">ФИО: </span>
+        <span class="label">ФИО:</span>
         <span class="value">{{ userInfo?.data.client.client_fio }}</span>
       </div>
 
       <div class="field">
-        <span class="label">Номер телефона 1: </span>
+        <span class="label">Номер телефона 1:</span>
         <span class="value">{{
           userInfo?.data.client.client_phone_1 | phoneFormat
         }}</span>
       </div>
 
       <div class="field">
-        <span class="label">Номер телефона 2: </span>
+        <span class="label">Номер телефона 2:</span>
         <span class="value">{{
           userInfo?.data.client.client_phone_2 | phoneFormat
         }}</span>
       </div>
 
       <div class="field">
-        <span class="label">Почта: </span>
+        <span class="label">Почта:</span>
         <span class="value"></span>
       </div>
 
       <div class="field">
-        <span class="label">Номер и срок карты: </span>
-        <span class="value">
-          {{ userInfo?.data.client.client_card_number }}
-          {{ userInfo?.data.client.client_card_date }}
+        <span class="label">Номер и срок карты:</span>
+        <span class="value card">
+          <app-lozenge2 className="grey" [fontSize]="14">{{
+            userInfo?.data.client.client_card_number
+          }}</app-lozenge2>
+          <app-lozenge2 className="grey" [fontSize]="14">{{
+            userInfo?.data.client.client_card_date
+          }}</app-lozenge2>
         </span>
       </div>
     </div>
 
     <div class="info-genaral2">
       <div class="field">
-        <span class="label">Номер заявки: </span>
-        <span class="value">{{ userInfo?.data.claims_contract_id }}</span>
+        <span class="label">Номер заявки:</span>
+        <span class="value">{{
+          userInfo?.data.claimsInfo.claims_contract_id
+        }}</span>
       </div>
 
       <div class="field">
-        <span class="label">Дата заявки:: </span>
+        <span class="label">Дата заявки:</span>
         <span class="value">{{
           userInfo?.data.claimsInfo.claims_contract_date
         }}</span>
       </div>
 
       <div class="field">
-        <span class="label">Текущая дата: </span>
+        <span class="label">Текущая дата:</span>
         <span class="value">
           {{ userInfo?.data.claimsInfo.claims_date | dateTimeFormat }}</span
         >
@@ -68,7 +75,7 @@
         >
       </div>
 
-      <div class="field">
+      <div *ngIf="userInfo.data.state != '1'" class="field">
         <span class="label">Комментарий: </span>
         <span class="value"> {{ comment }}</span>
       </div>
@@ -88,18 +95,18 @@
         <app-button
           (click)="confirmCredit('1', 'Одобрить рассрочку')"
           className="btn full successBtn"
-          >Одобрить</app-button
+          >ОДОБРИТЬ</app-button
         >
         <app-button
           (click)="confirmCredit('0', 'Отказать рассрочку')"
           className="btn full failurBtn"
-          >Отказать</app-button
+          >ОТКАЗАТЬ</app-button
         >
       </ng-container>
 
       <ng-container *ngIf="userInfo.data.state != '1'">
         <app-lozenge
-          className="{{ statusStyleDic[userInfo.data.state] }} middle"
+          className="{{ statusStyleDic[userInfo.data.state] }} large"
           >{{ statusNameDic[userInfo.data.state] }}</app-lozenge
         >
 

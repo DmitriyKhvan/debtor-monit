@@ -173,14 +173,37 @@ export class ApiService {
       );
   }
 
-  addPhone({ type, value, description }: any): Observable<any> {
+  addClientInfo({ id, type, value, description }: any): Observable<any> {
     return this.http
       .post(`${environment.dbUrl}/client-info/addClientInfo/set`, {
+        id,
         type,
         value,
         description,
         claimsId: this.claimsId,
       })
+      .pipe(
+        catchError((error) => {
+          return throwError(() => error);
+        })
+      );
+  }
+
+  getAddClientInfo(): Observable<any> {
+    return this.http
+      .get(
+        `${environment.dbUrl}/client-info/addClientInfo/get?claimsId=${this.claimsId}`
+      )
+      .pipe(
+        catchError((error) => {
+          return throwError(() => error);
+        })
+      );
+  }
+
+  removeAddClientInfo(id: number): Observable<any> {
+    return this.http
+      .delete(`${environment.dbUrl}/client-info/addClientInfo/delete?id=${id}`)
       .pipe(
         catchError((error) => {
           return throwError(() => error);

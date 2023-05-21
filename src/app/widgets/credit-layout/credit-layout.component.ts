@@ -13,6 +13,7 @@ import { ApiService } from 'src/app/shared/api/credit.service';
 export class CreditLayoutComponent {
   flagSub!: Subscription;
   flagConfirmSub!: Subscription;
+
   loanId = '';
   title = '';
   option = '';

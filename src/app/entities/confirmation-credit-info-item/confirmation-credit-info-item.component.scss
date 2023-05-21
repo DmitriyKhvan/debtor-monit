@@ -2,6 +2,7 @@
   width: 100%;
   height: 100%;
   padding: 44px 50px;
+  overflow: auto;
 
   .title {
     font-size: 24px;
@@ -15,12 +16,18 @@
       margin-top: 32px;
       column-gap: 20px;
       grid-template-areas: "avatar genaral1 genaral2 funcBtns";
-      grid-template-columns: 116px 435px 300px 197px;
+      grid-template-columns: 116px 435px 306px 190px;
       padding: 16px;
 
       border-radius: 15px;
       border: 1px solid #f0f0f2;
       background: #fbfbfb;
+    }
+
+    &-genaral1,
+    &-genaral2 {
+      display: grid;
+      gap: 5px;
     }
 
     &-genaral1 {
@@ -55,7 +62,7 @@
 
     .field {
       display: flex;
-      margin-bottom: 5px;
+      // margin-bottom: 5px;
       font-size: 14px;
 
       .label {
@@ -73,6 +80,12 @@
         //   color: #006644;
         //   padding: 0 4px;
         // }
+      }
+
+      .card {
+        font-family: "Roboto Mono";
+        display: flex;
+        gap: 12px;
       }
 
       .telegram {
@@ -111,7 +124,6 @@
     flex-direction: column;
     justify-content: center;
     gap: 10px;
-    margin-top: 12px;
 
     grid-area: funcBtns;
 
@@ -142,6 +154,6 @@
   }
 
   .content {
-    margin-top: 32px;
+    margin-top: 20px;
   }
 }

@@ -1,7 +1,8 @@
 <div class="tr">
-  <div class="td order">{{ idx }}</div>
-  <div class="td id">{{ product.id || "-" }}</div>
-  <div class="td name">{{ product.name }}</div>
+  <div class="td name">
+    <img src="../../../../../../../assets/img/productIcon.svg" alt="" />
+    <span>{{ product.name }}</span>
+  </div>
   <div class="td price">
     <app-lozenge2 *ngIf="product.amount; else empty" className="blue">{{
       product.amount | numberTransform : false

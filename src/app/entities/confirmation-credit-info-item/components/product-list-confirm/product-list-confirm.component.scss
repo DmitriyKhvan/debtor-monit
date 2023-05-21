@@ -20,11 +20,8 @@
 .tr {
   display: grid;
   // grid-template-columns: repeat(12, 1fr);
-  grid-template-areas: "order id name price";
-  grid-template-columns: 50px minmax(50px, 0.5fr) minmax(370px, 1fr) minmax(
-      100px,
-      1fr
-    );
+  grid-template-areas: "name price";
+  grid-template-columns: minmax(370px, 1fr) 80px;
   min-height: 40px;
 
   column-gap: 10px;
@@ -46,8 +43,13 @@
 }
 
 .name {
+  display: flex;
   grid-area: name;
   // width: 370px;
+
+  img {
+    margin-right: 13px;
+  }
 }
 
 .price {
