@@ -13,7 +13,6 @@
     position: sticky;
     top: 0;
     background: #fff;
-    border-bottom: 2px solid rgba(9, 30, 66, 0.08);
     .tr {
       color: var(--grey-color);
       font-size: 12px;
@@ -21,7 +20,9 @@
   }
 
   .tbody {
+    width: fit-content;
     border-bottom: 2px solid rgba(9, 30, 66, 0.08);
+    border-top: 2px solid rgba(9, 30, 66, 0.08);
   }
 }
 
@@ -45,6 +46,13 @@
   column-gap: 10px;
 
   // grid-template-columns: 30px 70px 136px 30% 136px 136px 90px 90px 100px;
+  grid-template-columns:
+    30px minmax(70px, 0.5fr) minmax(136px, 1fr)
+    minmax(290px, 1fr) minmax(136px, 1fr) minmax(136px, 1fr) minmax(90px, 1fr) minmax(
+      90px,
+      1fr
+    )
+    minmax(120px, 1fr);
 
   grid-template-areas: "order claimsId vendor fullname phoneFirst phoneSecond contractDate lastPayDate status";
 
@@ -57,47 +65,47 @@
 .order {
   text-align: center;
   grid-area: order;
-  width: 30px;
+  // width: 30px;
 }
 
 .claimsId {
   grid-area: claimsId;
-  width: 70px;
+  // width: 70px;
 }
 
 .vendor {
   grid-area: vendor;
-  width: 136px;
+  // width: 136px;
 }
 
 .fullname {
   grid-area: fullname;
-  width: 290px;
+  // width: 290px;
 }
 
 .phoneFirst {
   grid-area: phoneFirst;
-  width: 136px;
+  // width: 136px;
 }
 
 .phoneSecond {
   grid-area: phoneSecond;
-  width: 136px;
+  // width: 136px;
 }
 
 .contractDate {
   grid-area: contractDate;
-  width: 90px;
+  // width: 90px;
 }
 
 .lastPayDate {
   grid-area: lastPayDate;
-  width: 90px;
+  // width: 90px;
 }
 
 .status {
   grid-area: status;
-  width: 120px;
+  // width: 120px;
 }
 
 .my-pagination ::ng-deep {

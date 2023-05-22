@@ -70,7 +70,7 @@ import { UserInfoComponent } from './entities/user-info/user-info.component';
 import { GeneralUserInfoConfirmationCreditComponent } from './entities/confirmation-credit-info-item/components/general-user-info-confirmation-credit/general-user-info-confirmation-credit.component';
 import { CreditInfoLayoutComponent } from './widgets/credit-info-layout/credit-info-layout.component';
 import { TestComponent } from './pages/test/test.component';
-import { UserInfoConfirmComponent } from './entities/confirmation-credit-info-item/components/user-info-confirm/user-info-confirm.component';
+import { InstallmentPlanConfirmComponent } from './entities/confirmation-credit-info-item/components/installment-plan-confirm/installment-plan-confirm.component';
 import { ProductListConfirmComponent } from './entities/confirmation-credit-info-item/components/product-list-confirm/product-list-confirm.component';
 import { ProductListConfirmItemComponent } from './entities/confirmation-credit-info-item/components/product-list-confirm/components/product-list-confirm-item/product-list-confirm-item.component';
 import { ConfirmCommentPopUpComponent } from './widgets/confirm-comment-pop-up/confirm-comment-pop-up.component';
@@ -82,10 +82,15 @@ import { ViewedNotificationComponents } from './widgets/notification-pop-up/comp
 import { HistoryCallComponent } from './entities/credit-info-item/components/history-call/history-call.component';
 import { HistoryCallItemComponent } from './entities/credit-info-item/components/history-call/components/history-call-item/history-call-item.component';
 import { TimeFormatPipe } from './shared/pipes/time-format.pipe';
-import { AddPhonePopUpComponent } from './widgets/add-phone-pop-up/add-phone-pop-up.component';
+import { AddClientInfoPopUpComponent } from './widgets/add-client-info-pop-up/add-client-info-pop-up.component';
 import { NewNotificationComponent } from './widgets/notification-pop-up/components/new-notifications/components/new-notification/new-notification.component';
 import { ViewedNotificationComponent } from './widgets/notification-pop-up/components/viewed-notifications/components/viewed-notification/viewed-notification.component';
 import { AddClientInfoFilterPipe } from './shared/pipes/add-client-info-filter.pipe';
+import { ClientInfoConfirmComponent } from './entities/confirmation-credit-info-item/components/client-info-confirm/client-info-confirm.component';
+import { RemoveAddClientInfoPopUpComponent } from './widgets/remove-add-client-info-pop-up/remove-add-client-info-pop-up.component';
+import { DeclensionOfWordsPipe } from './shared/pipes/declension-of-words.pipe';
+import { ShowAvatarPopUpComponent } from './widgets/show-avatar-pop-up/show-avatar-pop-up.component';
+import { NgxMaskDirective, NgxMaskPipe, provideNgxMask } from 'ngx-mask';
 
 const INTERCEPTOR_PROVIDER: Provider = {
   provide: HTTP_INTERCEPTORS,
@@ -155,7 +160,7 @@ const CUSTOM_DATE_FORMATS: NgxMatDateFormats = {
     GeneralUserInfoConfirmationCreditComponent,
     CreditInfoLayoutComponent,
     TestComponent,
-    UserInfoConfirmComponent,
+    InstallmentPlanConfirmComponent,
     ProductListConfirmComponent,
     ProductListConfirmItemComponent,
     ConfirmCommentPopUpComponent,
@@ -167,10 +172,14 @@ const CUSTOM_DATE_FORMATS: NgxMatDateFormats = {
     HistoryCallComponent,
     HistoryCallItemComponent,
     TimeFormatPipe,
-    AddPhonePopUpComponent,
+    AddClientInfoPopUpComponent,
     NewNotificationComponent,
     ViewedNotificationComponent,
     AddClientInfoFilterPipe,
+    ClientInfoConfirmComponent,
+    RemoveAddClientInfoPopUpComponent,
+    DeclensionOfWordsPipe,
+    ShowAvatarPopUpComponent,
   ],
   imports: [
     BrowserModule,
@@ -190,6 +199,8 @@ const CUSTOM_DATE_FORMATS: NgxMatDateFormats = {
     NgxMatNativeDateModule,
     NgxMatMomentModule,
     KeycloakAngularModule,
+    NgxMaskDirective,
+    NgxMaskPipe,
   ],
   providers: [
     INTERCEPTOR_PROVIDER,
@@ -201,6 +212,7 @@ const CUSTOM_DATE_FORMATS: NgxMatDateFormats = {
       multi: true,
       deps: [KeycloakService],
     },
+    provideNgxMask(),
   ],
   bootstrap: [AppComponent],
 })

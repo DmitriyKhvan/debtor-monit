@@ -13,13 +13,15 @@ export class ConfirmationCreditInfoItemComponent implements OnInit, OnDestroy {
   @Input() userInfo: any;
   cSub!: Subscription;
   uSub!: Subscription;
+  showAvatarSub!: Subscription;
   loader: boolean = false;
+  isAvatar: boolean = false;
   comment: string = '';
   option: string = '';
 
   confirmInfo: any = null;
 
-  tab = 'info';
+  tab = 'info-installment-plan';
 
   statusStyleDic: any = {
     1: 'default',
@@ -40,16 +42,9 @@ export class ConfirmationCreditInfoItemComponent implements OnInit, OnDestroy {
   ) {}
 
   ngOnInit(): void {
-    // this.uSub = this.flagService.userInfo$.subscribe((userInfo) => {
-    //   console.log(userInfo);
-
-    //   if (userInfo.userInfo) {
-    //     this.userInfo = userInfo.userInfo;
-
-    //     this.getCofirmComment();
-    //   }
-    //   this.loader = userInfo.isLoader;
-    // });
+    this.showAvatarSub = this.flagService.showAvatar$.subscribe((flag) => {
+      this.isAvatar = flag;
+    });
 
     if (this.userInfo.data.state !== '1') {
       this.getConfirmComment();
@@ -85,7 +80,7 @@ export class ConfirmationCreditInfoItemComponent implements OnInit, OnDestroy {
     this.cSub = this.apiService
       .getConfirmComment()
       .subscribe((comment: any) => {
-        this.comment = comment.data[0].comment;
+        this.comment = comment.data[0]?.comment;
       });
   }
 
@@ -98,8 +93,13 @@ export class ConfirmationCreditInfoItemComponent implements OnInit, OnDestroy {
     this.flagService.toggleConfirmComment(true, title);
   }
 
+  showAvatar() {
+    this.flagService.showAvatar$.next(true);
+  }
+
   ngOnDestroy(): void {
     this.cSub?.unsubscribe();
     this.uSub?.unsubscribe();
+    this.showAvatarSub?.unsubscribe();
   }
 }

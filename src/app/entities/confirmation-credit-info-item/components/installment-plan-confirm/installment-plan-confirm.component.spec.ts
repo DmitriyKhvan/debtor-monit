@@ -1,6 +1,6 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { UserInfoConfirmComponent } from './user-info-confirm.component';
+import { UserInfoConfirmComponent } from './installment-plan-confirm.component';
 
 describe('UserInfoConfirmComponent', () => {
   let component: UserInfoConfirmComponent;
@@ -8,9 +8,8 @@ describe('UserInfoConfirmComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ UserInfoConfirmComponent ]
-    })
-    .compileComponents();
+      declarations: [UserInfoConfirmComponent],
+    }).compileComponents();
 
     fixture = TestBed.createComponent(UserInfoConfirmComponent);
     component = fixture.componentInstance;

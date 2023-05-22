@@ -3,14 +3,14 @@
     <span (click)="closeForm()" class="close icon-cl0ose"
       ><span class="path1"></span><span class="path2"></span
     ></span>
-    <h2 class="title">Добавить новый номер</h2>
+    <h2 class="title">Добавить информацию</h2>
     <form class="form" [formGroup]="form" (ngSubmit)="submitHandler()">
       <div class="field-form">
         <app-input-form
           [form]="form"
           controlName="description"
           placeholder="Введите данные"
-          label="Наименование"
+          label="Наименование информации"
         ></app-input-form>
         <div
           *ngIf="
@@ -29,7 +29,7 @@
           [form]="form"
           controlName="phone"
           placeholder="Введите данные"
-          label="Номер телефона"
+          label="Текст"
         ></app-input-form>
         <div
           *ngIf="form.get('phone')?.touched && form.get('phone')?.invalid"

@@ -1,0 +1,89 @@
+<div class="wrapper">
+  <div class="col-1">
+    <div class="info-installment-plan">
+      <h2 class="title">Информация о клиенте</h2>
+
+      <div class="field">
+        <span class="label">Фамилия: </span>
+        <span class="value">{{ userInfo?.data.client.client_last_name }}</span>
+      </div>
+
+      <div class="field">
+        <span class="label">Имя: </span>
+        <span class="value">{{ userInfo?.data.client.client_first_name }}</span>
+      </div>
+
+      <div class="field">
+        <span class="label">Отчество: </span>
+        <span class="value">{{
+          userInfo?.data.client.client_middle_name
+        }}</span>
+      </div>
+
+      <div class="field">
+        <span class="label">Пол: </span>
+        <span class="value">{{ userInfo?.data.client.client_gender }}</span>
+      </div>
+
+      <div class="field">
+        <span class="label">Номер телефона1: </span>
+        <span class="value">{{ userInfo?.data.client.client_phone_1 }}</span>
+      </div>
+
+      <div class="field">
+        <span class="label">Номер телефона2: </span>
+        <span class="value">{{ userInfo?.data.client.client_phone_2 }}</span>
+      </div>
+
+      <div class="field">
+        <span class="label">Гражданство: </span>
+        <span class="value">{{ userInfo?.data.client.claims_monthly }}</span>
+      </div>
+
+      <div class="field">
+        <span class="label">Дата рождения: </span>
+        <span class="value">{{ userInfo?.data.client.claims_monthly }}</span>
+      </div>
+
+      <div class="field">
+        <span class="label">ПИНФЛ: </span>
+        <span class="value">{{ userInfo?.data.client.client_pinfl }}</span>
+      </div>
+
+      <div class="field">
+        <span class="label">Номер паспорта и серия: </span>
+        <span class="value">{{ userInfo?.data.client.claims_monthly }}</span>
+      </div>
+
+      <div class="field">
+        <span class="label">Дата выдачи: </span>
+        <span class="value">
+          <app-lozenge2 className="green">
+            {{ userInfo?.data.client.client_doc_issue }}</app-lozenge2
+          ></span
+        >
+      </div>
+
+      <div class="field">
+        <span class="label">Дата окончания: </span>
+        <span class="value"
+          ><app-lozenge2 className="green">{{
+            userInfo?.data.client.client_doc_expire
+          }}</app-lozenge2></span
+        >
+      </div>
+
+      <div class="field">
+        <span class="label">Тип документа: </span>
+        <span class="value">{{ userInfo?.data.client.client_doc_type }}</span>
+      </div>
+
+      <div class="field">
+        <span class="label">Место выдачи документа: </span>
+        <span class="value">{{
+          userInfo?.data.client.client_doc_issued_by
+        }}</span>
+      </div>
+    </div>
+  </div>
+</div>
