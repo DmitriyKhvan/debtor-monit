@@ -88,6 +88,8 @@ import { ViewedNotificationComponent } from './widgets/notification-pop-up/compo
 import { AddClientInfoFilterPipe } from './shared/pipes/add-client-info-filter.pipe';
 import { ClientInfoConfirmComponent } from './entities/confirmation-credit-info-item/components/client-info-confirm/client-info-confirm.component';
 import { RemoveAddClientInfoPopUpComponent } from './widgets/remove-add-client-info-pop-up/remove-add-client-info-pop-up.component';
+import { DeclensionOfWordsPipe } from './shared/pipes/declension-of-words.pipe';
+import { ShowAvatarPopUpComponent } from './widgets/show-avatar-pop-up/show-avatar-pop-up.component';
 
 const INTERCEPTOR_PROVIDER: Provider = {
   provide: HTTP_INTERCEPTORS,
@@ -175,6 +177,8 @@ const CUSTOM_DATE_FORMATS: NgxMatDateFormats = {
     AddClientInfoFilterPipe,
     ClientInfoConfirmComponent,
     RemoveAddClientInfoPopUpComponent,
+    DeclensionOfWordsPipe,
+    ShowAvatarPopUpComponent,
   ],
   imports: [
     BrowserModule,

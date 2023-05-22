@@ -82,12 +82,18 @@
     </div>
 
     <div class="info-avatar">
-      <img
-        [src]="
-          'data:image/png;base64,' + userInfo?.data.client.client_image_string
-        "
-        alt=""
-      />
+      <div class="wrapper-avatar">
+        <span class="icon-zoom-in"
+          ><span class="path1"></span><span class="path2"></span
+        ></span>
+        <img
+          (click)="showAvatar()"
+          [src]="
+            'data:image/png;base64,' + userInfo?.data.client.client_image_string
+          "
+          alt=""
+        />
+      </div>
     </div>
 
     <div class="funcBtns">
@@ -147,3 +153,8 @@
     ></app-client-info-confirm> -->
   </div>
 </div>
+
+<app-show-avatar-pop-up
+  *ngIf="isAvatar"
+  [src]="'data:image/png;base64,' + userInfo?.data.client.client_image_string"
+></app-show-avatar-pop-up>

@@ -11,6 +11,7 @@ export class FlagService {
   updateActions$ = new Subject<boolean>();
   cofirmComment$ = new Subject<boolean>();
   isNotifications$ = new Subject<boolean>();
+  showAvatar$ = new Subject<any>();
 
   setUserInfo({ userInfo, isLoader }: any) {
     this.userInfo$.next({ userInfo, isLoader });

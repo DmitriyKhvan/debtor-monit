@@ -49,7 +49,11 @@
       <div class="field">
         <span class="label">Срок погашения:</span>
         <span class="value"
-          >{{ userInfo?.data.claimsInfo.claims_period }} мес.
+          >{{ userInfo?.data.claimsInfo.claims_period }}
+          {{
+            userInfo?.data.claimsInfo.claims_period
+              | declensionOfWords : ["месяц", "месяца", "месяцев"]
+          }}
         </span>
       </div>
 
@@ -105,6 +109,10 @@
         <span class="label">Возраст:</span>
         <span class="value">
           {{ userInfo?.data.client.client_age }}
+          {{
+            userInfo?.data.client.client_age
+              | declensionOfWords : ["год", "года", "лет"]
+          }}
         </span>
       </div>
 

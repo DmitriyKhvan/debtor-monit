@@ -26,7 +26,8 @@
 
     &-genaral1,
     &-genaral2 {
-      display: grid;
+      display: flex;
+      flex-direction: column;
       gap: 5px;
     }
 
@@ -40,15 +41,45 @@
     &-genaral2 {
       grid-area: genaral2;
       .label {
-        width: 110px;
+        min-width: 110px;
       }
     }
 
     &-avatar {
-      margin-top: -16px;
-      margin-bottom: -16px;
+      // margin-top: -16px;
+      // margin-bottom: -16px;
       grid-area: avatar;
-      clip-path: ellipse(50% 58px at 50% 50%);
+      // clip-path: ellipse(50% 58px at 50% 50%);
+
+      .wrapper-avatar {
+        position: relative;
+
+        &:hover img {
+          opacity: 0.5;
+        }
+
+        &:hover .icon-zoom-in {
+          opacity: 1;
+        }
+
+        .icon-zoom-in {
+          position: absolute;
+          top: 50%;
+          left: 50%;
+          margin-left: -25px;
+          margin-top: -25px;
+          font-size: 50px;
+          opacity: 0;
+          transition: opacity 0.1s ease-in;
+        }
+
+        img {
+          cursor: pointer;
+          border-radius: 10px;
+          border: 1px solid #f0f0f2;
+          transition: opacity 0.2s ease-in;
+        }
+      }
     }
   }
 

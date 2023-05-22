@@ -1,0 +1,42 @@
+.wrapper {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(0, 0, 0, 0.4);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 1000;
+
+  .avatar {
+    position: relative;
+
+    &:hover .closeAvatar {
+      opacity: 1;
+    }
+
+    .closeAvatar {
+      position: absolute;
+      top: 0;
+      right: 0;
+      margin: 5px;
+      background: #5e6c84;
+      font-size: 26px;
+      cursor: pointer;
+      border-radius: 3px;
+      transition: all 0.3s ease;
+      opacity: 0;
+      transition: opacity 0.3s ease-in;
+
+      // &:hover {
+      //   background: #5e6c84;
+      // }
+
+      & .path2:before {
+        color: #fff;
+      }
+    }
+  }
+}

@@ -47,7 +47,7 @@ export class AddClientInfoPopUpComponent implements OnInit, OnDestroy {
     this.submitted = true;
 
     const data = {
-      id: this.formData.id,
+      id: this.formData?.id,
       type: 'ADD_PHONE',
       value: this.form.value.phone,
       description: this.form.value.description,
