@@ -90,6 +90,7 @@ import { ClientInfoConfirmComponent } from './entities/confirmation-credit-info-
 import { RemoveAddClientInfoPopUpComponent } from './widgets/remove-add-client-info-pop-up/remove-add-client-info-pop-up.component';
 import { DeclensionOfWordsPipe } from './shared/pipes/declension-of-words.pipe';
 import { ShowAvatarPopUpComponent } from './widgets/show-avatar-pop-up/show-avatar-pop-up.component';
+import { NgxMaskDirective, NgxMaskPipe, provideNgxMask } from 'ngx-mask';
 
 const INTERCEPTOR_PROVIDER: Provider = {
   provide: HTTP_INTERCEPTORS,
@@ -198,6 +199,8 @@ const CUSTOM_DATE_FORMATS: NgxMatDateFormats = {
     NgxMatNativeDateModule,
     NgxMatMomentModule,
     KeycloakAngularModule,
+    NgxMaskDirective,
+    NgxMaskPipe,
   ],
   providers: [
     INTERCEPTOR_PROVIDER,
@@ -209,6 +212,7 @@ const CUSTOM_DATE_FORMATS: NgxMatDateFormats = {
       multi: true,
       deps: [KeycloakService],
     },
+    provideNgxMask(),
   ],
   bootstrap: [AppComponent],
 })

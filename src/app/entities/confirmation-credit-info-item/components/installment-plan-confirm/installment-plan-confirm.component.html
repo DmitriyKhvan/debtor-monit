@@ -42,7 +42,7 @@
       <div class="field">
         <span class="label">Номер договора:</span>
         <span class="value"
-          >{{ userInfo?.data.claimsInfo.claims_contract_id }}
+          >{{ userInfo?.data.claimsInfo.claims_loan_id }}
         </span>
       </div>
 
@@ -86,7 +86,7 @@
         <span class="label">Код погашения:</span>
         <span class="value copy"
           ><span #copyText class="copyText">{{
-            userInfo?.data.claimsInfo.claims_loan_id
+            userInfo?.data.claimsInfo.claims_contract_id
           }}</span>
           <span (click)="copy($event)" class="icon-copy"
             ><span class="path1"></span><span class="path2"></span
@@ -125,7 +125,9 @@
 
       <div class="field">
         <span class="label">Паспорт:</span>
-        <span class="value">{{ userInfo?.data.client.client_doc_data }} </span>
+        <span class="value"
+          >{{ userInfo?.data.client.client_doc_data | mask : "AA 0000000" }}
+        </span>
       </div>
 
       <div class="field">
@@ -152,14 +154,14 @@
       <div class="field">
         <span class="label">Постоянный регион MYID:</span>
         <span class="value">
-          {{ userInfo?.data.client.client_address_dist_perm }}
+          {{ userInfo?.data.client.client_address_reg_perm }}
         </span>
       </div>
 
       <div class="field">
         <span class="label">Постоянный район MYID: </span>
         <span class="value">
-          {{ userInfo?.data.client.client_address_reg_perm }}
+          {{ userInfo?.data.client.client_address_dist_perm }}
         </span>
       </div>
 
@@ -194,14 +196,14 @@
       <div class="field">
         <span class="label">Клиент указал регион:</span>
         <span class="value">
-          {{ userInfo?.data.client.client_district_given }}
+          {{ userInfo?.data.client.client_region_given }}
         </span>
       </div>
 
       <div class="field">
         <span class="label">Клиент указал район:</span>
         <span class="value">
-          {{ userInfo?.data.client.client_region_given }}
+          {{ userInfo?.data.client.client_district_given }}
         </span>
       </div>
 
