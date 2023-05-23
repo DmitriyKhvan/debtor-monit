@@ -93,6 +93,7 @@
 
     .field {
       display: flex;
+      align-items: center;
       // margin-bottom: 5px;
       font-size: 14px;
 
@@ -101,7 +102,7 @@
       }
 
       .value {
-        flex-grow: 1;
+        // flex-grow: 1;
         font-weight: 700;
         color: #172b4d;
 
@@ -111,6 +112,11 @@
         //   color: #006644;
         //   padding: 0 4px;
         // }
+      }
+
+      .companyTin {
+        width: 20px;
+        margin-left: 10px;
       }
 
       .card {
