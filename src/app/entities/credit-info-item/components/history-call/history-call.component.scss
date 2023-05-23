@@ -1,7 +1,7 @@
 .history-call {
   // display: grid;
   // grid-template-columns: repeat(24, 1fr);
-  width: 80%;
+  width: fit-content;
   margin-top: 32px;
 
   &__wrap {
@@ -34,15 +34,20 @@
   border-bottom: 2px solid rgba(9, 30, 66, 0.08);
 }
 
+.tbody {
+}
+
 .tr {
   display: grid;
-  grid-template-areas: "idx date card sum status";
-  grid-template-rows: 40px;
+  grid-template-areas: "idx date operator caller type_call duration status record_call";
+  grid-template-rows: minmax(30px, 1fr);
   // grid-template-columns:
   //   40px minmax(70px, 1fr) minmax(140px, 1fr) minmax(80px, 1fr)
   //   minmax(80px, 1fr);
-  grid-template-columns: 40px 140px minmax(200px, 0.25fr) 140px 140px;
+  grid-template-columns: 40px 140px minmax(200px, 0.25fr) 140px 90px 120px 120px 1fr;
   column-gap: 10px;
+  margin: 10px 0;
+
   align-items: center;
 }
 
@@ -56,17 +61,35 @@
   // width: 70px;
 }
 
-.card {
-  grid-area: card;
+.operator {
+  grid-area: operator;
   // width: 140px;
 }
 
-.sum {
-  grid-area: sum;
+.caller {
+  grid-area: caller;
+  // width: 140px;
+}
+
+.type_call {
+  grid-area: type_call;
+  // width: 140px;
+}
+
+.duration {
+  grid-area: duration;
   // width: 80px;
 }
 
 .status {
   grid-area: status;
   // width: 80px;
+}
+
+.record_call {
+  grid-area: record_call;
+  // width: 80px;
+  display: flex;
+  align-items: center;
+  gap: 10px;
 }

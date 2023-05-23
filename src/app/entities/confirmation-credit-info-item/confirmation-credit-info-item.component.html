@@ -26,11 +26,6 @@
       </div>
 
       <div class="field">
-        <span class="label">Почта:</span>
-        <span class="value"></span>
-      </div>
-
-      <div class="field">
         <span class="label">Номер и срок карты:</span>
         <span class="value card">
           <app-lozenge2 className="grey" [fontSize]="14">{{
@@ -41,6 +36,21 @@
             userInfo?.data.client.client_card_date
           }}</app-lozenge2>
         </span>
+      </div>
+
+      <div class="field">
+        <span class="label">Место работы ИНН:</span>
+        <span class="value">{{
+          userInfo?.data.client.client_company_tin
+        }}</span>
+        <a
+          target="_blank"
+          [href]="
+            'https://orginfo.uz/ru/search?q=' +
+            userInfo?.data.client.client_company_tin
+          "
+          ><img class="companyTin" src="../../../assets/img/orgInfo.png" alt=""
+        /></a>
       </div>
     </div>
 
@@ -157,3 +167,14 @@
   *ngIf="isAvatar"
   [src]="'data:image/png;base64,' + userInfo?.data.client.client_image_string"
 ></app-show-avatar-pop-up>
+
+<!-- <iframe
+  id="inlineFrameExample"
+  title="Inline Frame Example"
+  width="300"
+  height="200"
+  [src]="
+    'https://orginfo.uz/ru/search?q=' + userInfo?.data.client.client_company_tin
+  "
+>
+</iframe> -->
