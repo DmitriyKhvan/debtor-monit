@@ -41,7 +41,7 @@
       <div class="field">
         <span class="label">Место работы ИНН:</span>
         <span class="value">{{
-          userInfo?.data.client.client_company_tin
+          userInfo?.data.client.client_company_tin | mask : "000 000 000"
         }}</span>
         <a
           target="_blank"

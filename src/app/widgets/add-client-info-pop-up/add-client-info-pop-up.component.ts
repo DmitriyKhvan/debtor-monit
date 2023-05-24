@@ -10,6 +10,7 @@ import { FlagService } from 'src/app/shared/api/flag.sevice';
   styleUrls: ['./add-client-info-pop-up.component.scss'],
 })
 export class AddClientInfoPopUpComponent implements OnInit, OnDestroy {
+  @Input() mask: string = '';
   @Input() formData: any = {
     id: 0,
     description: '',
@@ -27,7 +28,10 @@ export class AddClientInfoPopUpComponent implements OnInit, OnDestroy {
 
   ngOnInit(): void {
     this.form = new FormGroup({
-      phone: new FormControl(this.formData?.value, Validators.required),
+      value: new FormControl(this.formData?.value, [
+        Validators.required,
+        // Validators.minLength(2),
+      ]),
       description: new FormControl(
         this.formData?.description,
         Validators.required
@@ -49,9 +53,11 @@ export class AddClientInfoPopUpComponent implements OnInit, OnDestroy {
     const data = {
       id: this.formData?.id,
       type: 'ADD_PHONE',
-      value: this.form.value.phone,
+      value: (this.mask ? '+' : '') + this.form.value.value,
       description: this.form.value.description,
     };
+
+    console.log(data);
 
     this.aSub = this.apiService
       .addClientInfo(data)

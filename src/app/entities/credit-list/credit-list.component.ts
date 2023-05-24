@@ -2,6 +2,7 @@ import {
   Component,
   ElementRef,
   HostListener,
+  Input,
   OnDestroy,
   OnInit,
   QueryList,
@@ -22,6 +23,8 @@ export class CreditListComponent implements OnInit, OnDestroy {
   onBeforUnload() {
     localStorage.clear();
   }
+
+  @Input() filter: string = '';
 
   @ViewChildren('sorting') sortingRef!: QueryList<ElementRef>;
 
@@ -111,7 +114,11 @@ export class CreditListComponent implements OnInit, OnDestroy {
   }
 
   getCredits() {
-    if (localStorage.getItem('credits') && localStorage.getItem('filterData')) {
+    if (
+      localStorage.getItem('credits') &&
+      localStorage.getItem('filterData') &&
+      !this.filter
+    ) {
       const creditsData = JSON.parse(localStorage.getItem('credits') || '{}');
       const filterData = JSON.parse(localStorage.getItem('filterData') || '{}');
 
@@ -122,6 +129,7 @@ export class CreditListComponent implements OnInit, OnDestroy {
       this.sortType = filterData.sortType;
       this.search = filterData.search;
       this.totalItems = creditsData.totalItems;
+
       return;
     }
 
@@ -132,6 +140,7 @@ export class CreditListComponent implements OnInit, OnDestroy {
       sortValue: this.sortValue,
       sortType: this.sortType,
       search: this.search,
+      currentMonth: this.filter === 'all' ? false : true,
     };
 
     localStorage.setItem('filterData', JSON.stringify(data));

@@ -12,7 +12,7 @@
   .info {
     &-wrap {
       display: grid;
-      min-width: fit-content;
+      width: fit-content;
       margin-top: 32px;
       column-gap: 20px;
       grid-template-areas: "avatar genaral1 genaral2 funcBtns";
