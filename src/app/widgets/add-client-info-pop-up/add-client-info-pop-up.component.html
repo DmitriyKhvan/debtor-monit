@@ -27,21 +27,25 @@
       <div class="field-form">
         <app-input-form
           [form]="form"
-          controlName="phone"
+          controlName="value"
           placeholder="Введите данные"
           label="Текст"
+          [mask]="mask"
         ></app-input-form>
+        <!-- <pre>
+          {{ form.get("value")?.errors | json }}
+        </pre> -->
         <div
-          *ngIf="form.get('phone')?.touched && form.get('phone')?.invalid"
+          *ngIf="form.get('value')?.touched && form.get('value')?.invalid"
           class="validation"
         >
-          <small *ngIf="form.get('phone')?.errors?.required">
+          <small *ngIf="form.get('value')?.errors?.required">
             Введите данные
           </small>
 
-          <!-- <small *ngIf="form.get('phone')?.errors?.pattern">
+          <small *ngIf="form.get('value')?.errors?.mask">
             Некорректные данные
-          </small> -->
+          </small>
         </div>
       </div>
 

@@ -7,16 +7,23 @@
     }}</app-lozenge2>
   </div>
   <div class="td paid">
-    <app-lozenge2 className="grey">{{
+    <!-- <app-lozenge2 className="grey">{{
       +schedule.schedule.factPaid + +schedule.schedule.reCount
         ? (+schedule.schedule.factPaid + +schedule.schedule.reCount
           | numberTransform : false)
+        : "0,00"
+    }}</app-lozenge2> -->
+    <app-lozenge2 className="grey">{{
+      +schedule.schedule.factPaid
+        ? (+schedule.schedule.factPaid | numberTransform : false)
         : "0,00"
     }}</app-lozenge2>
   </div>
 
   <div class="td recalculation">
-    <app-lozenge2 className="grey">0,00</app-lozenge2>
+    <app-lozenge2 className="grey">{{
+      schedule.schedule.reCount | numberTransform : false
+    }}</app-lozenge2>
   </div>
 
   <div class="td remainder">

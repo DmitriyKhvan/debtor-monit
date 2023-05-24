@@ -1,0 +1,23 @@
+<div class="tabs">
+  <button (click)="toggleTab('all')" [class]="tab === 'all' ? 'active' : ''">
+    Все должники
+  </button>
+  <button
+    (click)="toggleTab('currentMonth')"
+    [class]="tab === 'currentMonth' ? 'active' : ''"
+  >
+    Должники за текущий месяц
+  </button>
+</div>
+
+<ng-container *ngIf="tab === 'all'">
+  <app-search-credits></app-search-credits>
+
+  <app-credit-list [filter]="tab"></app-credit-list>
+</ng-container>
+
+<ng-container *ngIf="tab === 'currentMonth'">
+  <app-search-credits></app-search-credits>
+
+  <app-credit-list [filter]="tab"></app-credit-list>
+</ng-container>

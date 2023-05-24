@@ -12,4 +12,5 @@ export class InputFormComponent {
   @Input() label: string = '';
   @Input() controlName: any;
   @Input() form: any;
+  @Input() mask: string = '';
 }

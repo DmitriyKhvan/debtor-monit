@@ -92,6 +92,7 @@ import { DeclensionOfWordsPipe } from './shared/pipes/declension-of-words.pipe';
 import { ShowAvatarPopUpComponent } from './widgets/show-avatar-pop-up/show-avatar-pop-up.component';
 import { NgxMaskDirective, NgxMaskPipe, provideNgxMask } from 'ngx-mask';
 import { SafePipe } from './shared/pipes/safe.pipe';
+import { ForeclosureComponent } from './entities/foreclosure/foreclosure.component';
 
 const INTERCEPTOR_PROVIDER: Provider = {
   provide: HTTP_INTERCEPTORS,
@@ -182,6 +183,7 @@ const CUSTOM_DATE_FORMATS: NgxMatDateFormats = {
     DeclensionOfWordsPipe,
     ShowAvatarPopUpComponent,
     SafePipe,
+    ForeclosureComponent,
   ],
   imports: [
     BrowserModule,

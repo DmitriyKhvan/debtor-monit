@@ -25,7 +25,7 @@ export class SearchCreditsComponent implements OnInit, OnDestroy {
 
   ngOnInit(): void {
     if (localStorage.getItem('filterData')) {
-      this.value = JSON.parse(localStorage.getItem('filterData') || '')?.search;
+      this.value = JSON.parse(localStorage.getItem('filterData') || '').search;
     }
 
     if (localStorage.getItem('filterDataConfirm')) {
