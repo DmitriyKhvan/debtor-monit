@@ -14,14 +14,14 @@
       <div class="field">
         <span class="label">Номер телефона 1:</span>
         <span class="value">{{
-          userInfo?.data.client.client_phone_1 | phoneFormat
+          userInfo?.data.client.client_phone_1 | mask : "+000 00 000 00 00"
         }}</span>
       </div>
 
       <div class="field">
         <span class="label">Номер телефона 2:</span>
         <span class="value">{{
-          userInfo?.data.client.client_phone_2 | phoneFormat
+          userInfo?.data.client.client_phone_2 | mask : "+000 00 000 00 00"
         }}</span>
       </div>
 
