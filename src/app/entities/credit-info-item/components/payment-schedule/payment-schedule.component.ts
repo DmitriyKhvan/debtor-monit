@@ -53,12 +53,14 @@ export class PaymentScheduleComponent implements OnInit, OnDestroy {
         contractId: this.userInfo.contractId,
       })
       .subscribe((res: maxAmountData) => {
+        console.log(res);
+
         this.maxAmountData = res;
         this.pipelinesRef.nativeElement.classList.remove('loader');
 
         this.totaldebt =
           Number(this.userInfo.schedule.totaldebt) +
-          Number(this.maxAmountData.diff);
+          (Number(this.maxAmountData.diff) || 0);
 
         this.totaldebt = this.totaldebt < 0 ? this.totaldebt : 0;
       });

@@ -1,4 +1,7 @@
 import { Component } from '@angular/core';
+import { ApiService } from './shared/api/credit.service';
+import { KeycloakService } from 'keycloak-angular';
+import { WebsocketService } from './shared/api/websocket.service';
 
 @Component({
   selector: 'app-root',
@@ -7,4 +10,11 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   title = 'Lendo-Deptor';
+
+  constructor(
+    // запускает сервисы
+    // private apiService: ApiService,
+    // private keycloak: KeycloakService,
+    private webSocketService: WebsocketService
+  ) {}
 }

@@ -27,7 +27,6 @@ export class WebsocketService {
       .loadUserProfile()
       .then((profile) => {
         this.apiService.profile = profile;
-
         this.socket = io(`${environment.wsUrl}?username=${profile.username}`);
 
         this.listen('connected').subscribe((isConnect) => {
