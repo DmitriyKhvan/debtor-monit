@@ -16,4 +16,12 @@
       text-overflow: ellipsis;
     }
   }
+
+  .vendor {
+    span {
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+    }
+  }
 }

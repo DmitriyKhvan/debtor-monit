@@ -114,11 +114,7 @@ export class CreditListComponent implements OnInit, OnDestroy {
   }
 
   getCredits() {
-    if (
-      localStorage.getItem('credits') &&
-      localStorage.getItem('filterData') &&
-      !this.filter
-    ) {
+    if (localStorage.getItem('credits') && localStorage.getItem('filterData')) {
       const creditsData = JSON.parse(localStorage.getItem('credits') || '{}');
       const filterData = JSON.parse(localStorage.getItem('filterData') || '{}');
 
@@ -200,7 +196,9 @@ export class CreditListComponent implements OnInit, OnDestroy {
   }
 
   pageChanged(currentPage: number) {
-    localStorage.clear();
+    // localStorage.clear();
+    localStorage.removeItem('filterData');
+    localStorage.removeItem('credits');
 
     this.currentPage = currentPage;
     this.getCredits();
