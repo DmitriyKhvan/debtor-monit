@@ -92,7 +92,11 @@ import { DeclensionOfWordsPipe } from './shared/pipes/declension-of-words.pipe';
 import { ShowAvatarPopUpComponent } from './widgets/show-avatar-pop-up/show-avatar-pop-up.component';
 import { NgxMaskDirective, NgxMaskPipe, provideNgxMask } from 'ngx-mask';
 import { SafePipe } from './shared/pipes/safe.pipe';
-import { ForeclosureComponent } from './entities/foreclosure/foreclosure.component';
+import { ForeclosureTabsComponent } from './entities/foreclosure-tabs/foreclosure-tabs.component';
+import { SidebarForeclosureComponent } from './widgets/sidebar-foreclosure/sidebar-foreclosure.component';
+import { DocumentsComponent } from './entities/documents/documents.component';
+import { SidebarConfirmationComponent } from './widgets/sidebar-confirmation/sidebar-confirmation.component';
+import { ConfirmationTabsComponent } from './entities/confirmation-tabs/confirmation-tabs.component';
 
 const INTERCEPTOR_PROVIDER: Provider = {
   provide: HTTP_INTERCEPTORS,
@@ -183,7 +187,11 @@ const CUSTOM_DATE_FORMATS: NgxMatDateFormats = {
     DeclensionOfWordsPipe,
     ShowAvatarPopUpComponent,
     SafePipe,
-    ForeclosureComponent,
+    ForeclosureTabsComponent,
+    SidebarForeclosureComponent,
+    DocumentsComponent,
+    SidebarConfirmationComponent,
+    ConfirmationTabsComponent,
   ],
   imports: [
     BrowserModule,

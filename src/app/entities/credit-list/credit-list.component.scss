@@ -7,7 +7,7 @@
 
 .table {
   overflow-x: auto;
-  height: calc(100vh - 301px);
+  height: calc(100vh - 317px);
 
   .thead {
     position: sticky;
@@ -20,9 +20,9 @@
   }
 
   .tbody {
-    min-width: fit-content;
     border-bottom: 2px solid rgba(9, 30, 66, 0.08);
     border-top: 2px solid rgba(9, 30, 66, 0.08);
+    width: fit-content;
   }
 }
 
@@ -47,12 +47,9 @@
 
   // grid-template-columns: 30px 70px 136px 30% 136px 136px 90px 90px 100px;
   grid-template-columns:
-    30px minmax(70px, 0.5fr) minmax(136px, 1fr)
-    minmax(290px, 1fr) minmax(136px, 1fr) minmax(136px, 1fr) minmax(90px, 1fr) minmax(
-      90px,
-      1fr
-    )
-    minmax(120px, 1fr);
+    30px minmax(70px, 0.1fr) minmax(136px, 0.75fr)
+    minmax(290px, 1fr) 125px 125px 135px 135px
+    120px;
 
   grid-template-areas: "order claimsId vendor fullname phoneFirst phoneSecond contractDate lastPayDate status";
 

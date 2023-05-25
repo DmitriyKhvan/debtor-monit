@@ -2,6 +2,7 @@ import {
   Component,
   ElementRef,
   HostListener,
+  Input,
   OnDestroy,
   OnInit,
   QueryList,
@@ -15,13 +16,18 @@ import { Status } from 'src/app/shared/interfaces';
 @Component({
   selector: 'app-confirmation-credit-list',
   templateUrl: './confirmation-credit-list.component.html',
-  styleUrls: ['./confirmation-credit-list.component.scss'],
+  styleUrls: [
+    '../credit-list/credit-list.component.scss',
+    './confirmation-credit-list.component.scss',
+  ],
 })
 export class ConfirmationCreditListComponent implements OnInit, OnDestroy {
   @HostListener('window:beforeunload', ['$event'])
   onBeforUnload() {
     localStorage.clear();
   }
+
+  @Input() filter: string = '';
 
   @ViewChildren('sorting') sortingRef!: QueryList<ElementRef>;
 
@@ -207,7 +213,9 @@ export class ConfirmationCreditListComponent implements OnInit, OnDestroy {
   }
 
   pageChanged(currentPage: number) {
-    localStorage.clear();
+    // localStorage.clear();
+    localStorage.removeItem('filterDataConfirm');
+    localStorage.removeItem('creditsConfirm');
 
     this.currentPage = currentPage;
     this.getCredits();

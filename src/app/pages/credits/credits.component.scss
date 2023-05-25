@@ -1,11 +1,7 @@
-.header-page {
+.wrapper {
   display: flex;
-  justify-content: space-between;
-  align-items: center;
 
-  .title-page {
-    font-weight: 600;
-    font-size: 16px;
-    color: var(--blue-darck-color);
+  .content {
+    padding: 25px 25px 0 25px;
   }
 }

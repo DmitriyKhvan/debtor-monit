@@ -1,6 +1,6 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { ForeclosureComponent } from './foreclosure.component';
+import { ForeclosureComponent } from './foreclosure-tabs.component';
 
 describe('ForeclosureComponent', () => {
   let component: ForeclosureComponent;
@@ -8,9 +8,8 @@ describe('ForeclosureComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ ForeclosureComponent ]
-    })
-    .compileComponents();
+      declarations: [ForeclosureComponent],
+    }).compileComponents();
 
     fixture = TestBed.createComponent(ForeclosureComponent);
     component = fixture.componentInstance;

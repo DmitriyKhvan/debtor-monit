@@ -1,33 +1,35 @@
-<div class="header">
-  <h2 class="title">Расчет суммы кредита</h2>
-</div>
-
-<form class="form" [formGroup]="form" (ngSubmit)="submitHandler()">
-  <div class="field-form">
-    <app-input-form
-      type="text"
-      placeholder="Введите номер заявки"
-      controlName="claimsId"
-      [form]="form"
-    />
-    <div
-      *ngIf="form.get('claimsId')?.touched && form.get('claimsId')?.invalid"
-      class="validation"
-    >
-      <small *ngIf="form.get('claimsId')?.errors?.required">
-        Введите данные
-      </small>
-
-      <small *ngIf="form.get('claimsId')?.errors?.pattern">
-        Некорректные данные
-      </small>
-    </div>
+<div class="wrapper">
+  <div class="header">
+    <h2 class="title">Расчет суммы кредита</h2>
   </div>
 
-  <app-button
-    [disabled]="form.invalid || submitted"
-    type="submit"
-    className="btn medium primaryBtn"
-    >Отправить</app-button
-  >
-</form>
+  <form class="form" [formGroup]="form" (ngSubmit)="submitHandler()">
+    <div class="field-form">
+      <app-input-form
+        type="text"
+        placeholder="Введите номер заявки"
+        controlName="claimsId"
+        [form]="form"
+      />
+      <div
+        *ngIf="form.get('claimsId')?.touched && form.get('claimsId')?.invalid"
+        class="validation"
+      >
+        <small *ngIf="form.get('claimsId')?.errors?.required">
+          Введите данные
+        </small>
+
+        <small *ngIf="form.get('claimsId')?.errors?.pattern">
+          Некорректные данные
+        </small>
+      </div>
+    </div>
+
+    <app-button
+      [disabled]="form.invalid || submitted"
+      type="submit"
+      className="btn medium primaryBtn"
+      >Отправить</app-button
+    >
+  </form>
+</div>

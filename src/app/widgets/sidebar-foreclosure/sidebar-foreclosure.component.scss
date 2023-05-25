@@ -1,0 +1,76 @@
+.wrap-sidebar {
+  width: 240px;
+  height: 100vh;
+  background: #fafbfc;
+  padding: 24px 15px;
+
+  .header {
+    // border-bottom: 2px solid rgba(9, 30, 66, 0.08);
+    // padding-bottom: 28px;
+    .avatar {
+      display: flex;
+      align-items: center;
+
+      // [class^="icon-"] {
+      //   font-size: 40px;
+      //   margin-right: 8px;
+      //   border-radius: 3px;
+      // }
+
+      img {
+        width: 40px;
+        height: 40px;
+        margin-right: 8px;
+        border-radius: 3px;
+      }
+
+      .user {
+        text-transform: uppercase;
+        font-weight: 700;
+        .fioProfile {
+          color: #42526e;
+        }
+        .store {
+          font-size: 12px;
+          color: #6b778c;
+        }
+      }
+    }
+  }
+
+  .menu {
+    margin-top: 16px;
+    ul {
+      li {
+        padding: 11px 7px;
+        transition: all 0.3s ease-in;
+
+        [class^="icon-"] {
+          font-size: 24px;
+          margin-right: 18px;
+        }
+
+        &.active,
+        &:hover {
+          background: rgba(9, 30, 66, 0.04);
+          border-radius: 3px;
+
+          .text,
+          .path2:before {
+            color: #0052cc;
+          }
+        }
+
+        a {
+          display: flex;
+          align-items: center;
+        }
+
+        .text {
+          color: #42526e;
+          font-weight: 600;
+        }
+      }
+    }
+  }
+}
