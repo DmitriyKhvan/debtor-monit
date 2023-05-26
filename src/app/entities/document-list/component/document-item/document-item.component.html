@@ -1,0 +1,18 @@
+<div class="tr">
+  <div class="td fileName">
+    <img src="../../../../../../../assets/img/productIcon.svg" alt="" />
+    <span>{{ file.filename }}</span>
+  </div>
+  <div class="td fileSize">
+    <span>{{ file.size | fileSizeFormat : true }}</span>
+  </div>
+  <div class="td whoUpload">
+    <span>{{ file.createdBy }}</span>
+  </div>
+
+  <div class="td date">
+    <span>{{
+      file.createdAt | dateTimeFormat : "short" : undefined : true
+    }}</span>
+  </div>
+</div>

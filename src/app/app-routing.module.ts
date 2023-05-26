@@ -10,7 +10,7 @@ import { ConfirmationCreditsComponent } from './pages/confirmation-credits/confi
 import { ConfirmationCreditComponent } from './pages/confirmation-credit/confirmation-credit.component';
 import { CreditInfoLayoutComponent } from './widgets/credit-info-layout/credit-info-layout.component';
 import { ForeclosureTabsComponent } from './entities/foreclosure-tabs/foreclosure-tabs.component';
-import { DocumentsComponent } from './entities/documents/documents.component';
+import { DocumentsComponent } from './pages/documents/documents.component';
 import { ConfirmationTabsComponent } from './entities/confirmation-tabs/confirmation-tabs.component';
 
 const routes: Routes = [

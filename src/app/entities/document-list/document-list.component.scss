@@ -1,0 +1,70 @@
+.documents {
+  margin-top: 32px;
+
+  &__wrap {
+  }
+}
+
+.document-list {
+  display: grid;
+  // margin-top: 47px;
+}
+
+.table {
+  overflow-x: auto;
+}
+
+.thead {
+  .td {
+    font-size: 12px;
+    color: #6b778c;
+    font-weight: 600;
+  }
+}
+
+.tbody {
+  width: fit-content;
+  border-top: 2px solid rgba(9, 30, 66, 0.08);
+}
+
+.tr {
+  display: grid;
+  grid-template-columns: minmax(350px, 1fr) 50px minmax(250px, 0.5fr) minmax(
+      150px,
+      0.5fr
+    );
+  grid-template-areas: "fileName fileSize whoUpload date";
+  grid-template-rows: 40px;
+  column-gap: 20px;
+  align-items: center;
+}
+
+.fileName {
+  display: flex;
+  align-items: center;
+  grid-area: fileName;
+  // width: 40px;
+
+  img {
+    margin-right: 13px;
+  }
+}
+
+.fileSize {
+  grid-area: fileSize;
+  // width: 70px;
+}
+
+.whoUpload {
+  grid-area: whoUpload;
+  // width: 80px;
+}
+
+.date {
+  grid-area: date;
+  // width: 80px;
+}
+
+.total {
+  margin-top: 16px;
+}

@@ -146,21 +146,6 @@ export class ApiService {
       );
   }
 
-  getBlob(token: string): Observable<any> {
-    return this.http
-      .get(`${environment.dbUrl}/tools/scheduleFile?token=${token}`, {
-        headers: {
-          'Content-Type': 'application/pdf',
-        },
-        responseType: 'blob',
-      })
-      .pipe(
-        catchError((error) => {
-          return throwError(() => error);
-        })
-      );
-  }
-
   getHistoryCall(): Observable<any> {
     return this.http
       .get(

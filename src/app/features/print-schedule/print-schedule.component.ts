@@ -2,6 +2,7 @@ import { Component, Input, OnDestroy, OnInit } from '@angular/core';
 import { log } from 'console';
 import { Subscription } from 'rxjs';
 import { ApiService } from 'src/app/shared/api/credit.service';
+import { FileService } from 'src/app/shared/api/file.service';
 import { environment } from 'src/environments/environment';
 
 @Component({
@@ -15,7 +16,7 @@ export class PrintScheduleComponent implements OnInit, OnDestroy {
   // url: string = '';
   dSub!: Subscription;
 
-  constructor(private apiService: ApiService) {}
+  constructor(private fileService: FileService) {}
 
   ngOnInit(): void {
     // this.url = `${environment.fileUrl}/${this.token}`;
@@ -41,7 +42,7 @@ export class PrintScheduleComponent implements OnInit, OnDestroy {
   // }
 
   downloadFile() {
-    this.dSub = this.apiService.getBlob(this.token).subscribe((blob: Blob) => {
+    this.dSub = this.fileService.getBlob(this.token).subscribe((blob: Blob) => {
       // let url = URL.createObjectURL(new Blob([blob]));
       let url = URL.createObjectURL(blob);
       let link = document.createElement('a');

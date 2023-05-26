@@ -1,5 +1,4 @@
 .calculationProducts {
-  width: 60%;
   margin-top: 32px;
 
   &__wrap {
@@ -22,12 +21,16 @@
     color: #6b778c;
     font-weight: 600;
   }
+}
+
+.tbody {
   border-bottom: 2px solid rgba(9, 30, 66, 0.08);
 }
 
 .tr {
   display: grid;
-  grid-template-columns: 50px repeat(2, auto);
+  grid-template-columns: 50px repeat(2, minmax(200px, 1fr));
+  // grid-template-columns: 50px minmax(200px, 1fr) minmax(200px, 1fr);
   grid-template-areas: "period productSum loanSum";
   grid-template-rows: 40px;
   column-gap: 10px;
