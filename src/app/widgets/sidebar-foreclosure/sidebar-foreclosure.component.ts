@@ -8,6 +8,7 @@ import {
   RouterEvent,
 } from '@angular/router';
 import { filter } from 'rxjs';
+import { ApiService } from 'src/app/shared/api/credit.service';
 
 @Component({
   selector: 'app-sidebar-foreclosure',
@@ -15,6 +16,7 @@ import { filter } from 'rxjs';
   styleUrls: ['./sidebar-foreclosure.component.scss'],
 })
 export class SidebarForeclosureComponent {
+  constructor(public apiService: ApiService) {}
   // currentRoute: string = '';
   // constructor(private router: Router) {
   //   router.events

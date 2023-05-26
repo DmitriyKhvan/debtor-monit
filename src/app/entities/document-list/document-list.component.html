@@ -1,0 +1,28 @@
+<div class="documents">
+  <div class="documents__wrap">
+    <div class="document-list">
+      <div class="table">
+        <div class="thead">
+          <div class="tr">
+            <div class="td fileName">
+              <span>Название файла</span>
+            </div>
+            <div class="td fileSize">Размер</div>
+            <div class="td whoUpload">Кто загрузил</div>
+            <div class="td date">Дата</div>
+          </div>
+        </div>
+
+        <div class="tbody">
+          <ng-container *ngFor="let file of files; let idx = index">
+            <app-document-item [file]="file"></app-document-item>
+          </ng-container>
+        </div>
+      </div>
+
+      <div class="total">
+        <strong class="text">Всего файлов: {{ files.length }}</strong>
+      </div>
+    </div>
+  </div>
+</div>

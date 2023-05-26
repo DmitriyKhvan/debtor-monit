@@ -24,7 +24,14 @@
         </a>
       </li>
 
-      <li routerLinkActive="active">
+      <!-- <pre>
+        {{ apiService.profile | json }}
+      </pre> -->
+
+      <li
+        *ngIf="apiService.profile.username === 'support_admin'"
+        routerLinkActive="active"
+      >
         <a [routerLink]="['documents']">
           <span class="icon-documenlt"
             ><span class="path1"></span><span class="path2"></span

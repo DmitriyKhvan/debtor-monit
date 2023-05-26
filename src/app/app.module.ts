@@ -9,7 +9,6 @@ import { FooterComponent } from './widgets/footer/footer.component';
 import { SidebarComponent } from './widgets/sidebar/sidebar.component';
 import { UpdateCreditsComponent } from './features/update-credits/update-credits.component';
 import { SearchCreditsComponent } from './features/search-credits/search-credits.component';
-import { PaginationComponent } from './features/pagination/pagination.component';
 import { MenuComponent } from './widgets/header/componets/menu/menu.component';
 import { MainLayoutComponent } from './widgets/main-layout/main-layout.component';
 import { HomeComponent } from './pages/home/home.component';
@@ -94,9 +93,13 @@ import { NgxMaskDirective, NgxMaskPipe, provideNgxMask } from 'ngx-mask';
 import { SafePipe } from './shared/pipes/safe.pipe';
 import { ForeclosureTabsComponent } from './entities/foreclosure-tabs/foreclosure-tabs.component';
 import { SidebarForeclosureComponent } from './widgets/sidebar-foreclosure/sidebar-foreclosure.component';
-import { DocumentsComponent } from './entities/documents/documents.component';
+import { DocumentsComponent } from './pages/documents/documents.component';
 import { SidebarConfirmationComponent } from './widgets/sidebar-confirmation/sidebar-confirmation.component';
 import { ConfirmationTabsComponent } from './entities/confirmation-tabs/confirmation-tabs.component';
+import { DocumentListComponent } from './entities/document-list/document-list.component';
+import { DocumentItemComponent } from './entities/document-list/component/document-item/document-item.component';
+import { UploadFilesComponent } from './features/upload-files/upload-files.component';
+import { FileSizeFormatPipe } from './shared/pipes/file-size-format.pipe';
 
 const INTERCEPTOR_PROVIDER: Provider = {
   provide: HTTP_INTERCEPTORS,
@@ -125,7 +128,6 @@ const CUSTOM_DATE_FORMATS: NgxMatDateFormats = {
     SidebarComponent,
     UpdateCreditsComponent,
     SearchCreditsComponent,
-    PaginationComponent,
     MenuComponent,
     MainLayoutComponent,
     HomeComponent,
@@ -192,6 +194,10 @@ const CUSTOM_DATE_FORMATS: NgxMatDateFormats = {
     DocumentsComponent,
     SidebarConfirmationComponent,
     ConfirmationTabsComponent,
+    DocumentListComponent,
+    DocumentItemComponent,
+    UploadFilesComponent,
+    FileSizeFormatPipe,
   ],
   imports: [
     BrowserModule,
