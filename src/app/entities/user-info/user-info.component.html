@@ -29,6 +29,15 @@
       <span class="value">{{ userInfo?.fio }}</span>
     </div>
 
+    <div class="field">
+      <span class="label">Адрес: </span>
+      <span class="value">
+        {{ userInfo?.clientAddressRegion }},
+        {{ userInfo?.clientAddressDistrict }},<br />
+        {{ userInfo?.clientAddress }}
+      </span>
+    </div>
+
     <div *ngIf="userInfo?.docSerial" class="field">
       <span class="label">Паспортные данные: </span>
       <span class="value"
