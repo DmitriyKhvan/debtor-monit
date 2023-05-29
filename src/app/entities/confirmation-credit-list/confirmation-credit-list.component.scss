@@ -6,14 +6,12 @@
 
   // grid-template-columns: 30px 70px 136px 30% 136px 136px 90px 90px 100px;
 
-  grid-template-areas: "order claimsId vendor fio phoneFirst phoneSecond contractDate status";
-  // grid-template-columns:
-  //   30px minmax(70px, 0.5fr) minmax(300px, 2fr)
-  //   minmax(290px, 1fr) minmax(136px, 1fr) minmax(136px, 1fr) minmax(280px, 1fr) minmax(120px, 1fr);
+  // grid-template-areas: "order claimsId vendor fio phoneFirst phoneSecond contractDate status";
+  grid-template-areas: "order claimsId vendor fio contractSum contractDate status";
 
   grid-template-columns:
     30px minmax(70px, 0.1fr) minmax(300px, 1fr)
-    minmax(290px, 1fr) 125px 125px 200px 125px;
+    minmax(290px, 1fr) 125px /*125px*/ minmax(200px, 1fr) 125px;
 
   .td:not(.order) {
     display: flex;
@@ -40,6 +38,10 @@
 .fio {
   grid-area: fio;
   // width: 290px;
+}
+
+.contractSum {
+  grid-area: contractSum;
 }
 
 .phoneFirst {

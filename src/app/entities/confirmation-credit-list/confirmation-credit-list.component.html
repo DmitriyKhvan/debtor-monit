@@ -21,7 +21,13 @@
             <span #sorting class=""></span>
           </span>
         </div>
-        <div class="td phoneFirst">
+        <div class="td contractSum">
+          <span class="sort" (click)="sort($event, 'contractSum')"
+            >СУММА РАССРОЧКИ
+            <span #sorting class=""></span>
+          </span>
+        </div>
+        <!-- <div class="td phoneFirst">
           <span class="sort" (click)="sort($event, 'phoneFirst')"
             >ТЕЛЕФОН 1
             <span #sorting class=""></span>
@@ -32,7 +38,7 @@
             >ТЕЛЕФОН 2
             <span #sorting class=""></span>
           </span>
-        </div>
+        </div> -->
         <div class="td contractDate">
           <span class="sort" (click)="sort($event, 'contractDate')"
             >ДАТА И ВРЕМЯ ЗАЯВКИ

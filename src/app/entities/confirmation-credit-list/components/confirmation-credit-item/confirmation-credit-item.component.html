@@ -12,7 +12,10 @@
     <span>{{ credit.credit.clientFIO }}</span>
   </div>
   <!-- <div class="td phone">{{ credit.phone | dateTimeFormat : true }}</div> -->
-  <div class="td phoneFirst">
+  <div class="td contractSum">
+    {{ credit.credit.contractSum | numberTransform : false }}
+  </div>
+  <!-- <div class="td phoneFirst">
     {{ credit.credit.phone_1 | mask : "+000 00 000 00 00" }}
   </div>
   <div class="td phoneSecond">
@@ -21,10 +24,10 @@
         ? (credit.credit.phone_2 | mask : "+000 00 000 00 00")
         : "-"
     }}
-  </div>
+  </div> -->
   <div class="td contractDate">
     <!-- {{ credit.credit.date | dateTimeFormat : "long" : "long" : true }} -->
-    {{ credit.credit.date }}
+    <span>{{ credit.credit.date }}</span>
   </div>
   <!-- <div class="td creditEnd">
     {{ credit.creditEnd | numberTransform : false }}
