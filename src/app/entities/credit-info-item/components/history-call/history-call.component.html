@@ -26,6 +26,7 @@
         <div class="tbody">
           <ng-container *ngFor="let call of calls; let idx = index">
             <app-history-call-item
+              #audios
               [call]="{ idx: idx + 1, call }"
               [status]="dicService.getStatus(dic, call.status)"
             ></app-history-call-item>

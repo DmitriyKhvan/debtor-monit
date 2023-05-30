@@ -21,7 +21,8 @@
   <div class="td record_call">
     <ng-container *ngIf="call.call.audioUrl">
       <audio
-        id="audio"
+        #audio
+        (play)="playAudio(call.call, $event)"
         [src]="call.call.audioUrl | safe : 'url'"
         controls
       ></audio>

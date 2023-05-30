@@ -1,4 +1,11 @@
-import { Component, Input, OnDestroy, OnInit } from '@angular/core';
+import {
+  Component,
+  ElementRef,
+  Input,
+  OnDestroy,
+  OnInit,
+  ViewChild,
+} from '@angular/core';
 import { Subscription } from 'rxjs';
 import { FileService } from 'src/app/shared/api/file.service';
 import { Status } from 'src/app/shared/interfaces';
@@ -12,10 +19,10 @@ import { Status } from 'src/app/shared/interfaces';
   ],
 })
 export class HistoryCallItemComponent implements OnInit, OnDestroy {
+  @ViewChild('audio') audioRef!: ElementRef;
   @Input() call: any;
   @Input() status: Status | undefined;
   fSub!: Subscription;
-  audioSource = '';
 
   constructor(private fileService: FileService) {}
 
@@ -29,7 +36,6 @@ export class HistoryCallItemComponent implements OnInit, OnDestroy {
   };
 
   ngOnInit(): void {
-    console.log(this.call.call.audio);
     if (this.call.call.audio) {
       this.fSub = this.fileService
         .getBlobRecord(this.call.call.audio)
@@ -48,6 +54,29 @@ export class HistoryCallItemComponent implements OnInit, OnDestroy {
         });
     }
   }
+
+  playAudio(call: any, audioElement: any) {
+    // this.playOnlyCurrentAudio(audioElement.target);
+    this.fileService.audios.forEach((audio) => {
+      if (
+        audio.audioRef &&
+        audio.audioRef.nativeElement !== audioElement.target
+      ) {
+        audio.audioRef.nativeElement.pause();
+      }
+    });
+  }
+
+  // playOnlyCurrentAudio(currentAudio: any) {
+  //   const records: any = document.getElementsByTagName('audio');
+  //   console.log(records);
+  //   for (let record of records) {
+  //     console.log(record);
+  //     if (record !== currentAudio) {
+  //       record.pause();
+  //     }
+  //   }
+  // }
 
   downloadRecord(url: string) {
     let link = document.createElement('a');

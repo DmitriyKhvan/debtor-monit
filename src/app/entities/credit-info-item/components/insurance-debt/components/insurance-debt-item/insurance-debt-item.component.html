@@ -1,6 +1,7 @@
 <div class="tr">
   <div class="td idx">{{ insurance.idx }}</div>
   <div class="td date">{{ insurance.insurance.date }}</div>
+  <div class="td cancellation_date">{{ insurance.insurance.declinedDate }}</div>
   <div class="td card">{{ insurance.insurance.cardNumber }}</div>
   <div class="td sum">
     <app-lozenge2 className="grey">{{
@@ -10,8 +11,14 @@
 
   <div class="td status">
     <app-lozenge
-      [className]="insurance.insurance.declined ? 'danger' : 'success'"
-      >{{ insurance.insurance.declined ? "Отмена" : "Успешно" }}</app-lozenge
+      [className]="
+        insurance.insurance.declined === 'Успешно'
+          ? 'success'
+          : insurance.insurance.declined === 'Отменен'
+          ? 'danger'
+          : 'default'
+      "
+      >{{ insurance.insurance.declined }}</app-lozenge
     >
   </div>
 </div>

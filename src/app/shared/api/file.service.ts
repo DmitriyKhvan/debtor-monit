@@ -1,5 +1,5 @@
 import { HttpClient } from '@angular/common/http';
-import { Injectable } from '@angular/core';
+import { ElementRef, Injectable, QueryList } from '@angular/core';
 import { Observable, Subject, catchError, throwError } from 'rxjs';
 import { environment } from 'src/environments/environment';
 
@@ -8,6 +8,7 @@ import { environment } from 'src/environments/environment';
 })
 export class FileService {
   filesExcel$ = new Subject<any>();
+  audios!: QueryList<any>;
 
   constructor(private http: HttpClient) {}
 
@@ -65,5 +66,15 @@ export class FileService {
         return throwError(() => error);
       })
     );
+  }
+
+  getinsuranceDebitFileBase64(id: number): Observable<any> {
+    return this.http
+      .get(`${environment.dbUrl}/tools/insuranceDebit/download/${id}`)
+      .pipe(
+        catchError((error) => {
+          return throwError(() => error);
+        })
+      );
   }
 }
