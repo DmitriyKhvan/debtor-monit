@@ -42,18 +42,21 @@ export class PrintScheduleComponent implements OnInit, OnDestroy {
   // }
 
   downloadFile() {
-    this.dSub = this.fileService.getBlob(this.token).subscribe((blob: Blob) => {
-      // let url = URL.createObjectURL(new Blob([blob]));
-      let url = URL.createObjectURL(blob);
-      let link = document.createElement('a');
-      link.href = url;
-      link.setAttribute('download', `${this.claimsId}.pdf`);
-      document.body.appendChild(link);
-      link.click();
-      document.body.removeChild(link);
+    this.dSub = this.fileService
+      .getBlob(this.token)
+      .subscribe((pdf: string) => {
+        // let url = URL.createObjectURL(new Blob([blob]));
 
-      URL.revokeObjectURL(url);
-    });
+        let url = `data:application/pdf;base64,${pdf}`;
+        let link = document.createElement('a');
+        link.href = url;
+        link.setAttribute('download', `${this.claimsId}.pdf`);
+        document.body.appendChild(link);
+        link.click();
+        document.body.removeChild(link);
+
+        URL.revokeObjectURL(url);
+      });
   }
 
   ngOnDestroy(): void {

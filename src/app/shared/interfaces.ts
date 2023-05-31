@@ -12,8 +12,9 @@ export interface ActionCreate {
 }
 
 export interface ActionsCredit {
-  claimsId: number | null;
+  claimsId: number | string | null;
   loanId: string | undefined;
+  projectType: number | null;
   keyword: string;
 }
 
@@ -22,6 +23,7 @@ export interface Action {
   debtorId: number;
   type: number;
   reminder: string;
+  files: any[];
   text: string;
   createdBy: null;
   createdAt: string;

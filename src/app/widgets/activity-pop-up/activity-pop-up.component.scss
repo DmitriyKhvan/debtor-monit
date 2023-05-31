@@ -8,10 +8,11 @@
   display: flex;
   align-items: center;
   justify-content: center;
+  z-index: 100;
 
   &__wrap {
     position: relative;
-    width: 384px;
+    width: 465px;
     background: #fff;
     padding: 24px 32px;
 
@@ -19,9 +20,30 @@
       0px 0px 1px rgba(9, 30, 66, 0.31);
     border-radius: 3px;
 
+    .group {
+      display: flex;
+      align-items: flex-end;
+      justify-content: space-between;
+
+      ::ng-deep {
+        .defaultBtn {
+          padding: 9px 12px !important;
+        }
+      }
+    }
+
     .field {
       margin-top: 16px;
     }
+
+    .inputFile {
+      display: none;
+    }
+
+    // [class^="icon-"] {
+    //   font-size: 22px;
+    //   margin-right: 5px;
+    // }
 
     .title {
       color: #172b4d;
@@ -61,4 +83,62 @@
     //   }
     // }
   }
+}
+
+[class^="icon-"] {
+  cursor: pointer;
+}
+
+.titleFile {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+  span {
+    font-weight: 600;
+    font-size: 14px;
+  }
+}
+
+.thead {
+  .td {
+    font-size: 12px;
+    color: #6b778c;
+    font-weight: 600;
+  }
+}
+
+.tbody,
+.thead {
+  border-bottom: 2px solid rgba(9, 30, 66, 0.08);
+}
+
+.tr {
+  display: grid;
+  grid-template-columns: 300px 90px;
+  grid-template-areas: "name size";
+  grid-template-rows: 40px;
+  column-gap: 10px;
+  align-items: center;
+}
+
+.name,
+.size {
+  display: flex;
+  align-items: center;
+}
+
+.name {
+  grid-area: name;
+
+  .file {
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+}
+
+.size {
+  grid-area: size;
+  justify-content: space-between;
 }
