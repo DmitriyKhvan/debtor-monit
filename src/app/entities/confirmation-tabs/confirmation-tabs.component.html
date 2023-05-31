@@ -28,25 +28,25 @@
 </div>
 
 <ng-container *ngIf="tab === 'all'">
-  <app-search-credits></app-search-credits>
+  <app-search-credits [value]="searchValue"></app-search-credits>
 
   <app-confirmation-credit-list [filter]="tab"></app-confirmation-credit-list>
 </ng-container>
 
 <ng-container *ngIf="tab === 'new'">
-  <app-search-credits></app-search-credits>
+  <app-search-credits [value]="searchValue"></app-search-credits>
 
   <app-confirmation-credit-list [filter]="tab"></app-confirmation-credit-list>
 </ng-container>
 
 <ng-container *ngIf="tab === 'success'">
-  <app-search-credits></app-search-credits>
+  <app-search-credits [value]="searchValue"></app-search-credits>
 
   <app-confirmation-credit-list [filter]="tab"></app-confirmation-credit-list>
 </ng-container>
 
 <ng-container *ngIf="tab === 'failure'">
-  <app-search-credits></app-search-credits>
+  <app-search-credits [value]="searchValue"></app-search-credits>
 
   <app-confirmation-credit-list [filter]="tab"></app-confirmation-credit-list>
 </ng-container>

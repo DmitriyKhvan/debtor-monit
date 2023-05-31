@@ -10,6 +10,7 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ConfirmationTabsComponent implements OnInit {
   tab: string | null = 'all';
+  searchValue: string = '';
 
   ngOnInit(): void {
     if (!localStorage.getItem('confirmTab')) {
@@ -19,6 +20,12 @@ export class ConfirmationTabsComponent implements OnInit {
     this.tab = localStorage.getItem('confirmTab')
       ? localStorage.getItem('confirmTab')
       : 'all';
+
+    if (localStorage.getItem('filterDataConfirm')) {
+      this.searchValue = JSON.parse(
+        localStorage.getItem('filterDataConfirm') || ''
+      )?.search;
+    }
   }
 
   toggleTab(filter: string) {

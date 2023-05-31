@@ -7,6 +7,7 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ForeclosureTabsComponent implements OnInit {
   tab: string | null = 'all';
+  searchValue: string = '';
 
   ngOnInit(): void {
     if (!localStorage.getItem('active')) {
@@ -16,6 +17,12 @@ export class ForeclosureTabsComponent implements OnInit {
     this.tab = localStorage.getItem('active')
       ? localStorage.getItem('active')
       : 'all';
+
+    if (localStorage.getItem('filterData')) {
+      this.searchValue = JSON.parse(
+        localStorage.getItem('filterData') || ''
+      ).search;
+    }
   }
 
   toggleTab(filter: string) {

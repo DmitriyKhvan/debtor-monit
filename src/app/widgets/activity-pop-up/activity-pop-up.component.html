@@ -27,35 +27,54 @@
         </div>
       </label>
 
-      <label class="field">
-        <div class="key">Напоминание</div>
-        <div class="value">
-          <div>
-            <mat-form-field>
-              <input
-                matInput
-                [ngxMatDatetimePicker]="picker1"
-                placeholder="Выберите дату"
-                readonly=""
-                formControlName="date"
-              />
-              <mat-datepicker-toggle
-                matSuffix
-                [for]="$any(picker1)"
-              ></mat-datepicker-toggle>
-              <ngx-mat-datetime-picker #picker1></ngx-mat-datetime-picker>
-            </mat-form-field>
+      <div class="group">
+        <label class="field">
+          <div class="key">Напоминание</div>
+          <div class="value">
+            <div>
+              <mat-form-field>
+                <input
+                  matInput
+                  [ngxMatDatetimePicker]="picker1"
+                  placeholder="Выберите дату"
+                  readonly=""
+                  formControlName="date"
+                />
+                <mat-datepicker-toggle
+                  matSuffix
+                  [for]="$any(picker1)"
+                ></mat-datepicker-toggle>
+                <ngx-mat-datetime-picker #picker1></ngx-mat-datetime-picker>
+              </mat-form-field>
+            </div>
           </div>
-        </div>
-        <div
-          *ngIf="form.get('date')?.touched && form.get('date')?.invalid"
-          class="validation"
+          <div
+            *ngIf="form.get('date')?.touched && form.get('date')?.invalid"
+            class="validation"
+          >
+            <small *ngIf="form.get('date')?.errors?.required">
+              Введите данные
+            </small>
+          </div>
+        </label>
+
+        <app-button
+          (click)="uploadFile()"
+          [type]="'button'"
+          className="btn medium defaultBtn icon"
+          ><span class="icon-attachment"
+            ><span class="path1"></span><span class="path2"></span></span
+          >Добавить файл</app-button
         >
-          <small *ngIf="form.get('date')?.errors?.required">
-            Введите данные
-          </small>
-        </div>
-      </label>
+
+        <input
+          (change)="changeInputFile($event)"
+          #inputFile
+          class="inputFile"
+          type="file"
+          multiple
+        />
+      </div>
 
       <label class="field">
         <div class="key">Комментарий</div>
@@ -74,6 +93,44 @@
           </small>
         </div>
       </label>
+
+      <div *ngIf="files.length" class="fileList">
+        <div class="titleFile">
+          <span>Вложения ({{ files.length }})</span>
+          <span (click)="uploadFile()" class="icon-add"
+            ><span class="path1"></span><span class="path2"></span
+          ></span>
+        </div>
+        <div class="table">
+          <div class="thead">
+            <div class="tr">
+              <div class="td name">Имя</div>
+              <div class="td size">Размер</div>
+            </div>
+          </div>
+
+          <div class="tbody">
+            <ng-container *ngFor="let file of files">
+              <div class="tr">
+                <div class="td name">
+                  <span class="icon-document1"
+                    ><span class="path1"></span><span class="path2"></span
+                  ></span>
+                  <span class="file">{{ file.name }}</span>
+                </div>
+                <div class="td size">
+                  <span>{{ file.size }}</span>
+                  <span
+                    (click)="removeFile(file.lastModified)"
+                    class="icon-trash"
+                    ><span class="path1"></span><span class="path2"></span
+                  ></span>
+                </div>
+              </div>
+            </ng-container>
+          </div>
+        </div>
+      </div>
 
       <div class="btns">
         <app-button

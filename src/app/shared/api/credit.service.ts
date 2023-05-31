@@ -19,7 +19,7 @@ import { Injectable } from '@angular/core';
 export class ApiService {
   search$ = new Subject<string>();
   updateList$ = new Subject<boolean>();
-  claimsId: number | null = null;
+  claimsId: number | string | null = null;
   profile: any;
 
   calculationProducts: ICalculationProducts = {
@@ -80,7 +80,17 @@ export class ApiService {
       );
   }
 
-  clientAction(data: ActionCreate): Observable<any> {
+  // clientAction(data: ActionCreate): Observable<any> {
+  //   return this.http
+  //     .post(`${environment.dbUrl}/client-action/create`, data)
+  //     .pipe(
+  //       catchError((error) => {
+  //         return throwError(() => error);
+  //       })
+  //     );
+  // }
+
+  clientAction(data: any): Observable<any> {
     return this.http
       .post(`${environment.dbUrl}/client-action/create`, data)
       .pipe(
@@ -90,10 +100,15 @@ export class ApiService {
       );
   }
 
-  getActions({ claimsId, loanId, keyword }: ActionsCredit): Observable<any> {
+  getActions({
+    claimsId,
+    loanId,
+    projectType,
+    keyword,
+  }: ActionsCredit): Observable<any> {
     return this.http
       .get(
-        `${environment.dbUrl}/client-action/getActions?claimsId=${claimsId}&loanId=${loanId}&keyword=${keyword}`
+        `${environment.dbUrl}/client-action/getActions?claimsId=${claimsId}&loanId=${loanId}&projectType=${projectType}&keyword=${keyword}`
       )
       .pipe(
         catchError((error) => {

@@ -29,6 +29,28 @@
         color: #253858;
         margin-top: 4px;
       }
+
+      .fileList {
+        display: flex;
+        align-items: center;
+        background: #f4f4f4;
+        border-radius: 3px;
+        margin: 5px 0;
+        width: 310px;
+        cursor: pointer;
+
+        .icon-document1 {
+          font-size: 16px !important;
+        }
+
+        .filename {
+          font-size: 11px;
+
+          white-space: nowrap;
+          overflow: hidden;
+          text-overflow: ellipsis;
+        }
+      }
     }
   }
 

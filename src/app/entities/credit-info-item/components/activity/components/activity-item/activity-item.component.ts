@@ -15,6 +15,7 @@ export class ActivityItemComponent implements OnDestroy {
     debtorId: 0,
     type: 0,
     reminder: '',
+    files: [],
     text: '',
     createdBy: null,
     createdAt: '',
@@ -57,6 +58,18 @@ export class ActivityItemComponent implements OnDestroy {
     elAll.forEach((el) => {
       el.classList.remove('open');
     });
+  }
+
+  upload(file: any) {
+    let url = `data:${file.filename};base64,${file.file64}`;
+    let link = document.createElement('a');
+    link.href = url;
+    link.setAttribute('download', `${file.filename}`);
+    document.body.appendChild(link);
+    link.click();
+    document.body.removeChild(link);
+
+    URL.revokeObjectURL(url);
   }
 
   // close(event: any) {

@@ -100,6 +100,8 @@ import { DocumentListComponent } from './entities/document-list/document-list.co
 import { DocumentItemComponent } from './entities/document-list/component/document-item/document-item.component';
 import { UploadFilesComponent } from './features/upload-files/upload-files.component';
 import { FileSizeFormatPipe } from './shared/pipes/file-size-format.pipe';
+import { NzNotificationModule } from 'ng-zorro-antd/notification';
+import { AlertComponent } from './widgets/alert.component';
 
 const INTERCEPTOR_PROVIDER: Provider = {
   provide: HTTP_INTERCEPTORS,
@@ -198,6 +200,7 @@ const CUSTOM_DATE_FORMATS: NgxMatDateFormats = {
     DocumentItemComponent,
     UploadFilesComponent,
     FileSizeFormatPipe,
+    AlertComponent,
   ],
   imports: [
     BrowserModule,
@@ -219,6 +222,7 @@ const CUSTOM_DATE_FORMATS: NgxMatDateFormats = {
     KeycloakAngularModule,
     NgxMaskDirective,
     NgxMaskPipe,
+    NzNotificationModule,
   ],
   providers: [
     INTERCEPTOR_PROVIDER,

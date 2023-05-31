@@ -58,6 +58,19 @@
   }
 }
 
+::ng-deep {
+  .defaultBtn:hover [class^="icon-"] .path2:before {
+    color: #fff !important;
+  }
+}
+
+::ng-deep {
+  [class^="icon-"] {
+    font-size: 22px !important;
+    margin-right: 5px;
+  }
+}
+
 .subtleBtn {
   background: transparent;
   color: #8993a4;

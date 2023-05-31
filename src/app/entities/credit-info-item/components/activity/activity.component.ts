@@ -62,6 +62,7 @@ export class ActivityComponent implements OnInit, OnDestroy {
     const data = {
       claimsId: this.apiServer.claimsId,
       loanId: this.loanId,
+      projectType: 2,
       keyword,
     };
     this.cSub = this.apiServer.getActions(data).subscribe((actions: any) => {

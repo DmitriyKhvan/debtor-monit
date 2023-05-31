@@ -27,6 +27,15 @@
       </div>
       <div class="comment">{{ action.text }}</div>
 
+      <ng-container *ngFor="let file of action.files; let idx = index">
+        <div (click)="upload(file)" class="fileList">
+          <span class="icon-document1"
+            ><span class="path1"></span><span class="path2"></span
+          ></span>
+          <span class="filename">{{ file.filename }}</span>
+        </div>
+      </ng-container>
+
       <div class="edit">
         <!-- <app-button className="btn subtleBtn small">Изм.</app-button>
         <span class="separate-point"></span> -->

@@ -32,9 +32,9 @@ export class FileService {
     return this.http
       .get(`${environment.dbUrl}/tools/scheduleFile?token=${token}`, {
         headers: {
-          'Content-Type': 'application/pdf',
+          'Content-Type': 'application/pdf+base64',
         },
-        responseType: 'blob',
+        responseType: 'text',
       })
       .pipe(
         catchError((error) => {
