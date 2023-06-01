@@ -15,6 +15,7 @@ export class CreditLayoutComponent {
   flagConfirmSub!: Subscription;
 
   loanId = '';
+  projectType = 1;
   title = '';
   option = '';
   flag = false;
@@ -31,6 +32,7 @@ export class CreditLayoutComponent {
     this.flagSub = this.flagService.isActivityForm$.subscribe((data) => {
       this.flag = data.isOpen;
       this.loanId = data.loanId;
+      this.projectType = data.projectType;
       // debugger;
     });
 

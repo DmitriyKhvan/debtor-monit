@@ -16,7 +16,6 @@ export class DocumentsComponent implements OnInit, OnDestroy {
 
   ngOnInit(): void {
     this.fSub = this.fileService.getInsuranceDebitFiles().subscribe((files) => {
-      console.log(files);
       this.files = files;
     });
 

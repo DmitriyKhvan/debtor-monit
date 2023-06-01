@@ -28,8 +28,8 @@ import { CreditInfoItemComponent } from './entities/credit-info-item/credit-info
 import { PaymentScheduleComponent } from './entities/credit-info-item/components/payment-schedule/payment-schedule.component';
 import { GeneralInfoComponent } from './entities/credit-info-item/components/general-info/general-info.component';
 import { ProductListComponent } from './entities/product-list/product-list.component';
-import { ActivityComponent } from './entities/credit-info-item/components/activity/activity.component';
-import { ActivityItemComponent } from './entities/credit-info-item/components/activity/components/activity-item/activity-item.component';
+import { ActivityComponent } from './entities/activity/activity.component';
+import { ActivityItemComponent } from './entities/activity/components/activity-item/activity-item.component';
 import { ProductItemComponent } from './entities/product-list/components/product-item/product-item.component';
 import { CreditLayoutComponent } from './widgets/credit-layout/credit-layout.component';
 import { PaymentItemComponent } from './entities/credit-info-item/components/payment-schedule/components/payment-item/payment-item.component';

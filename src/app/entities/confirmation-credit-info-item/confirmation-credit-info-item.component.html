@@ -4,162 +4,157 @@
     {{ userInfo.data.claimsInfo.claims_id }}
   </h2>
 
-  <div class="info-wrap">
-    <div class="info-genaral1">
-      <div class="field">
-        <span class="label">ФИО:</span>
-        <span class="value">{{ userInfo?.data.client.client_fio }}</span>
+  <div class="confirmation-wrap">
+    <div class="info-wrap">
+      <div class="info-genaral1">
+        <div class="field">
+          <span class="label">ФИО:</span>
+          <span class="value">{{ userInfo?.data.client.client_fio }}</span>
+        </div>
+
+        <div class="field">
+          <span class="label">Номер телефона 1:</span>
+          <span class="value">{{
+            userInfo?.data.client.client_phone_1 | mask : "+000 00 000 00 00"
+          }}</span>
+        </div>
+
+        <div class="field">
+          <span class="label">Номер телефона 2:</span>
+          <span class="value">{{
+            userInfo?.data.client.client_phone_2 | mask : "+000 00 000 00 00"
+          }}</span>
+        </div>
+
+        <div class="field">
+          <span class="label">Номер и срок карты:</span>
+          <span class="value card">
+            <app-lozenge2 className="grey" [fontSize]="14">{{
+              userInfo?.data.client.client_card_number
+                | mask : "0000 0000 0000 0000"
+            }}</app-lozenge2>
+            <app-lozenge2 className="grey" [fontSize]="14">{{
+              userInfo?.data.client.client_card_date
+            }}</app-lozenge2>
+          </span>
+        </div>
+
+        <div class="field">
+          <span class="label">Место работы ИНН:</span>
+          <span class="value">{{
+            userInfo?.data.client.client_company_tin | mask : "000 000 000"
+          }}</span>
+          <a
+            target="_blank"
+            [href]="
+              'https://orginfo.uz/ru/search?q=' +
+              userInfo?.data.client.client_company_tin
+            "
+            ><img
+              class="companyTin"
+              src="../../../assets/img/orgInfo.png"
+              alt=""
+          /></a>
+        </div>
       </div>
 
-      <div class="field">
-        <span class="label">Номер телефона 1:</span>
-        <span class="value">{{
-          userInfo?.data.client.client_phone_1 | mask : "+000 00 000 00 00"
-        }}</span>
+      <div class="info-genaral2">
+        <div class="field">
+          <span class="label">Номер заявки:</span>
+          <span class="value">{{ userInfo?.data.claimsInfo.claims_id }}</span>
+        </div>
+
+        <div class="field">
+          <span class="label">Дата заявки:</span>
+          <span class="value">{{
+            userInfo?.data.claimsInfo.claims_contract_date
+          }}</span>
+        </div>
+
+        <div class="field">
+          <span class="label">Текущая дата:</span>
+          <span class="value">
+            {{ userInfo?.data.claimsInfo.claims_date | dateTimeFormat }}</span
+          >
+        </div>
+
+        <div class="field">
+          <span class="label">Лимит: </span>
+          <span class="value">
+            {{
+              userInfo?.data.claimsInfo.claims_scoring_amount
+                | numberTransform : false
+            }}</span
+          >
+        </div>
+
+        <div *ngIf="userInfo.data.state != '1'" class="field">
+          <span class="label">Комментарий: </span>
+          <span class="value"> {{ comment }}</span>
+        </div>
       </div>
 
-      <div class="field">
-        <span class="label">Номер телефона 2:</span>
-        <span class="value">{{
-          userInfo?.data.client.client_phone_2 | mask : "+000 00 000 00 00"
-        }}</span>
+      <div class="info-avatar">
+        <div class="wrapper-avatar">
+          <span class="icon-zoom-in"
+            ><span class="path1"></span><span class="path2"></span
+          ></span>
+          <img
+            (click)="showAvatar()"
+            [src]="
+              'data:image/png;base64,' +
+              userInfo?.data.client.client_image_string
+            "
+            alt=""
+          />
+        </div>
       </div>
 
-      <div class="field">
-        <span class="label">Номер и срок карты:</span>
-        <span class="value card">
-          <app-lozenge2 className="grey" [fontSize]="14">{{
-            userInfo?.data.client.client_card_number
-              | mask : "0000 0000 0000 0000"
-          }}</app-lozenge2>
-          <app-lozenge2 className="grey" [fontSize]="14">{{
-            userInfo?.data.client.client_card_date
-          }}</app-lozenge2>
-        </span>
-      </div>
+      <div class="funcBtns">
+        <ng-container *ngIf="!loader && userInfo.data.state == '1'">
+          <app-button
+            (click)="confirmCredit('1', 'Одобрить рассрочку')"
+            className="btn full successBtn"
+            >ОДОБРИТЬ</app-button
+          >
+          <app-button
+            (click)="confirmCredit('0', 'Отказать рассрочку')"
+            className="btn full failurBtn"
+            >ОТКАЗАТЬ</app-button
+          >
+        </ng-container>
 
-      <div class="field">
-        <span class="label">Место работы ИНН:</span>
-        <span class="value">{{
-          userInfo?.data.client.client_company_tin | mask : "000 000 000"
-        }}</span>
-        <a
-          target="_blank"
-          [href]="
-            'https://orginfo.uz/ru/search?q=' +
-            userInfo?.data.client.client_company_tin
-          "
-          ><img class="companyTin" src="../../../assets/img/orgInfo.png" alt=""
-        /></a>
+        <ng-container *ngIf="userInfo.data.state != '1'">
+          <app-lozenge
+            className="{{ statusStyleDic[userInfo.data.state] }} large"
+            >{{ statusNameDic[userInfo.data.state] }}</app-lozenge
+          >
+
+          <!-- <div class="commentConfrim">
+            Комментарий: <strong class="comment">{{ comment }}</strong>
+          </div> -->
+        </ng-container>
+
+        <ng-container *ngIf="loader">
+          <app-loader></app-loader>
+        </ng-container>
       </div>
     </div>
 
-    <div class="info-genaral2">
-      <div class="field">
-        <span class="label">Номер заявки:</span>
-        <span class="value">{{ userInfo?.data.claimsInfo.claims_id }}</span>
-      </div>
-
-      <div class="field">
-        <span class="label">Дата заявки:</span>
-        <span class="value">{{
-          userInfo?.data.claimsInfo.claims_contract_date
-        }}</span>
-      </div>
-
-      <div class="field">
-        <span class="label">Текущая дата:</span>
-        <span class="value">
-          {{ userInfo?.data.claimsInfo.claims_date | dateTimeFormat }}</span
-        >
-      </div>
-
-      <div class="field">
-        <span class="label">Лимит: </span>
-        <span class="value">
-          {{
-            userInfo?.data.claimsInfo.claims_scoring_amount
-              | numberTransform : false
-          }}</span
-        >
-      </div>
-
-      <div *ngIf="userInfo.data.state != '1'" class="field">
-        <span class="label">Комментарий: </span>
-        <span class="value"> {{ comment }}</span>
-      </div>
+    <div class="content">
+      <app-general-user-info-confirmation-credit
+        [userInfo]="userInfo"
+        *ngIf="tab === 'info-installment-plan'"
+      ></app-general-user-info-confirmation-credit>
     </div>
 
-    <div class="info-avatar">
-      <div class="wrapper-avatar">
-        <span class="icon-zoom-in"
-          ><span class="path1"></span><span class="path2"></span
-        ></span>
-        <img
-          (click)="showAvatar()"
-          [src]="
-            'data:image/png;base64,' + userInfo?.data.client.client_image_string
-          "
-          alt=""
-        />
-      </div>
+    <div class="activity">
+      <app-activity
+        height="calc(100vh - 120px)"
+        [loanId]="userInfo?.data.claimsInfo.claims_loan_id"
+        [projectType]="1"
+      ></app-activity>
     </div>
-
-    <div class="funcBtns">
-      <ng-container *ngIf="!loader && userInfo.data.state == '1'">
-        <app-button
-          (click)="confirmCredit('1', 'Одобрить рассрочку')"
-          className="btn full successBtn"
-          >ОДОБРИТЬ</app-button
-        >
-        <app-button
-          (click)="confirmCredit('0', 'Отказать рассрочку')"
-          className="btn full failurBtn"
-          >ОТКАЗАТЬ</app-button
-        >
-      </ng-container>
-
-      <ng-container *ngIf="userInfo.data.state != '1'">
-        <app-lozenge
-          className="{{ statusStyleDic[userInfo.data.state] }} large"
-          >{{ statusNameDic[userInfo.data.state] }}</app-lozenge
-        >
-
-        <!-- <div class="commentConfrim">
-          Комментарий: <strong class="comment">{{ comment }}</strong>
-        </div> -->
-      </ng-container>
-
-      <ng-container *ngIf="loader">
-        <app-loader></app-loader>
-      </ng-container>
-    </div>
-  </div>
-
-  <!-- <div class="tabs">
-    <button
-      (click)="toggleTab('info-installment-plan')"
-      [class]="tab === 'info-installment-plan' ? 'active' : ''"
-    >
-      Информация о рассрочки
-    </button>
-    <button
-      (click)="toggleTab('info-client')"
-      [class]="tab === 'info-client' ? 'active' : ''"
-    >
-      Информация о клиенте
-    </button>
-  </div> -->
-  <div class="content">
-    <app-general-user-info-confirmation-credit
-      [userInfo]="userInfo"
-      *ngIf="tab === 'info-installment-plan'"
-    ></app-general-user-info-confirmation-credit>
-
-    <!-- <app-client-info-confirm
-      [userInfo]="userInfo"
-      *ngIf="tab === 'info-client'"
-    ></app-client-info-confirm> -->
   </div>
 </div>
 

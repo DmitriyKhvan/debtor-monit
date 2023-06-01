@@ -1,11 +1,11 @@
 <div class="activity">
-  <app-button (click)="createActivity(loanId)" className="btn primaryBtn medium"
+  <app-button (click)="createActivity()" className="btn primaryBtn medium"
     >Создать взаимодействие</app-button
   >
 
   <div class="activity-wrap">
     <h2 class="title">Активность</h2>
-    <div class="content">
+    <div [ngStyle]="{ height: height }" class="content">
       <div class="filter-wrap">
         <div class="filter">
           <span>Показать: </span>
