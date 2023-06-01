@@ -22,6 +22,9 @@ export class ActivityComponent implements OnInit, OnDestroy {
   @ViewChildren('action', { read: ElementRef })
   actionsRef!: QueryList<ElementRef>;
   @Input() loanId: string | undefined;
+  @Input() projectType: number = 1;
+  @Input() height: string | undefined;
+
   cSub!: Subscription;
   dSub!: Subscription;
   aSub!: Subscription;
@@ -62,7 +65,7 @@ export class ActivityComponent implements OnInit, OnDestroy {
     const data = {
       claimsId: this.apiServer.claimsId,
       loanId: this.loanId,
-      projectType: 2,
+      projectType: this.projectType,
       keyword,
     };
     this.cSub = this.apiServer.getActions(data).subscribe((actions: any) => {
@@ -81,8 +84,8 @@ export class ActivityComponent implements OnInit, OnDestroy {
     }
   }
 
-  createActivity(loanId: string | undefined) {
-    this.flagService.tooggleActivity(loanId, true);
+  createActivity() {
+    this.flagService.tooggleActivity(this.loanId, this.projectType, true);
   }
 
   ngOnDestroy(): void {

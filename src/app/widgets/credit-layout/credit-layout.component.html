@@ -5,7 +5,11 @@
   </div>
 </div>
 <!-- flag -->
-<app-activity-pop-up *ngIf="flag" [loanId]="loanId"></app-activity-pop-up>
+<app-activity-pop-up
+  *ngIf="flag"
+  [loanId]="loanId"
+  [projectType]="projectType"
+></app-activity-pop-up>
 
 <app-confirm-comment-pop-up
   *ngIf="flagConfirm"

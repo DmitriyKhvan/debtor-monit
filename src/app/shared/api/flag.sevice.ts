@@ -21,8 +21,12 @@ export class FlagService {
     this.cofirmComment$.next(isComment);
   }
 
-  tooggleActivity(loanId: string | null | undefined, isOpen: boolean) {
-    this.isActivityForm$.next({ loanId, isOpen });
+  tooggleActivity(
+    loanId: string | null | undefined,
+    projectType: number | null | undefined,
+    isOpen: boolean
+  ) {
+    this.isActivityForm$.next({ loanId, projectType, isOpen });
   }
 
   toggleConfirmComment(

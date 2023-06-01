@@ -4,5 +4,9 @@
 
     <app-product-list [products]="userInfo?.products"></app-product-list>
   </div>
-  <app-activity [loanId]="userInfo?.loanId"></app-activity>
+  <app-activity
+    height="calc(100vh - 397px)"
+    [loanId]="userInfo?.loanId"
+    [projectType]="2"
+  ></app-activity>
 </div>

@@ -23,6 +23,7 @@ export class ActivityPopUpComponent implements OnInit, OnDestroy {
   @ViewChild('picker1') picker: any;
   @ViewChild('inputFile') inputeFileRef!: ElementRef;
   @Input() loanId: string = '';
+  @Input() projectType: number = 1;
 
   form!: FormGroup;
   submitted = false;
@@ -78,18 +79,17 @@ export class ActivityPopUpComponent implements OnInit, OnDestroy {
   }
 
   closeForm() {
-    this.flagService.tooggleActivity(null, false);
+    this.flagService.tooggleActivity(null, null, false);
   }
 
-  private createFormData(data: any) {
-    const { claimsId, loanId, type, reminder, text } = data;
+  private createFormData() {
     const form = new FormData();
-    form.append('claimsId', claimsId);
-    form.append('loanId', loanId);
-    form.append('type', type);
-    form.append('reminder', reminder);
-    form.append('text', text);
-    form.append('projectType', '2');
+    form.append('claimsId', String(this.apiService.claimsId));
+    form.append('loanId', this.loanId);
+    form.append('type', this.form.value.activity);
+    form.append('reminder', this.form.value.date?.toLocaleString('ru-RU'));
+    form.append('text', this.form.value.comment);
+    form.append('projectType', String(this.projectType));
 
     this.files.forEach((file: any) => {
       form.append('files', file);
@@ -118,7 +118,7 @@ export class ActivityPopUpComponent implements OnInit, OnDestroy {
 
     console.log(data);
 
-    const formData = this.createFormData(data);
+    const formData = this.createFormData();
 
     console.log(this.files);
 

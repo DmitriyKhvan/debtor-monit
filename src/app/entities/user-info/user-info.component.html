@@ -51,6 +51,20 @@
     </div>
 
     <div class="field">
+      <span class="label">Место работы ИНН:</span>
+      <ng-container *ngIf="userInfo?.companyTin">
+        <span class="value">{{
+          userInfo?.companyTin | mask : "000 000 000"
+        }}</span>
+        <a
+          target="_blank"
+          [href]="'https://orginfo.uz/ru/search?q=' + userInfo?.companyTin"
+          ><img class="companyTin" src="../../../assets/img/orgInfo.png" alt=""
+        /></a>
+      </ng-container>
+    </div>
+
+    <div class="field">
       <span class="label">Телефон 1: </span>
       <span class="value">{{
         userInfo?.phoneFirst | mask : "+000 00 000 00 00"
