@@ -92,7 +92,7 @@ export class ApiService {
 
   clientAction(data: any): Observable<any> {
     return this.http
-      .post(`${environment.dbUrl}/client-action/create`, data)
+      .post(`${environment.dbUrl}/client-action/createNew`, data)
       .pipe(
         catchError((error) => {
           return throwError(() => error);
