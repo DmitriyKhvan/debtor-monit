@@ -23,6 +23,7 @@ export class InstallmentPlanConfirmComponent implements OnInit, OnDestroy {
   rSub!: Subscription;
 
   flag = false;
+  type: string | undefined;
   isRemoveClientInfo = false;
 
   formData: any;
@@ -51,14 +52,18 @@ export class InstallmentPlanConfirmComponent implements OnInit, OnDestroy {
     this.getAddClientInfo();
 
     this.aSub = this.flagService.isAddClientInfoForm$.subscribe(
-      ({ flag, addClientInfo }) => {
+      ({ flag, addClientInfo, type }) => {
         this.flag = flag;
+        this.type = type;
 
         if (!flag && addClientInfo) {
           this.getAddClientInfo();
         } else {
           this.formData = addClientInfo;
         }
+      },
+      (error) => {
+        console.log(error);
       }
     );
 
@@ -96,13 +101,17 @@ export class InstallmentPlanConfirmComponent implements OnInit, OnDestroy {
   }
 
   addInfo() {
-    this.flagService.isAddClientInfoForm$.next({ flag: true });
+    this.flagService.isAddClientInfoForm$.next({
+      flag: true,
+      type: 'ADD_OTHER',
+    });
   }
 
   editAddClientInfo(id: number, description: string, value: string) {
     this.flagService.isAddClientInfoForm$.next({
       flag: true,
       addClientInfo: { id, description, value },
+      type: 'ADD_OTHER',
     });
   }
 
@@ -111,6 +120,10 @@ export class InstallmentPlanConfirmComponent implements OnInit, OnDestroy {
       flag: true,
       id,
     });
+  }
+
+  getHistoryCalls(phone: string) {
+    this.flagService.historyCalls$.next({ flag: true, phone });
   }
 
   ngOnDestroy(): void {

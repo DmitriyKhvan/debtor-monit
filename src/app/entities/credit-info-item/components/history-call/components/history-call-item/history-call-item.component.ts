@@ -22,6 +22,9 @@ export class HistoryCallItemComponent implements OnInit, OnDestroy {
   @ViewChild('audio') audioRef!: ElementRef;
   @Input() call: any;
   @Input() status: Status | undefined;
+  @Input() phone: string | undefined;
+  @Input() getStyles: any;
+
   fSub!: Subscription;
 
   constructor(private fileService: FileService) {}

@@ -11,13 +11,15 @@ export class UserInfoComponent implements OnInit, OnDestroy {
   @Input() userInfo: any;
   aSub!: Subscription;
   flag: boolean = false;
+  type: string | undefined;
 
   constructor(private flagService: FlagService) {}
 
   ngOnInit(): void {
     this.aSub = this.flagService.isAddClientInfoForm$.subscribe(
-      ({ flag, addClientInfo }) => {
+      ({ flag, addClientInfo, type }) => {
         this.flag = flag;
+        this.type = type;
 
         if (addClientInfo) {
           this.userInfo.addClientInfo.push({
@@ -35,7 +37,10 @@ export class UserInfoComponent implements OnInit, OnDestroy {
   }
 
   addPhone() {
-    this.flagService.isAddClientInfoForm$.next({ flag: true });
+    this.flagService.isAddClientInfoForm$.next({
+      flag: true,
+      type: 'ADD_PHONE',
+    });
   }
 
   ngOnDestroy(): void {

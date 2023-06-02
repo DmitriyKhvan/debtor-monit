@@ -6,12 +6,19 @@ export class FlagService {
   userInfo$ = new Subject<any>();
   isActivityForm$ = new Subject<any>();
   isConfimrCommentForm$ = new Subject<any>();
-  isAddClientInfoForm$ = new Subject<{ flag: boolean; addClientInfo?: any }>();
+  isAddClientInfoForm$ = new Subject<{
+    flag: boolean;
+    addClientInfo?: any;
+    type?: string;
+  }>();
   removeAddClientInfo$ = new Subject<{ flag: boolean; id?: number }>();
   updateActions$ = new Subject<boolean>();
   cofirmComment$ = new Subject<boolean>();
   isNotifications$ = new Subject<boolean>();
   showAvatar$ = new Subject<any>();
+
+  //история звонков
+  historyCalls$ = new Subject<{ flag: boolean; phone?: string }>();
 
   setUserInfo({ userInfo, isLoader }: any) {
     this.userInfo$.next({ userInfo, isLoader });

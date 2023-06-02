@@ -17,6 +17,13 @@
           <span class="value">{{
             userInfo?.data.client.client_phone_1 | mask : "+000 00 000 00 00"
           }}</span>
+
+          <span
+            (click)="getHistoryCalls(userInfo?.data.client.client_phone_1)"
+            class="icon-vid-raised-hand"
+            ><span class="path1"></span><span class="path2"></span
+            ><span class="path3"></span
+          ></span>
         </div>
 
         <div class="field">
@@ -24,6 +31,13 @@
           <span class="value">{{
             userInfo?.data.client.client_phone_2 | mask : "+000 00 000 00 00"
           }}</span>
+
+          <span
+            (click)="getHistoryCalls(userInfo?.data.client.client_phone_2)"
+            class="icon-vid-raised-hand"
+            ><span class="path1"></span><span class="path2"></span
+            ><span class="path3"></span
+          ></span>
         </div>
 
         <div class="field">
@@ -173,3 +187,8 @@
   "
 >
 </iframe> -->
+
+<app-history-calls-pop-up
+  *ngIf="flag"
+  [phone]="phone"
+></app-history-calls-pop-up>

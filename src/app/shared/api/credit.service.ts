@@ -173,6 +173,18 @@ export class ApiService {
       );
   }
 
+  getHistoryCallByNumber(phone: string): Observable<any> {
+    return this.http
+      .get(
+        `${environment.dbUrl}/kerioOperator/callHistoryByNumber?phone=${phone}`
+      )
+      .pipe(
+        catchError((error) => {
+          return throwError(() => error);
+        })
+      );
+  }
+
   addClientInfo({ id, type, value, description }: any): Observable<any> {
     return this.http
       .post(`${environment.dbUrl}/client-info/addClientInfo/set`, {
