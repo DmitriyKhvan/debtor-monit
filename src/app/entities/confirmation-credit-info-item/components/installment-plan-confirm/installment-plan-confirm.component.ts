@@ -28,20 +28,20 @@ export class InstallmentPlanConfirmComponent implements OnInit, OnDestroy {
 
   formData: any;
   addClientInfoId: number = 0;
-  addClientInfo: any = [
-    // {
-    //   active: true,
-    //   claimsId: 51817,
-    //   createdAt: '2023-05-20T20:30:19.141Z',
-    //   createdBy: '1331d1f1-2a19-4bfb-99fd-ba0835b652d1',
-    //   description: 'Новый номер',
-    //   id: 11,
-    //   type: 'ADD_PHONE',
-    //   updatedAt: '2023-05-20T20:30:19.141Z',
-    //   updatedBy: null,
-    //   value: '+998909998877',
-    // },
-  ];
+  // addClientInfo: any = [
+  //   // {
+  //   //   active: true,
+  //   //   claimsId: 51817,
+  //   //   createdAt: '2023-05-20T20:30:19.141Z',
+  //   //   createdBy: '1331d1f1-2a19-4bfb-99fd-ba0835b652d1',
+  //   //   description: 'Новый номер',
+  //   //   id: 11,
+  //   //   type: 'ADD_PHONE',
+  //   //   updatedAt: '2023-05-20T20:30:19.141Z',
+  //   //   updatedBy: null,
+  //   //   value: '+998909998877',
+  //   // },
+  // ];
 
   constructor(
     public flagService: FlagService,
@@ -49,16 +49,14 @@ export class InstallmentPlanConfirmComponent implements OnInit, OnDestroy {
   ) {}
 
   ngOnInit(): void {
-    this.getAddClientInfo();
+    // this.getAddClientInfo();
 
     this.aSub = this.flagService.isAddClientInfoForm$.subscribe(
       ({ flag, addClientInfo, type }) => {
         this.flag = flag;
         this.type = type;
 
-        if (!flag && addClientInfo) {
-          this.getAddClientInfo();
-        } else {
+        if (flag && addClientInfo) {
           this.formData = addClientInfo;
         }
       },
@@ -78,11 +76,11 @@ export class InstallmentPlanConfirmComponent implements OnInit, OnDestroy {
     );
   }
 
-  getAddClientInfo() {
-    this.iSub = this.apiService.getAddClientInfo().subscribe((info) => {
-      this.addClientInfo = info;
-    });
-  }
+  // getAddClientInfo() {
+  //   this.iSub = this.apiService.getAddClientInfo().subscribe((info) => {
+  //     this.addClientInfo = info;
+  //   });
+  // }
 
   copy(event: any) {
     const copyText = this.copyTextRef.nativeElement.innerText;
@@ -100,27 +98,27 @@ export class InstallmentPlanConfirmComponent implements OnInit, OnDestroy {
     document.body.removeChild(selBox);
   }
 
-  addInfo() {
+  addInfo(type: string) {
     this.flagService.isAddClientInfoForm$.next({
       flag: true,
-      type: 'ADD_OTHER',
+      type,
     });
   }
 
-  editAddClientInfo(id: number, description: string, value: string) {
-    this.flagService.isAddClientInfoForm$.next({
-      flag: true,
-      addClientInfo: { id, description, value },
-      type: 'ADD_OTHER',
-    });
-  }
+  // editAddClientInfo(id: number, description: string, value: string) {
+  //   this.flagService.isAddClientInfoForm$.next({
+  //     flag: true,
+  //     addClientInfo: { id, description, value },
+  //     type: 'ADD_OTHER',
+  //   });
+  // }
 
-  removeAddClientInfo(id: number) {
-    this.flagService.removeAddClientInfo$.next({
-      flag: true,
-      id,
-    });
-  }
+  // removeAddClientInfo(id: number) {
+  //   this.flagService.removeAddClientInfo$.next({
+  //     flag: true,
+  //     id,
+  //   });
+  // }
 
   ngOnDestroy(): void {
     this.aSub?.unsubscribe();

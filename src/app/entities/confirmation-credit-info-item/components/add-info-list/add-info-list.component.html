@@ -1,0 +1,30 @@
+<div
+  *ngFor="let info of addClientInfo | addClientInfoFilter : type"
+  class="field"
+>
+  <span class="label">{{ info.description }}</span>
+
+  <div class="value">
+    <div *ngIf="type === 'ADD_PHONE'; else ADD_OTHER" class="phone">
+      <span>
+        {{ info.value | mask : "+000 00 000 00 00" }}
+      </span>
+      <app-get-history-calls [phone]="info.value"></app-get-history-calls>
+    </div>
+
+    <ng-template #ADD_OTHER>
+      <span>{{ info.value }}</span>
+    </ng-template>
+
+    <div class="funcBtns">
+      <span
+        (click)="editAddClientInfo(info.id, info.description, info.value)"
+        class="icon-edit-filled"
+        ><span class="path1"></span><span class="path2"></span
+      ></span>
+      <span (click)="removeAddClientInfo(info.id)" class="icon-cross"
+        ><span class="path1"></span><span class="path2"></span
+      ></span>
+    </div>
+  </div>
+</div>

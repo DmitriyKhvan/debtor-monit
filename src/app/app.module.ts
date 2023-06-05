@@ -104,6 +104,7 @@ import { NzNotificationModule } from 'ng-zorro-antd/notification';
 import { AlertComponent } from './widgets/alert.component';
 import { HistoryCallsPopUpComponent } from './widgets/history-calls-pop-up/history-calls-pop-up.component';
 import { GetHistoryCallsComponent } from './features/get-history-calls/get-history-calls.component';
+import { AddInfoListComponent } from './entities/confirmation-credit-info-item/components/add-info-list/add-info-list.component';
 
 const INTERCEPTOR_PROVIDER: Provider = {
   provide: HTTP_INTERCEPTORS,
@@ -205,6 +206,7 @@ const CUSTOM_DATE_FORMATS: NgxMatDateFormats = {
     AlertComponent,
     HistoryCallsPopUpComponent,
     GetHistoryCallsComponent,
+    AddInfoListComponent,
   ],
   imports: [
     BrowserModule,

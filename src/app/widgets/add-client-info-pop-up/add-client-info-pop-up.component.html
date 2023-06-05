@@ -18,8 +18,17 @@
           "
           class="validation"
         >
+          <!-- <pre>
+
+          {{ form.get("description")?.errors | json }}
+        </pre
+          > -->
+
           <small *ngIf="form.get('description')?.errors?.required">
             Введите данные
+          </small>
+          <small *ngIf="form.get('description')?.errors?.spaceOnly">
+            Неккоректные данные
           </small>
         </div>
       </div>

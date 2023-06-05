@@ -3,6 +3,7 @@ import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { Subscription } from 'rxjs';
 import { ApiService } from 'src/app/shared/api/credit.service';
 import { FlagService } from 'src/app/shared/api/flag.sevice';
+import { MyValidator } from 'src/app/shared/validators/my.validators';
 
 @Component({
   selector: 'app-add-client-info-pop-up',
@@ -31,12 +32,14 @@ export class AddClientInfoPopUpComponent implements OnInit, OnDestroy {
     this.form = new FormGroup({
       value: new FormControl(this.formData?.value, [
         Validators.required,
+
         // Validators.minLength(2),
       ]),
-      description: new FormControl(
-        this.formData?.description,
-        Validators.required
-      ),
+      description: new FormControl(this.formData?.description, [
+        Validators.required,
+        // Validators.pattern(/^(?!\s$).+/),
+        MyValidator.spaceOnlyValidator,
+      ]),
     });
   }
 
@@ -55,7 +58,7 @@ export class AddClientInfoPopUpComponent implements OnInit, OnDestroy {
       id: this.formData?.id,
       type: this.type,
       value: (this.mask ? '+' : '') + this.form.value.value,
-      description: this.form.value.description,
+      description: this.form.value.description.trim(),
     };
 
     console.log(data);

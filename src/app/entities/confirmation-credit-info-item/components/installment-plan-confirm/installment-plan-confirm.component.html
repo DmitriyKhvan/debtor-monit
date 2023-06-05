@@ -124,7 +124,12 @@
 
   <div class="col-2">
     <div class="info-seller">
-      <h2 class="title">Информация о клиенте</h2>
+      <div class="title addInfo">
+        <h2>Информация о клиенте</h2>
+        <button (click)="addInfo('ADD_PHONE')">Добавить номер телефона</button>
+      </div>
+
+      <app-add-info-list type="ADD_PHONE"></app-add-info-list>
 
       <div class="field">
         <span class="label">Возраст:</span>
@@ -239,27 +244,10 @@
     <div class="info-add">
       <div class="title addInfo">
         <h2>Дополнительная информация</h2>
-        <button (click)="addInfo()">Добавить инфо</button>
+        <button (click)="addInfo('ADD_OTHER')">Добавить инфо</button>
       </div>
 
-      <div *ngFor="let info of addClientInfo" class="field">
-        <span class="label">{{ info.description }}</span>
-
-        <div class="value">
-          <span>{{ info.value }}</span>
-
-          <div class="funcBtns">
-            <span
-              (click)="editAddClientInfo(info.id, info.description, info.value)"
-              class="icon-edit-filled"
-              ><span class="path1"></span><span class="path2"></span
-            ></span>
-            <span (click)="removeAddClientInfo(info.id)" class="icon-cross"
-              ><span class="path1"></span><span class="path2"></span
-            ></span>
-          </div>
-        </div>
-      </div>
+      <app-add-info-list type="ADD_OTHER"></app-add-info-list>
     </div>
   </div>
 </div>
@@ -268,6 +256,7 @@
   *ngIf="flag"
   [type]="type"
   [formData]="formData"
+  [mask]="type === 'ADD_PHONE' ? '+000 00 000 00 00' : ''"
 ></app-add-client-info-pop-up>
 
 <app-remove-add-client-info-pop-up
