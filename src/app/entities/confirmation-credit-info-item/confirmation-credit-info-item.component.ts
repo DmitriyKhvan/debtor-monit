@@ -14,10 +14,6 @@ export class ConfirmationCreditInfoItemComponent implements OnInit, OnDestroy {
   cSub!: Subscription;
   uSub!: Subscription;
   showAvatarSub!: Subscription;
-  showHistoryCallsSub!: Subscription;
-
-  phone: string | undefined = '';
-  flag: boolean = false;
 
   loader: boolean = false;
   isAvatar: boolean = false;
@@ -79,17 +75,6 @@ export class ConfirmationCreditInfoItemComponent implements OnInit, OnDestroy {
 
         localStorage.setItem('creditsConfirm', JSON.stringify(data));
       });
-
-    this.showHistoryCallsSub = this.flagService.historyCalls$.subscribe(
-      (data) => {
-        this.phone = data.phone;
-        this.flag = data.flag;
-      }
-    );
-  }
-
-  getHistoryCalls(phone: string) {
-    this.flagService.historyCalls$.next({ flag: true, phone });
   }
 
   getConfirmComment() {
@@ -117,6 +102,5 @@ export class ConfirmationCreditInfoItemComponent implements OnInit, OnDestroy {
     this.cSub?.unsubscribe();
     this.uSub?.unsubscribe();
     this.showAvatarSub?.unsubscribe();
-    this.showHistoryCallsSub?.unsubscribe();
   }
 }

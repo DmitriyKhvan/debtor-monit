@@ -122,10 +122,6 @@ export class InstallmentPlanConfirmComponent implements OnInit, OnDestroy {
     });
   }
 
-  getHistoryCalls(phone: string) {
-    this.flagService.historyCalls$.next({ flag: true, phone });
-  }
-
   ngOnDestroy(): void {
     this.aSub?.unsubscribe();
     this.iSub?.unsubscribe();

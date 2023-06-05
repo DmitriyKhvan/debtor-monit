@@ -69,6 +69,11 @@
       <span class="value">{{
         userInfo?.phoneFirst | mask : "+000 00 000 00 00"
       }}</span>
+
+      <app-get-history-calls
+        [phone]="userInfo?.phoneFirst"
+      ></app-get-history-calls>
+
       <a
         *ngIf="userInfo?.phoneFirst && userInfo?.phoneFirst != '+000000000000'"
         [href]="'https://t.me//' + userInfo?.phoneFirst"
@@ -84,6 +89,11 @@
       <span class="value">{{
         userInfo?.phoneSecond | mask : "+000 00 000 00 00"
       }}</span>
+
+      <app-get-history-calls
+        [phone]="userInfo?.phoneSecond"
+      ></app-get-history-calls>
+
       <a
         *ngIf="
           userInfo?.phoneSecond && userInfo?.phoneSecond != '+000000000000'
@@ -104,6 +114,9 @@
     >
       <span class="label">{{ phone.description }}: </span>
       <span class="value">{{ phone.value | mask : "+000 00 000 00 00" }}</span>
+
+      <app-get-history-calls [phone]="phone.value"></app-get-history-calls>
+
       <a
         [href]="'https://t.me//' + phone.value"
         class="telegram"
