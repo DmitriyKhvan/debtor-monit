@@ -1,11 +1,11 @@
-<div class="tr">
+<div [ngStyle]="getStyles" class="tr">
   <div class="td idx">{{ call.idx }}</div>
   <div class="td date">
     {{ call.call.timestamp | dateTimeFormat : "numeric" : undefined : true }}
   </div>
   <div class="td operator">{{ call.call.operator }}</div>
-  <div class="td caller">{{ call.call.answerer }}</div>
-  <div class="td type_call">{{ call.call.type }}</div>
+  <div *ngIf="!phone" class="td caller">{{ call.call.answerer }}</div>
+  <div *ngIf="!phone" class="td type_call">{{ call.call.type }}</div>
   <div class="td duration">
     <app-lozenge2 className="grey">{{
       call.call.answeredDuration | timeFormat

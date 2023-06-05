@@ -16,6 +16,7 @@ export class AddClientInfoPopUpComponent implements OnInit, OnDestroy {
     description: '',
     value: '',
   };
+  @Input() type: string | undefined;
 
   form!: FormGroup;
   submitted = false;
@@ -52,7 +53,7 @@ export class AddClientInfoPopUpComponent implements OnInit, OnDestroy {
 
     const data = {
       id: this.formData?.id,
-      type: 'ADD_PHONE',
+      type: this.type,
       value: (this.mask ? '+' : '') + this.form.value.value,
       description: this.form.value.description,
     };

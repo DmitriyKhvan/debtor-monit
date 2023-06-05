@@ -20,9 +20,15 @@
 
       <div class="field">
         <span class="label">Владелец номер телефона:</span>
-        <span class="value">{{
-          userInfo?.data.merchant.vendor_phone | mask : "+000 00 000 00 00"
-        }}</span>
+        <span class="value"
+          >{{
+            userInfo?.data.merchant.vendor_phone | mask : "+000 00 000 00 00"
+          }}
+
+          <app-get-history-calls
+            [phone]="userInfo?.data.merchant.vendor_phone"
+          ></app-get-history-calls>
+        </span>
       </div>
 
       <div class="field">
@@ -32,9 +38,15 @@
 
       <div class="field">
         <span class="label">Оператор Телефон:</span>
-        <span class="value">{{
-          userInfo?.data.merchant.vendor_cio_phone | mask : "+000 00 000 00 00"
-        }}</span>
+        <span class="value"
+          >{{
+            userInfo?.data.merchant.vendor_cio_phone
+              | mask : "+000 00 000 00 00"
+          }}
+          <app-get-history-calls
+            [phone]="userInfo?.data.merchant.vendor_cio_phone"
+          ></app-get-history-calls>
+        </span>
       </div>
     </div>
 
@@ -254,6 +266,7 @@
 
 <app-add-client-info-pop-up
   *ngIf="flag"
+  [type]="type"
   [formData]="formData"
 ></app-add-client-info-pop-up>
 

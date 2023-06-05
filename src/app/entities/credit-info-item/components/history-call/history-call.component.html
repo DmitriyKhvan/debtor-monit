@@ -11,12 +11,12 @@
     <div class="history-call-list">
       <div class="table">
         <div class="thead">
-          <div class="tr">
+          <div [ngStyle]="getStyles()" class="tr">
             <div class="td idx">#</div>
             <div class="td date">Дата и время звонка</div>
             <div class="td operator">Оператор</div>
-            <div class="td caller">Абонент</div>
-            <div class="td type_call">Тип звонка</div>
+            <div *ngIf="!phone" class="td caller">Абонент</div>
+            <div *ngIf="!phone" class="td type_call">Тип звонка</div>
             <div class="td duration">Продолжительность</div>
             <div class="td status">Статус</div>
             <div class="td record_call">Запись звонка</div>
@@ -27,9 +27,19 @@
           <ng-container *ngFor="let call of calls; let idx = index">
             <app-history-call-item
               #audios
+              [phone]="phone"
+              [getStyles]="getStyles()"
               [call]="{ idx: idx + 1, call }"
               [status]="dicService.getStatus(dic, call.status)"
             ></app-history-call-item>
+          </ng-container>
+
+          <ng-container *ngIf="loading">
+            <app-loader></app-loader>
+          </ng-container>
+
+          <ng-container *ngIf="!calls.length && !loading">
+            <h2 class="empty">Нет данных</h2>
           </ng-container>
         </div>
       </div>

@@ -17,6 +17,10 @@
           <span class="value">{{
             userInfo?.data.client.client_phone_1 | mask : "+000 00 000 00 00"
           }}</span>
+
+          <app-get-history-calls
+            [phone]="userInfo?.data.client.client_phone_1"
+          ></app-get-history-calls>
         </div>
 
         <div class="field">
@@ -24,6 +28,10 @@
           <span class="value">{{
             userInfo?.data.client.client_phone_2 | mask : "+000 00 000 00 00"
           }}</span>
+
+          <app-get-history-calls
+            [phone]="userInfo?.data.client.client_phone_2"
+          ></app-get-history-calls>
         </div>
 
         <div class="field">

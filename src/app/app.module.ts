@@ -102,6 +102,8 @@ import { UploadFilesComponent } from './features/upload-files/upload-files.compo
 import { FileSizeFormatPipe } from './shared/pipes/file-size-format.pipe';
 import { NzNotificationModule } from 'ng-zorro-antd/notification';
 import { AlertComponent } from './widgets/alert.component';
+import { HistoryCallsPopUpComponent } from './widgets/history-calls-pop-up/history-calls-pop-up.component';
+import { GetHistoryCallsComponent } from './features/get-history-calls/get-history-calls.component';
 
 const INTERCEPTOR_PROVIDER: Provider = {
   provide: HTTP_INTERCEPTORS,
@@ -201,6 +203,8 @@ const CUSTOM_DATE_FORMATS: NgxMatDateFormats = {
     UploadFilesComponent,
     FileSizeFormatPipe,
     AlertComponent,
+    HistoryCallsPopUpComponent,
+    GetHistoryCallsComponent,
   ],
   imports: [
     BrowserModule,

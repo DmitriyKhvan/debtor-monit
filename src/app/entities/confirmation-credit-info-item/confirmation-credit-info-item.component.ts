@@ -14,6 +14,7 @@ export class ConfirmationCreditInfoItemComponent implements OnInit, OnDestroy {
   cSub!: Subscription;
   uSub!: Subscription;
   showAvatarSub!: Subscription;
+
   loader: boolean = false;
   isAvatar: boolean = false;
   comment: string = '';

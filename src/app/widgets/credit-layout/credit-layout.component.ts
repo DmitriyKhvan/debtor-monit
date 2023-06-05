@@ -1,9 +1,6 @@
 import { Component } from '@angular/core';
-import { ActivatedRoute, Params } from '@angular/router';
 import { Subscription } from 'rxjs';
 import { FlagService } from 'src/app/shared/api/flag.sevice';
-import { Location } from '@angular/common';
-import { ApiService } from 'src/app/shared/api/credit.service';
 
 @Component({
   selector: 'app-credit-layout',
@@ -13,20 +10,18 @@ import { ApiService } from 'src/app/shared/api/credit.service';
 export class CreditLayoutComponent {
   flagSub!: Subscription;
   flagConfirmSub!: Subscription;
+  showHistoryCallsSub!: Subscription;
 
   loanId = '';
   projectType = 1;
   title = '';
   option = '';
   flag = false;
+  flagHistoryCalls = false;
+  phone: string | undefined = '';
   flagConfirm = false;
 
-  constructor(
-    private apiService: ApiService,
-    private route: ActivatedRoute,
-    public flagService: FlagService,
-    private location: Location
-  ) {}
+  constructor(public flagService: FlagService) {}
 
   ngOnInit(): void {
     this.flagSub = this.flagService.isActivityForm$.subscribe((data) => {
@@ -47,6 +42,13 @@ export class CreditLayoutComponent {
     // this.apiService.arrayObj
 
     // console.log(this.location.path());
+
+    this.showHistoryCallsSub = this.flagService.historyCalls$.subscribe(
+      (data) => {
+        this.phone = data.phone;
+        this.flagHistoryCalls = data.flag;
+      }
+    );
   }
 
   // addPath(){
@@ -71,5 +73,6 @@ export class CreditLayoutComponent {
   ngOnDestroy(): void {
     this.flagSub?.unsubscribe();
     this.flagConfirmSub?.unsubscribe();
+    this.showHistoryCallsSub?.unsubscribe();
   }
 }

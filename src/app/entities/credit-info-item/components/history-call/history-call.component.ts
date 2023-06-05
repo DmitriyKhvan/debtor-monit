@@ -2,6 +2,7 @@ import {
   AfterViewInit,
   Component,
   ElementRef,
+  Input,
   OnDestroy,
   OnInit,
   QueryList,
@@ -22,6 +23,9 @@ import { FileService } from 'src/app/shared/api/file.service';
 })
 export class HistoryCallComponent implements OnInit, AfterViewInit, OnDestroy {
   @ViewChildren('audios') audiosRef!: QueryList<HistoryCallItemComponent>;
+  @Input() phone: string | undefined;
+
+  loading: boolean = true;
 
   hSub!: Subscription;
   dSub!: Subscription;
@@ -42,9 +46,30 @@ export class HistoryCallComponent implements OnInit, AfterViewInit, OnDestroy {
         this.dic = dic;
       });
 
-    this.hSub = this.apiService.getHistoryCall().subscribe((calls) => {
-      this.calls = calls;
-    });
+    if (this.phone) {
+      this.hSub = this.apiService
+        .getHistoryCallByNumber(this.phone)
+        .subscribe((calls) => {
+          this.calls = calls;
+          this.loading = false;
+        });
+    } else {
+      this.hSub = this.apiService.getHistoryCall().subscribe((calls) => {
+        this.calls = calls;
+        this.loading = false;
+      });
+    }
+  }
+
+  getStyles() {
+    return this.phone
+      ? {
+          'grid-template-areas':
+            '"idx date operator duration status record_call"',
+          'grid-template-columns':
+            '40px 140px minmax(200px, 0.25fr) 120px 120px 1fr',
+        }
+      : null;
   }
 
   ngAfterViewInit(): void {
