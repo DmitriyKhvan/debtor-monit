@@ -11,6 +11,7 @@ import {
   ActionCreate,
   ActionsCredit,
   ICalculationProducts,
+  StatisticsData,
 } from '../interfaces';
 import { tap } from 'rxjs/operators';
 import { Injectable } from '@angular/core';
@@ -35,6 +36,8 @@ export class ApiService {
   };
 
   loader: boolean = false;
+
+  statisticsList: any = [];
 
   // objUser = {
   //   CREDIT: arrayObj[0],
@@ -217,6 +220,17 @@ export class ApiService {
     return this.http
       .delete(`${environment.dbUrl}/client-info/addClientInfo/delete?id=${id}`)
       .pipe(
+        catchError((error) => {
+          return throwError(() => error);
+        })
+      );
+  }
+
+  getStatisticsList(data: StatisticsData): Observable<any> {
+    return this.http
+      .post(`${environment.dbUrl}/tools/getSumDataByDate`, data)
+      .pipe(
+        tap((list) => (this.statisticsList = list)),
         catchError((error) => {
           return throwError(() => error);
         })

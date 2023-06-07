@@ -120,8 +120,6 @@ export class ActivityPopUpComponent implements OnInit, OnDestroy {
 
     const formData = this.createFormData();
 
-    console.log(this.files);
-
     // this.aSub = this.apiService.clientAction(data).subscribe((res) => {
     //   this.flagService.updateActions$.next(true);
     //   this.submitted = false;

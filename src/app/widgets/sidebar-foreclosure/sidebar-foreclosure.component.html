@@ -32,8 +32,20 @@
         *ngIf="apiService.profile.username === 'support_admin'"
         routerLinkActive="active"
       >
+        <a [routerLink]="['statistics']">
+          <span class="icon-number-list"
+            ><span class="path1"></span><span class="path2"></span
+          ></span>
+          <span class="text">СТАТИСТИКА</span>
+        </a>
+      </li>
+
+      <li
+        *ngIf="apiService.profile.username === 'support_admin'"
+        routerLinkActive="active"
+      >
         <a [routerLink]="['documents']">
-          <span class="icon-documenlt"
+          <span class="icon-documents"
             ><span class="path1"></span><span class="path2"></span
           ></span>
           <span class="text">EXCEL</span>

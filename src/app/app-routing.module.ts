@@ -12,6 +12,7 @@ import { CreditInfoLayoutComponent } from './widgets/credit-info-layout/credit-i
 import { ForeclosureTabsComponent } from './entities/foreclosure-tabs/foreclosure-tabs.component';
 import { DocumentsComponent } from './pages/documents/documents.component';
 import { ConfirmationTabsComponent } from './entities/confirmation-tabs/confirmation-tabs.component';
+import { StatisticsComponent } from './pages/statistics/statistics.component';
 
 const routes: Routes = [
   {
@@ -31,6 +32,10 @@ const routes: Routes = [
           {
             path: 'documents',
             component: DocumentsComponent,
+          },
+          {
+            path: 'statistics',
+            component: StatisticsComponent,
           },
         ],
       },

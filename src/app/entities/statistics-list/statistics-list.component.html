@@ -1,0 +1,38 @@
+<div class="statistics">
+  <div class="statistics__wrap">
+    <div class="header">
+      <h2 class="title">Статистика</h2>
+      <app-button
+        (click)="generateStatistics()"
+        className="btn primaryBtn medium"
+        >Сгенерировать отчет</app-button
+      >
+    </div>
+
+    <div class="statistics-list">
+      <div class="table">
+        <div class="thead">
+          <div class="tr">
+            <div class="td number">#</div>
+            <div class="td date">Дата</div>
+            <div class="td nplSum">NLP сумма</div>
+            <div class="td vidachaSum">Выданная сумма</div>
+            <div class="td insuranceDebtSum">
+              Долг перед страховой компанией
+            </div>
+          </div>
+        </div>
+
+        <div class="tbody">
+          <ng-container
+            *ngFor="let statistic of statisticsList; let idx = index"
+          >
+            <app-statistics-list-item
+              [statistic]="{ idx: idx + 1, statistic }"
+            ></app-statistics-list-item>
+          </ng-container>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
