@@ -56,3 +56,8 @@ export interface maxAmountData {
   diff: string;
   lastMaxAmount: string;
 }
+
+export interface StatisticsData {
+  fromDate: string;
+  toDate: string;
+}

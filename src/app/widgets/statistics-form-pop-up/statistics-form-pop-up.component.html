@@ -1,0 +1,87 @@
+<app-wrapper>
+  <div class="statistic">
+    <span (click)="closeForm()" class="close icon-cl0ose"
+      ><span class="path1"></span><span class="path2"></span
+    ></span>
+    <h2 class="title">Статистика по взысканию</h2>
+
+    <form [formGroup]="form" (ngSubmit)="submitHandler()">
+      <div class="group">
+        <label class="field">
+          <div class="key">Начало периода</div>
+          <div class="value">
+            <div>
+              <mat-form-field>
+                <input
+                  placeholder="Выберите дату"
+                  matInput
+                  [matDatepicker]="picker"
+                  formControlName="fromDate"
+                />
+                <mat-datepicker-toggle
+                  matIconSuffix
+                  [for]="picker"
+                ></mat-datepicker-toggle>
+                <mat-datepicker #picker></mat-datepicker>
+              </mat-form-field>
+            </div>
+          </div>
+          <div
+            *ngIf="
+              form.get('fromDate')?.touched && form.get('fromDate')?.invalid
+            "
+            class="validation"
+          >
+            <small *ngIf="form.get('fromDate')?.errors?.required">
+              Введите данные
+            </small>
+          </div>
+        </label>
+
+        <label class="field">
+          <div class="key">Конец периода</div>
+          <div class="value">
+            <div>
+              <mat-form-field>
+                <input
+                  placeholder="Выберите дату"
+                  matInput
+                  [matDatepicker]="picker2"
+                  formControlName="toDate"
+                />
+                <mat-datepicker-toggle
+                  matIconSuffix
+                  [for]="picker2"
+                ></mat-datepicker-toggle>
+                <mat-datepicker #picker2></mat-datepicker>
+              </mat-form-field>
+            </div>
+          </div>
+          <div
+            *ngIf="form.get('toDate')?.touched && form.get('toDate')?.invalid"
+            class="validation"
+          >
+            <small *ngIf="form.get('toDate')?.errors?.required">
+              Введите данные
+            </small>
+          </div>
+        </label>
+      </div>
+
+      <div class="btns">
+        <app-button
+          type="submit"
+          [disabled]="form.invalid || submitted"
+          className="btn primaryBtn medium"
+          >Сгенерировать</app-button
+        >
+        <app-button
+          type="button"
+          (click)="closeForm()"
+          className="btn defaultBtn medium"
+          >Отмена</app-button
+        >
+      </div>
+    </form>
+  </div>
+</app-wrapper>

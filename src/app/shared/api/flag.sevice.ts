@@ -20,6 +20,8 @@ export class FlagService {
   //история звонков
   historyCalls$ = new Subject<{ flag: boolean; phone?: string }>();
 
+  statisticsForm$ = new Subject<boolean>();
+
   setUserInfo({ userInfo, isLoader }: any) {
     this.userInfo$.next({ userInfo, isLoader });
   }

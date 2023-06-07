@@ -48,7 +48,7 @@ import { MatInputModule } from '@angular/material/input';
 import { MatButtonModule } from '@angular/material/button';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { NgxMatMomentModule } from '@angular-material-components/moment-adapter';
-import { MAT_DATE_LOCALE } from '@angular/material/core';
+import { MAT_DATE_LOCALE, MatNativeDateModule } from '@angular/material/core';
 import { PhoneFormatPipe } from './shared/pipes/phone-format.pipe';
 import { PrintScheduleComponent } from './features/print-schedule/print-schedule.component';
 import { initializeKeycloak } from './shared/init/keycloak-init.factory';
@@ -105,6 +105,13 @@ import { AlertComponent } from './widgets/alert.component';
 import { HistoryCallsPopUpComponent } from './widgets/history-calls-pop-up/history-calls-pop-up.component';
 import { GetHistoryCallsComponent } from './features/get-history-calls/get-history-calls.component';
 import { AddInfoListComponent } from './entities/confirmation-credit-info-item/components/add-info-list/add-info-list.component';
+import { StatisticsComponent } from './pages/statistics/statistics.component';
+import { StatisticsFormPopUpComponent } from './widgets/statistics-form-pop-up/statistics-form-pop-up.component';
+import { WrapperComponent } from './shared/ui/wrapper/wrapper.component';
+import { MatFormFieldModule } from '@angular/material/form-field';
+import { StatisticsEmptyComponent } from './entities/statistics-empty/statistics-empty.component';
+import { StatisticsListComponent } from './entities/statistics-list/statistics-list.component';
+import { StatisticsListItemComponent } from './entities/statistics-list/components/statistics-list-item/statistics-list-item.component';
 
 const INTERCEPTOR_PROVIDER: Provider = {
   provide: HTTP_INTERCEPTORS,
@@ -207,6 +214,12 @@ const CUSTOM_DATE_FORMATS: NgxMatDateFormats = {
     HistoryCallsPopUpComponent,
     GetHistoryCallsComponent,
     AddInfoListComponent,
+    StatisticsComponent,
+    StatisticsFormPopUpComponent,
+    WrapperComponent,
+    StatisticsEmptyComponent,
+    StatisticsListComponent,
+    StatisticsListItemComponent,
   ],
   imports: [
     BrowserModule,
@@ -229,6 +242,9 @@ const CUSTOM_DATE_FORMATS: NgxMatDateFormats = {
     NgxMaskDirective,
     NgxMaskPipe,
     NzNotificationModule,
+
+    MatFormFieldModule,
+    MatNativeDateModule,
   ],
   providers: [
     INTERCEPTOR_PROVIDER,

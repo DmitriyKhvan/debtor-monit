@@ -1,0 +1,20 @@
+<div class="tr">
+  <div class="td number">{{ statistic.idx }}</div>
+  <div class="td date">{{ statistic.statistic.date }}</div>
+  <div class="td nplSum">
+    <app-lozenge2 className="grey">{{
+      statistic.statistic.nplSum | numberTransform : false
+    }}</app-lozenge2>
+  </div>
+  <div class="td vidachaSum">
+    <app-lozenge2 className="blue">{{
+      statistic.statistic.vidachaSum | numberTransform : false
+    }}</app-lozenge2>
+  </div>
+
+  <div class="td insuranceDebtSum">
+    <app-lozenge2 className="grey">{{
+      statistic.statistic.insuranceDebtSum | numberTransform : false
+    }}</app-lozenge2>
+  </div>
+</div>

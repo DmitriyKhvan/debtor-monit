@@ -1,0 +1,11 @@
+<app-statistics-empty
+  *ngIf="!apiService.statisticsList.length; else statisticsList"
+></app-statistics-empty>
+
+<ng-template #statisticsList>
+  <app-statistics-list
+    [statisticsList]="apiService.statisticsList"
+  ></app-statistics-list>
+</ng-template>
+
+<app-statistics-form-pop-up *ngIf="flag"></app-statistics-form-pop-up>
