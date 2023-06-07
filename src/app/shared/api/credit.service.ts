@@ -230,7 +230,9 @@ export class ApiService {
     return this.http
       .post(`${environment.dbUrl}/tools/getSumDataByDate`, data)
       .pipe(
-        tap((list) => (this.statisticsList = list)),
+        tap((list) => {
+          return (this.statisticsList = list || []);
+        }),
         catchError((error) => {
           return throwError(() => error);
         })
