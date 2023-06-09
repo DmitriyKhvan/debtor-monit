@@ -324,4 +324,14 @@ export class ApiService {
         })
       );
   }
+
+  getUserInfoAccompanimentCredit(id: number | null): Observable<any> {
+    return this.http
+      .get(`${environment.dbUrl2}/maintenance/loader/claim?claimsId=${id}`)
+      .pipe(
+        catchError((error) => {
+          return throwError(() => error);
+        })
+      );
+  }
 }

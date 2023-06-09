@@ -2,13 +2,13 @@
   <div class="info-genaral1">
     <div class="field">
       <span class="label">ФИО:</span>
-      <span class="value">{{ userInfo?.data.client.client_fio }}</span>
+      <span class="value">{{ userInfo?.main.fullname }}</span>
     </div>
 
     <div class="field">
       <span class="label">Номер телефона 1:</span>
       <span class="value">{{
-        userInfo?.data.client.client_phone_1 | mask : "+000 00 000 00 00"
+        userInfo?.main.phoneFirst | mask : "+000 00 000 00 00"
       }}</span>
 
       <app-get-history-calls
@@ -19,7 +19,7 @@
     <div class="field">
       <span class="label">Номер телефона 2:</span>
       <span class="value">{{
-        userInfo?.data.client.client_phone_2 | mask : "+000 00 000 00 00"
+        userInfo?.main.phoneSecond | mask : "+000 00 000 00 00"
       }}</span>
 
       <app-get-history-calls
@@ -31,11 +31,11 @@
       <span class="label">Номер и срок карты:</span>
       <span class="value card">
         <app-lozenge2 className="grey" [fontSize]="14">{{
-          userInfo?.data.client.client_card_number
+          userInfo?.main.cardNumber
             | mask : "0000 0000 0000 0000"
         }}</app-lozenge2>
         <app-lozenge2 className="grey" [fontSize]="14">{{
-          userInfo?.data.client.client_card_date
+          userInfo?.main.cardDate
         }}</app-lozenge2>
       </span>
     </div>
@@ -43,7 +43,7 @@
     <div class="field">
       <span class="label">Место работы ИНН:</span>
       <span class="value">{{
-        userInfo?.data.client.client_company_tin | mask : "000 000 000"
+        userInfo?.main.companyTin | mask : "000 000 000"
       }}</span>
       <a
         target="_blank"
@@ -57,22 +57,22 @@
   </div>
 
   <div class="info-genaral2">
-    <div class="field">
+    <!-- <div class="field">
       <span class="label">Номер заявки:</span>
       <span class="value">{{ userInfo?.data.claimsInfo.claims_id }}</span>
-    </div>
+    </div> -->
 
     <div class="field">
       <span class="label">Дата заявки:</span>
       <span class="value">{{
-        userInfo?.data.claimsInfo.claims_contract_date
+        userInfo?.main.claimDate | dateTimeFormat: 'numeric': undefined: false
       }}</span>
     </div>
 
     <div class="field">
       <span class="label">Текущая дата:</span>
       <span class="value">
-        {{ userInfo?.data.claimsInfo.claims_date | dateTimeFormat }}</span
+        {{ currentDate | dateTimeFormat }}</span
       >
     </div>
 
@@ -80,7 +80,7 @@
       <span class="label">Лимит: </span>
       <span class="value">
         {{
-          userInfo?.data.claimsInfo.claims_scoring_amount
+          userInfo?.main.limit
             | numberTransform : false
         }}</span
       >

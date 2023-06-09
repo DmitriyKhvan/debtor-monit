@@ -15,6 +15,8 @@ import { ConfirmationTabsComponent } from './entities/confirmation-tabs/confirma
 import { StatisticsComponent } from './pages/statistics/statistics.component';
 import { AccompanimentCreditsComponent } from './pages/accompaniment-credits/accompaniment-credits.component';
 import { AccompanimentTabsComponent } from './entities/accompaniment-tabs/accompaniment-tabs.component';
+import { AccompanimentCreditInfoItemComponent } from './entities/accompaniment-credit-info-item/accompaniment-credit-info-item.component';
+import { AccompanimentCreditComponent } from './pages/accompaniment-credit/accompaniment-credit.component';
 
 const routes: Routes = [
   {
@@ -95,6 +97,16 @@ const routes: Routes = [
           {
             path: '',
             component: CreditInfoComponent,
+          },
+        ],
+      },
+      {
+        path: 'accompaniment/:claimsId',
+        component: CreditInfoLayoutComponent,
+        children: [
+          {
+            path: '',
+            component: AccompanimentCreditComponent,
           },
         ],
       },

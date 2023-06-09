@@ -42,6 +42,8 @@ export class UserInfoHeaderAccompanimentComponent implements OnInit, OnDestroy {
     3: 'ЗАЯВКА ОТКЛОНЕНА ',
   };
 
+  currentDate = new Date()
+
   constructor(
     public apiService: ApiService,
     private flagService: FlagService

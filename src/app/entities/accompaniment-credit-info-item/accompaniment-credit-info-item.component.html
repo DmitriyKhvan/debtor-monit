@@ -38,13 +38,14 @@
         *ngIf="tab === 'info'"
       ></app-general-info-accompaniment>
 
+      <!-- [userInfo]="userInfo" -->
       <app-payment-schedule-accompaniment
-        [userInfo]="userInfo"
+        
         *ngIf="tab === 'schedule'"
       ></app-payment-schedule-accompaniment>
 
       <app-insurance-debt-accompaniment
-        [userInfo]="userInfo"
+        
         *ngIf="tab === 'insurance'"
       ></app-insurance-debt-accompaniment>
 
@@ -55,7 +56,7 @@
       <app-activity
         height="calc(100vh - 120px)"
         [loanId]="userInfo?.data.claimsInfo.claims_loan_id"
-        [projectType]="1"
+        [projectType]="3"
       ></app-activity>
     </div>
   </div>
