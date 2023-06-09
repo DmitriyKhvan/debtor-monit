@@ -1,0 +1,67 @@
+<div class="credit-info-item">
+  <h2 class="title">Заявка № {{ userInfo?.claimsId }}</h2>
+
+  <div class="confirmation-wrap">
+    <app-user-info-header-accompaniment></app-user-info-header-accompaniment>
+
+    <div class="tabs">
+      <button
+        (click)="toggleTab('info')"
+        [class]="tab === 'info' ? 'active' : ''"
+      >
+        Общая информация
+      </button>
+      <button
+        (click)="toggleTab('schedule')"
+        [class]="tab === 'schedule' ? 'active' : ''"
+      >
+        График платежей
+      </button>
+
+      <button
+        (click)="toggleTab('insurance')"
+        [class]="tab === 'insurance' ? 'active' : ''"
+      >
+        Выплачено страховой компании
+      </button>
+
+      <button
+        (click)="toggleTab('history_call')"
+        [class]="tab === 'history_call' ? 'active' : ''"
+      >
+        История вызовов
+      </button>
+    </div>
+    <div class="content">
+      <app-general-info-accompaniment
+        [userInfo]="userInfo"
+        *ngIf="tab === 'info'"
+      ></app-general-info-accompaniment>
+
+      <app-payment-schedule-accompaniment
+        [userInfo]="userInfo"
+        *ngIf="tab === 'schedule'"
+      ></app-payment-schedule-accompaniment>
+
+      <app-insurance-debt-accompaniment
+        [userInfo]="userInfo"
+        *ngIf="tab === 'insurance'"
+      ></app-insurance-debt-accompaniment>
+
+      <app-history-call *ngIf="tab === 'history_call'"></app-history-call>
+    </div>
+
+    <div class="activity">
+      <app-activity
+        height="calc(100vh - 120px)"
+        [loanId]="userInfo?.data.claimsInfo.claims_loan_id"
+        [projectType]="1"
+      ></app-activity>
+    </div>
+  </div>
+</div>
+
+<app-show-avatar-pop-up
+  *ngIf="isAvatar"
+  [src]="'data:image/png;base64,' + userInfo?.data.client.client_image_string"
+></app-show-avatar-pop-up>

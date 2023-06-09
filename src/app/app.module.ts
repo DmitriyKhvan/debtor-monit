@@ -112,6 +112,18 @@ import { MatFormFieldModule } from '@angular/material/form-field';
 import { StatisticsEmptyComponent } from './entities/statistics-empty/statistics-empty.component';
 import { StatisticsListComponent } from './entities/statistics-list/statistics-list.component';
 import { StatisticsListItemComponent } from './entities/statistics-list/components/statistics-list-item/statistics-list-item.component';
+import { AccompanimentCreditsComponent } from './pages/accompaniment-credits/accompaniment-credits.component';
+import { AccompanimentTabsComponent } from './entities/accompaniment-tabs/accompaniment-tabs.component';
+import { SidebarAccompanimentComponent } from './widgets/sidebar-accompaniment/sidebar-accompaniment.component';
+import { AccompanimentCreditListComponent } from './entities/accompaniment-credit-list/accompaniment-credit-list.component';
+import { AccompanimentCreditItemComponent } from './entities/accompaniment-credit-list/components/accompaniment-credit-item/accompaniment-credit-item.component';
+import { AccompanimentCreditComponent } from './pages/accompaniment-credit/accompaniment-credit.component';
+import { AccompanimentCreditInfoItemComponent } from './entities/accompaniment-credit-info-item/accompaniment-credit-info-item.component';
+import { GeneralInfoAccompanimentComponent } from './entities/accompaniment-credit-info-item/components/general-info-accompaniment/general-info-accompaniment.component';
+import { PaymentScheduleAccompanimentComponent } from './entities/accompaniment-credit-info-item/components/payment-schedule-accompaniment/payment-schedule-accompaniment.component';
+import { InsuranceDebtAccompanimentComponent } from './entities/accompaniment-credit-info-item/components/insurance-debt-accompaniment/insurance-debt-accompaniment.component';
+import { HistoryCallsAccompanimentComponent } from './entities/accompaniment-credit-info-item/components/history-calls-accompaniment/history-calls-accompaniment.component';
+import { UserInfoHeaderAccompanimentComponent } from './entities/accompaniment-credit-info-item/components/user-info-header-accompaniment/user-info-header-accompaniment.component';
 
 const INTERCEPTOR_PROVIDER: Provider = {
   provide: HTTP_INTERCEPTORS,
@@ -220,6 +232,18 @@ const CUSTOM_DATE_FORMATS: NgxMatDateFormats = {
     StatisticsEmptyComponent,
     StatisticsListComponent,
     StatisticsListItemComponent,
+    AccompanimentCreditsComponent,
+    AccompanimentTabsComponent,
+    SidebarAccompanimentComponent,
+    AccompanimentCreditListComponent,
+    AccompanimentCreditItemComponent,
+    AccompanimentCreditComponent,
+    AccompanimentCreditInfoItemComponent,
+    GeneralInfoAccompanimentComponent,
+    PaymentScheduleAccompanimentComponent,
+    InsuranceDebtAccompanimentComponent,
+    HistoryCallsAccompanimentComponent,
+    UserInfoHeaderAccompanimentComponent,
   ],
   imports: [
     BrowserModule,

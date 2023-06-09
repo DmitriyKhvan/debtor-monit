@@ -1,0 +1,62 @@
+.tr {
+  display: grid;
+  grid-template-rows: 40px;
+  align-items: center;
+  column-gap: 10px;
+
+  grid-template-areas: "order claimsId vendor fio claimsDate step result_step";
+
+  grid-template-columns:
+    30px minmax(70px, 0.1fr) minmax(300px, 1fr)
+    minmax(290px, 1fr) minmax(150px, 0.5fr) minmax(100px, 0.5fr) minmax(500px, 1fr);
+
+  .td:not(.order) {
+    display: flex;
+    align-items: center;
+  }
+}
+
+.order {
+  text-align: center;
+  grid-area: order;
+  // width: 30px;
+}
+
+.claimsId {
+  grid-area: claimsId;
+  // width: 70px;
+}
+
+.vendor {
+  grid-area: vendor;
+  // width: 300px;
+}
+
+.fio {
+  grid-area: fio;
+  // width: 290px;
+}
+
+.claimsDate {
+  grid-area: claimsDate;
+  // width: 290px;
+}
+
+.step {
+  grid-area: step;
+}
+
+.phoneFirst {
+  grid-area: phoneFirst;
+  // width: 136px;
+}
+
+.phoneSecond {
+  grid-area: phoneSecond;
+  // width: 136px;
+}
+
+.result_step {
+  grid-area: result_step;
+  // width: 280px;
+}

@@ -13,6 +13,8 @@ import { ForeclosureTabsComponent } from './entities/foreclosure-tabs/foreclosur
 import { DocumentsComponent } from './pages/documents/documents.component';
 import { ConfirmationTabsComponent } from './entities/confirmation-tabs/confirmation-tabs.component';
 import { StatisticsComponent } from './pages/statistics/statistics.component';
+import { AccompanimentCreditsComponent } from './pages/accompaniment-credits/accompaniment-credits.component';
+import { AccompanimentTabsComponent } from './entities/accompaniment-tabs/accompaniment-tabs.component';
 
 const routes: Routes = [
   {
@@ -49,6 +51,16 @@ const routes: Routes = [
           },
         ],
       },
+      {
+        path: 'accompaniment-credits',
+        component: AccompanimentCreditsComponent,
+        children: [
+          {
+            path: '',
+            component: AccompanimentTabsComponent,
+          },
+        ],
+      },
 
       {
         path: 'calculation',
@@ -65,7 +77,7 @@ const routes: Routes = [
         path: 'confirmation/:claimsId',
         component: CreditInfoLayoutComponent,
         children: [
-          { path: '', redirectTo: 'user', pathMatch: 'full' },
+          // { path: '', redirectTo: 'user', pathMatch: 'full' },
           {
             path: '',
             component: ConfirmationCreditComponent,
