@@ -5,46 +5,41 @@
 
       <div class="field">
         <span class="label">Магазин:</span>
-        <span class="value">{{ userInfo?.data.merchant.vendor_name }}</span>
+        <span class="value">{{ userInfo?.vendor.name }}</span>
       </div>
 
       <div class="field">
         <span class="label">Адрес:</span>
-        <span class="value">{{ userInfo?.data.merchant.vendor_address }}</span>
+        <span class="value">{{ userInfo?.vendor.address }}</span>
       </div>
 
       <div class="field">
         <span class="label">Владелец магазина ФИО:</span>
-        <span class="value">{{ userInfo?.data.merchant.vendor_owner }}</span>
+        <span class="value">{{ userInfo?.vendor.ownerName }}</span>
       </div>
 
       <div class="field">
         <span class="label">Владелец номер телефона:</span>
         <span class="value"
-          >{{
-            userInfo?.data.merchant.vendor_phone | mask : "+000 00 000 00 00"
-          }}
+          >{{ userInfo?.vendor.ownerPhone | mask : "+000 00 000 00 00" }}
 
           <app-get-history-calls
-            [phone]="userInfo?.data.merchant.vendor_phone"
+            [phone]="userInfo?.vendor.ownerPhone"
           ></app-get-history-calls>
         </span>
       </div>
 
       <div class="field">
         <span class="label">Оператор ФИО:</span>
-        <span class="value">{{ userInfo?.data.merchant.vendor_cio }}</span>
+        <span class="value">{{ userInfo?.vendor.operatorName }}</span>
       </div>
 
       <div class="field">
         <span class="label">Оператор Телефон:</span>
         <span class="value"
-          >{{
-            userInfo?.data.merchant.vendor_cio_phone
-              | mask : "+000 00 000 00 00"
-          }}
+          >{{ userInfo?.vendor.operatorPhone | mask : "+000 00 000 00 00" }}
           <app-get-history-calls
-            [phone]="userInfo?.data.merchant.vendor_cio_phone"
+            [phone]="userInfo?.vendor.operatorPhone"
           ></app-get-history-calls>
         </span>
       </div>
@@ -55,24 +50,20 @@
 
       <div class="field">
         <span class="label">Первый платеж:</span>
-        <span class="value"
-          >{{ userInfo?.data.claimsInfo.claims_first_pay_date }}
-        </span>
+        <span class="value">{{ userInfo?.claimInfo.firstPay }} </span>
       </div>
 
       <div class="field">
         <span class="label">Номер договора:</span>
-        <span class="value"
-          >{{ userInfo?.data.claimsInfo.claims_loan_id }}
-        </span>
+        <span class="value">{{ userInfo?.claimInfo.loanId }} </span>
       </div>
 
       <div class="field">
         <span class="label">Срок погашения:</span>
         <span class="value"
-          >{{ userInfo?.data.claimsInfo.claims_period }}
+          >{{ userInfo?.claimInfo.period }}
           {{
-            userInfo?.data.claimsInfo.claims_period
+            userInfo?.claimInfo.period
               | declensionOfWords : ["месяц", "месяца", "месяцев"]
           }}
         </span>
@@ -81,16 +72,14 @@
       <div class="field">
         <span class="label">Общая сумма товаров:</span>
         <span class="value">{{
-          userInfo?.data.claimsInfo.claims_amount | numberTransform : false
+          userInfo?.claimInfo.amount | numberTransform : false
         }}</span>
       </div>
 
       <div class="field">
         <span class="label">Сумма рассрочки:</span>
         <span class="value"
-          >{{
-            userInfo?.data.claimsInfo.claims_amount | numberTransform : false
-          }}
+          >{{ userInfo?.claimInfo.amount | numberTransform : false }}
         </span>
       </div>
 
@@ -98,7 +87,7 @@
         <span class="label">Ежемесячный платёж:</span>
         <span class="value">
           <app-lozenge2 className="blue" [fontSize]="14">{{
-            userInfo?.data.claimsInfo.claims_monthly | numberTransform : false
+            userInfo?.claimInfo.monthPay | numberTransform : false
           }}</app-lozenge2>
         </span>
       </div>
@@ -107,7 +96,7 @@
         <span class="label">Код погашения:</span>
         <span class="value copy"
           ><span #copyText class="copyText">{{
-            userInfo?.data.claimsInfo.claims_contract_id
+            userInfo?.claimInfo.contractId
           }}</span>
           <span (click)="copy($event)" class="icon-copy"
             ><span class="path1"></span><span class="path2"></span

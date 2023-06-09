@@ -12,7 +12,7 @@
       }}</span>
 
       <app-get-history-calls
-        [phone]="userInfo?.data.client.client_phone_1"
+        [phone]="userInfo?.main.phoneFirst"
       ></app-get-history-calls>
     </div>
 
@@ -23,7 +23,7 @@
       }}</span>
 
       <app-get-history-calls
-        [phone]="userInfo?.data.client.client_phone_2"
+        [phone]="userInfo?.main.phoneSecond"
       ></app-get-history-calls>
     </div>
 
@@ -31,8 +31,7 @@
       <span class="label">Номер и срок карты:</span>
       <span class="value card">
         <app-lozenge2 className="grey" [fontSize]="14">{{
-          userInfo?.main.cardNumber
-            | mask : "0000 0000 0000 0000"
+          userInfo?.main.cardNumber | mask : "0000 0000 0000 0000"
         }}</app-lozenge2>
         <app-lozenge2 className="grey" [fontSize]="14">{{
           userInfo?.main.cardDate
@@ -47,10 +46,7 @@
       }}</span>
       <a
         target="_blank"
-        [href]="
-          'https://orginfo.uz/ru/search?q=' +
-          userInfo?.data.client.client_company_tin
-        "
+        [href]="'https://orginfo.uz/ru/search?q=' + userInfo?.main.companyTin"
         ><img class="companyTin" src="../../../assets/img/orgInfo.png" alt=""
       /></a>
     </div>
@@ -65,31 +61,27 @@
     <div class="field">
       <span class="label">Дата заявки:</span>
       <span class="value">{{
-        userInfo?.main.claimDate | dateTimeFormat: 'numeric': undefined: false
+        userInfo?.main.claimDate
+          | dateTimeFormat : "numeric" : undefined : false
       }}</span>
     </div>
 
     <div class="field">
       <span class="label">Текущая дата:</span>
-      <span class="value">
-        {{ currentDate | dateTimeFormat }}</span
-      >
+      <span class="value"> {{ currentDate | dateTimeFormat }}</span>
     </div>
 
     <div class="field">
       <span class="label">Лимит: </span>
       <span class="value">
-        {{
-          userInfo?.main.limit
-            | numberTransform : false
-        }}</span
+        {{ userInfo?.main.limit | numberTransform : false }}</span
       >
     </div>
 
-    <div *ngIf="userInfo.data.state != '1'" class="field">
+    <!-- <div *ngIf="userInfo.data.state != '1'" class="field">
       <span class="label">Комментарий: </span>
       <span class="value"> {{ comment }}</span>
-    </div>
+    </div> -->
   </div>
 
   <div class="info-avatar">
@@ -99,15 +91,13 @@
       ></span>
       <img
         (click)="showAvatar()"
-        [src]="
-          'data:image/png;base64,' + userInfo?.data.client.client_image_string
-        "
+        [src]="'data:image/png;base64,' + userInfo?.main.image64"
         alt=""
       />
     </div>
   </div>
 
-  <div class="funcBtns">
+  <!-- <div class="funcBtns">
     <ng-container *ngIf="!loader && userInfo.data.state == '1'">
       <app-button
         (click)="confirmCredit('1', 'Одобрить рассрочку')"
@@ -126,14 +116,10 @@
         className="{{ statusStyleDic[userInfo.data.state] }} large"
         >{{ statusNameDic[userInfo.data.state] }}</app-lozenge
       >
-
-      <!-- <div class="commentConfrim">
-        Комментарий: <strong class="comment">{{ comment }}</strong>
-      </div> -->
     </ng-container>
 
     <ng-container *ngIf="loader">
       <app-loader></app-loader>
     </ng-container>
-  </div>
+  </div> -->
 </div>
