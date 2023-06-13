@@ -43,34 +43,14 @@
       </div>
     </div>
     <div *ngIf="!loading; else loadingBlock" class="tbody">
-      <ng-container
-        *ngFor="
-          let credit of credits
-            | paginate
-              : {
-                  itemsPerPage: count,
-                  currentPage: currentPage,
-                  totalItems: totalItems
-                };
-          let idx = index
-        "
-      >
-        <app-accompaniment-credit-item
-          [status]="dicService.getStatus(dic, credit.status)"
+      <ng-container *ngFor="let credit of credits; let idx = index">
+        <app-customer-requests-item
           [credit]="{ idx: idx + 1, credit }"
-        ></app-accompaniment-credit-item>
+        ></app-customer-requests-item>
       </ng-container>
     </div>
     <ng-template #loadingBlock>
       <app-loader></app-loader>
     </ng-template>
   </div>
-
-  <pagination-controls
-    class="my-pagination"
-    previousLabel=""
-    nextLabel=""
-    [autoHide]="true"
-    (pageChange)="pageChanged($event)"
-  ></pagination-controls>
 </div>

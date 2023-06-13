@@ -57,7 +57,6 @@ export class AccompanimentCreditListComponent implements OnInit, OnDestroy {
   currentPage: number = 1;
   count: number = 15;
   search: string = '';
-  state: number | null = null;
 
   loading = false;
   sortClass = 'down';
@@ -151,7 +150,6 @@ export class AccompanimentCreditListComponent implements OnInit, OnDestroy {
       sortValue: this.sortValue,
       sortType: this.sortType,
       search: this.search,
-      state: this.state,
     };
 
     localStorage.setItem('filterDataAccompaniment', JSON.stringify(data));

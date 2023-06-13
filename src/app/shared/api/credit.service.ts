@@ -301,11 +301,10 @@ export class ApiService {
     sortValue = '',
     sortType = '',
     search = '',
-    currentMonth = false,
   }: any): Observable<any> {
     return this.http
       .get(
-        `${environment.dbUrl2}/maintenance/loader/claim/list?page=${currentPage}&count=${count}&keyword=${sortValue}&order=${sortType}&search=${search}&currentMonth=${currentMonth}`
+        `${environment.dbUrl2}/maintenance/loader/claim/list?page=${currentPage}&count=${count}&keyword=${sortValue}&order=${sortType}&search=${search}`
       )
       .pipe(
         catchError((error) => {

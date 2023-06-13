@@ -31,6 +31,9 @@ export class GeneralInfoAccompanimentComponent implements OnInit, OnDestroy {
 
   formData: any;
   addClientInfoId: number = 0;
+
+  productsAmount: number = 0;
+
   // addClientInfo: any = [
   //   // {
   //   //   active: true,
@@ -53,6 +56,13 @@ export class GeneralInfoAccompanimentComponent implements OnInit, OnDestroy {
 
   ngOnInit(): void {
     // this.getAddClientInfo();
+
+    this.productsAmount = this.userInfo.products.reduce(
+      (acc: number, product: any) => {
+        return acc + Number(product.amount);
+      },
+      0
+    );
 
     this.aSub = this.flagService.isAddClientInfoForm$.subscribe(
       ({ flag, addClientInfo, type }) => {
