@@ -10,17 +10,6 @@
   </div>
 
   <div class="td status">
-    <!-- <app-lozenge
-      [className]="
-        insurance.insurance.declined === 'Успешно'
-          ? 'success'
-          : insurance.insurance.declined === 'Отменен'
-          ? 'danger'
-          : 'default'
-      "
-      >{{ insurance.insurance.declined }}</app-lozenge
-    > -->
-
     <app-lozenge
       [className]="dictionary[insurance.insurance.declined] || 'default'"
       >{{ insurance.insurance.declined }}</app-lozenge

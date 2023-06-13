@@ -1,1 +1,36 @@
-<p>insurance-debt-accompaniment works!</p>
+<div class="insurance-debt">
+  <div class="insurance-debt__wrap">
+    <div class="header">
+      <h2 class="title">График платежей</h2>
+      <!-- <app-print-schedule
+        [token]="userInfo.schedule.token"
+        [claimsId]="userInfo.claimsId"
+      ></app-print-schedule> -->
+    </div>
+
+    <div class="insurance-list">
+      <div class="table">
+        <div class="thead">
+          <div class="tr">
+            <div class="td idx">#</div>
+            <div class="td date">Дата</div>
+            <div class="td cancellation_date">Дата отмены</div>
+            <div class="td card">Номер карты</div>
+            <div class="td sum">Сумма</div>
+            <div class="td status">Статус</div>
+          </div>
+        </div>
+
+        <div class="tbody">
+          <ng-container
+            *ngFor="let insurance of userInfo.insuranceDebit; let idx = index"
+          >
+            <app-insurance-debt-accompaniment-item
+              [insurance]="{ idx: idx + 1, insurance }"
+            ></app-insurance-debt-accompaniment-item>
+          </ng-container>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

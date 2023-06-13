@@ -1,0 +1,28 @@
+<div class="max-amount">
+  <div class="item">
+    <span>Остаток на {{ maxAmountData.date }}: </span>
+    <app-lozenge2 className="blue">{{
+      maxAmountData.lastMaxAmount | numberTransform : false
+    }}</app-lozenge2>
+  </div>
+
+  <div class="item">
+    <span>Текущий остаток: </span>
+    <app-lozenge2 className="green">{{
+      maxAmountData.currentMaxAmount | numberTransform : false
+    }}</app-lozenge2>
+  </div>
+
+  <div class="item">
+    <span>Оплаченно за сегодня: </span>
+    <app-lozenge2 className="grey">{{
+      maxAmountData.diff | numberTransform : false
+    }}</app-lozenge2>
+  </div>
+
+  <app-button (click)="getMaxAmount()" className="btn medium subtleBtn"
+    ><span #pipelines class="icon-pipelines"
+      ><span class="path1"></span><span class="path2"></span></span
+    >Обновить</app-button
+  >
+</div>

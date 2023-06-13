@@ -5,7 +5,9 @@
     <app-product-list [products]="userInfo?.products"></app-product-list>
   </div>
   <app-activity
-    height="calc(100vh - 397px)"
+    [styles]="{
+      borderLeft: '2px solid #ebecf0'
+    }"
     [loanId]="userInfo?.loanId"
     [projectType]="2"
   ></app-activity>

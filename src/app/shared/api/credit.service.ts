@@ -39,18 +39,7 @@ export class ApiService {
 
   statisticsList: any = [];
 
-  // objUser = {
-  //   CREDIT: arrayObj[0],
-  //   TEST: 'test',
-  // } as const;
-
-  // arrayObj = [
-  //   'foreclosure': [
-  //     {'path': '/'},
-  //     ...props
-
-  //   ]
-  // ]
+  totaldebt: number = 0;
 
   constructor(private http: HttpClient) {}
 
@@ -316,7 +305,7 @@ export class ApiService {
   }: any): Observable<any> {
     return this.http
       .get(
-        `${environment.dbUrl2}/maintenance/loader/list?page=${currentPage}&count=${count}&keyword=${sortValue}&order=${sortType}&search=${search}&currentMonth=${currentMonth}`
+        `${environment.dbUrl2}/maintenance/loader/claim/list?page=${currentPage}&count=${count}&keyword=${sortValue}&order=${sortType}&search=${search}&currentMonth=${currentMonth}`
       )
       .pipe(
         catchError((error) => {

@@ -1,10 +1,13 @@
-import { Component } from '@angular/core';
+import { Component, Input } from '@angular/core';
 
 @Component({
   selector: 'app-insurance-debt-accompaniment',
   templateUrl: './insurance-debt-accompaniment.component.html',
-  styleUrls: ['./insurance-debt-accompaniment.component.scss']
+  styleUrls: [
+    '../../../credit-info-item/components/insurance-debt/insurance-debt.component.scss',
+    './insurance-debt-accompaniment.component.scss',
+  ],
 })
 export class InsuranceDebtAccompanimentComponent {
-
+  @Input() userInfo: any;
 }

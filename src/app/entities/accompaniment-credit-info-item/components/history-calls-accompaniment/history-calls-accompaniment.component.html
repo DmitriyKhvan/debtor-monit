@@ -1,1 +1,48 @@
-<p>history-calls-accompaniment works!</p>
+<div class="history-call">
+  <div class="history-call__wrap">
+    <div class="header">
+      <h2 class="title">История вызовов</h2>
+      <!-- <app-print-schedule
+        [token]="userInfo.schedule.token"
+        [claimsId]="userInfo.claimsId"
+      ></app-print-schedule> -->
+    </div>
+
+    <div class="history-call-list">
+      <div class="table">
+        <div class="thead">
+          <div [ngStyle]="getStyles()" class="tr">
+            <div class="td idx">#</div>
+            <div class="td date">Дата и время звонка</div>
+            <div class="td operator">Оператор</div>
+            <div *ngIf="!phone" class="td caller">Абонент</div>
+            <div *ngIf="!phone" class="td type_call">Тип звонка</div>
+            <div class="td duration">Продолжительность</div>
+            <div class="td status">Статус</div>
+            <div class="td record_call">Запись звонка</div>
+          </div>
+        </div>
+
+        <div class="tbody">
+          <ng-container *ngFor="let call of calls; let idx = index">
+            <app-history-calls-accompaniment-item
+              #audios
+              [phone]="phone"
+              [getStyles]="getStyles()"
+              [call]="{ idx: idx + 1, call }"
+              [status]="dicService.getStatus(dic, call.status)"
+            ></app-history-calls-accompaniment-item>
+          </ng-container>
+
+          <ng-container *ngIf="loading">
+            <app-loader></app-loader>
+          </ng-container>
+
+          <ng-container *ngIf="!calls.length && !loading">
+            <h2 class="empty">Нет данных</h2>
+          </ng-container>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

@@ -6,9 +6,9 @@ import { ApiService } from 'src/app/shared/api/credit.service';
 @Component({
   selector: 'app-accompaniment-credit',
   templateUrl: './accompaniment-credit.component.html',
-  styleUrls: ['./accompaniment-credit.component.scss']
+  styleUrls: ['./accompaniment-credit.component.scss'],
 })
-export class AccompanimentCreditComponent implements OnInit{
+export class AccompanimentCreditComponent implements OnInit {
   userInfo: any;
   loading: boolean = true;
 

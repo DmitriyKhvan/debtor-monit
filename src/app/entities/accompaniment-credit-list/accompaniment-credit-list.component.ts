@@ -158,8 +158,9 @@ export class AccompanimentCreditListComponent implements OnInit, OnDestroy {
 
     this.creditSub = this.apiService.getAccopanimentCredits(data).subscribe(
       (credits) => {
+        console.log('credits', credits);
         this.credits = credits.data.list;
-        this.totalItems = credits.data.count;
+        this.totalItems = credits.data.count.count;
 
         this.loading = false;
 
@@ -167,7 +168,7 @@ export class AccompanimentCreditListComponent implements OnInit, OnDestroy {
           'creditsAccomponiment',
           JSON.stringify({
             credits: credits.data.list,
-            totalItems: credits.data.total,
+            totalItems: credits.data.count.count,
           })
         );
       },

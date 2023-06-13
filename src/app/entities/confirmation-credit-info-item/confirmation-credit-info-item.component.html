@@ -158,7 +158,10 @@
 
     <div class="activity">
       <app-activity
-        height="calc(100vh - 120px)"
+        [styles]="{
+          height: 'calc(100vh - 120px)',
+          borderLeft: '2px solid #ebecf0'
+        }"
         [loanId]="userInfo?.data.claimsInfo.claims_loan_id"
         [projectType]="1"
       ></app-activity>

@@ -86,14 +86,21 @@
 
   <div class="info-avatar">
     <div class="wrapper-avatar">
-      <span class="icon-zoom-in"
-        ><span class="path1"></span><span class="path2"></span
-      ></span>
-      <img
-        (click)="showAvatar()"
-        [src]="'data:image/png;base64,' + userInfo?.main.image64"
-        alt=""
-      />
+      <ng-container *ngIf="userInfo?.main.image64; else mocAvatar">
+        <span class="icon-zoom-in"
+          ><span class="path1"></span><span class="path2"></span
+        ></span>
+        <img
+          class="avatar"
+          (click)="showAvatar()"
+          [src]="'data:image/png;base64,' + userInfo?.main.image64"
+          alt=""
+        />
+      </ng-container>
+
+      <ng-template #mocAvatar>
+        <img src="../../../../../assets/img/mocAvatar.svg" alt="" />
+      </ng-template>
     </div>
   </div>
 

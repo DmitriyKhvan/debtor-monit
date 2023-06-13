@@ -10,4 +10,10 @@ import { Component, Input } from '@angular/core';
 })
 export class InsuranceDebtItemComponent {
   @Input() insurance: any;
+
+  dictionary: any = {
+    Успешно: 'success',
+    Отменен: 'danger',
+    'Транзакция отменена': 'danger',
+  };
 }

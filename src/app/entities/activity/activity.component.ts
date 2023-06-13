@@ -23,7 +23,7 @@ export class ActivityComponent implements OnInit, OnDestroy {
   actionsRef!: QueryList<ElementRef>;
   @Input() loanId: string | undefined;
   @Input() projectType: number = 1;
-  @Input() height: string | undefined;
+  @Input() styles: object = {};
 
   cSub!: Subscription;
   dSub!: Subscription;

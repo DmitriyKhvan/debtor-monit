@@ -124,6 +124,10 @@ import { PaymentScheduleAccompanimentComponent } from './entities/accompaniment-
 import { InsuranceDebtAccompanimentComponent } from './entities/accompaniment-credit-info-item/components/insurance-debt-accompaniment/insurance-debt-accompaniment.component';
 import { HistoryCallsAccompanimentComponent } from './entities/accompaniment-credit-info-item/components/history-calls-accompaniment/history-calls-accompaniment.component';
 import { UserInfoHeaderAccompanimentComponent } from './entities/accompaniment-credit-info-item/components/user-info-header-accompaniment/user-info-header-accompaniment.component';
+import { MaxAmountComponent } from './entities/credit-info-item/components/max-amount/max-amount.component';
+import { PaymentItemAccompanimentComponent } from './entities/accompaniment-credit-info-item/components/payment-schedule-accompaniment/components/payment-item-accompaniment/payment-item-accompaniment.component';
+import { InsuranceDebtAccompanimentItemComponent } from './entities/accompaniment-credit-info-item/components/insurance-debt-accompaniment/components/insurance-debt-accompaniment-item/insurance-debt-accompaniment-item.component';
+import { HistoryCallsAccompanimentItemComponent } from './entities/accompaniment-credit-info-item/components/history-calls-accompaniment/components/history-calls-accompaniment-item/history-calls-accompaniment-item.component';
 
 const INTERCEPTOR_PROVIDER: Provider = {
   provide: HTTP_INTERCEPTORS,
@@ -244,6 +248,10 @@ const CUSTOM_DATE_FORMATS: NgxMatDateFormats = {
     InsuranceDebtAccompanimentComponent,
     HistoryCallsAccompanimentComponent,
     UserInfoHeaderAccompanimentComponent,
+    MaxAmountComponent,
+    PaymentItemAccompanimentComponent,
+    InsuranceDebtAccompanimentItemComponent,
+    HistoryCallsAccompanimentItemComponent,
   ],
   imports: [
     BrowserModule,

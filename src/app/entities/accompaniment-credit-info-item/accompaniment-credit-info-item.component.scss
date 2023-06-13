@@ -1,0 +1,40 @@
+.credit-info-item-wrap {
+  width: fit-content;
+  height: 100%;
+
+  display: grid;
+  grid-template-areas: "credit-info-item activity";
+  grid-template-columns: minmax(1240px, 1fr) 1fr;
+
+  .credit-info-item {
+    grid-area: credit-info-item;
+    border-right: 2px solid #ebecf0;
+
+    .general-info {
+      padding: 0 50px;
+      .title {
+        margin-top: 44px;
+        font-size: 24px;
+        color: #172b4d;
+      }
+    }
+
+    .tabs {
+      margin-left: 50px;
+    }
+
+    .content {
+      padding: 36px 50px 44px 50px;
+      overflow: auto;
+    }
+  }
+
+  .activity {
+    padding: 44px 50px 44px 20px;
+    grid-area: activity;
+
+    .content {
+      border: none !important;
+    }
+  }
+}

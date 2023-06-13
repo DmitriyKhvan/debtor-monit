@@ -94,7 +94,7 @@
 
       <div class="field">
         <span class="label">Код погашения:</span>
-        <span class="value copy"
+        <span *ngIf="userInfo?.claimInfo.contractId" class="value copy"
           ><span #copyText class="copyText">{{
             userInfo?.claimInfo.contractId
           }}</span>
@@ -107,7 +107,7 @@
     </div>
 
     <app-product-list-confirm
-      [products]="userInfo?.data.products"
+      [products]="userInfo?.products"
     ></app-product-list-confirm>
   </div>
 
@@ -123,9 +123,9 @@
       <div class="field">
         <span class="label">Возраст:</span>
         <span class="value">
-          {{ userInfo?.data.client.client_age }}
+          {{ userInfo?.clientInfo.age }}
           {{
-            userInfo?.data.client.client_age
+            userInfo?.clientInfo.age
               | declensionOfWords : ["год", "года", "лет"]
           }}
         </span>
@@ -134,98 +134,96 @@
       <div class="field">
         <span class="label">Дата рождения:</span>
         <span class="value">
-          {{ userInfo?.data.client.client_bday }}
+          {{ userInfo?.clientInfo.birthDate }}
         </span>
       </div>
 
       <div class="field">
         <span class="label">Паспорт:</span>
         <span class="value"
-          >{{ userInfo?.data.client.client_doc_data | mask : "AA 0000000" }}
+          >{{ userInfo?.clientInfo.passport | mask : "AA 0000000" }}
         </span>
       </div>
 
       <div class="field">
         <span class="label">Дата выдачи:</span>
         <span class="value">
-          {{ userInfo?.data.client.client_doc_issue }}
+          {{ userInfo?.clientInfo.passportDateStart }}
         </span>
       </div>
 
       <div class="field">
         <span class="label">Дата окончания:</span>
-        <span class="value"
-          >{{ userInfo?.data.client.client_doc_expire }}
-        </span>
+        <span class="value">{{ userInfo?.clientInfo.passportDateEnd }} </span>
       </div>
 
       <div class="field">
         <span class="label">Место выдачи документа:</span>
         <span class="value">
-          {{ userInfo?.data.client.client_doc_issued_by }}
+          {{ userInfo?.clientInfo.passportPlace }}
         </span>
       </div>
 
       <div class="field">
         <span class="label">Постоянный регион MYID:</span>
         <span class="value">
-          {{ userInfo?.data.client.client_address_reg_perm }}
+          {{ userInfo?.clientInfo.myidRegularRegion }}
         </span>
       </div>
 
       <div class="field">
         <span class="label">Постоянный район MYID: </span>
         <span class="value">
-          {{ userInfo?.data.client.client_address_dist_perm }}
+          {{ userInfo?.clientInfo.myidRegularDistrict }}
         </span>
       </div>
 
       <div class="field">
         <span class="label">Постоянный адрес MYID:</span>
         <span class="value">
-          {{ userInfo?.data.client.client_address_perm }}
+          {{ userInfo?.clientInfo.myidRegularAddress }}
         </span>
       </div>
 
       <div class="field">
         <span class="label">Временный регион MYID:</span>
         <span class="value">
-          {{ userInfo?.data.client.client_addreess_reg_temp || "-" }}
+          {{ userInfo?.clientInfo.myidTempRegion || "-" }}
         </span>
       </div>
 
       <div class="field">
         <span class="label">Временный район MYID:</span>
         <span class="value">
-          {{ userInfo?.data.client.client_addreess_dist_temp || "-" }}
+          {{ userInfo?.clientInfo.myidTempDistrict || "-" }}
         </span>
       </div>
 
       <div class="field">
         <span class="label">Временный адрес MYID:</span>
         <span class="value">
-          {{ userInfo?.data.client.client_addreess_temp || "-" }}
+          {{ userInfo?.clientInfo.myidTempAddress || "-" }}
         </span>
       </div>
 
       <div class="field">
         <span class="label">Клиент указал регион:</span>
         <span class="value">
-          {{ userInfo?.data.client.client_region_given }}
+          {{ userInfo?.clientInfo.clientRegion }}
         </span>
       </div>
 
       <div class="field">
         <span class="label">Клиент указал район:</span>
         <span class="value">
-          {{ userInfo?.data.client.client_district_given }}
+          {{ userInfo?.clientInfo.clientDistrict }}
         </span>
       </div>
 
       <div class="field">
         <span class="label">Клиент указал адрес:</span>
         <span class="value">
-          {{ userInfo?.data.client.client_address_given }}
+          {{ userInfo?.clientInfo.clientAddress }}
         </span>
       </div>
     </div>
