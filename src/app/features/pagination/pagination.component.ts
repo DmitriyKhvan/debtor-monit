@@ -41,7 +41,7 @@ export class PaginationComponent implements AfterViewInit, OnDestroy {
         map((event: any) => {
           return event.target.value;
         }),
-        filter((value) => value),
+        filter((value) => value > 0),
         distinctUntilChanged()
       )
       .subscribe((value: any) => {
