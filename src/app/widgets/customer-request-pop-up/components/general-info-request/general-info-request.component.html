@@ -4,6 +4,11 @@
       <h2 class="title">Информация о продавце</h2>
 
       <div class="field">
+        <span class="label">Группа:</span>
+        <span class="value">{{ userInfo?.vendor.group }}</span>
+      </div>
+
+      <div class="field">
         <span class="label">Магазин:</span>
         <span class="value">{{ userInfo?.vendor.name }}</span>
       </div>
@@ -13,12 +18,12 @@
         <span class="value">{{ userInfo?.vendor.address }}</span>
       </div>
 
-      <div class="field">
+      <!-- <div class="field">
         <span class="label">Владелец магазина ФИО:</span>
         <span class="value">{{ userInfo?.vendor.ownerName }}</span>
-      </div>
+      </div> -->
 
-      <div class="field">
+      <!-- <div class="field">
         <span class="label">Владелец номер телефона:</span>
         <span class="value"
           >{{ userInfo?.vendor.ownerPhone | mask : "+000 00 000 00 00" }}
@@ -28,7 +33,7 @@
             [phone]="userInfo?.vendor.ownerPhone"
           ></app-get-history-calls>
         </span>
-      </div>
+      </div> -->
 
       <div class="field">
         <span class="label">Оператор ФИО:</span>
@@ -50,10 +55,10 @@
     <div class="info-contract">
       <h2 class="title">Информация о рассрочки</h2>
 
-      <div class="field">
+      <!-- <div class="field">
         <span class="label">Первый платеж:</span>
         <span class="value">{{ userInfo?.claimInfo.firstPay }} </span>
-      </div>
+      </div> -->
 
       <div class="field">
         <span class="label">Номер договора:</span>
@@ -117,12 +122,12 @@
     <div class="info-seller">
       <div class="title addInfo">
         <h2>Информация о клиенте</h2>
-        <button (click)="addInfo('ADD_PHONE')">Добавить номер телефона</button>
+        <!-- <button (click)="addInfo('ADD_PHONE')">Добавить номер телефона</button> -->
       </div>
 
       <app-add-info-list type="ADD_PHONE"></app-add-info-list>
 
-      <div class="field">
+      <!-- <div class="field">
         <span class="label">Возраст:</span>
         <span *ngIf="userInfo?.clientInfo.age" class="value">
           {{ userInfo?.clientInfo.age }}
@@ -131,14 +136,14 @@
               | declensionOfWords : ["год", "года", "лет"]
           }}
         </span>
-      </div>
+      </div> -->
 
-      <div class="field">
+      <!-- <div class="field">
         <span class="label">Дата рождения:</span>
         <span class="value">
           {{ userInfo?.clientInfo.birthDate }}
         </span>
-      </div>
+      </div> -->
 
       <div class="field">
         <span class="label">Паспорт:</span>
@@ -233,7 +238,7 @@
     <div class="info-add">
       <div class="title addInfo">
         <h2>Дополнительная информация</h2>
-        <button (click)="addInfo('ADD_OTHER')">Добавить инфо</button>
+        <!-- <button (click)="addInfo('ADD_OTHER')">Добавить инфо</button> -->
       </div>
 
       <app-add-info-list type="ADD_OTHER"></app-add-info-list>
@@ -241,7 +246,7 @@
   </div>
 </div>
 
-<app-add-client-info-pop-up
+<!-- <app-add-client-info-pop-up
   *ngIf="flag"
   [type]="type"
   [formData]="formData"
@@ -251,4 +256,4 @@
 <app-remove-add-client-info-pop-up
   *ngIf="isRemoveClientInfo"
   [id]="addClientInfoId"
-></app-remove-add-client-info-pop-up>
+></app-remove-add-client-info-pop-up> -->

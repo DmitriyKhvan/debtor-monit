@@ -323,4 +323,16 @@ export class ApiService {
         })
       );
   }
+
+  getUserInfoAccompanimentCreditShort(id: number | null): Observable<any> {
+    return this.http
+      .get(
+        `${environment.dbUrl2}/maintenance/loader/claim/short?claimsId=${id}`
+      )
+      .pipe(
+        catchError((error) => {
+          return throwError(() => error);
+        })
+      );
+  }
 }

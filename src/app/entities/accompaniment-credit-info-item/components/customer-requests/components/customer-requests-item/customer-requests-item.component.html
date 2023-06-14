@@ -1,7 +1,4 @@
-<div
-  [routerLink]="['/credit', 'accompaniment', credit.credit.claimsId]"
-  class="tr"
->
+<div (click)="getUserInfo(credit.credit.claimsId)" class="tr">
   <div class="td order">{{ credit.idx }}</div>
   <div class="td claimsId">{{ credit.credit.claimsId }}</div>
   <div class="td vendor">

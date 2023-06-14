@@ -22,6 +22,8 @@ export class FlagService {
 
   statisticsForm$ = new Subject<boolean>();
 
+  claimsId$ = new Subject<number>();
+
   setUserInfo({ userInfo, isLoader }: any) {
     this.userInfo$.next({ userInfo, isLoader });
   }

@@ -84,6 +84,13 @@
       >
     </div>
 
+    <div class="field">
+      <span class="label">Общая задолжность: </span>
+      <span class="value">
+        {{ userInfo?.main.debtSum | numberTransform : false }}</span
+      >
+    </div>
+
     <!-- <div *ngIf="userInfo.data.state != '1'" class="field">
       <span class="label">Комментарий: </span>
       <span class="value"> {{ comment }}</span>

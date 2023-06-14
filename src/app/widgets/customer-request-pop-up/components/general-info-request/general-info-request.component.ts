@@ -11,14 +11,11 @@ import { ApiService } from 'src/app/shared/api/credit.service';
 import { FlagService } from 'src/app/shared/api/flag.sevice';
 
 @Component({
-  selector: 'app-general-info-accompaniment',
-  templateUrl: './general-info-accompaniment.component.html',
-  styleUrls: [
-    '../../../confirmation-credit-info-item/components/installment-plan-confirm/installment-plan-confirm.component.scss',
-    './general-info-accompaniment.component.scss',
-  ],
+  selector: 'app-general-info-request',
+  templateUrl: './general-info-request.component.html',
+  styleUrls: ['./general-info-request.component.scss'],
 })
-export class GeneralInfoAccompanimentComponent implements OnInit, OnDestroy {
+export class GeneralInfoRequestComponent implements OnInit, OnDestroy {
   @Input() userInfo: any;
   @ViewChild('copyText') copyTextRef!: ElementRef;
   aSub!: Subscription;
@@ -33,21 +30,6 @@ export class GeneralInfoAccompanimentComponent implements OnInit, OnDestroy {
   addClientInfoId: number = 0;
 
   productsAmount: number = 0;
-
-  // addClientInfo: any = [
-  //   // {
-  //   //   active: true,
-  //   //   claimsId: 51817,
-  //   //   createdAt: '2023-05-20T20:30:19.141Z',
-  //   //   createdBy: '1331d1f1-2a19-4bfb-99fd-ba0835b652d1',
-  //   //   description: 'Новый номер',
-  //   //   id: 11,
-  //   //   type: 'ADD_PHONE',
-  //   //   updatedAt: '2023-05-20T20:30:19.141Z',
-  //   //   updatedBy: null,
-  //   //   value: '+998909998877',
-  //   // },
-  // ];
 
   constructor(
     public flagService: FlagService,

@@ -131,6 +131,9 @@ import { HistoryCallsAccompanimentItemComponent } from './entities/accompaniment
 import { CustomerRequestsComponent } from './entities/accompaniment-credit-info-item/components/customer-requests/customer-requests.component';
 import { CustomerRequestsItemComponent } from './entities/accompaniment-credit-info-item/components/customer-requests/components/customer-requests-item/customer-requests-item.component';
 import { PaginationComponent } from './features/pagination/pagination.component';
+import { CustomerRequestPopUpComponent } from './widgets/customer-request-pop-up/customer-request-pop-up.component';
+import { HeaderInfoRequestComponent } from './widgets/customer-request-pop-up/components/header-info-request/header-info-request.component';
+import { GeneralInfoRequestComponent } from './widgets/customer-request-pop-up/components/general-info-request/general-info-request.component';
 
 const INTERCEPTOR_PROVIDER: Provider = {
   provide: HTTP_INTERCEPTORS,
@@ -258,6 +261,9 @@ const CUSTOM_DATE_FORMATS: NgxMatDateFormats = {
     CustomerRequestsComponent,
     CustomerRequestsItemComponent,
     PaginationComponent,
+    CustomerRequestPopUpComponent,
+    HeaderInfoRequestComponent,
+    GeneralInfoRequestComponent,
   ],
   imports: [
     BrowserModule,
