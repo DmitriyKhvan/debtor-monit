@@ -12,6 +12,7 @@
       }}</span>
 
       <app-get-history-calls
+        *ngIf="userInfo?.main.phoneFirst"
         [phone]="userInfo?.main.phoneFirst"
       ></app-get-history-calls>
     </div>
@@ -23,13 +24,14 @@
       }}</span>
 
       <app-get-history-calls
+        *ngIf="userInfo?.main.phoneSecond"
         [phone]="userInfo?.main.phoneSecond"
       ></app-get-history-calls>
     </div>
 
     <div class="field">
       <span class="label">Номер и срок карты:</span>
-      <span class="value card">
+      <span *ngIf="userInfo?.main.cardNumber" class="value card">
         <app-lozenge2 className="grey" [fontSize]="14">{{
           userInfo?.main.cardNumber | mask : "0000 0000 0000 0000"
         }}</app-lozenge2>
@@ -45,6 +47,7 @@
         userInfo?.main.companyTin | mask : "000 000 000"
       }}</span>
       <a
+        *ngIf="userInfo?.main.companyTin"
         target="_blank"
         [href]="'https://orginfo.uz/ru/search?q=' + userInfo?.main.companyTin"
         ><img class="companyTin" src="../../../assets/img/orgInfo.png" alt=""

@@ -24,6 +24,7 @@
           >{{ userInfo?.vendor.ownerPhone | mask : "+000 00 000 00 00" }}
 
           <app-get-history-calls
+            *ngIf="userInfo?.vendor.ownerPhone"
             [phone]="userInfo?.vendor.ownerPhone"
           ></app-get-history-calls>
         </span>
@@ -39,6 +40,7 @@
         <span class="value"
           >{{ userInfo?.vendor.operatorPhone | mask : "+000 00 000 00 00" }}
           <app-get-history-calls
+            *ngIf="userInfo?.vendor.operatorPhone"
             [phone]="userInfo?.vendor.operatorPhone"
           ></app-get-history-calls>
         </span>
@@ -60,7 +62,7 @@
 
       <div class="field">
         <span class="label">Срок погашения:</span>
-        <span class="value"
+        <span class="value" *ngIf="userInfo?.claimInfo.period"
           >{{ userInfo?.claimInfo.period }}
           {{
             userInfo?.claimInfo.period
