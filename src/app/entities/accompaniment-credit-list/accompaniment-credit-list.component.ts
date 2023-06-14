@@ -1,4 +1,5 @@
 import {
+  AfterViewInit,
   Component,
   ElementRef,
   HostListener,
@@ -6,9 +7,17 @@ import {
   OnDestroy,
   OnInit,
   QueryList,
+  ViewChild,
   ViewChildren,
 } from '@angular/core';
-import { Subscription } from 'rxjs';
+import {
+  debounceTime,
+  distinctUntilChanged,
+  filter,
+  fromEvent,
+  map,
+  Subscription,
+} from 'rxjs';
 import { ApiService } from 'src/app/shared/api/credit.service';
 import { DicService } from 'src/app/shared/api/dic.service';
 import { Status } from 'src/app/shared/interfaces';
@@ -35,24 +44,9 @@ export class AccompanimentCreditListComponent implements OnInit, OnDestroy {
   dicSub!: Subscription;
   sSub!: Subscription;
   uSub!: Subscription;
+  pSub!: Subscription;
 
-  credits: any = [
-    // {
-    //   claimsDate: '2023-03-28T14:11:54.530Z',
-    //   claimsId: 43045,
-    //   loanId: '669657',
-    //   contractId: '12978844',
-    //   vendor: 'ARTEL',
-    //   lastname: 'SOBIRJONOV',
-    //   firstname: 'RUSTAMJON',
-    //   middlename: 'SODIQJON O?G?LI',
-    //   phoneFirst: '+998993999847',
-    //   phoneSecond: '+998916484848',
-    //   contractDate: '28.03.2023',
-    //   lastPayDate: null,
-    //   status: '',
-    // },
-  ];
+  credits: any = [];
   totalItems: number = 0;
   currentPage: number = 1;
   count: number = 15;
@@ -74,6 +68,17 @@ export class AccompanimentCreditListComponent implements OnInit, OnDestroy {
       this.search = search;
       this.getCredits();
     });
+
+    this.pSub = this.apiService.currentPage$?.subscribe(
+      (currentPage: number) => {
+        // localStorage.clear();
+        localStorage.removeItem('filterDataAccompaniment');
+        localStorage.removeItem('creditsAccomponiment');
+
+        this.currentPage = currentPage;
+        this.getCredits();
+      }
+    );
 
     this.uSub = this.apiService.updateList$?.subscribe(() => {
       localStorage.clear();
@@ -212,20 +217,12 @@ export class AccompanimentCreditListComponent implements OnInit, OnDestroy {
     });
   }
 
-  pageChanged(currentPage: number) {
-    // localStorage.clear();
-    localStorage.removeItem('filterDataAccompaniment');
-    localStorage.removeItem('creditsAccomponiment');
-
-    this.currentPage = currentPage;
-    this.getCredits();
-  }
-
   ngOnDestroy(): void {
     this.creditSub?.unsubscribe();
     this.dicSub?.unsubscribe();
     this.sSub?.unsubscribe();
     this.uSub?.unsubscribe();
+    this.pSub?.unsubscribe();
   }
 }
 {

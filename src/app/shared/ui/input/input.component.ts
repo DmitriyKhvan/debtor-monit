@@ -9,5 +9,7 @@ export class InputComponent {
   @Input() type: string = 'text';
   @Input() value: string = '';
   @Input() placeholder: string = '';
-  @Input() className: string = '';
+  @Input() icon: string = '';
+  @Input() styles: object = {};
+  @Input() mask: string = '';
 }

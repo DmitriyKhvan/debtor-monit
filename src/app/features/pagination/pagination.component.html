@@ -1,0 +1,19 @@
+<div class="pagination-block">
+  <pagination-controls
+    class="my-pagination"
+    previousLabel=""
+    nextLabel=""
+    [autoHide]="true"
+    (pageChange)="pageChanged($event)"
+  ></pagination-controls>
+
+  <div class="page">
+    <span>Страница:</span>
+    <app-input
+      #page
+      type="text"
+      [styles]="{ width: '50px' }"
+      mask="000000000000000000"
+    ></app-input>
+  </div>
+</div>

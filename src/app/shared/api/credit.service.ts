@@ -19,6 +19,7 @@ import { Injectable } from '@angular/core';
 @Injectable({ providedIn: 'root' })
 export class ApiService {
   search$ = new Subject<string>();
+  currentPage$ = new Subject<number>();
   updateList$ = new Subject<boolean>();
   claimsId: number | string | null = null;
   profile: any;
