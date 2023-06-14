@@ -26,6 +26,7 @@
           }}
 
           <app-get-history-calls
+            *ngIf="userInfo?.data.merchant.vendor_phone"
             [phone]="userInfo?.data.merchant.vendor_phone"
           ></app-get-history-calls>
         </span>
@@ -44,6 +45,7 @@
               | mask : "+000 00 000 00 00"
           }}
           <app-get-history-calls
+            *ngIf="userInfo?.data.merchant.vendor_cio_phone"
             [phone]="userInfo?.data.merchant.vendor_cio_phone"
           ></app-get-history-calls>
         </span>

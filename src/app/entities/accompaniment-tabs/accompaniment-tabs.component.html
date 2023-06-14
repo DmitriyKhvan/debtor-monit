@@ -1,0 +1,52 @@
+<div class="header-page">
+  <h2 class="title-page">Заявки на подтверждение рассрочки</h2>
+  <app-update-credits></app-update-credits>
+</div>
+
+<div class="tabs">
+  <button (click)="toggleTab('all')" [class]="tab === 'all' ? 'active' : ''">
+    Все заявки
+  </button>
+
+  <button (click)="toggleTab('new')" [class]="tab === 'new' ? 'active' : ''">
+    Новые заявки
+  </button>
+
+  <button
+    (click)="toggleTab('success')"
+    [class]="tab === 'success' ? 'active' : ''"
+  >
+    Принятые
+  </button>
+
+  <button
+    (click)="toggleTab('failure')"
+    [class]="tab === 'failure' ? 'active' : ''"
+  >
+    Отказанные
+  </button>
+</div>
+
+<ng-container *ngIf="tab === 'all'">
+  <app-search-credits [value]="searchValue"></app-search-credits>
+
+  <app-accompaniment-credit-list [filter]="tab"></app-accompaniment-credit-list>
+</ng-container>
+
+<ng-container *ngIf="tab === 'new'">
+  <app-search-credits [value]="searchValue"></app-search-credits>
+
+  <app-accompaniment-credit-list [filter]="tab"></app-accompaniment-credit-list>
+</ng-container>
+
+<ng-container *ngIf="tab === 'success'">
+  <app-search-credits [value]="searchValue"></app-search-credits>
+
+  <app-accompaniment-credit-list [filter]="tab"></app-accompaniment-credit-list>
+</ng-container>
+
+<ng-container *ngIf="tab === 'failure'">
+  <app-search-credits [value]="searchValue"></app-search-credits>
+
+  <app-accompaniment-credit-list [filter]="tab"></app-accompaniment-credit-list>
+</ng-container>

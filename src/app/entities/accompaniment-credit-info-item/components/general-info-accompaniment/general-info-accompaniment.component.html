@@ -1,0 +1,254 @@
+<div class="wrapper">
+  <div class="col-1">
+    <div class="info-installment-plan">
+      <h2 class="title">Информация о продавце</h2>
+
+      <div class="field">
+        <span class="label">Магазин:</span>
+        <span class="value">{{ userInfo?.vendor.name }}</span>
+      </div>
+
+      <div class="field">
+        <span class="label">Адрес:</span>
+        <span class="value">{{ userInfo?.vendor.address }}</span>
+      </div>
+
+      <div class="field">
+        <span class="label">Владелец магазина ФИО:</span>
+        <span class="value">{{ userInfo?.vendor.ownerName }}</span>
+      </div>
+
+      <div class="field">
+        <span class="label">Владелец номер телефона:</span>
+        <span class="value"
+          >{{ userInfo?.vendor.ownerPhone | mask : "+000 00 000 00 00" }}
+
+          <app-get-history-calls
+            *ngIf="userInfo?.vendor.ownerPhone"
+            [phone]="userInfo?.vendor.ownerPhone"
+          ></app-get-history-calls>
+        </span>
+      </div>
+
+      <div class="field">
+        <span class="label">Оператор ФИО:</span>
+        <span class="value">{{ userInfo?.vendor.operatorName }}</span>
+      </div>
+
+      <div class="field">
+        <span class="label">Оператор Телефон:</span>
+        <span class="value"
+          >{{ userInfo?.vendor.operatorPhone | mask : "+000 00 000 00 00" }}
+          <app-get-history-calls
+            *ngIf="userInfo?.vendor.operatorPhone"
+            [phone]="userInfo?.vendor.operatorPhone"
+          ></app-get-history-calls>
+        </span>
+      </div>
+    </div>
+
+    <div class="info-contract">
+      <h2 class="title">Информация о рассрочки</h2>
+
+      <div class="field">
+        <span class="label">Первый платеж:</span>
+        <span class="value">{{ userInfo?.claimInfo.firstPay }} </span>
+      </div>
+
+      <div class="field">
+        <span class="label">Номер договора:</span>
+        <span class="value">{{ userInfo?.claimInfo.loanId }} </span>
+      </div>
+
+      <div class="field">
+        <span class="label">Срок погашения:</span>
+        <span class="value" *ngIf="userInfo?.claimInfo.period"
+          >{{ userInfo?.claimInfo.period }}
+          {{
+            userInfo?.claimInfo.period
+              | declensionOfWords : ["месяц", "месяца", "месяцев"]
+          }}
+        </span>
+      </div>
+
+      <div class="field">
+        <span class="label">Общая сумма товаров:</span>
+        <span class="value">{{
+          productsAmount | numberTransform : false
+        }}</span>
+      </div>
+
+      <div class="field">
+        <span class="label">Сумма рассрочки:</span>
+        <span class="value"
+          >{{ userInfo?.claimInfo.amount | numberTransform : false }}
+        </span>
+      </div>
+
+      <div class="field">
+        <span class="label">Ежемесячный платёж:</span>
+        <span class="value">
+          <app-lozenge2 className="blue" [fontSize]="14">{{
+            userInfo?.claimInfo.monthPay | numberTransform : false
+          }}</app-lozenge2>
+        </span>
+      </div>
+
+      <div class="field">
+        <span class="label">Код погашения:</span>
+        <span *ngIf="userInfo?.claimInfo.contractId" class="value copy"
+          ><span #copyText class="copyText">{{
+            userInfo?.claimInfo.contractId
+          }}</span>
+          <span (click)="copy($event)" class="icon-copy"
+            ><span class="path1"></span><span class="path2"></span
+            ><span class="path3"></span
+          ></span>
+        </span>
+      </div>
+    </div>
+
+    <app-product-list-confirm
+      [products]="userInfo?.products"
+    ></app-product-list-confirm>
+  </div>
+
+  <div class="col-2">
+    <div class="info-seller">
+      <div class="title addInfo">
+        <h2>Информация о клиенте</h2>
+        <button (click)="addInfo('ADD_PHONE')">Добавить номер телефона</button>
+      </div>
+
+      <app-add-info-list type="ADD_PHONE"></app-add-info-list>
+
+      <div class="field">
+        <span class="label">Возраст:</span>
+        <span class="value">
+          {{ userInfo?.clientInfo.age }}
+          {{
+            userInfo?.clientInfo.age
+              | declensionOfWords : ["год", "года", "лет"]
+          }}
+        </span>
+      </div>
+
+      <div class="field">
+        <span class="label">Дата рождения:</span>
+        <span class="value">
+          {{ userInfo?.clientInfo.birthDate }}
+        </span>
+      </div>
+
+      <div class="field">
+        <span class="label">Паспорт:</span>
+        <span class="value"
+          >{{ userInfo?.clientInfo.passport | mask : "AA 0000000" }}
+        </span>
+      </div>
+
+      <div class="field">
+        <span class="label">Дата выдачи:</span>
+        <span class="value">
+          {{ userInfo?.clientInfo.passportDateStart }}
+        </span>
+      </div>
+
+      <div class="field">
+        <span class="label">Дата окончания:</span>
+        <span class="value">{{ userInfo?.clientInfo.passportDateEnd }} </span>
+      </div>
+
+      <div class="field">
+        <span class="label">Место выдачи документа:</span>
+        <span class="value">
+          {{ userInfo?.clientInfo.passportPlace }}
+        </span>
+      </div>
+
+      <div class="field">
+        <span class="label">Постоянный регион MYID:</span>
+        <span class="value">
+          {{ userInfo?.clientInfo.myidRegularRegion }}
+        </span>
+      </div>
+
+      <div class="field">
+        <span class="label">Постоянный район MYID: </span>
+        <span class="value">
+          {{ userInfo?.clientInfo.myidRegularDistrict }}
+        </span>
+      </div>
+
+      <div class="field">
+        <span class="label">Постоянный адрес MYID:</span>
+        <span class="value">
+          {{ userInfo?.clientInfo.myidRegularAddress }}
+        </span>
+      </div>
+
+      <div class="field">
+        <span class="label">Временный регион MYID:</span>
+        <span class="value">
+          {{ userInfo?.clientInfo.myidTempRegion || "-" }}
+        </span>
+      </div>
+
+      <div class="field">
+        <span class="label">Временный район MYID:</span>
+        <span class="value">
+          {{ userInfo?.clientInfo.myidTempDistrict || "-" }}
+        </span>
+      </div>
+
+      <div class="field">
+        <span class="label">Временный адрес MYID:</span>
+        <span class="value">
+          {{ userInfo?.clientInfo.myidTempAddress || "-" }}
+        </span>
+      </div>
+
+      <div class="field">
+        <span class="label">Клиент указал регион:</span>
+        <span class="value">
+          {{ userInfo?.clientInfo.clientRegion }}
+        </span>
+      </div>
+
+      <div class="field">
+        <span class="label">Клиент указал район:</span>
+        <span class="value">
+          {{ userInfo?.clientInfo.clientDistrict }}
+        </span>
+      </div>
+
+      <div class="field">
+        <span class="label">Клиент указал адрес:</span>
+        <span class="value">
+          {{ userInfo?.clientInfo.clientAddress }}
+        </span>
+      </div>
+    </div>
+
+    <div class="info-add">
+      <div class="title addInfo">
+        <h2>Дополнительная информация</h2>
+        <button (click)="addInfo('ADD_OTHER')">Добавить инфо</button>
+      </div>
+
+      <app-add-info-list type="ADD_OTHER"></app-add-info-list>
+    </div>
+  </div>
+</div>
+
+<app-add-client-info-pop-up
+  *ngIf="flag"
+  [type]="type"
+  [formData]="formData"
+  [mask]="type === 'ADD_PHONE' ? '+000 00 000 00 00' : ''"
+></app-add-client-info-pop-up>
+
+<app-remove-add-client-info-pop-up
+  *ngIf="isRemoveClientInfo"
+  [id]="addClientInfoId"
+></app-remove-add-client-info-pop-up>

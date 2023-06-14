@@ -1,0 +1,31 @@
+.max-amount {
+  display: flex;
+  align-items: center;
+  gap: 28px;
+
+  margin: 16px 0 24px 0;
+
+  .icon-pipelines {
+    font-size: 28px;
+    margin-right: 5px;
+
+    transition: all 0.5s ease;
+    transform: rotate(0deg);
+
+    &.loader {
+      animation: move 0.5s infinite linear;
+    }
+  }
+
+  @keyframes move {
+    0% {
+      transform: rotate(0deg);
+    }
+    50% {
+      transform: rotate(180deg);
+    }
+    100% {
+      transform: rotate(360deg);
+    }
+  }
+}

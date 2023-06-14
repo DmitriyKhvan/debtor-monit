@@ -1,0 +1,36 @@
+<div [ngStyle]="getStyles" class="tr">
+  <div class="td idx">{{ call.idx }}</div>
+  <div class="td date">
+    {{ call.call.timestamp | dateTimeFormat : "numeric" : undefined : true }}
+  </div>
+  <div class="td operator">{{ call.call.operator }}</div>
+  <div *ngIf="!phone" class="td caller">{{ call.call.answerer }}</div>
+  <div *ngIf="!phone" class="td type_call">{{ call.call.type }}</div>
+  <div class="td duration">
+    <app-lozenge2 className="grey">{{
+      call.call.answeredDuration | timeFormat
+    }}</app-lozenge2>
+  </div>
+
+  <div class="td status">
+    <app-lozenge [className]="dicClass[status?.code || 1]">{{
+      status?.name
+    }}</app-lozenge>
+  </div>
+
+  <div class="td record_call">
+    <ng-container *ngIf="call.call.audioUrl">
+      <audio
+        #audio
+        (play)="playAudio(call.call, $event)"
+        [src]="call.call.audioUrl | safe : 'url'"
+        controls
+      ></audio>
+      <!-- {{ call.call.audioUrl }} -->
+      <span class="icon-download" (click)="downloadRecord(call.call.audio)"
+        ><span class="path1"></span><span class="path2"></span
+        ><span class="path3"></span><span class="path4"></span
+      ></span>
+    </ng-container>
+  </div>
+</div>

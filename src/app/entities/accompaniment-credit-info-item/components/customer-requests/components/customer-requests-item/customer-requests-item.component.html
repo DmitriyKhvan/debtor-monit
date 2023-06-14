@@ -1,0 +1,27 @@
+<div
+  [routerLink]="['/credit', 'accompaniment', credit.credit.claimsId]"
+  class="tr"
+>
+  <div class="td order">{{ credit.idx }}</div>
+  <div class="td claimsId">{{ credit.credit.claimsId }}</div>
+  <div class="td vendor">
+    <span>{{ credit.credit.vendor }}</span>
+  </div>
+  <div class="td fio">
+    <span>{{ credit.credit.fullname }}</span>
+  </div>
+
+  <div class="td claimsDate">
+    <span>{{
+      credit.credit.claimsDate | dateTimeFormat : "numeric" : undefined : true
+    }}</span>
+  </div>
+
+  <div class="td step">
+    {{ credit.credit.status }}
+  </div>
+
+  <div class="td result_step">
+    <span>{{ credit.credit.result }}</span>
+  </div>
+</div>

@@ -39,18 +39,7 @@ export class ApiService {
 
   statisticsList: any = [];
 
-  // objUser = {
-  //   CREDIT: arrayObj[0],
-  //   TEST: 'test',
-  // } as const;
-
-  // arrayObj = [
-  //   'foreclosure': [
-  //     {'path': '/'},
-  //     ...props
-
-  //   ]
-  // ]
+  totaldebt: number = 0;
 
   constructor(private http: HttpClient) {}
 
@@ -249,7 +238,7 @@ export class ApiService {
   }: any): Observable<any> {
     return this.http
       .get(
-        `${environment.dbUrl2}/list/${currentPage}/${count}/filtered?search=${search}&state=${state}&${sortType}=${sortValue}`
+        `${environment.dbUrl2}/support/confirm/list/${currentPage}/${count}/filtered?search=${search}&state=${state}&${sortType}=${sortValue}`
       )
       .pipe(
         catchError((error) => {
@@ -259,16 +248,21 @@ export class ApiService {
   }
 
   getUserInfoConfirmCredit(id: number | null): Observable<any> {
-    return this.http.get(`${environment.dbUrl2}/case/${id}`).pipe(
-      catchError((error) => {
-        return throwError(() => error);
-      })
-    );
+    return this.http
+      .get(`${environment.dbUrl2}/support/confirm/case/${id}`)
+      .pipe(
+        catchError((error) => {
+          return throwError(() => error);
+        })
+      );
   }
 
   confirmCredit(option: string): Observable<any> {
     return this.http
-      .patch(`${environment.dbUrl2}/case/${this.claimsId}/${option}`, {})
+      .patch(
+        `${environment.dbUrl2}/support/confirm/case/${this.claimsId}/${option}`,
+        {}
+      )
       .pipe(
         catchError((error) => {
           return throwError(() => error);
@@ -278,7 +272,10 @@ export class ApiService {
 
   confirmComment(data: any): Observable<any> {
     return this.http
-      .post(`${environment.dbUrl2}/comment/${this.claimsId}`, data)
+      .post(
+        `${environment.dbUrl2}/support/confirm/comment/${this.claimsId}`,
+        data
+      )
       .pipe(
         catchError((error) => {
           return throwError(() => error);
@@ -287,10 +284,42 @@ export class ApiService {
   }
 
   getConfirmComment(): Observable<any> {
-    return this.http.get(`${environment.dbUrl2}/comment/${this.claimsId}`).pipe(
-      catchError((error) => {
-        return throwError(() => error);
-      })
-    );
+    return this.http
+      .get(`${environment.dbUrl2}/support/confirm/comment/${this.claimsId}`)
+      .pipe(
+        catchError((error) => {
+          return throwError(() => error);
+        })
+      );
+  }
+
+  //Сопровождение
+
+  getAccopanimentCredits({
+    currentPage,
+    count,
+    sortValue = '',
+    sortType = '',
+    search = '',
+  }: any): Observable<any> {
+    return this.http
+      .get(
+        `${environment.dbUrl2}/maintenance/loader/claim/list?page=${currentPage}&count=${count}&keyword=${sortValue}&order=${sortType}&search=${search}`
+      )
+      .pipe(
+        catchError((error) => {
+          return throwError(() => error);
+        })
+      );
+  }
+
+  getUserInfoAccompanimentCredit(id: number | null): Observable<any> {
+    return this.http
+      .get(`${environment.dbUrl2}/maintenance/loader/claim?claimsId=${id}`)
+      .pipe(
+        catchError((error) => {
+          return throwError(() => error);
+        })
+      );
   }
 }

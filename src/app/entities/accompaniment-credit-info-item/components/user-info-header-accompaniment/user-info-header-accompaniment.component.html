@@ -1,0 +1,135 @@
+<div class="info-wrap">
+  <div class="info-genaral1">
+    <div class="field">
+      <span class="label">ФИО:</span>
+      <span class="value">{{ userInfo?.main.fullname }}</span>
+    </div>
+
+    <div class="field">
+      <span class="label">Номер телефона 1:</span>
+      <span class="value">{{
+        userInfo?.main.phoneFirst | mask : "+000 00 000 00 00"
+      }}</span>
+
+      <app-get-history-calls
+        *ngIf="userInfo?.main.phoneFirst"
+        [phone]="userInfo?.main.phoneFirst"
+      ></app-get-history-calls>
+    </div>
+
+    <div class="field">
+      <span class="label">Номер телефона 2:</span>
+      <span class="value">{{
+        userInfo?.main.phoneSecond | mask : "+000 00 000 00 00"
+      }}</span>
+
+      <app-get-history-calls
+        *ngIf="userInfo?.main.phoneSecond"
+        [phone]="userInfo?.main.phoneSecond"
+      ></app-get-history-calls>
+    </div>
+
+    <div class="field">
+      <span class="label">Номер и срок карты:</span>
+      <span *ngIf="userInfo?.main.cardNumber" class="value card">
+        <app-lozenge2 className="grey" [fontSize]="14">{{
+          userInfo?.main.cardNumber | mask : "0000 0000 0000 0000"
+        }}</app-lozenge2>
+        <app-lozenge2 className="grey" [fontSize]="14">{{
+          userInfo?.main.cardDate
+        }}</app-lozenge2>
+      </span>
+    </div>
+
+    <div class="field">
+      <span class="label">Место работы ИНН:</span>
+      <span class="value">{{
+        userInfo?.main.companyTin | mask : "000 000 000"
+      }}</span>
+      <a
+        *ngIf="userInfo?.main.companyTin"
+        target="_blank"
+        [href]="'https://orginfo.uz/ru/search?q=' + userInfo?.main.companyTin"
+        ><img class="companyTin" src="../../../assets/img/orgInfo.png" alt=""
+      /></a>
+    </div>
+  </div>
+
+  <div class="info-genaral2">
+    <!-- <div class="field">
+      <span class="label">Номер заявки:</span>
+      <span class="value">{{ userInfo?.data.claimsInfo.claims_id }}</span>
+    </div> -->
+
+    <div class="field">
+      <span class="label">Дата заявки:</span>
+      <span class="value">{{
+        userInfo?.main.claimDate
+          | dateTimeFormat : "numeric" : undefined : false
+      }}</span>
+    </div>
+
+    <div class="field">
+      <span class="label">Текущая дата:</span>
+      <span class="value"> {{ currentDate | dateTimeFormat }}</span>
+    </div>
+
+    <div class="field">
+      <span class="label">Лимит: </span>
+      <span class="value">
+        {{ userInfo?.main.limit | numberTransform : false }}</span
+      >
+    </div>
+
+    <!-- <div *ngIf="userInfo.data.state != '1'" class="field">
+      <span class="label">Комментарий: </span>
+      <span class="value"> {{ comment }}</span>
+    </div> -->
+  </div>
+
+  <div class="info-avatar">
+    <div class="wrapper-avatar">
+      <ng-container *ngIf="userInfo?.main.image64; else mocAvatar">
+        <span class="icon-zoom-in"
+          ><span class="path1"></span><span class="path2"></span
+        ></span>
+        <img
+          class="avatar"
+          (click)="showAvatar()"
+          [src]="'data:image/png;base64,' + userInfo?.main.image64"
+          alt=""
+        />
+      </ng-container>
+
+      <ng-template #mocAvatar>
+        <img src="../../../../../assets/img/mocAvatar.svg" alt="" />
+      </ng-template>
+    </div>
+  </div>
+
+  <!-- <div class="funcBtns">
+    <ng-container *ngIf="!loader && userInfo.data.state == '1'">
+      <app-button
+        (click)="confirmCredit('1', 'Одобрить рассрочку')"
+        className="btn full successBtn"
+        >ОДОБРИТЬ</app-button
+      >
+      <app-button
+        (click)="confirmCredit('0', 'Отказать рассрочку')"
+        className="btn full failurBtn"
+        >ОТКАЗАТЬ</app-button
+      >
+    </ng-container>
+
+    <ng-container *ngIf="userInfo.data.state != '1'">
+      <app-lozenge
+        className="{{ statusStyleDic[userInfo.data.state] }} large"
+        >{{ statusNameDic[userInfo.data.state] }}</app-lozenge
+      >
+    </ng-container>
+
+    <ng-container *ngIf="loader">
+      <app-loader></app-loader>
+    </ng-container>
+  </div> -->
+</div>

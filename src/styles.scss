@@ -116,22 +116,18 @@
   margin: 20px 0 30px 0 !important;
 }
 
-.table,
-.activity-form__wrap,
-.activity-wrap .content {
-  &::-webkit-scrollbar {
-    width: 7px;
-    height: 7px;
-    background: transparent;
-  }
-  &::-webkit-scrollbar-track {
-    background-color: rgba(184, 184, 185, 0.5);
-    border-radius: 5px;
-  }
-  &::-webkit-scrollbar-thumb {
-    background-color: rgb(184, 184, 185);
-    border-radius: 5px;
-  }
+::-webkit-scrollbar {
+  width: 7px;
+  height: 7px;
+  background: transparent;
+}
+::-webkit-scrollbar-track {
+  background-color: rgba(184, 184, 185, 0.5);
+  border-radius: 5px;
+}
+::-webkit-scrollbar-thumb {
+  background-color: rgb(184, 184, 185);
+  border-radius: 5px;
 }
 
 .mat-mdc-form-field {
@@ -242,4 +238,64 @@
     .mat-calendar-body-comparison-identical
   ) {
   background-color: rgba(51, 67, 218, 0.5);
+}
+
+//пагинация
+.my-pagination ::ng-deep {
+  display: grid;
+  justify-content: center;
+
+  .ngx-pagination .current {
+    background: #253858;
+    width: auto;
+    height: 32px;
+    border-radius: 3px;
+    padding: 6px 12px;
+  }
+
+  .ngx-pagination a {
+    width: auto;
+    height: 32px;
+    border-radius: 3px;
+    padding: 6px 12px;
+  }
+
+  .ngx-pagination a:hover,
+  .ngx-pagination button:hover {
+    background: #e6e6e6;
+  }
+
+  .pagination-next a::after,
+  .pagination-next.disabled::after {
+    content: "";
+    width: 8px;
+    height: 8px;
+    border-bottom: 0;
+    border-top: 2px;
+    border-left: 0;
+    border-right: 2px;
+    transform: rotate(45deg);
+    border-style: solid;
+    // border-color: #253858;
+    margin-left: -1px;
+  }
+
+  .pagination-previous a::before,
+  .pagination-previous.disabled::before {
+    content: "";
+    width: 8px;
+    height: 8px;
+    border-bottom: 0;
+    border-top: 2px;
+    border-left: 0;
+    border-right: 2px;
+    transform: rotate(-135deg);
+    border-style: solid;
+    // border-color: #253858;
+  }
+
+  .pagination-previous,
+  .pagination-next {
+    width: 32px;
+  }
 }

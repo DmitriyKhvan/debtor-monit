@@ -19,6 +19,7 @@
           }}</span>
 
           <app-get-history-calls
+            *ngIf="userInfo?.data.client.client_phone_1"
             [phone]="userInfo?.data.client.client_phone_1"
           ></app-get-history-calls>
         </div>
@@ -30,13 +31,17 @@
           }}</span>
 
           <app-get-history-calls
+            *ngIf="userInfo?.data.client.client_phone_2"
             [phone]="userInfo?.data.client.client_phone_2"
           ></app-get-history-calls>
         </div>
 
         <div class="field">
           <span class="label">Номер и срок карты:</span>
-          <span class="value card">
+          <span
+            *ngIf="userInfo?.data.client.client_card_number"
+            class="value card"
+          >
             <app-lozenge2 className="grey" [fontSize]="14">{{
               userInfo?.data.client.client_card_number
                 | mask : "0000 0000 0000 0000"
@@ -53,6 +58,7 @@
             userInfo?.data.client.client_company_tin | mask : "000 000 000"
           }}</span>
           <a
+            *ngIf="userInfo?.data.client.client_company_tin"
             target="_blank"
             [href]="
               'https://orginfo.uz/ru/search?q=' +
@@ -158,7 +164,10 @@
 
     <div class="activity">
       <app-activity
-        height="calc(100vh - 120px)"
+        [styles]="{
+          height: 'calc(100vh - 120px)',
+          borderLeft: '2px solid #ebecf0'
+        }"
         [loanId]="userInfo?.data.claimsInfo.claims_loan_id"
         [projectType]="1"
       ></app-activity>

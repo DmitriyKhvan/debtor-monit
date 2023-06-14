@@ -1,0 +1,56 @@
+<div class="payment-schedule">
+  <div class="payment-schedule__wrap">
+    <div class="header">
+      <h2 class="title">График платежей</h2>
+      <app-print-schedule
+        *ngIf="userInfo.schedule.token"
+        [token]="userInfo.schedule.token"
+        [claimsId]="userInfo.claimsId"
+      ></app-print-schedule>
+    </div>
+
+    <app-max-amount
+      [claimsId]="userInfo.main.claimsId"
+      [contractId]="userInfo.claimInfo.contractId"
+      [totaldebt]="userInfo.schedule.totaldebt"
+    ></app-max-amount>
+
+    <div class="schedule-list">
+      <div class="table">
+        <div class="thead">
+          <div class="tr">
+            <div class="td month">Месяц</div>
+            <div class="td date">Дата</div>
+            <div class="td debt">Должен оплатить</div>
+            <div class="td paid">Оплачено</div>
+            <div class="td recalculation">Перерасчет</div>
+            <div class="td remainder">Остаток</div>
+            <div class="td status">Статус</div>
+            <div class="td insurance">Оплачено страховкой</div>
+          </div>
+        </div>
+
+        <div class="tbody">
+          <ng-container
+            *ngFor="
+              let schedule of userInfo.schedule.payschedule;
+              let idx = index
+            "
+          >
+            <app-payment-item-accompaniment
+              [status]="dicService.getStatus(dic, schedule.status)"
+              [schedule]="{ idx: idx + 1, schedule }"
+            ></app-payment-item-accompaniment>
+          </ng-container>
+        </div>
+      </div>
+
+      <div class="total">
+        <span class="text">Остаток задолженности: </span
+        ><span class="price"
+          >{{ apiService.totaldebt | numberTransform : false }} сум</span
+        >
+      </div>
+    </div>
+  </div>
+</div>
