@@ -105,9 +105,26 @@
   // width: 120px;
 }
 
-.my-pagination ::ng-deep {
-  display: grid;
+.pagination-block {
+  display: flex;
   justify-content: center;
+  align-items: center;
+
+  .page {
+    display: flex;
+    align-items: center;
+
+    span {
+      font-weight: 600;
+      margin-right: 10px;
+    }
+  }
+}
+
+.my-pagination ::ng-deep {
+  .ngx-pagination {
+    margin: 0;
+  }
 
   .ngx-pagination .current {
     background: #253858;

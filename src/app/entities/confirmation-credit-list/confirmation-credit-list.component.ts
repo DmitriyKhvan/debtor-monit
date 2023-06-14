@@ -35,6 +35,7 @@ export class ConfirmationCreditListComponent implements OnInit, OnDestroy {
   dicSub!: Subscription;
   sSub!: Subscription;
   uSub!: Subscription;
+  pSub!: Subscription;
 
   credits: any = [
     // {
@@ -76,6 +77,17 @@ export class ConfirmationCreditListComponent implements OnInit, OnDestroy {
       this.search = search;
       this.getCredits();
     });
+
+    this.pSub = this.apiService.currentPage$?.subscribe(
+      (currentPage: number) => {
+        // localStorage.clear();
+        localStorage.removeItem('filterDataConfirm');
+        localStorage.removeItem('creditsConfirm');
+
+        this.currentPage = currentPage;
+        this.getCredits();
+      }
+    );
 
     this.uSub = this.apiService.updateList$?.subscribe(() => {
       localStorage.clear();
@@ -212,20 +224,12 @@ export class ConfirmationCreditListComponent implements OnInit, OnDestroy {
     });
   }
 
-  pageChanged(currentPage: number) {
-    // localStorage.clear();
-    localStorage.removeItem('filterDataConfirm');
-    localStorage.removeItem('creditsConfirm');
-
-    this.currentPage = currentPage;
-    this.getCredits();
-  }
-
   ngOnDestroy(): void {
     this.creditSub?.unsubscribe();
     this.dicSub?.unsubscribe();
     this.sSub?.unsubscribe();
     this.uSub?.unsubscribe();
+    this.pSub?.unsubscribe();
   }
 }
 {

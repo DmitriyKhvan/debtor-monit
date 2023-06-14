@@ -1,10 +1,23 @@
 <label class="input-wrap">
   <input
+    *ngIf="mask; else withoutMask"
     #input
     class="input"
     [value]="value"
     [type]="type"
     [placeholder]="placeholder"
+    [ngStyle]="styles"
+    [mask]="mask"
   />
-  <i *ngIf="className" class="icon" [class]="className"></i>
+  <ng-template #withoutMask>
+    <input
+      #input
+      class="input"
+      [value]="value"
+      [type]="type"
+      [placeholder]="placeholder"
+      [ngStyle]="styles"
+    />
+  </ng-template>
+  <i *ngIf="icon" class="icon" [class]="icon"></i>
 </label>

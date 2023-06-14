@@ -13,24 +13,28 @@ export class AccompanimentTabsComponent implements OnInit {
   searchValue: string = '';
 
   ngOnInit(): void {
-    if (!localStorage.getItem('confirmTab')) {
-      localStorage.setItem('confirmTab', 'all');
+    if (!localStorage.getItem('accompanimentTab')) {
+      localStorage.setItem('accompanimentTab', 'all');
     }
 
-    this.tab = localStorage.getItem('confirmTab')
-      ? localStorage.getItem('confirmTab')
+    this.tab = localStorage.getItem('accompanimentTab')
+      ? localStorage.getItem('accompanimentTab')
       : 'all';
 
-    if (localStorage.getItem('filterDataConfirm')) {
+    console.log(' this.tab', this.tab);
+
+    if (localStorage.getItem('filterDataAccompaniment')) {
       this.searchValue = JSON.parse(
-        localStorage.getItem('filterDataConfirm') || ''
+        localStorage.getItem('filterDataAccompaniment') || ''
       )?.search;
+
+      console.log('this.searchValue', this.searchValue);
     }
   }
 
   toggleTab(filter: string) {
     localStorage.clear();
-    localStorage.setItem('confirmTab', filter);
+    localStorage.setItem('accompanimentTab', filter);
     this.tab = filter;
   }
 }

@@ -1,4 +1,5 @@
 import {
+  AfterViewInit,
   Component,
   ElementRef,
   Input,
@@ -15,8 +16,10 @@ import { ApiService } from 'src/app/shared/api/credit.service';
   templateUrl: './search-credits.component.html',
   styleUrls: ['./search-credits.component.scss'],
 })
-export class SearchCreditsComponent implements OnInit, OnDestroy {
-  @ViewChild('search', { static: true, read: ElementRef })
+export class SearchCreditsComponent
+  implements OnInit, AfterViewInit, OnDestroy
+{
+  @ViewChild('search', { static: false, read: ElementRef })
   inputRef!: ElementRef;
   @Input() value: string = '';
 
@@ -24,7 +27,9 @@ export class SearchCreditsComponent implements OnInit, OnDestroy {
 
   constructor(private apiServer: ApiService) {}
 
-  ngOnInit(): void {
+  ngOnInit(): void {}
+
+  ngAfterViewInit(): void {
     this.sSub = fromEvent(
       this.inputRef.nativeElement.children[0].children[0],
       'keyup'
