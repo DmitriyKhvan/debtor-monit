@@ -141,6 +141,13 @@
       </div>
 
       <div class="field">
+        <span class="label">Пинфл:</span>
+        <span class="value">
+          {{ userInfo?.clientInfo.pinfl }}
+        </span>
+      </div>
+
+      <div class="field">
         <span class="label">Паспорт:</span>
         <span class="value"
           >{{ userInfo?.clientInfo.passport | mask : "AA 0000000" }}

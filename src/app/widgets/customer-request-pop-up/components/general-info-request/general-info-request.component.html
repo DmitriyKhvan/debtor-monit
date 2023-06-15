@@ -125,7 +125,10 @@
         <!-- <button (click)="addInfo('ADD_PHONE')">Добавить номер телефона</button> -->
       </div>
 
-      <app-add-info-list type="ADD_PHONE"></app-add-info-list>
+      <app-add-info-list
+        type="ADD_PHONE"
+        [editable]="false"
+      ></app-add-info-list>
 
       <!-- <div class="field">
         <span class="label">Возраст:</span>
@@ -241,7 +244,10 @@
         <!-- <button (click)="addInfo('ADD_OTHER')">Добавить инфо</button> -->
       </div>
 
-      <app-add-info-list type="ADD_OTHER"></app-add-info-list>
+      <app-add-info-list
+        type="ADD_OTHER"
+        [editable]="false"
+      ></app-add-info-list>
     </div>
   </div>
 </div>
