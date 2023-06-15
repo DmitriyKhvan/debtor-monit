@@ -1,5 +1,8 @@
 <div
-  *ngFor="let info of addClientInfo | addClientInfoFilter : type"
+  *ngFor="
+    let info of addClientInfo | addClientInfoFilter : type;
+    let idx = index
+  "
   class="field"
 >
   <span class="label">{{ info.description }}</span>
@@ -16,7 +19,7 @@
       <span>{{ info.value }}</span>
     </ng-template>
 
-    <div class="funcBtns">
+    <div *ngIf="editable" class="funcBtns">
       <span
         (click)="editAddClientInfo(info.id, info.description, info.value)"
         class="icon-edit-filled"

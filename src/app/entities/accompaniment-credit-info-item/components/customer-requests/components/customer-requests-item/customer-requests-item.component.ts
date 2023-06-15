@@ -1,4 +1,5 @@
 import { Component, Input } from '@angular/core';
+import { FlagService } from 'src/app/shared/api/flag.sevice';
 
 @Component({
   selector: 'app-customer-requests-item',
@@ -10,4 +11,10 @@ import { Component, Input } from '@angular/core';
 })
 export class CustomerRequestsItemComponent {
   @Input() credit: any;
+
+  constructor(private flagService: FlagService) {}
+
+  getUserInfo(claimsId: number) {
+    this.flagService.claimsId$.next(claimsId);
+  }
 }

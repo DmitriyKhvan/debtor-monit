@@ -7,13 +7,14 @@
   }
 }
 
-.field:nth-child(odd) {
-  background: transparent;
-}
+// .field:nth-child(odd) {
+//   background: transparent;
+// }
 
-.field:nth-child(even) {
-  background: #fbfbfb;
-}
+// .field:nth-child(even) {
+//   // background: #fbfbfb;
+//   background: transparent;
+// }
 
 .info-add:hover .field,
 .info-add:hover .title {

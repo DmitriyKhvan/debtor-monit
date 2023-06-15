@@ -13,6 +13,7 @@ import { FlagService } from 'src/app/shared/api/flag.sevice';
 })
 export class AddInfoListComponent implements OnInit, OnDestroy {
   @Input() type: string = '';
+  @Input() editable: boolean = true;
 
   iSub!: Subscription;
   aSub!: Subscription;
