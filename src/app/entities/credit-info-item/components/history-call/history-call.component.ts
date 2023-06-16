@@ -73,7 +73,7 @@ export class HistoryCallComponent implements OnInit, AfterViewInit, OnDestroy {
   }
 
   ngAfterViewInit(): void {
-    console.log(this.audiosRef);
+    // console.log(this.audiosRef);
     this.fileService.audios = this.audiosRef;
   }
 

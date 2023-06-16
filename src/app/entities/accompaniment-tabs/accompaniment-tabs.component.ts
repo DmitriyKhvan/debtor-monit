@@ -21,14 +21,10 @@ export class AccompanimentTabsComponent implements OnInit {
       ? localStorage.getItem('accompanimentTab')
       : 'all';
 
-    console.log(' this.tab', this.tab);
-
     if (localStorage.getItem('filterDataAccompaniment')) {
       this.searchValue = JSON.parse(
         localStorage.getItem('filterDataAccompaniment') || ''
       )?.search;
-
-      console.log('this.searchValue', this.searchValue);
     }
   }
 

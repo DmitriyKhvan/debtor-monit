@@ -20,7 +20,6 @@ export class DocumentItemComponent implements OnDestroy {
     this.fSub = this.fileService
       .getinsuranceDebitFileBase64(id)
       .subscribe((fileBase64) => {
-        console.log(fileBase64);
         this.saveAsXlsxFile(fileBase64);
       });
   }

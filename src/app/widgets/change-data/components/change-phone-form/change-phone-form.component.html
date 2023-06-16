@@ -1,0 +1,49 @@
+<form class="form" [formGroup]="form" (ngSubmit)="submitHandler()">
+  <div class="field-form">
+    <app-input
+      label="Текущее значние"
+      [value]="value | mask : mask"
+      [disabled]="true"
+    ></app-input>
+  </div>
+
+  <div class="field-form">
+    <app-input-form
+      [form]="form"
+      controlName="phone"
+      placeholder="Введите данные"
+      label="Новое значение"
+      [mask]="mask"
+    ></app-input-form>
+    <!-- <pre>
+      {{ form.get("value")?.errors | json }}
+    </pre> -->
+    <div
+      *ngIf="form.get('phone')?.touched && form.get('phone')?.invalid"
+      class="validation"
+    >
+      <small *ngIf="form.get('phone')?.errors?.required">
+        Введите данные
+      </small>
+
+      <small *ngIf="form.get('phone')?.errors?.mask">
+        Некорректные данные
+      </small>
+    </div>
+  </div>
+
+  <div class="btns">
+    <app-button
+      type="submit"
+      [disabled]="form.invalid || submitted"
+      className="btn primaryBtn medium"
+      >Создать</app-button
+    >
+    <app-button
+      type="button"
+      (click)="closeForm()"
+      className="btn defaultBtn medium"
+      >Отмена</app-button
+    >
+  </div>
+</form>

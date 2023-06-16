@@ -13,4 +13,6 @@ export class InputFormComponent {
   @Input() controlName: any;
   @Input() form: any;
   @Input() mask: string = '';
+  @Input() dropSpecialCharacters: boolean = false;
+  @Input() styles: object = {};
 }

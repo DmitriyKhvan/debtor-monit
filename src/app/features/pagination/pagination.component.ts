@@ -45,7 +45,6 @@ export class PaginationComponent implements AfterViewInit, OnDestroy {
         distinctUntilChanged()
       )
       .subscribe((value: any) => {
-        console.log(value);
         this.pageChanged(value);
       });
   }

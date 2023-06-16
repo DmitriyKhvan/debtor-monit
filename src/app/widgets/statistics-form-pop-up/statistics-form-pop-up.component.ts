@@ -43,8 +43,6 @@ export class StatisticsFormPopUpComponent implements OnInit, OnDestroy {
       toDate: this.form.value.toDate?.toLocaleString('ru-RU'),
     };
 
-    console.log(data);
-
     this.sSub = this.apiService.getStatisticsList(data).subscribe(
       (res) => {
         this.submitted = false;

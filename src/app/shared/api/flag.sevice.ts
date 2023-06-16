@@ -24,6 +24,8 @@ export class FlagService {
 
   claimsId$ = new Subject<number>();
 
+  changeData$ = new Subject();
+
   setUserInfo({ userInfo, isLoader }: any) {
     this.userInfo$.next({ userInfo, isLoader });
   }

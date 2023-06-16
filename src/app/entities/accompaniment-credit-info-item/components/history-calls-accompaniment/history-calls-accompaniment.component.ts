@@ -79,7 +79,6 @@ export class HistoryCallsAccompanimentComponent
   }
 
   ngAfterViewInit(): void {
-    console.log(this.audiosRef);
     this.fileService.audios = this.audiosRef;
   }
 

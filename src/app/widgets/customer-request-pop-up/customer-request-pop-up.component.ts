@@ -28,8 +28,6 @@ export class CustomerRequestPopUpComponent implements OnInit, OnDestroy {
         })
       )
       .subscribe((userInfo) => {
-        console.log('userInfo', userInfo);
-
         this.userInfo = userInfo;
       });
   }

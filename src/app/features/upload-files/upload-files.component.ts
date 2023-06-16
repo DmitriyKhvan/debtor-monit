@@ -44,7 +44,7 @@ export class UploadFilesComponent implements OnInit, AfterViewInit, OnDestroy {
   ngOnInit(): void {}
 
   ngAfterViewInit(): void {
-    console.log('this.inputFileRef', this.inputFileRef);
+    // console.log('this.inputFileRef', this.inputFileRef);
 
     this.cSub = fromEvent(this.inputFileRef.nativeElement, 'change')
       .pipe(
