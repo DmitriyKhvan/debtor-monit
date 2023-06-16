@@ -2,12 +2,14 @@
   <div *ngIf="label" class="label">{{ label }}</div>
   <div class="input-wrap">
     <input
+      [ngStyle]="styles"
       #input
       class="input"
       [type]="type"
       [placeholder]="placeholder"
       [formControlName]="controlName"
       [mask]="mask"
+      [dropSpecialCharacters]="dropSpecialCharacters"
       [validation]="true"
     />
     <i *ngIf="icon" class="icon" [class]="icon"></i>

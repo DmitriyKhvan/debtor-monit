@@ -134,6 +134,10 @@ import { PaginationComponent } from './features/pagination/pagination.component'
 import { CustomerRequestPopUpComponent } from './widgets/customer-request-pop-up/customer-request-pop-up.component';
 import { HeaderInfoRequestComponent } from './widgets/customer-request-pop-up/components/header-info-request/header-info-request.component';
 import { GeneralInfoRequestComponent } from './widgets/customer-request-pop-up/components/general-info-request/general-info-request.component';
+import { ChangeDataComponent } from './widgets/change-data/change-data.component';
+import { ChangePhoneFormComponent } from './widgets/change-data/components/change-phone-form/change-phone-form.component';
+import { ChangeCardFormComponent } from './widgets/change-data/components/change-card-form/change-card-form.component';
+import { ChangeDataFormComponent } from './features/change-data-form/change-data-form.component';
 
 const INTERCEPTOR_PROVIDER: Provider = {
   provide: HTTP_INTERCEPTORS,
@@ -264,6 +268,10 @@ const CUSTOM_DATE_FORMATS: NgxMatDateFormats = {
     CustomerRequestPopUpComponent,
     HeaderInfoRequestComponent,
     GeneralInfoRequestComponent,
+    ChangeDataComponent,
+    ChangePhoneFormComponent,
+    ChangeCardFormComponent,
+    ChangeDataFormComponent,
   ],
   imports: [
     BrowserModule,

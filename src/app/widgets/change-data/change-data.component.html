@@ -1,0 +1,22 @@
+<app-wrapper *ngIf="type">
+  <div class="change-data__wrap">
+    <span (click)="closeForm()" class="close icon-cl0ose"
+      ><span class="path1"></span><span class="path2"></span
+    ></span>
+    <h2 class="title">Изменить информацию</h2>
+    <app-change-phone-form
+      *ngIf="type === 1 || type === 2"
+      [type]="type"
+      [value]="value"
+      [mask]="mask"
+    ></app-change-phone-form>
+
+    <app-change-card-form
+      *ngIf="type === 'card'"
+      [value]="value"
+      [value2]="value2"
+      [mask]="mask"
+      [mask2]="mask2"
+    ></app-change-card-form>
+  </div>
+</app-wrapper>

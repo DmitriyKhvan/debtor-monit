@@ -105,9 +105,9 @@ export class AccompanimentCreditListComponent implements OnInit, OnDestroy {
           .querySelector(`.${filterDataAccompaniment.sortValue}`)
           ?.querySelector('span');
 
-        console.log(
-          document.querySelector(`.${filterDataAccompaniment.sortValue}`)
-        );
+        // console.log(
+        //   document.querySelector(`.${filterDataAccompaniment.sortValue}`)
+        // );
       }
 
       if (filterDataAccompaniment.sortType === 'desc') {
@@ -161,7 +161,6 @@ export class AccompanimentCreditListComponent implements OnInit, OnDestroy {
 
     this.creditSub = this.apiService.getAccopanimentCredits(data).subscribe(
       (credits) => {
-        console.log('credits', credits);
         this.credits = credits.data.list;
         this.totalItems = credits.data.count.count;
 

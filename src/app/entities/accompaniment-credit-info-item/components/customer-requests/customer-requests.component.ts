@@ -47,7 +47,6 @@ export class CustomerRequestsComponent implements OnInit, OnDestroy {
 
     this.rSub = this.apiService.getAccopanimentCredits(data).subscribe(
       (request) => {
-        console.log(request);
         this.credits = request.data.list;
 
         this.loading = false;

@@ -46,8 +46,6 @@ export class MaxAmountComponent implements OnInit, OnDestroy {
         contractId: this.contractId,
       })
       .subscribe((res: maxAmountData) => {
-        console.log(res);
-
         this.maxAmountData = res;
         this.pipelinesRef.nativeElement.classList.remove('loader');
 

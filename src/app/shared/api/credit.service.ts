@@ -294,6 +294,34 @@ export class ApiService {
       );
   }
 
+  changePhone({ type, phone }: any): Observable<any> {
+    const data = {
+      type,
+      phone,
+      claimsId: this.claimsId,
+    };
+
+    return this.http.post(`${environment.dbUrl2}/tools/changePhone`, data).pipe(
+      catchError((error) => {
+        return throwError(() => error);
+      })
+    );
+  }
+
+  changeCard({ cardNumber, cardDate }: any): Observable<any> {
+    const data = {
+      cardNumber,
+      cardDate,
+      claimsId: this.claimsId,
+    };
+
+    return this.http.post(`${environment.dbUrl2}/tools/changeCard`, data).pipe(
+      catchError((error) => {
+        return throwError(() => error);
+      })
+    );
+  }
+
   //Сопровождение
 
   getAccopanimentCredits({
@@ -314,7 +342,7 @@ export class ApiService {
       );
   }
 
-  getUserInfoAccompanimentCredit(id: number | null): Observable<any> {
+  getUserInfoAccompanimentCredit(id: number | string | null): Observable<any> {
     return this.http
       .get(`${environment.dbUrl2}/maintenance/loader/claim?claimsId=${id}`)
       .pipe(

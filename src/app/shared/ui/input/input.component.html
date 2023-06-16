@@ -1,3 +1,4 @@
+<div *ngIf="label" class="label">{{ label }}</div>
 <label class="input-wrap">
   <input
     *ngIf="mask; else withoutMask"
@@ -8,6 +9,7 @@
     [placeholder]="placeholder"
     [ngStyle]="styles"
     [mask]="mask"
+    [disabled]="disabled"
   />
   <ng-template #withoutMask>
     <input
@@ -17,6 +19,7 @@
       [type]="type"
       [placeholder]="placeholder"
       [ngStyle]="styles"
+      [disabled]="disabled"
     />
   </ng-template>
   <i *ngIf="icon" class="icon" [class]="icon"></i>
