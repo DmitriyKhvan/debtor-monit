@@ -1,0 +1,26 @@
+<div
+  [routerLink]="['/credit', 'accompaniment', credit.credit.uuid]"
+  class="tr"
+  [class]="credit.credit.uuid === apiService.claimsId ? 'active' : ''"
+>
+  <div class="td order">{{ credit.idx }}</div>
+  <div class="td username">{{ credit.credit.username }}</div>
+  <div class="td fullname">
+    <span>{{ credit.credit.fullname }}</span>
+  </div>
+  <div class="td vendor">
+    <span>{{ credit.credit.vendor }}</span>
+  </div>
+
+  <div class="td phone">
+    <span>{{ credit.credit.phone | mask : "+000 00 000 00 00" }}</span>
+  </div>
+
+  <div class="td group">
+    {{ credit.credit.group }}
+  </div>
+
+  <div class="td status">
+    <span>{{ credit.credit.status }}</span>
+  </div>
+</div>

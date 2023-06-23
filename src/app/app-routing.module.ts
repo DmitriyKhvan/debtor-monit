@@ -15,8 +15,8 @@ import { ConfirmationTabsComponent } from './entities/confirmation-tabs/confirma
 import { StatisticsComponent } from './pages/statistics/statistics.component';
 import { AccompanimentCreditsComponent } from './pages/accompaniment-credits/accompaniment-credits.component';
 import { AccompanimentTabsComponent } from './entities/accompaniment-tabs/accompaniment-tabs.component';
-import { AccompanimentCreditInfoItemComponent } from './entities/accompaniment-credit-info-item/accompaniment-credit-info-item.component';
 import { AccompanimentCreditComponent } from './pages/accompaniment-credit/accompaniment-credit.component';
+import { AccompanimentUsersComponent } from './pages/accompaniment-users/accompaniment-users.component';
 
 const routes: Routes = [
   {
@@ -60,6 +60,10 @@ const routes: Routes = [
           {
             path: '',
             component: AccompanimentTabsComponent,
+          },
+          {
+            path: 'users',
+            component: AccompanimentUsersComponent,
           },
         ],
       },

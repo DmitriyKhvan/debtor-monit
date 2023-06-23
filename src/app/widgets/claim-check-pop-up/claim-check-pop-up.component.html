@@ -1,0 +1,164 @@
+<app-wrapper *ngIf="flag">
+  <div class="claim-check-form__wrap">
+    <span (click)="closeForm()" class="close icon-cl0ose"
+      ><span class="path1"></span><span class="path2"></span
+    ></span>
+    <h2 class="title">Добавить квитанцию</h2>
+
+    <p class="danger">
+      ДОБАВЛЯТЬ КВИТАНЦИЮ ТОЛЬКО ОБ ОПЛАТЕ ДОЛГА ПЕРЕД СТРАХОВОЙ КОМПАНИЕЙ!
+    </p>
+
+    <form [formGroup]="form" (ngSubmit)="submitHandler()">
+      <div class="field-form">
+        <app-input-form
+          label="Номер квитанции"
+          placeholder="Введите данные"
+          [form]="form"
+          controlName="numberClaimCheck"
+          mask="0*"
+        ></app-input-form>
+
+        <div
+          *ngIf="
+            form.get('numberClaimCheck')?.touched &&
+            form.get('numberClaimCheck')?.invalid
+          "
+          class="validation"
+        >
+          <small *ngIf="form.get('numberClaimCheck')?.errors?.required">
+            Введите данные
+          </small>
+          <small *ngIf="form.get('numberClaimCheck')?.errors?.spaceOnly">
+            Неккоректные данные
+          </small>
+        </div>
+      </div>
+
+      <div class="field-form">
+        <app-input-form
+          label="Сумма"
+          placeholder="Введите данные"
+          [form]="form"
+          controlName="amount"
+          mask="separator"
+        ></app-input-form>
+
+        <div
+          *ngIf="form.get('amount')?.touched && form.get('amount')?.invalid"
+          class="validation"
+        >
+          <small *ngIf="form.get('amount')?.errors?.required">
+            Введите данные
+          </small>
+          <small *ngIf="form.get('amount')?.errors?.spaceOnly">
+            Неккоректные данные
+          </small>
+        </div>
+      </div>
+
+      <div class="group">
+        <label class="field">
+          <div class="key">Дата</div>
+          <div class="value">
+            <div>
+              <mat-form-field>
+                <input
+                  matInput
+                  [ngxMatDatetimePicker]="picker1"
+                  placeholder="Выберите дату"
+                  readonly=""
+                  formControlName="date"
+                />
+                <mat-datepicker-toggle
+                  matSuffix
+                  [for]="$any(picker1)"
+                ></mat-datepicker-toggle>
+                <ngx-mat-datetime-picker #picker1></ngx-mat-datetime-picker>
+              </mat-form-field>
+            </div>
+          </div>
+          <div
+            *ngIf="form.get('date')?.touched && form.get('date')?.invalid"
+            class="validation"
+          >
+            <small *ngIf="form.get('date')?.errors?.required">
+              Введите данные
+            </small>
+          </div>
+        </label>
+
+        <app-button
+          (click)="uploadFile()"
+          [type]="'button'"
+          className="btn medium defaultBtn icon"
+          ><span class="icon-attachment"
+            ><span class="path1"></span><span class="path2"></span></span
+          >Добавить файл</app-button
+        >
+
+        <input
+          (change)="changeInputFile($event)"
+          #inputFile
+          class="inputFile"
+          type="file"
+          formControlName="file"
+          multiple
+        />
+      </div>
+
+      <div *ngIf="files.length" class="fileList">
+        <div class="titleFile">
+          <span>Вложения ({{ files.length }})</span>
+          <span (click)="uploadFile()" class="icon-add"
+            ><span class="path1"></span><span class="path2"></span
+          ></span>
+        </div>
+        <div class="table">
+          <div class="thead">
+            <div class="tr">
+              <div class="td name">Имя</div>
+              <div class="td size">Размер</div>
+            </div>
+          </div>
+
+          <div class="tbody">
+            <ng-container *ngFor="let file of files">
+              <div class="tr">
+                <div class="td name">
+                  <span class="icon-document1"
+                    ><span class="path1"></span><span class="path2"></span
+                  ></span>
+                  <span class="file">{{ file.name }}</span>
+                </div>
+                <div class="td size">
+                  <span>{{ file.size }}</span>
+                  <span
+                    (click)="removeFile(file.lastModified)"
+                    class="icon-trash"
+                    ><span class="path1"></span><span class="path2"></span
+                  ></span>
+                </div>
+              </div>
+            </ng-container>
+          </div>
+        </div>
+      </div>
+
+      <div class="btns">
+        <app-button
+          type="submit"
+          [disabled]="form.invalid || submitted"
+          className="btn primaryBtn medium"
+          >Создать</app-button
+        >
+        <app-button
+          type="button"
+          (click)="closeForm()"
+          className="btn defaultBtn medium"
+          >Отмена</app-button
+        >
+      </div>
+    </form>
+  </div>
+</app-wrapper>

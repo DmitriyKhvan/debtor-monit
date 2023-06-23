@@ -42,7 +42,8 @@ export class UserInfoHeaderAccompanimentComponent implements OnInit, OnDestroy {
     3: 'ЗАЯВКА ОТКЛОНЕНА ',
   };
 
-  currentDate = new Date()
+  currentDate = new Date();
+  intervalId: any = null;
 
   constructor(
     public apiService: ApiService,
@@ -53,6 +54,10 @@ export class UserInfoHeaderAccompanimentComponent implements OnInit, OnDestroy {
     // if (this.userInfo.data.state !== '1') {
     //   this.getConfirmComment();
     // }
+
+    this.intervalId = setInterval(() => {
+      this.currentDate = new Date();
+    }, 1000);
 
     this.uSub = this.flagService.cofirmComment$
       .pipe(
@@ -105,5 +110,7 @@ export class UserInfoHeaderAccompanimentComponent implements OnInit, OnDestroy {
     this.cSub?.unsubscribe();
     this.uSub?.unsubscribe();
     this.showAvatarSub?.unsubscribe();
+
+    clearInterval(this.intervalId);
   }
 }

@@ -36,15 +36,15 @@
 
 .tr {
   display: grid;
-  grid-template-areas: "idx date  card sum status cancellation_date";
+  grid-template-areas: "idx date  card sum status cancel cancellation_date ";
   grid-template-rows: 40px;
   // grid-template-columns:
   //   40px minmax(70px, 1fr) minmax(140px, 1fr) minmax(80px, 1fr)
   //   minmax(80px, 1fr);
-  grid-template-columns: 40px 140px 140px 140px minmax(80px, 1fr) minmax(
-      80px,
-      1fr
-    );
+  grid-template-columns:
+    40px 140px 140px 140px minmax(80px, 1fr) 50px
+    minmax(80px, 1fr);
+
   column-gap: 10px;
   align-items: center;
 }
@@ -77,4 +77,12 @@
 .status {
   grid-area: status;
   // width: 80px;
+}
+
+.cancel {
+  grid-area: cancel;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  // gap: 5px;
 }

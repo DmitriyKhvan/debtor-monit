@@ -80,8 +80,3 @@ export class UploadFilesComponent implements OnInit, AfterViewInit, OnDestroy {
     this.cSub?.unsubscribe();
   }
 }
-function tab(
-  arg0: () => void
-): import('rxjs').OperatorFunction<unknown, unknown> {
-  throw new Error('Function not implemented.');
-}

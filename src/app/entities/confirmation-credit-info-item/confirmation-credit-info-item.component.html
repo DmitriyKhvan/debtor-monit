@@ -101,14 +101,18 @@
         <div class="field">
           <span class="label">Дата заявки:</span>
           <span class="value">{{
-            userInfo?.data.claimsInfo.claims_contract_date
+            userInfo?.data.claimsInfo.claims_date
+              | dateTimeFormat : "numeric" : undefined : true
           }}</span>
         </div>
 
         <div class="field">
           <span class="label">Текущая дата:</span>
           <span class="value">
-            {{ userInfo?.data.claimsInfo.claims_date | dateTimeFormat }}</span
+            <!-- {{ userInfo?.data.claimsInfo.claims_date | dateTimeFormat }}</span -->
+            {{
+              currentDate | dateTimeFormat : "numeric" : undefined : true
+            }}</span
           >
         </div>
 

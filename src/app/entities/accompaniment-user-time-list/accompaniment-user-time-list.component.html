@@ -1,0 +1,126 @@
+<div class="filterBlock">
+  <app-search-credits [value]="searchValue"></app-search-credits>
+
+  <div class="selectPeriod">
+    <ng-select
+      class="blue"
+      [items]="options"
+      bindValue="value"
+      bindLabel="label"
+      placeholder="Выберите период"
+      [(ngModel)]="period"
+      (change)="setPeriod($event)"
+    ></ng-select>
+  </div>
+
+  <app-datepicker-range
+    [defaultData]="{periodBegin, periodEnd}"
+    (data)="getPeriodDatePickerRange($event)"
+  ></app-datepicker-range>
+</div>
+
+<div class="credits">
+  <div class="table">
+    <div class="thead">
+      <div class="tr">
+        <div class="td order">#</div>
+
+        <div class="td group">
+          <span class="sort" (click)="sort($event, 'group')"
+            >ГРУППА
+            <span #sorting class=""></span>
+          </span>
+        </div>
+
+        <div class="td merchant">
+          <span class="sort" (click)="sort($event, 'merchant')"
+            >МЕРЧАНТ
+            <span #sorting class=""></span>
+          </span>
+        </div>
+
+        <div class="td operator">
+          <span class="sort" (click)="sort($event, 'operator')"
+            >ОПЕРАТОР
+            <span #sorting class=""></span>
+          </span>
+        </div>
+
+        <div class="td phone">
+          <span class="sort" (click)="sort($event, 'phone1')"
+            >ТЕЛЕФОН
+            <span #sorting class=""></span>
+          </span>
+        </div>
+
+        <div class="td allClaims">
+          <span class="sort" (click)="sort($event, 'allClaims')"
+            >ВСЕГО ЗАЯВОК
+            <span #sorting class=""></span>
+          </span>
+        </div>
+
+        <div class="td inScoring">
+          <span class="sort" (click)="sort($event, 'inScoring')"
+            >СКОРИНГ
+            <span #sorting class=""></span>
+          </span>
+        </div>
+
+        <div class="td withoutLimit">
+          <span class="sort" (click)="sort($event, 'withoutLimit')"
+            >БЕЗ ЛИМИТА
+            <span #sorting class=""></span>
+          </span>
+        </div>
+
+        <div class="td withLimit">
+          <span class="sort" (click)="sort($event, 'withLimit')"
+            >С ЛИМИТОМ
+            <span #sorting class=""></span>
+          </span>
+        </div>
+
+        <div class="td error">
+          <span class="sort" (click)="sort($event, 'error')"
+            >ОШИБКА
+            <span #sorting class=""></span>
+          </span>
+        </div>
+
+        <div class="td loaned">
+          <span class="sort" (click)="sort($event, 'loaned')"
+            >ОФОРМЛЕНО
+            <span #sorting class=""></span>
+          </span>
+        </div>
+      </div>
+    </div>
+
+    <div *ngIf="!loading; else loadingBlock" class="tbody">
+      <ng-container
+        *ngFor="
+          let credit of credits
+            | paginate
+              : {
+                  itemsPerPage: count,
+                  currentPage: currentPage,
+                  totalItems: totalItems
+                };
+          let idx = index
+        "
+      >
+        <!-- [status]="dicService.getStatus(dic, credit.status)" -->
+        <app-accompaniment-user-time-item
+          [credit]="{ idx: idx + 1, credit }"
+        ></app-accompaniment-user-time-item>
+      </ng-container>
+    </div>
+
+    <ng-template #loadingBlock>
+      <app-loader></app-loader>
+    </ng-template>
+  </div>
+
+  <app-pagination></app-pagination>
+</div>

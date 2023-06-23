@@ -1,6 +1,7 @@
 import { Component, Input, OnDestroy } from '@angular/core';
 import { Subscription } from 'rxjs';
 import { ApiService } from 'src/app/shared/api/credit.service';
+import { FileService } from 'src/app/shared/api/file.service';
 import { FlagService } from 'src/app/shared/api/flag.sevice';
 import { Action, Status } from 'src/app/shared/interfaces';
 
@@ -36,7 +37,8 @@ export class ActivityItemComponent implements OnDestroy {
 
   constructor(
     private apiService: ApiService,
-    private flagService: FlagService
+    private flagService: FlagService,
+    private fileService: FileService
   ) {}
 
   removeAction(id: number, event: any) {
@@ -60,16 +62,18 @@ export class ActivityItemComponent implements OnDestroy {
     });
   }
 
-  upload(file: any) {
-    let url = `data:${file.filename};base64,${file.file64}`;
-    let link = document.createElement('a');
-    link.href = url;
-    link.setAttribute('download', `${file.filename}`);
-    document.body.appendChild(link);
-    link.click();
-    document.body.removeChild(link);
+  download(file: any) {
+    // let url = `data:${file.mimetype};base64,${file.file64}`;
+    // let link = document.createElement('a');
+    // link.href = url;
+    // link.setAttribute('download', `${file.filename}`);
+    // document.body.appendChild(link);
+    // link.click();
+    // document.body.removeChild(link);
 
-    URL.revokeObjectURL(url);
+    // URL.revokeObjectURL(url);
+
+    this.fileService.download(file.mimetype, file.file64, file.filename);
   }
 
   // close(event: any) {

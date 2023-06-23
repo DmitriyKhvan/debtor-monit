@@ -36,6 +36,9 @@ export class ConfirmationCreditInfoItemComponent implements OnInit, OnDestroy {
     3: 'ЗАЯВКА ОТКЛОНЕНА ',
   };
 
+  currentDate = new Date();
+  intervalId: any = null;
+
   constructor(
     public apiService: ApiService,
     private route: ActivatedRoute,
@@ -75,6 +78,10 @@ export class ConfirmationCreditInfoItemComponent implements OnInit, OnDestroy {
 
         localStorage.setItem('creditsConfirm', JSON.stringify(data));
       });
+
+    this.intervalId = setInterval(() => {
+      this.currentDate = new Date();
+    }, 1000);
   }
 
   getConfirmComment() {
@@ -102,5 +109,7 @@ export class ConfirmationCreditInfoItemComponent implements OnInit, OnDestroy {
     this.cSub?.unsubscribe();
     this.uSub?.unsubscribe();
     this.showAvatarSub?.unsubscribe();
+
+    clearInterval(this.intervalId);
   }
 }
