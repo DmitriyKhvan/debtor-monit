@@ -1,7 +1,7 @@
 import { APP_INITIALIZER, NgModule, Provider } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
-
 import { AppRoutingModule } from './app-routing.module';
+
 import { AppComponent } from './app.component';
 import { CreditsComponent } from './pages/credits/credits.component';
 import { HeaderComponent } from './widgets/header/header.component';
@@ -138,6 +138,16 @@ import { ChangeDataComponent } from './widgets/change-data/change-data.component
 import { ChangePhoneFormComponent } from './widgets/change-data/components/change-phone-form/change-phone-form.component';
 import { ChangeCardFormComponent } from './widgets/change-data/components/change-card-form/change-card-form.component';
 import { ChangeDataFormComponent } from './features/change-data-form/change-data-form.component';
+import { AccompanimentUsersComponent } from './pages/accompaniment-users/accompaniment-users.component';
+import { AccompanimentUsersTabsComponent } from './entities/accompaniment-users-tabs/accompaniment-users-tabs.component';
+import { AccompanimentUserListComponent } from './entities/accompaniment-user-list/accompaniment-user-list.component';
+import { AccompanimentUserTimeListComponent } from './entities/accompaniment-user-time-list/accompaniment-user-time-list.component';
+import { AccompanimentUserItemComponent } from './entities/accompaniment-user-list/components/accompaniment-user-item/accompaniment-user-item.component';
+import { AccompanimentUserTimeItemComponent } from './entities/accompaniment-user-time-list/components/accompaniment-user-time-item/accompaniment-user-time-item.component';
+import { DatepickerRangeComponent } from './entities/accompaniment-user-time-list/components/datepicker-range/datepicker-range.component';
+import { ClaimCheckPopUpComponent } from './widgets/claim-check-pop-up/claim-check-pop-up.component';
+import { DownloadFileComponent } from './features/download-file/download-file.component';
+import { ConfirmPopUpComponent } from './widgets/confirm-pop-up/confirm-pop-up.component';
 
 const INTERCEPTOR_PROVIDER: Provider = {
   provide: HTTP_INTERCEPTORS,
@@ -272,6 +282,16 @@ const CUSTOM_DATE_FORMATS: NgxMatDateFormats = {
     ChangePhoneFormComponent,
     ChangeCardFormComponent,
     ChangeDataFormComponent,
+    AccompanimentUsersComponent,
+    AccompanimentUsersTabsComponent,
+    AccompanimentUserListComponent,
+    AccompanimentUserTimeListComponent,
+    AccompanimentUserItemComponent,
+    AccompanimentUserTimeItemComponent,
+    DatepickerRangeComponent,
+    ClaimCheckPopUpComponent,
+    DownloadFileComponent,
+    ConfirmPopUpComponent,
   ],
   imports: [
     BrowserModule,

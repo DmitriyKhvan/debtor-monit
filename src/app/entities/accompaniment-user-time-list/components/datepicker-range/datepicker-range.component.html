@@ -1,0 +1,25 @@
+<div class="datepickerRange">
+  <mat-form-field>
+    <mat-label>Выберите период</mat-label>
+    <mat-date-range-input [formGroup]="range" [rangePicker]="picker">
+      <input
+        matStartDate
+        formControlName="start"
+        placeholder="Дата начала"
+        readonly=""
+      />
+      <input
+        matEndDate
+        formControlName="end"
+        placeholder="Дата конца"
+        readonly=""
+      />
+    </mat-date-range-input>
+    <!-- <mat-hint>MM/DD/YYYY – MM/DD/YYYY</mat-hint> -->
+    <mat-datepicker-toggle matIconSuffix [for]="picker"></mat-datepicker-toggle>
+    <mat-date-range-picker
+      #picker
+      (closed)="setPeriodDatepicker()"
+    ></mat-date-range-picker>
+  </mat-form-field>
+</div>

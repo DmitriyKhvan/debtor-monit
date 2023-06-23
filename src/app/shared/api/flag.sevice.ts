@@ -14,6 +14,12 @@ export class FlagService {
   removeAddClientInfo$ = new Subject<{ flag: boolean; id?: number }>();
   updateActions$ = new Subject<boolean>();
   cofirmComment$ = new Subject<boolean>();
+  cofirm$ = new Subject<{
+    flag: boolean;
+    id?: number;
+    update?: boolean;
+    insuranceDebit?: any;
+  }>();
   isNotifications$ = new Subject<boolean>();
   showAvatar$ = new Subject<any>();
 
@@ -25,6 +31,8 @@ export class FlagService {
   claimsId$ = new Subject<number>();
 
   changeData$ = new Subject();
+
+  claimCheck$ = new Subject<{ flag: boolean; update?: boolean }>();
 
   setUserInfo({ userInfo, isLoader }: any) {
     this.userInfo$.next({ userInfo, isLoader });

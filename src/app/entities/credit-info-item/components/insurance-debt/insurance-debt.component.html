@@ -6,6 +6,10 @@
         [token]="userInfo.schedule.token"
         [claimsId]="userInfo.claimsId"
       ></app-print-schedule> -->
+
+      <app-button (click)="addClaimCheck()" className="btn primaryBtn medium"
+        >Добавить квитанцию</app-button
+      >
     </div>
 
     <div class="insurance-list">
@@ -18,6 +22,7 @@
             <div class="td card">Номер карты</div>
             <div class="td sum">Сумма</div>
             <div class="td status">Статус</div>
+            <div class="td cancel"></div>
           </div>
         </div>
 
@@ -34,3 +39,5 @@
     </div>
   </div>
 </div>
+
+<app-claim-check-pop-up></app-claim-check-pop-up>

@@ -1,0 +1,24 @@
+<div *ngIf="flag" class="activity-form">
+  <div class="activity-form__wrap">
+    <span (click)="closeForm()" class="close icon-cl0ose"
+      ><span class="path1"></span><span class="path2"></span
+    ></span>
+    <h2 class="title">Удалить</h2>
+    <p class="text">Вы действительно хотите удалить это из системы?</p>
+
+    <div class="btns">
+      <app-button
+        (click)="submitHandler()"
+        type="submit"
+        className="btn primaryBtn medium"
+        >Удалить</app-button
+      >
+      <app-button
+        type="button"
+        (click)="closeForm()"
+        className="btn defaultBtn medium"
+        >Отмена</app-button
+      >
+    </div>
+  </div>
+</div>

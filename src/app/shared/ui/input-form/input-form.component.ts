@@ -13,6 +13,7 @@ export class InputFormComponent {
   @Input() controlName: any;
   @Input() form: any;
   @Input() mask: string = '';
+  @Input() thousandSeparator: string = ' ';
   @Input() dropSpecialCharacters: boolean = false;
   @Input() styles: object = {};
 }

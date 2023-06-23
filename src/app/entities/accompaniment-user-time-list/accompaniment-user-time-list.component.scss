@@ -1,0 +1,94 @@
+.tr {
+  display: grid;
+  grid-template-rows: 40px;
+  align-items: center;
+  column-gap: 10px;
+
+  grid-template-columns:
+    30px minmax(135px, 0.5fr) minmax(235px, 1fr)
+    minmax(290px, 1fr) 125px 100px
+    100px 100px 100px 100px 100px;
+
+  grid-template-areas: "order group merchant operator phone allClaims inScoring withoutLimit withLimit error loaned";
+
+  .td:not(.order) {
+    display: flex;
+    align-items: center;
+  }
+}
+
+.order {
+  text-align: center;
+  grid-area: order;
+  // width: 30px;
+}
+
+.group {
+  grid-area: group;
+  // width: 70px;
+}
+
+.merchant {
+  grid-area: merchant;
+  // width: 290px;
+}
+
+.operator {
+  grid-area: operator;
+  // width: 136px;
+}
+
+.phone {
+  grid-area: phone;
+  // width: 136px;
+}
+
+.allClaims {
+  grid-area: allClaims;
+  justify-content: center;
+  // width: 136px;
+}
+
+.inScoring {
+  grid-area: inScoring;
+  justify-content: center;
+  // width: 120px;
+}
+
+.withoutLimit {
+  grid-area: withoutLimit;
+  justify-content: center;
+  // width: 120px;
+}
+
+.withLimit {
+  grid-area: withLimit;
+  justify-content: center;
+  // width: 120px;
+}
+
+.error {
+  grid-area: error;
+  justify-content: center;
+  // width: 120px;
+}
+
+.loaned {
+  grid-area: loaned;
+  justify-content: center;
+  // width: 120px;
+}
+
+.filterBlock {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+
+  .selectPeriod {
+    min-width: 180px;
+  }
+
+  .datepickerRange {
+    width: 240px;
+  }
+}

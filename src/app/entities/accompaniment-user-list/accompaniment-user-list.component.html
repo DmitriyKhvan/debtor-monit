@@ -1,0 +1,77 @@
+<div class="credits">
+  <div class="table">
+    <div class="thead">
+      <div class="tr">
+        <div class="td order">#</div>
+
+        <div class="td username">
+          <span class="sort" (click)="sort($event, 'username')"
+            >ПОЛЬЗОВАТЕЛЬ
+            <span #sorting class=""></span>
+          </span>
+        </div>
+
+        <div class="td fullname">
+          <span class="sort" (click)="sort($event, 'fullname')"
+            >ФИО КЛИЕНТА
+            <span #sorting class=""></span>
+          </span>
+        </div>
+
+        <div class="td vendor">
+          <span class="sort" (click)="sort($event, 'vendor')"
+            >ВЕНДОР
+            <span #sorting class=""></span>
+          </span>
+        </div>
+
+        <div class="td phone">
+          <span class="sort" (click)="sort($event, 'phone')"
+            >ТЕЛЕФОН
+            <span #sorting class=""></span>
+          </span>
+        </div>
+
+        <div class="td group">
+          <span class="sort" (click)="sort($event, 'group')"
+            >ГРУППА
+            <span #sorting class=""></span>
+          </span>
+        </div>
+
+        <div class="td status">
+          <span class="sort" (click)="sort($event, 'status')"
+            >СТАТУС
+            <span #sorting class=""></span>
+          </span>
+        </div>
+      </div>
+    </div>
+
+    <div *ngIf="!loading; else loadingBlock" class="tbody">
+      <ng-container
+        *ngFor="
+          let credit of credits
+            | paginate
+              : {
+                  itemsPerPage: count,
+                  currentPage: currentPage,
+                  totalItems: totalItems
+                };
+          let idx = index
+        "
+      >
+        <!-- [status]="dicService.getStatus(dic, credit.status)" -->
+        <app-accompaniment-user-item
+          [credit]="{ idx: idx + 1, credit }"
+        ></app-accompaniment-user-item>
+      </ng-container>
+    </div>
+
+    <ng-template #loadingBlock>
+      <app-loader></app-loader>
+    </ng-template>
+  </div>
+
+  <app-pagination></app-pagination>
+</div>

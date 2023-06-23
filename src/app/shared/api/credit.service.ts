@@ -229,6 +229,24 @@ export class ApiService {
       );
   }
 
+  addInvoice(data: any): Observable<any> {
+    return this.http.post(`${environment.dbUrl}/tools/addInvoice`, data).pipe(
+      catchError((error) => {
+        return throwError(() => error);
+      })
+    );
+  }
+
+  declineInvoice(id: number | undefined): Observable<any> {
+    return this.http
+      .get(`${environment.dbUrl}/tools/declineInvoice?id=${id}`)
+      .pipe(
+        catchError((error) => {
+          return throwError(() => error);
+        })
+      );
+  }
+
   getConfirmationCredits({
     currentPage,
     count,
@@ -356,6 +374,45 @@ export class ApiService {
     return this.http
       .get(
         `${environment.dbUrl2}/maintenance/loader/claim/short?claimsId=${id}`
+      )
+      .pipe(
+        catchError((error) => {
+          return throwError(() => error);
+        })
+      );
+  }
+
+  getAccopanimentUsers({
+    currentPage,
+    count,
+    sortValue = '',
+    sortType = '',
+    search = '',
+  }: any): Observable<any> {
+    return this.http
+      .get(
+        `${environment.dbUrl2}/maintenance/loader/user/list?page=${currentPage}&count=${count}&keyword=${sortValue}&order=${sortType}&search=${search}`
+      )
+      .pipe(
+        catchError((error) => {
+          return throwError(() => error);
+        })
+      );
+  }
+
+  getAccopanimentTime({
+    currentPage,
+    count,
+    sortValue = '',
+    sortType = '',
+    search = '',
+    period = '',
+    periodBegin = '',
+    periodEnd = '',
+  }: any): Observable<any> {
+    return this.http
+      .get(
+        `${environment.dbUrl2}/maintenance/loader/user/listByClaims?page=${currentPage}&count=${count}&keyword=${sortValue}&order=${sortType}&search=${search}&period=${period}&periodBegin=${periodBegin}&periodEnd=${periodEnd}`
       )
       .pipe(
         catchError((error) => {

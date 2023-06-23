@@ -26,4 +26,31 @@
       >{{ insurance.insurance.declined }}</app-lozenge
     >
   </div>
+
+  <div class="td cancel">
+    <span
+      *ngIf="
+        insurance.insurance.type === 'INVOICE' &&
+        !insurance.insurance.declinedDate
+      "
+      (click)="cancelInvoice(insurance.insurance.id)"
+      class="icon-cl0ose"
+      ><span class="path1"></span><span class="path2"></span
+    ></span>
+
+    <app-download-file
+      *ngIf="insurance.insurance.type === 'INVOICE'"
+      [type]="insurance.insurance.file.invoiceMimeType"
+      [base64]="insurance.insurance.file.invoiceFile"
+      [filename]="
+        insurance.insurance.date.replaceAll(':', '_').replaceAll('.', '_') +
+        ' INVOICE'
+      "
+    >
+      <span class="icon-download"
+        ><span class="path1"></span><span class="path2"></span
+        ><span class="path3"></span><span class="path4"></span
+      ></span>
+    </app-download-file>
+  </div>
 </div>

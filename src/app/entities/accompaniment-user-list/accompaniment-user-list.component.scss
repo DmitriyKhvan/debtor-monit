@@ -1,0 +1,54 @@
+.tr {
+  display: grid;
+  grid-template-rows: 40px;
+  align-items: center;
+  column-gap: 10px;
+
+  grid-template-columns:
+    30px minmax(135px, 0.5fr) minmax(235px, 1fr)
+    minmax(290px, 1fr) 125px minmax(136px, 0.75fr)
+    120px;
+
+  grid-template-areas: "order username fullname vendor phone group status";
+
+  .td:not(.order) {
+    display: flex;
+    align-items: center;
+  }
+}
+
+.order {
+  text-align: center;
+  grid-area: order;
+  // width: 30px;
+}
+
+.username {
+  grid-area: username;
+  // width: 70px;
+}
+
+.fullname {
+  grid-area: fullname;
+  // width: 290px;
+}
+
+.vendor {
+  grid-area: vendor;
+  // width: 136px;
+}
+
+.phone {
+  grid-area: phone;
+  // width: 136px;
+}
+
+.group {
+  grid-area: group;
+  // width: 136px;
+}
+
+.status {
+  grid-area: status;
+  // width: 120px;
+}

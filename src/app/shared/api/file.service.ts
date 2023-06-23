@@ -77,4 +77,16 @@ export class FileService {
         })
       );
   }
+
+  download(type: string, base64: string, filename: string) {
+    let url = `data:${type};base64,${base64}`;
+    let link = document.createElement('a');
+    link.href = url;
+    link.setAttribute('download', `${filename}`);
+    document.body.appendChild(link);
+    link.click();
+    document.body.removeChild(link);
+
+    URL.revokeObjectURL(url);
+  }
 }

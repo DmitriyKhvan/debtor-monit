@@ -1,0 +1,42 @@
+<div
+  [routerLink]="['/credit', 'accompaniment', credit.credit.uuid]"
+  class="tr"
+  [class]="credit.credit.uuid === apiService.claimsId ? 'active' : ''"
+>
+  <div class="td order">{{ credit.idx }}</div>
+  <div class="td group">{{ credit.credit.group }}</div>
+  <div class="td merchant">
+    <span>{{ credit.credit.merchant }}</span>
+  </div>
+  <div class="td operator">
+    <span>{{ credit.credit.operator }}</span>
+  </div>
+
+  <div class="td phone">
+    <span>{{ credit.credit.phone1 | mask : "+000 00 000 00 00" }}</span>
+  </div>
+
+  <div class="td allClaims">
+    {{ credit.credit.allClaims }}
+  </div>
+
+  <div class="td inScoring">
+    <span>{{ credit.credit.inScoring }}</span>
+  </div>
+
+  <div class="td withoutLimit">
+    <span>{{ credit.credit.withoutLimit }}</span>
+  </div>
+
+  <div class="td withLimit">
+    <span>{{ credit.credit.withLimit }}</span>
+  </div>
+
+  <div class="td error">
+    <span>{{ credit.credit.error }}</span>
+  </div>
+
+  <div class="td loaned">
+    <span>{{ credit.credit.loaned }}</span>
+  </div>
+</div>
