@@ -70,6 +70,10 @@ export class ClaimCheckPopUpComponent implements OnInit, OnDestroy {
     this.files = this.files.filter(
       (file: any) => file.lastModified !== lastModified
     );
+
+    this.form?.patchValue({
+      file: null,
+    });
   }
 
   private createFormData() {
