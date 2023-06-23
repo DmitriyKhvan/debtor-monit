@@ -80,7 +80,7 @@ export class ClaimCheckPopUpComponent implements OnInit, OnDestroy {
     const form = new FormData();
     form.append('claimsId', String(this.apiService.claimsId));
     form.append('invoiceNumber', this.form.value.numberClaimCheck);
-    form.append('summa', this.form.value.amount);
+    form.append('summa', this.form.value.amount.replaceAll(' ', ''));
     form.append(
       'transactionDate',
       moment(this.form.value.date).format('DD.MM.YYYY HH:mm:ss')
