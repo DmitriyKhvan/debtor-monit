@@ -1,0 +1,12 @@
+.filter {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background: #fbfbfb;
+
+  .selectPeriod {
+    min-width: 180px;
+    font-weight: 400;
+    text-transform: none;
+  }
+}

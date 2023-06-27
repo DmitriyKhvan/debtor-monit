@@ -1,13 +1,63 @@
 <div class="general-wrapper">
   <div class="col-1">
-    <!-- <div class="info-part1">
-      <h2 class="title">Заявки</h2>
+    <div class="info-part1">
+      <div class="filter title">
+        <h2 class="">ЗАЯВКИ</h2>
 
-      <div class="field">
-        <span class="label">Магазин:</span>
-        <span class="value"></span>
+        <div class="selectPeriod">
+          <ng-select
+            class="blue"
+            [items]="options"
+            bindValue="value"
+            bindLabel="label"
+            placeholder="Выберите период"
+            [(ngModel)]="period"
+            (change)="setPeriod($event)"
+          ></ng-select>
+        </div>
+
+        <app-datepicker-range
+          [defaultData]="{periodBegin, periodEnd}"
+          (data)="getPeriodDatePickerRange($event)"
+        ></app-datepicker-range>
       </div>
-    </div> -->
+
+      <ng-container *ngIf="!loading; else loadingBlock">
+        <div class="field">
+          <span class="label">Всего заявок:</span>
+          <span class="value">{{ application.allClaims }}</span>
+        </div>
+
+        <div class="field">
+          <span class="label">Скоринг:</span>
+          <span class="value">{{ application.inScoring }}</span>
+        </div>
+
+        <div class="field">
+          <span class="label">Без лимита:</span>
+          <span class="value">{{ application.withoutLimit }}</span>
+        </div>
+
+        <div class="field">
+          <span class="label">С лимитом:</span>
+          <span class="value">{{ application.withLimit }}</span>
+        </div>
+
+        <div class="field">
+          <span class="label">Ошибка:</span>
+          <span class="value">{{ application.error }}</span>
+        </div>
+
+        <div class="field">
+          <span class="label">Оформление:</span>
+          <span class="value">{{ application.loaned }}</span>
+        </div>
+      </ng-container>
+
+      <ng-template #loadingBlock>
+        <app-loader></app-loader>
+      </ng-template>
+    </div>
 
     <div class="info-part2">
       <h2 class="title">ПРОЦЕНТЫ МЕРЧАНТА</h2>

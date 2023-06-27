@@ -240,7 +240,6 @@ export class AccompanimentUserTimeListComponent implements OnInit, OnDestroy {
   }
 
   setPeriod(event: any) {
-    console.log(event);
     localStorage.removeItem('filterDataAccompanimentTime');
     localStorage.removeItem('creditsAccomponimentTime');
 

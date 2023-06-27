@@ -61,8 +61,6 @@ export class AddClientInfoPopUpComponent implements OnInit, OnDestroy {
       description: this.form.value.description.trim(),
     };
 
-    console.log(data);
-
     this.aSub = this.apiService
       .addClientInfo(data)
       .subscribe((addClientInfo) => {
