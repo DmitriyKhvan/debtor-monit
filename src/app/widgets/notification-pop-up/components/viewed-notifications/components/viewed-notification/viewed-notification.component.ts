@@ -20,8 +20,6 @@ export class ViewedNotificationComponent {
   ) {}
 
   remove(id: number, event: any) {
-    console.log(id);
-
     event.stopPropagation();
 
     const data = JSON.stringify({

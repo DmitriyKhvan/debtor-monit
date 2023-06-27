@@ -63,7 +63,6 @@ export class ActivityPopUpComponent implements OnInit, OnDestroy {
   }
 
   changeInputFile(event: any) {
-    console.log(event.target.files);
     const filesArr = Array.from(event.target.files);
     filesArr.forEach((file: any) => {
       this.files.push(file);
@@ -115,8 +114,6 @@ export class ActivityPopUpComponent implements OnInit, OnDestroy {
       reminder: this.form.value.date?.toLocaleString('ru-RU'),
       text: this.form.value.comment,
     };
-
-    console.log(data);
 
     const formData = this.createFormData();
 

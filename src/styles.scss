@@ -674,6 +674,7 @@
   [class^="info-"] {
     border-radius: 15px;
     border: 1px solid #f0f0f2;
+    overflow: hidden;
 
     &:hover .field,
     &:hover .title,

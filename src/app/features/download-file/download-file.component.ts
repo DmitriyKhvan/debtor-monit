@@ -11,8 +11,6 @@ export class DownloadFileComponent {
   @Input() filename: string = '';
 
   download() {
-    console.log(this.filename);
-
     let url = `data:${this.type};base64,${this.base64}`;
     let link = document.createElement('a');
     link.href = url;
