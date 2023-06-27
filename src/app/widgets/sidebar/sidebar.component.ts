@@ -24,6 +24,8 @@ export class SidebarComponent {
       this.listUrl = '/confirmation-credits';
     } else if (url.includes('foreclosure')) {
       this.listUrl = '/credits';
+    } else if (url.includes('accompaniment/users')) {
+      this.listUrl = '/accompaniment-credits/users';
     } else if (url.includes('accompaniment')) {
       this.listUrl = '/accompaniment-credits';
     }

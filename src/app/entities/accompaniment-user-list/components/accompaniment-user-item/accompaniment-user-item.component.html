@@ -1,5 +1,5 @@
 <div
-  [routerLink]="['/credit', 'accompaniment', credit.credit.uuid]"
+  [routerLink]="['/credit', 'accompaniment', 'users', credit.credit.username]"
   class="tr"
   [class]="credit.credit.uuid === apiService.claimsId ? 'active' : ''"
 >

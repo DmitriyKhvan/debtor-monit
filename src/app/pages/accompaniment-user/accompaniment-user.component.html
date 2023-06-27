@@ -1,0 +1,10 @@
+<div class="page-wrap">
+  <app-accompaniment-user-info-item
+    *ngIf="!loading; else loadingBlock"
+    [userInfo]="userInfo"
+  ></app-accompaniment-user-info-item>
+
+  <ng-template #loadingBlock>
+    <app-loader></app-loader>
+  </ng-template>
+</div>

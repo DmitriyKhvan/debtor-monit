@@ -17,6 +17,9 @@ import { AccompanimentCreditsComponent } from './pages/accompaniment-credits/acc
 import { AccompanimentTabsComponent } from './entities/accompaniment-tabs/accompaniment-tabs.component';
 import { AccompanimentCreditComponent } from './pages/accompaniment-credit/accompaniment-credit.component';
 import { AccompanimentUsersComponent } from './pages/accompaniment-users/accompaniment-users.component';
+import { AccompanimentUserInfoItemComponent } from './entities/accompaniment-user-info-item/accompaniment-user-info-item.component';
+import { AccompanimentUsersTabsComponent } from './entities/accompaniment-users-tabs/accompaniment-users-tabs.component';
+import { AccompanimentUserComponent } from './pages/accompaniment-user/accompaniment-user.component';
 
 const routes: Routes = [
   {
@@ -63,7 +66,7 @@ const routes: Routes = [
           },
           {
             path: 'users',
-            component: AccompanimentUsersComponent,
+            component: AccompanimentUsersTabsComponent,
           },
         ],
       },
@@ -113,6 +116,10 @@ const routes: Routes = [
             component: AccompanimentCreditComponent,
           },
         ],
+      },
+      {
+        path: 'accompaniment/users/:username',
+        component: AccompanimentUserComponent,
       },
     ],
   },

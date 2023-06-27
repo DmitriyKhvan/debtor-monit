@@ -420,4 +420,14 @@ export class ApiService {
         })
       );
   }
+
+  getUserInfoAccompanimentUser(username: string): Observable<any> {
+    return this.http
+      .get(`${environment.dbUrl2}/maintenance/loader/user?username=${username}`)
+      .pipe(
+        catchError((error) => {
+          return throwError(() => error);
+        })
+      );
+  }
 }

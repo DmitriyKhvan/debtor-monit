@@ -1,0 +1,73 @@
+<div class="info-header-wrap">
+  <div class="info-genaral1">
+    <div class="field">
+      <span class="label">ID пользователя:</span>
+      <span class="value">{{ userInfo?.user.uuid }}</span>
+    </div>
+
+    <div class="field">
+      <span class="label">ФИО:</span>
+      <span class="value">{{ userInfo?.user.fullname }}</span>
+    </div>
+
+    <div class="field">
+      <span class="label">Пользователь:</span>
+      <span class="value">{{ userInfo?.user.username }}</span>
+    </div>
+  </div>
+
+  <div class="info-genaral2">
+    <div class="field">
+      <span class="label">Номер телефона:</span>
+      <span class="value"
+        ><span>{{ userInfo?.user.phone | mask : "+000 00 000 00 00" }}</span>
+
+        <app-get-history-calls
+          *ngIf="userInfo?.user.phone"
+          [phone]="userInfo?.user.phone"
+        ></app-get-history-calls>
+
+        <app-change-data-form
+          [value]="userInfo?.user.phone"
+          mask="+000 00 000 00 00"
+          [type]="1"
+        ></app-change-data-form>
+      </span>
+    </div>
+
+    <div class="field">
+      <span class="label">Создан:</span>
+      <span class="value">
+        {{
+          userInfo?.user.createdAt
+            | dateTimeFormat : "numeric" : undefined : true
+        }}
+      </span>
+    </div>
+
+    <div class="field">
+      <span class="label">Статус: </span>
+      <span class="value"> {{ userInfo?.user.status }}</span>
+    </div>
+  </div>
+
+  <div class="info-avatar">
+    <div class="wrapper-avatar">
+      <ng-container *ngIf="userInfo?.user.image64; else mocAvatar">
+        <span class="icon-zoom-in"
+          ><span class="path1"></span><span class="path2"></span
+        ></span>
+        <img
+          class="avatar"
+          (click)="showAvatar()"
+          [src]="'data:image/png;base64,' + userInfo?.user.image64"
+          alt=""
+        />
+      </ng-container>
+
+      <ng-template #mocAvatar>
+        <img src="../../../../../assets/img/mocAvatar.svg" alt="" />
+      </ng-template>
+    </div>
+  </div>
+</div>

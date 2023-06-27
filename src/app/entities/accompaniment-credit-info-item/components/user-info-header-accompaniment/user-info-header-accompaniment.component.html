@@ -46,13 +46,15 @@
 
     <div class="field">
       <span class="label">Номер и срок карты:</span>
-      <span *ngIf="userInfo?.main.cardNumber" class="value card">
-        <app-lozenge2 className="grey" [fontSize]="14">{{
-          userInfo?.main.cardNumber | mask : "0000 0000 0000 0000"
-        }}</app-lozenge2>
-        <app-lozenge2 className="grey" [fontSize]="14">{{
-          userInfo?.main.cardDate
-        }}</app-lozenge2>
+      <span class="value card">
+        <ng-container *ngIf="userInfo?.main.cardNumber">
+          <app-lozenge2 className="grey" [fontSize]="14">{{
+            userInfo?.main.cardNumber | mask : "0000 0000 0000 0000"
+          }}</app-lozenge2>
+          <app-lozenge2 className="grey" [fontSize]="14">{{
+            userInfo?.main.cardDate
+          }}</app-lozenge2>
+        </ng-container>
 
         <app-change-data-form
           [value]="userInfo?.main.cardNumber"
