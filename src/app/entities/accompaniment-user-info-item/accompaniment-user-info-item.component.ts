@@ -4,11 +4,11 @@ import { ApiService } from 'src/app/shared/api/credit.service';
 import { FlagService } from 'src/app/shared/api/flag.sevice';
 
 @Component({
-  selector: 'app-accompaniment-credit-info-item',
-  templateUrl: './accompaniment-credit-info-item.component.html',
-  styleUrls: ['./accompaniment-credit-info-item.component.scss'],
+  selector: 'app-accompaniment-user-info-item',
+  templateUrl: './accompaniment-user-info-item.component.html',
+  styleUrls: ['./accompaniment-user-info-item.component.scss'],
 })
-export class AccompanimentCreditInfoItemComponent implements OnInit, OnDestroy {
+export class AccompanimentUserInfoItemComponent implements OnInit, OnDestroy {
   @Input() userInfo: any;
 
   tab = 'info';

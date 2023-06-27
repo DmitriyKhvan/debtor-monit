@@ -1,0 +1,137 @@
+<div class="general-wrapper">
+  <div class="col-1">
+    <!-- <div class="info-part1">
+      <h2 class="title">Заявки</h2>
+
+      <div class="field">
+        <span class="label">Магазин:</span>
+        <span class="value"></span>
+      </div>
+    </div> -->
+
+    <div class="info-part2">
+      <h2 class="title">ПРОЦЕНТЫ МЕРЧАНТА</h2>
+
+      <div *ngFor="let percent of userInfo.percent" class="field">
+        <span class="label"
+          >{{ percent.term }}
+          {{
+            percent.term | declensionOfWords : ["месяц", "месяца", "месяцев"]
+          }}</span
+        >
+        <span class="value">{{ percent.percent }} </span>
+      </div>
+    </div>
+  </div>
+
+  <div class="col-2">
+    <div class="info-part3">
+      <h2 class="title">МЕРЧАНТ</h2>
+
+      <div class="field">
+        <span class="label">Группа:</span>
+        <span class="value">
+          {{ userInfo?.vendor.group }}
+        </span>
+      </div>
+
+      <div class="field">
+        <span class="label">Номер контракта:</span>
+        <span class="value">
+          {{ userInfo?.vendor.contractNo }}
+        </span>
+      </div>
+
+      <div class="field">
+        <span class="label">Дата окончания:</span>
+        <span class="value">
+          <!-- {{ userInfo?.vendor.birthDate }} -->
+        </span>
+      </div>
+
+      <div class="field">
+        <span class="label">Дата контракта:</span>
+        <span class="value">
+          {{ userInfo?.vendor.contractDate }}
+        </span>
+      </div>
+
+      <div class="field">
+        <span class="label">Название:</span>
+        <span class="value">
+          {{ userInfo?.vendor.name }}
+        </span>
+      </div>
+
+      <div class="field">
+        <span class="label">Статус:</span>
+        <span class="value">
+          {{ userInfo?.vendor.status }}
+        </span>
+      </div>
+
+      <div class="field">
+        <span class="label">ИНН:</span>
+        <span class="value">
+          {{ userInfo?.vendor.inn }}
+        </span>
+      </div>
+
+      <div class="field">
+        <span class="label">Адрес:</span>
+        <span class="value">
+          {{ userInfo?.vendor.address }}
+        </span>
+      </div>
+
+      <div class="field">
+        <span class="label">МФО:</span>
+        <span class="value">
+          {{ userInfo?.vendor.mfo }}
+        </span>
+      </div>
+
+      <div class="field">
+        <span class="label">Счет:</span>
+        <span class="value">
+          {{ userInfo?.vendor.account }}
+        </span>
+      </div>
+
+      <div class="field">
+        <span class="label">Банк:</span>
+        <span class="value">
+          {{ userInfo?.vendor.bank }}
+        </span>
+      </div>
+
+      <div class="field">
+        <span class="label">Владелец:</span>
+        <span class="value">
+          {{ userInfo?.vendor.owner }}
+        </span>
+      </div>
+
+      <div class="field">
+        <span class="label">Телефон владельца:</span>
+        <span class="value">
+          {{ userInfo?.vendor.ownerPhone }}
+        </span>
+      </div>
+
+      <div class="field">
+        <span class="label">Налоговый код:</span>
+        <span class="value">
+          {{ userInfo?.vendor.taxCode }}
+        </span>
+      </div>
+
+      <div class="field">
+        <span class="label">Стратегия:</span>
+        <span class="value">
+          {{ userInfo?.vendor.strategy }}
+        </span>
+      </div>
+    </div>
+  </div>
+</div>

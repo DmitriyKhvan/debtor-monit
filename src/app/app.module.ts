@@ -148,6 +148,10 @@ import { DatepickerRangeComponent } from './entities/accompaniment-user-time-lis
 import { ClaimCheckPopUpComponent } from './widgets/claim-check-pop-up/claim-check-pop-up.component';
 import { DownloadFileComponent } from './features/download-file/download-file.component';
 import { ConfirmPopUpComponent } from './widgets/confirm-pop-up/confirm-pop-up.component';
+import { AccompanimentUserInfoItemComponent } from './entities/accompaniment-user-info-item/accompaniment-user-info-item.component';
+import { UserInfoHeaderAccompanimentUserComponent } from './entities/accompaniment-user-info-item/components/user-info-header-accompaniment-user/user-info-header-accompaniment-user.component';
+import { GeneralInfoAccompanimentUserComponent } from './entities/accompaniment-user-info-item/components/general-info-accompaniment-user/general-info-accompaniment-user.component';
+import { AccompanimentUserComponent } from './pages/accompaniment-user/accompaniment-user.component';
 
 const INTERCEPTOR_PROVIDER: Provider = {
   provide: HTTP_INTERCEPTORS,
@@ -292,6 +296,10 @@ const CUSTOM_DATE_FORMATS: NgxMatDateFormats = {
     ClaimCheckPopUpComponent,
     DownloadFileComponent,
     ConfirmPopUpComponent,
+    AccompanimentUserInfoItemComponent,
+    UserInfoHeaderAccompanimentUserComponent,
+    GeneralInfoAccompanimentUserComponent,
+    AccompanimentUserComponent,
   ],
   imports: [
     BrowserModule,

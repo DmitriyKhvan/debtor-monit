@@ -44,19 +44,19 @@
     grid-area: info-add;
   }
 
-  &-installment-plan:hover .field,
-  &-installment-plan:hover .title,
-  &-contract:hover .field,
-  &-contract:hover .title,
-  &-seller:hover,
-  &-seller:hover .field,
-  &-seller:hover .title,
-  &-add:hover .field,
-  &-add:hover .title {
-    background: #ebebeb !important;
-    // opacity: 0.7;
-    transition: background 0.3s ease-in;
-  }
+  // &-installment-plan:hover .field,
+  // &-installment-plan:hover .title,
+  // &-contract:hover .field,
+  // &-contract:hover .title,
+  // &-seller:hover,
+  // &-seller:hover .field,
+  // &-seller:hover .title,
+  // &-add:hover .field,
+  // &-add:hover .title {
+  //   background: #ebebeb !important;
+  //   // opacity: 0.7;
+  //   transition: background 0.3s ease-in;
+  // }
 }
 
 .product-list {
@@ -66,6 +66,20 @@
 [class^="info-"] {
   border-radius: 15px;
   border: 1px solid #f0f0f2;
+
+  &:hover .field,
+  &:hover .title,
+  &:hover .field,
+  &:hover .title,
+  &:hover,
+  &:hover .field,
+  &:hover .title,
+  &:hover .field,
+  &:hover .title {
+    background: #ebebeb !important;
+    // opacity: 0.7;
+    transition: background 0.3s ease-in;
+  }
 
   .title {
     font-size: 14px;

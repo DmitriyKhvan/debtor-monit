@@ -106,6 +106,17 @@
           ></span>
         </span>
       </div>
+
+      <div class="field">
+        <span class="label">СМС код:</span>
+        <span *ngIf="userInfo?.claimInfo.smsCode" class="value copy"
+          ><span class="copyText">{{ userInfo?.claimInfo.smsCode }}</span>
+          <!-- <span (click)="copy($event)" class="icon-copy"
+            ><span class="path1"></span><span class="path2"></span
+            ><span class="path3"></span
+          ></span> -->
+        </span>
+      </div>
     </div>
 
     <app-product-list-confirm
